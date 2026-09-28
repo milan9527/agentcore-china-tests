@@ -1,0 +1,52 @@
+[cn-north-1] initial_5min 0s: auth=False connected=False firstFrame=False session=READY
+[cn-northwest-1] initial_5min 0s: auth=False connected=False firstFrame=False session=READY
+[cn-north-1] initial_5min 31s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] initial_5min 31s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] initial_5min 60s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] initial_5min 60s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] initial_5min 91s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] initial_5min 90s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] initial_5min 120s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] initial_5min 121s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] initial_5min 151s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] initial_5min 150s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] initial_5min 181s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] initial_5min 181s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] initial_5min 210s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] initial_5min 211s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] initial_5min 241s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] initial_5min 240s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] initial_5min 270s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] initial_5min 271s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] initial_5min 300s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] FAIL: browser.live_view.extended_wait.initial_5min — {'sessionId': '01M3KBRKNKYFGPVS882K33WR3E', 'attempt': 'initial_5min', 'configuredObservationSeconds': 300, 'actualObservationSeconds': 300.462, 'signatureExpirySeconds': 300, 'sessionTimeoutSeconds': 1800, 'sessionAgeAtStartSeconds': 8.929, 'stoppedEarlyOnError': False, 'probe': {'authenticated': True, 'connected': True, 'firstFrame': True, 'errors': ['Failed to communicate with server.'], 'events': [{'event': 'authenticate.start', 'time': '2026-09-28T06:38:23.775Z', 'elapsedSeconds': 0.01}, {'
+[cn-northwest-1] initial_5min 300s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] fresh_signature_retry_5min 0s: auth=False connected=False firstFrame=False session=READY
+[cn-northwest-1] FAIL: browser.live_view.extended_wait.initial_5min — {'sessionId': '01M3KBRKPMCFC2WSMXK3ZTSPF2', 'attempt': 'initial_5min', 'configuredObservationSeconds': 300, 'actualObservationSeconds': 300.524, 'signatureExpirySeconds': 300, 'sessionTimeoutSeconds': 1800, 'sessionAgeAtStartSeconds': 11.772, 'stoppedEarlyOnError': False, 'probe': {'authenticated': True, 'connected': True, 'firstFrame': True, 'errors': ['Failed to communicate with server.'], 'events': [{'event': 'authenticate.start', 'time': '2026-09-28T06:38:26.551Z', 'elapsedSeconds': 0.011}, 
+[cn-northwest-1] fresh_signature_retry_5min 0s: auth=False connected=False firstFrame=False session=READY
+[cn-north-1] fresh_signature_retry_5min 31s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] fresh_signature_retry_5min 31s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] fresh_signature_retry_5min 60s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] fresh_signature_retry_5min 60s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] fresh_signature_retry_5min 91s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] fresh_signature_retry_5min 90s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] fresh_signature_retry_5min 120s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] fresh_signature_retry_5min 121s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] fresh_signature_retry_5min 151s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] fresh_signature_retry_5min 150s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] fresh_signature_retry_5min 180s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] fresh_signature_retry_5min 181s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] fresh_signature_retry_5min 210s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] fresh_signature_retry_5min 211s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] fresh_signature_retry_5min 241s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] fresh_signature_retry_5min 240s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] fresh_signature_retry_5min 270s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] fresh_signature_retry_5min 271s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] fresh_signature_retry_5min 300s: auth=True connected=True firstFrame=True session=READY
+[cn-north-1] PASS: browser.live_view.extended_wait.fresh_signature_retry_5min
+[cn-north-1] PASS: cleanup.live_wait_session
+[cn-north-1] PASS: retest_live_wait.suite
+[cn-northwest-1] fresh_signature_retry_5min 300s: auth=True connected=True firstFrame=True session=READY
+[cn-northwest-1] PASS: browser.live_view.extended_wait.fresh_signature_retry_5min
+[cn-northwest-1] PASS: cleanup.live_wait_session
+[cn-northwest-1] PASS: retest_live_wait.suite

@@ -1,0 +1,39 @@
+{
+  "runs": [
+    {
+      "time": "2026-09-28T07:54:37.753745+00:00",
+      "changes": [
+        {
+          "path": "cn-north-1-state.json",
+          "beforeSha256": "b2dc6c06a4220a2566261d9a8d127c2d50ade487e6cf1e7da2d1e2cc1ed03c5f",
+          "afterSha256": "6cc29225fe0ba674276707085dc0dd2f352711231faaed9496a0880a7f2ed818"
+        },
+        {
+          "path": "cn-northwest-1-state.json",
+          "beforeSha256": "eb08066f241504e2cafe72643de879063b0108963d5d5628d8e9513b3e175eb8",
+          "afterSha256": "920f37b80e3f3081778543a25c92e98abbbe74beff7e5d8941d85816563fc881"
+        }
+      ],
+      "preserved": [
+        "time",
+        "region",
+        "feature",
+        "status",
+        "seconds"
+      ],
+      "sourceSnapshotsModified": false
+    },
+    {
+      "time": "2026-09-28T07:56:53.937952+00:00",
+      "changes": [],
+      "preserved": [
+        "time",
+        "region",
+        "feature",
+        "status",
+        "seconds"
+      ],
+      "sourceSnapshotsModified": false
+    }
+  ]
+}

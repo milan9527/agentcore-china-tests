@@ -1,0 +1,671 @@
+{
+  "run": "ac-cn-0928041532",
+  "region": "cn-north-1",
+  "resources": [
+    {
+      "kind": "role",
+      "id": "ac-cn-0928041532-bj-lambda",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0928041532-bj-agentcore",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "bucket",
+      "id": "ac-cn-0928041532-bj-209915754514",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "lambda",
+      "id": "ac-cn-0928041532-bj",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "api",
+      "id": "lvvy6jfk64",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "VWVJYU03UC",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "lambda-inline",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "B8CWJUTZEW",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "lambda-s3",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "HIULGYUYQS",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "api-stage",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "profile",
+      "id": "ac_cn_0928041532_bj_profile-lMc2o3oorX",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "browser",
+      "id": "ac_cn_0928041532_bj_custom-HQH8kZrWth",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "VZLYYFYQ8T",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "openapi-inline",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "LEPGGPL4DF",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "openapi-s3",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "L2MEHN62RS",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "mcp-server",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "ATFJZVLA1P",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "mcp-dynamic",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "6DJ6BZUCMX",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "smithy",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "kms",
+      "id": "9fc74828-2ad7-4602-b21b-054a406c75a0",
+      "scheduledDeletion": {
+        "keyState": "PendingDeletion",
+        "deletionDate": "2026-10-05 05:27:41.783000+00:00"
+      },
+      "cleanupResult": {
+        "keyState": "PendingDeletion",
+        "deletionDate": "2026-10-05 05:27:41.783000+00:00"
+      }
+    },
+    {
+      "kind": "sg",
+      "id": "sg-00ea1d13ed36ba5d3",
+      "cleanupResult": {
+        "type": "ClientError",
+        "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-00ea1d13ed36ba5d3 has a dependent object"
+      }
+    },
+    {
+      "kind": "eni",
+      "id": "eni-0feaa61ee5007e95a",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928041532-bj-root-ca-5qU9wu",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928041532-bj-proxy-t8GIgO",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "instance",
+      "id": "i-023ae8c8e3c079e7c",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "browser",
+      "id": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928041532-bj-kms-r1vvibegs2",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "GL4UF5IFDZ",
+      "gateway": "ac-cn-0928041532-bj-kms-r1vvibegs2",
+      "name": "encrypted",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "api-key-provider",
+      "id": "ac-cn-0928041532-bj-key",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "W3V9HISPCD",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "api-key",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "rate-limit",
+      "id": "cn-test-limit",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "deleted": true,
+      "cleanupResult": {
+        "alreadyAbsent": true
+      }
+    },
+    {
+      "kind": "efs",
+      "id": "fs-0f1aeac2f2ea2589a",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "efs-mount",
+      "id": "fsmt-051bde8eede89999b",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "efs-ap",
+      "id": "fsap-04f62bee0a1b15877",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928041532-bj-http-akxdasfd89",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "IOUQPC7ZGJ",
+      "gateway": "ac-cn-0928041532-bj-http-akxdasfd89",
+      "name": "http-test",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928041532-bj-jwt-public-voeq4b2x2k",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928041532-bj-oauth",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "D94JXG4EYV",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "mcp-new",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "browser",
+      "id": "ac_cn_0928041532_bj_policy-t3AfVSfyKE",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "M9NQO0BWNB",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "mcp-roundtrip",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "runtime",
+      "id": "ac_cn_0928041532_bj-GDXfEQ3yHm",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "1J49DLM2AG",
+      "gateway": "ac-cn-0928041532-bj-http-akxdasfd89",
+      "name": "runtime-role",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "7ULKG7Z8RK",
+      "gateway": "ac-cn-0928041532-bj-http-akxdasfd89",
+      "name": "runtime-caller",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "log-group",
+      "id": "/aws/vendedlogs/bedrock-agentcore/cn-test/ac-cn-0928041532-bj-gateway",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "delivery-source",
+      "id": "ac-cn-0928041532-bj-gateway-source",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "delivery-destination",
+      "id": "ac-cn-0928041532-bj-gateway-dest",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "delivery",
+      "id": "HOoTosb8Z5pmUHtE",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "log-group",
+      "id": "/aws/vendedlogs/bedrock-agentcore/cn-test/ac-cn-0928041532-bj-browser",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "delivery-source",
+      "id": "ac-cn-0928041532-bj-browser-source",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "delivery-destination",
+      "id": "ac-cn-0928041532-bj-browser-dest",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "delivery",
+      "id": "ze2yEyNEmB3AJvYx",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "YRHNKX6WKW",
+      "gateway": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "name": "idempotent",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/apikey/ac-cn-0928041532-bj-key-31a5d06e-oPCjAK",
+      "serviceManaged": true,
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928041532-bj-oauth-6b2d4822-YNdJxJ",
+      "serviceManaged": true,
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "workload",
+      "id": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac-cn-0928041532-bj-qvzqlrwoke",
+      "deleted": true,
+      "cleanupResult": {
+        "alreadyAbsent": true
+      }
+    },
+    {
+      "kind": "workload",
+      "id": "ac-cn-0928041532-bj-kms-r1vvibegs2",
+      "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac-cn-0928041532-bj-kms-r1vvibegs2",
+      "deleted": true,
+      "cleanupResult": {
+        "alreadyAbsent": true
+      }
+    },
+    {
+      "kind": "workload",
+      "id": "ac-cn-0928041532-bj-http-akxdasfd89",
+      "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac-cn-0928041532-bj-http-akxdasfd89",
+      "deleted": true,
+      "cleanupResult": {
+        "alreadyAbsent": true
+      }
+    },
+    {
+      "kind": "workload",
+      "id": "ac-cn-0928041532-bj-jwt-public-voeq4b2x2k",
+      "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac-cn-0928041532-bj-jwt-public-voeq4b2x2k",
+      "deleted": true,
+      "cleanupResult": {
+        "alreadyAbsent": true
+      }
+    },
+    {
+      "kind": "workload",
+      "id": "ac_cn_0928041532_bj-GDXfEQ3yHm",
+      "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac_cn_0928041532_bj-GDXfEQ3yHm",
+      "deleted": true,
+      "cleanupResult": {
+        "alreadyAbsent": true
+      }
+    }
+  ],
+  "sessions": [
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K40V093ZKHN8E0BA5T9F6P"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K474CGQW4PQNZSBKR7CKQJ"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K47ZD6ENHM79KZPYTYTTGW"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K487PQQBRG7C5ABZJ5RCW1"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_custom-HQH8kZrWth",
+      "id": "01M3K4PQ3CJMWWMS2XKGGFP78G"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K4QWPDW56MZH5821WWVJHP"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+      "id": "01M3K4ZFYX1JK945VJ4D0AGH6B"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+      "id": "01M3K4ZQ8DT2TACZEJZ4AYVZS6"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+      "id": "01M3K501ZAV106H4GXQZEEX58X"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+      "id": "01M3K5336JNGEZC95G2TZ0NZAP"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+      "id": "01M3K53Q1CS73EGDGZKVV7TV9B"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_custom-HQH8kZrWth",
+      "id": "01M3K56SE2ZQVN24Z2E3DVSQ4K"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K57833T4TQJNMZRAFCR954"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K57XGB2F1PR94J7K53SBCK"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+      "id": "01M3K5CRXGFEJTZVGZCGW2A7TW"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_policy-t3AfVSfyKE",
+      "id": "01M3K5NM97MK4701MD4M42Z485"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K5P184D2W0BE7WHRDC7WKP"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_custom-HQH8kZrWth",
+      "id": "01M3K69NTR041N744V5NMN1ZC2"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+      "id": "01M3K6DFV1QZP21Y0K3GKR5WDS"
+    },
+    {
+      "browser": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+      "id": "01M3K6DYHSXAJ5XSAFRF56530G"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K6EJPB6SD8Q4N8866BXNJC"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K6FHHEG77ZEXY7SD5WEGMA"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K6FHHEG77ZEXY7SD5WEGMA"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K6QNJ30TPY5HXAY6X33M8W"
+    }
+  ],
+  "lambda_role": "arn:aws-cn:iam::209915754514:role/ac-cn-0928041532-bj-lambda",
+  "agentcore_role": "arn:aws-cn:iam::209915754514:role/ac-cn-0928041532-bj-agentcore",
+  "bucket": "ac-cn-0928041532-bj-209915754514",
+  "lambda_arn": "arn:aws-cn:lambda:cn-north-1:209915754514:function:ac-cn-0928041532-bj",
+  "api_id": "lvvy6jfk64",
+  "api_url": "https://lvvy6jfk64.execute-api.cn-north-1.amazonaws.com.cn/test",
+  "gateway": {
+    "ResponseMetadata": {
+      "RequestId": "6b957153-d708-452f-8e03-f68ee572b710",
+      "HTTPStatusCode": 202,
+      "HTTPHeaders": {
+        "date": "Mon, 28 Sep 2026 04:20:14 GMT",
+        "content-type": "application/json",
+        "content-length": "662",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "6b957153-d708-452f-8e03-f68ee572b710",
+        "x-amz-apigw-id": "EZGnyEcphTIEcnA=",
+        "x-amzn-trace-id": "Root=1-6ab9eafe-1df03e601842ea43075de222"
+      },
+      "RetryAttempts": 0
+    },
+    "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:gateway/ac-cn-0928041532-bj-qvzqlrwoke",
+    "gatewayId": "ac-cn-0928041532-bj-qvzqlrwoke",
+    "gatewayUrl": "https://ac-cn-0928041532-bj-qvzqlrwoke.gateway.bedrock-agentcore.cn-north-1.amazonaws.com.cn/mcp",
+    "createdAt": "2026-09-28 04:20:14.326049+00:00",
+    "updatedAt": "2026-09-28 04:20:14.326057+00:00",
+    "status": "CREATING",
+    "name": "ac-cn-0928041532-bj",
+    "roleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0928041532-bj-agentcore",
+    "protocolType": "MCP",
+    "protocolConfiguration": {
+      "mcp": {
+        "instructions": "Synthetic China feature test"
+      }
+    },
+    "authorizerType": "AWS_IAM",
+    "workloadIdentityDetails": {},
+    "exceptionLevel": "DEBUG"
+  },
+  "page_url": "https://lvvy6jfk64.execute-api.cn-north-1.amazonaws.com.cn/test/page?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=REDACTED&X-Amz-Date=20260928T051020Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=REDACTED",
+  "custom_browser": "ac_cn_0928041532_bj_custom-HQH8kZrWth",
+  "mcp_session_id": "771a7e13-a08e-4986-940e-8b9bc2414e13",
+  "subnet": "subnet-0dcdbbc30d29d403c",
+  "vpc": "vpc-0d54556f2384d5a3c",
+  "sg": "sg-00ea1d13ed36ba5d3",
+  "private_ip": "172.31.22.142",
+  "ca_secret": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928041532-bj-root-ca-5qU9wu",
+  "proxy_secret": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928041532-bj-proxy-t8GIgO",
+  "instance": "i-023ae8c8e3c079e7c",
+  "vpc_browser": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+  "discovery_url": "https://lvvy6jfk64.execute-api.cn-north-1.amazonaws.com.cn/test/.well-known/openid-configuration?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=REDACTED&X-Amz-Date=20260928T045536Z&X-Amz-Expires=14400&X-Amz-SignedHeaders=host&X-Amz-Signature=REDACTED",
+  "token_url": "https://lvvy6jfk64.execute-api.cn-north-1.amazonaws.com.cn/test/token?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=REDACTED&X-Amz-Date=20260928T045534Z&X-Amz-Expires=14400&X-Amz-SignedHeaders=host&X-Amz-Signature=REDACTED",
+  "ttl_session": {
+    "id": "01M3K57XGB2F1PR94J7K53SBCK",
+    "started": 1790570658.4638727
+  },
+  "runtime_arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0928041532_bj-GDXfEQ3yHm",
+  "runtime_id": "ac_cn_0928041532_bj-GDXfEQ3yHm",
+  "gateway_log_group": "/aws/vendedlogs/bedrock-agentcore/cn-test/ac-cn-0928041532-bj-gateway",
+  "browser_log_group": "/aws/vendedlogs/bedrock-agentcore/cn-test/ac-cn-0928041532-bj-browser",
+  "runtime_sessions": [
+    "fc46a32043d7737d845cdd72d71dfde9d2ff4d3a",
+    "d8815123721e4202e967375cf007c1dad87dbc72",
+    "a149d48aa7989bc7025081f250026d853475ffc0",
+    "9fe66bcf4e8c68d779864277f12af973709e547a",
+    "282c28ecf3ee23b8294ba7012095706cd239afa4"
+  ]
+}

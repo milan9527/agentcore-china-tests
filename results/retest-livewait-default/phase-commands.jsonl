@@ -1,0 +1,2 @@
+{"time": "2026-09-28T06:38:13.741256+00:00", "event": "start", "command": ["/home/ec2-user/agentcore/cn/.venv/bin/python", "/home/ec2-user/agentcore/cn/retest.py", "retest_live_wait"], "environment": {"RETEST_RESULTS_DIR": "/home/ec2-user/agentcore/cn/results/retest-livewait-default", "LIVE_WAIT_SECONDS": "300", "LIVE_SIGNATURE_SECONDS": "300"}}
+{"time": "2026-09-28T06:48:34.881251+00:00", "event": "end", "command": ["/home/ec2-user/agentcore/cn/.venv/bin/python", "/home/ec2-user/agentcore/cn/retest.py", "retest_live_wait"], "returncode": 0}

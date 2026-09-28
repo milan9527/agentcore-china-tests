@@ -1,0 +1,210 @@
+[
+  {
+    "time": "2026-09-28T07:53:21.875212+00:00",
+    "region": "cn-north-1",
+    "feature": "gateway.caller_iam.assumed_role.direct",
+    "path": "AssumeRole → Runtime 直接调用",
+    "verdict": "PASS",
+    "httpStatus": null,
+    "response": {
+      "sum": 42,
+      "runtime": "gateway-fixture",
+      "region": "cn-north-1"
+    },
+    "requestId": "fc2cdf2a-b94e-4b28-a92e-f19cca436009",
+    "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+    "sourceLine": 10
+  },
+  {
+    "time": "2026-09-28T07:53:25.506358+00:00",
+    "region": "cn-north-1",
+    "feature": "gateway.caller_iam.AWS_IAM.runtime-role",
+    "path": "AssumeRole / AWS_IAM → Gateway 执行角色",
+    "verdict": "PASS",
+    "httpStatus": 200,
+    "response": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+    "requestId": "e9d13319-d067-45d0-b1ce-97ce811b3a6d, ece3ba84-d4fa-4606-ba06-d7b32591bc45",
+    "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+    "sourceLine": 12
+  },
+  {
+    "time": "2026-09-28T07:53:26.572687+00:00",
+    "region": "cn-north-1",
+    "feature": "gateway.caller_iam.AWS_IAM.runtime-caller",
+    "path": "AssumeRole / AWS_IAM → 调用者 IAM",
+    "verdict": "FAIL",
+    "httpStatus": 403,
+    "response": "{\"message\":\"The security token included in the request is invalid\"}",
+    "requestId": "a4fc4263-eebc-45eb-a110-ac09e6f4696b, b5a76bf2-31cf-40c9-8a4e-b8b30caa58c0",
+    "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+    "sourceLine": 13
+  },
+  {
+    "time": "2026-09-28T07:53:37.526934+00:00",
+    "region": "cn-north-1",
+    "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-role",
+    "path": "AssumeRole / AUTHENTICATE_ONLY → Gateway 执行角色",
+    "verdict": "PASS",
+    "httpStatus": 200,
+    "response": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+    "requestId": "fd334d81-704a-4f19-8fa1-11eb5b291d39, 22306f7c-6dc8-48d6-ad7a-2f698dbf1680",
+    "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+    "sourceLine": 15
+  },
+  {
+    "time": "2026-09-28T07:53:42.257289+00:00",
+    "region": "cn-north-1",
+    "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-caller",
+    "path": "AssumeRole / AUTHENTICATE_ONLY → 调用者 IAM",
+    "verdict": "FAIL",
+    "httpStatus": 403,
+    "response": "{\"message\":\"The security token included in the request is invalid\"}",
+    "requestId": "5b04360f-d2d3-40a2-8af0-679ef472dc66, eb685b08-2672-43b6-b3c6-c1142bd930e5",
+    "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+    "sourceLine": 16
+  },
+  {
+    "time": "2026-09-28T07:53:47.263414+00:00",
+    "region": "cn-north-1",
+    "feature": "gateway.outbound.caller_iam.direct_runtime_baseline",
+    "path": "GetSessionToken → Runtime 直接调用",
+    "verdict": "PASS",
+    "httpStatus": null,
+    "response": {
+      "sum": 42,
+      "runtime": "gateway-fixture",
+      "region": "cn-north-1"
+    },
+    "requestId": "e568e71c-ee90-46bb-8e71-d22c6cb61daa",
+    "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+    "sourceLine": 18
+  },
+  {
+    "time": "2026-09-28T07:53:50.936338+00:00",
+    "region": "cn-north-1",
+    "feature": "gateway.outbound.caller_iam.gateway_role_baseline",
+    "path": "GetSessionToken → Gateway 执行角色",
+    "verdict": "PASS",
+    "httpStatus": 200,
+    "response": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+    "requestId": "736ff975-0a73-4552-b656-1d4d4fb23d1e, 30defd95-75be-485e-b777-5c1b6991aee7",
+    "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+    "sourceLine": 19
+  },
+  {
+    "time": "2026-09-28T07:53:51.693625+00:00",
+    "region": "cn-north-1",
+    "feature": "gateway.outbound.caller_iam",
+    "path": "GetSessionToken → 调用者 IAM",
+    "verdict": "FAIL",
+    "httpStatus": 403,
+    "response": "{\"message\":\"The security token included in the request is invalid\"}",
+    "requestId": "a67d4b40-641d-4e3a-9a50-f5a4247f7a27, fbde43c4-b440-4eab-97a6-8b5a028755ce",
+    "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+    "sourceLine": 20
+  },
+  {
+    "time": "2026-09-28T07:53:21.442645+00:00",
+    "region": "cn-northwest-1",
+    "feature": "gateway.caller_iam.assumed_role.direct",
+    "path": "AssumeRole → Runtime 直接调用",
+    "verdict": "PASS",
+    "httpStatus": null,
+    "response": {
+      "sum": 42,
+      "runtime": "gateway-fixture",
+      "region": "cn-northwest-1"
+    },
+    "requestId": "5d1c19e0-799a-464e-9a0f-0a5c9c23c5f1",
+    "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+    "sourceLine": 10
+  },
+  {
+    "time": "2026-09-28T07:53:25.074302+00:00",
+    "region": "cn-northwest-1",
+    "feature": "gateway.caller_iam.AWS_IAM.runtime-role",
+    "path": "AssumeRole / AWS_IAM → Gateway 执行角色",
+    "verdict": "PASS",
+    "httpStatus": 200,
+    "response": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+    "requestId": "be1a84cf-d5ba-45e7-a388-446f7e90cce4, d88595d2-c9e1-43d0-9c93-c9cda37b8277",
+    "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+    "sourceLine": 12
+  },
+  {
+    "time": "2026-09-28T07:53:26.223253+00:00",
+    "region": "cn-northwest-1",
+    "feature": "gateway.caller_iam.AWS_IAM.runtime-caller",
+    "path": "AssumeRole / AWS_IAM → 调用者 IAM",
+    "verdict": "FAIL",
+    "httpStatus": 403,
+    "response": "{\"message\":\"The security token included in the request is invalid\"}",
+    "requestId": "111ed982-323f-48c4-9172-261d603fa4f9, 8a7e6d72-0771-493d-b84f-ff8856c2c206",
+    "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+    "sourceLine": 13
+  },
+  {
+    "time": "2026-09-28T07:53:37.116453+00:00",
+    "region": "cn-northwest-1",
+    "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-role",
+    "path": "AssumeRole / AUTHENTICATE_ONLY → Gateway 执行角色",
+    "verdict": "PASS",
+    "httpStatus": 200,
+    "response": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+    "requestId": "ccfddd44-16d2-424e-8b95-09b7c8d4ff10, 713feaeb-a150-4181-8f5f-0880990fa2ab",
+    "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+    "sourceLine": 15
+  },
+  {
+    "time": "2026-09-28T07:53:42.424045+00:00",
+    "region": "cn-northwest-1",
+    "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-caller",
+    "path": "AssumeRole / AUTHENTICATE_ONLY → 调用者 IAM",
+    "verdict": "FAIL",
+    "httpStatus": 403,
+    "response": "{\"message\":\"The security token included in the request is invalid\"}",
+    "requestId": "28c41132-876a-4f4f-844b-4f5112f1300a, 84e24964-33be-4035-bcaf-39e876100eb9",
+    "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+    "sourceLine": 16
+  },
+  {
+    "time": "2026-09-28T07:53:47.435230+00:00",
+    "region": "cn-northwest-1",
+    "feature": "gateway.outbound.caller_iam.direct_runtime_baseline",
+    "path": "GetSessionToken → Runtime 直接调用",
+    "verdict": "PASS",
+    "httpStatus": null,
+    "response": {
+      "sum": 42,
+      "runtime": "gateway-fixture",
+      "region": "cn-northwest-1"
+    },
+    "requestId": "b30312d0-c93a-4272-8284-7d9afbdb6bfc",
+    "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+    "sourceLine": 18
+  },
+  {
+    "time": "2026-09-28T07:53:51.284518+00:00",
+    "region": "cn-northwest-1",
+    "feature": "gateway.outbound.caller_iam.gateway_role_baseline",
+    "path": "GetSessionToken → Gateway 执行角色",
+    "verdict": "PASS",
+    "httpStatus": 200,
+    "response": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+    "requestId": "d1acd12d-5f61-4265-8019-41da5467d119, bb0ac42e-944a-47d2-9975-9387f4565b21",
+    "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+    "sourceLine": 19
+  },
+  {
+    "time": "2026-09-28T07:53:52.119629+00:00",
+    "region": "cn-northwest-1",
+    "feature": "gateway.outbound.caller_iam",
+    "path": "GetSessionToken → 调用者 IAM",
+    "verdict": "FAIL",
+    "httpStatus": 403,
+    "response": "{\"message\":\"The security token included in the request is invalid\"}",
+    "requestId": "13c4ba9f-3242-421a-8eb3-b643992373ab, 0deb0fb1-c183-499e-a962-87aa101782d3",
+    "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+    "sourceLine": 20
+  }
+]

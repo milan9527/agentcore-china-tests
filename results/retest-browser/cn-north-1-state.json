@@ -1,0 +1,27 @@
+{
+  "run": "ac-cn-0928055234",
+  "region": "cn-north-1",
+  "resources": [],
+  "sessions": [
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K950TQXR5HBYV9WW3QGAZX"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K98YZ17H3NCKR04MYNX6PR"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K9BEJENP53NXMX0MPB9J25"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3K9H360SX8Q89N1TWK57GBN"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3KA4HWM2JPFK1WBTQ1V7PDP"
+    }
+  ]
+}

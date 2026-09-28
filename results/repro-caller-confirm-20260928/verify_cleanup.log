@@ -1,0 +1,3 @@
+{"time": "2026-09-28T07:54:30.385480+00:00", "event": "start", "command": ["/home/ec2-user/agentcore/cn/.venv/bin/python", "/home/ec2-user/agentcore/cn/verify_cleanup.py"], "cwd": "/home/ec2-user/agentcore/cn", "profile": "china", "regions": ["cn-north-1", "cn-northwest-1"], "environment": {"RETEST_RESULTS_DIR": "/home/ec2-user/agentcore/cn/results/repro-caller-confirm-20260928", "VERIFY_RESULTS_DIR": "/home/ec2-user/agentcore/cn/results/repro-caller-confirm-20260928", "RETEST_VERBOSE": "1"}, "extraEnvironment": {}}
+{"region": "cn-north-1", "status": "PASS", "remaining": []}
+{"region": "cn-northwest-1", "status": "PASS", "remaining": []}

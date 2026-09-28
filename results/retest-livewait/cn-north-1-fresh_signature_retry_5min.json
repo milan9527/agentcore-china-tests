@@ -1,0 +1,253 @@
+{
+  "sessionId": "01M3KBKF5NGSR0T98GHWQWXFEF",
+  "attempt": "fresh_signature_retry_5min",
+  "configuredObservationSeconds": 300,
+  "actualObservationSeconds": 300.487,
+  "signatureExpirySeconds": 900,
+  "sessionTimeoutSeconds": 1800,
+  "sessionAgeAtStartSeconds": 313.014,
+  "stoppedEarlyOnError": false,
+  "probe": {
+    "authenticated": false,
+    "connected": false,
+    "firstFrame": false,
+    "errors": [
+      "Failed to communicate with server."
+    ],
+    "events": [
+      {
+        "event": "authenticate.start",
+        "time": "2026-09-28T06:40:39.168Z",
+        "elapsedSeconds": 0.01
+      },
+      {
+        "event": "authenticate.error",
+        "time": "2026-09-28T06:40:40.112Z",
+        "elapsedSeconds": 0.954,
+        "message": "Failed to communicate with server."
+      }
+    ]
+  },
+  "websocket": {
+    "opened": 1,
+    "closed": 1,
+    "errors": 1,
+    "receivedFrames": 0,
+    "receivedBytes": 0
+  },
+  "networkEvents": [
+    {
+      "event": "websocket.opened",
+      "url": "wss://bedrock-agentcore.cn-north-1.amazonaws.com.cn/browser-streams/aws.browser.v1/sessions/01M3KBKF5NGSR0T98GHWQWXFEF/live-view/auth"
+    },
+    {
+      "event": "websocket.error",
+      "url": "wss://bedrock-agentcore.cn-north-1.amazonaws.com.cn/browser-streams/aws.browser.v1/sessions/01M3KBKF5NGSR0T98GHWQWXFEF/live-view/auth",
+      "message": "Error during WebSocket handshake: Unexpected response code: 403"
+    },
+    {
+      "event": "websocket.closed",
+      "url": "wss://bedrock-agentcore.cn-north-1.amazonaws.com.cn/browser-streams/aws.browser.v1/sessions/01M3KBKF5NGSR0T98GHWQWXFEF/live-view/auth"
+    }
+  ],
+  "heartbeats": [
+    {
+      "elapsedSeconds": 0.004,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:40:38.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [],
+      "websocket": {
+        "opened": 0,
+        "closed": 0,
+        "errors": 0,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    },
+    {
+      "elapsedSeconds": 30.591,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:41:09.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [
+        "Failed to communicate with server."
+      ],
+      "websocket": {
+        "opened": 1,
+        "closed": 1,
+        "errors": 1,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    },
+    {
+      "elapsedSeconds": 60.171,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:41:38.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [
+        "Failed to communicate with server."
+      ],
+      "websocket": {
+        "opened": 1,
+        "closed": 1,
+        "errors": 1,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    },
+    {
+      "elapsedSeconds": 90.757,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:42:09.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [
+        "Failed to communicate with server."
+      ],
+      "websocket": {
+        "opened": 1,
+        "closed": 1,
+        "errors": 1,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    },
+    {
+      "elapsedSeconds": 120.328,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:42:39.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [
+        "Failed to communicate with server."
+      ],
+      "websocket": {
+        "opened": 1,
+        "closed": 1,
+        "errors": 1,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    },
+    {
+      "elapsedSeconds": 150.91,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:43:09.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [
+        "Failed to communicate with server."
+      ],
+      "websocket": {
+        "opened": 1,
+        "closed": 1,
+        "errors": 1,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    },
+    {
+      "elapsedSeconds": 180.479,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:43:39.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [
+        "Failed to communicate with server."
+      ],
+      "websocket": {
+        "opened": 1,
+        "closed": 1,
+        "errors": 1,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    },
+    {
+      "elapsedSeconds": 210.046,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:44:08.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [
+        "Failed to communicate with server."
+      ],
+      "websocket": {
+        "opened": 1,
+        "closed": 1,
+        "errors": 1,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    },
+    {
+      "elapsedSeconds": 240.624,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:44:39.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [
+        "Failed to communicate with server."
+      ],
+      "websocket": {
+        "opened": 1,
+        "closed": 1,
+        "errors": 1,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    },
+    {
+      "elapsedSeconds": 270.232,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:45:08.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [
+        "Failed to communicate with server."
+      ],
+      "websocket": {
+        "opened": 1,
+        "closed": 1,
+        "errors": 1,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    },
+    {
+      "elapsedSeconds": 300.002,
+      "sessionStatus": "READY",
+      "remoteClock": "2026-09-28T06:45:38.806Z",
+      "authenticated": false,
+      "connected": false,
+      "firstFrame": false,
+      "errors": [
+        "Failed to communicate with server."
+      ],
+      "websocket": {
+        "opened": 1,
+        "closed": 1,
+        "errors": 1,
+        "receivedFrames": 0,
+        "receivedBytes": 0
+      }
+    }
+  ],
+  "inputVerified": false,
+  "eventsFile": "results/retest-livewait/cn-north-1-live-wait-events.jsonl"
+}

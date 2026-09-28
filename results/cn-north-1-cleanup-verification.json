@@ -1,0 +1,165 @@
+{
+  "time": "2026-09-28T06:22:11.919293+00:00",
+  "region": "cn-north-1",
+  "feature": "cleanup.read_only_verification",
+  "status": "FAIL",
+  "evidence": [
+    {
+      "kind": "role",
+      "id": "ac-cn-0928041532-bj-lambda",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0928041532-bj-agentcore",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "bucket",
+      "id": "ac-cn-0928041532-bj-209915754514",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "lambda",
+      "id": "ac-cn-0928041532-bj",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "api",
+      "id": "lvvy6jfk64",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928041532-bj-qvzqlrwoke",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "profile",
+      "id": "ac_cn_0928041532_bj_profile-lMc2o3oorX",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "browser",
+      "id": "ac_cn_0928041532_bj_custom-HQH8kZrWth",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "kms",
+      "id": "9fc74828-2ad7-4602-b21b-054a406c75a0",
+      "status": "PendingDeletion",
+      "deletionDate": "2026-10-05 05:27:41.783000+00:00",
+      "arn": "arn:aws-cn:kms:cn-north-1:209915754514:key/9fc74828-2ad7-4602-b21b-054a406c75a0",
+      "ok": true
+    },
+    {
+      "kind": "sg",
+      "id": "sg-00ea1d13ed36ba5d3",
+      "status": "EXISTS",
+      "ok": false
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928041532-bj-root-ca-5qU9wu",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928041532-bj-proxy-t8GIgO",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "browser",
+      "id": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928041532-bj-kms-r1vvibegs2",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "efs",
+      "id": "fs-0f1aeac2f2ea2589a",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928041532-bj-http-akxdasfd89",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928041532-bj-jwt-public-voeq4b2x2k",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "browser",
+      "id": "ac_cn_0928041532_bj_policy-t3AfVSfyKE",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "runtime",
+      "id": "ac_cn_0928041532_bj-GDXfEQ3yHm",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/apikey/ac-cn-0928041532-bj-key-31a5d06e-oPCjAK",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928041532-bj-oauth-6b2d4822-YNdJxJ",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "tagged-volumes",
+      "status": "ABSENT",
+      "ids": [],
+      "ok": true
+    },
+    {
+      "kind": "tagged-instances",
+      "ok": true,
+      "instances": []
+    },
+    {
+      "kind": "security-group-interfaces",
+      "ok": false,
+      "interfaces": [
+        {
+          "NetworkInterfaceId": "eni-07785326177ebf70b",
+          "Status": "in-use",
+          "InterfaceType": "agentic_ai",
+          "Attachment": {
+            "AttachmentId": "ela-attach-038e61a38ea5524f3",
+            "DeleteOnTermination": false,
+            "DeviceIndex": 1,
+            "InstanceOwnerId": "amazon-aws",
+            "Status": "attached"
+          }
+        }
+      ]
+    }
+  ]
+}

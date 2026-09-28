@@ -1,0 +1,21 @@
+{
+  "time": "2026-09-28T07:56:54.083318+00:00",
+  "status": "PASS",
+  "regions": [
+    "cn-north-1",
+    "cn-northwest-1"
+  ],
+  "invocations": 16,
+  "passingBaselines": 10,
+  "callerInvalidTokenFailures": 6,
+  "cleanup": "PASS both regions, all this run recorded resources deleted",
+  "sourceSnapshots": 5,
+  "sourceSnapshotFilesVerified": 290,
+  "sourceReferences": "PASS",
+  "credentialScan": {
+    "filesScanned": 317,
+    "findings": [],
+    "profileCredentialsModified": false,
+    "scope": "Structured redaction plus exact current profile values and sensitive-pattern scan; not proof against every possible encoding."
+  }
+}

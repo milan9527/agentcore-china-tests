@@ -1,0 +1,160 @@
+{
+  "time": "2026-09-28T06:21:58.341314+00:00",
+  "region": "cn-northwest-1",
+  "feature": "cleanup.read_only_verification",
+  "status": "FAIL",
+  "evidence": [
+    {
+      "kind": "role",
+      "id": "ac-cn-0928054019-nx-lambda",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0928054019-nx-agentcore",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "bucket",
+      "id": "ac-cn-0928054019-nx-209915754514",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "lambda",
+      "id": "ac-cn-0928054019-nx",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "api",
+      "id": "w4lqj2kqs3",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928054019-nx-jwt-8niapzl997",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928054019-nx-jwt-http-tg14fwhp79",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928054019-nx-http-bkmjizkbaw",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "runtime",
+      "id": "ac_cn_0928054019_nx-CRdufv3xQj",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0928054019-nx-caller",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928054019-nx-authenticate-only-mnyaszylmo",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "sg",
+      "id": "sg-0e9e501fda1882754",
+      "status": "EXISTS",
+      "ok": false
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928054019-nx-root-ca-Gqx3Gj",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928054019-nx-proxy-ORsIrv",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "browser",
+      "id": "ac_cn_0928054019_nx_proxy-Oilxo0i9bC",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928054019-nx-private-probe-lyfwodkfs4",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928054019-nx-client-credentials-03350671-AHyQAh",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928054019-nx-token-exchange-a1dbf0af-BL8gtm",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928054019-nx-authorization-code-b2aaae90-vcwm9c",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "tagged-volumes",
+      "status": "ABSENT",
+      "ids": [],
+      "ok": true
+    },
+    {
+      "kind": "tagged-instances",
+      "ok": true,
+      "instances": [
+        {
+          "id": "i-01d6cf11e3aebe8bd",
+          "status": "terminated"
+        },
+        {
+          "id": "i-0fb6070aa44e90b20",
+          "status": "terminated"
+        }
+      ]
+    },
+    {
+      "kind": "security-group-interfaces",
+      "ok": false,
+      "interfaces": [
+        {
+          "NetworkInterfaceId": "eni-02fc0026432a759bb",
+          "Status": "in-use",
+          "InterfaceType": "agentic_ai",
+          "Attachment": {
+            "AttachmentId": "ela-attach-0bde1b5e63a7fcf61",
+            "DeleteOnTermination": false,
+            "DeviceIndex": 1,
+            "InstanceOwnerId": "amazon-aws",
+            "Status": "attached"
+          }
+        }
+      ]
+    }
+  ]
+}

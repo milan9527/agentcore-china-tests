@@ -1,0 +1,26 @@
+{
+  "ResponseMetadata": {
+    "RequestId": "de6f5777-051b-43ce-93c8-c8712d6d433e",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "date": "Mon, 28 Sep 2026 04:13:25 GMT",
+      "content-type": "application/json",
+      "content-length": "500",
+      "connection": "keep-alive",
+      "x-amzn-requestid": "de6f5777-051b-43ce-93c8-c8712d6d433e"
+    },
+    "RetryAttempts": 0
+  },
+  "browserIdentifier": "aws.browser.v1",
+  "sessionId": "01M3K3FBW8FH7ZF5P2TK99C6C1",
+  "createdAt": "2026-09-28 04:13:24.224460+00:00",
+  "streams": {
+    "automationStream": {
+      "streamEndpoint": "wss://bedrock-agentcore.cn-north-1.amazonaws.com.cn/browser-streams/aws.browser.v1/sessions/01M3K3FBW8FH7ZF5P2TK99C6C1/automation",
+      "streamStatus": "ENABLED"
+    },
+    "liveViewStream": {
+      "streamEndpoint": "https://bedrock-agentcore.cn-north-1.amazonaws.com.cn/browser-streams/aws.browser.v1/sessions/01M3K3FBW8FH7ZF5P2TK99C6C1/live-view"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "status": "WAITING_FOR_AWS_ENI_RELEASE",
+  "pid": 2420121,
+  "profile": "china",
+  "startedAt": "2026-09-28T06:21:44.446448+00:00",
+  "updatedAt": "2026-09-28T08:15:20.554853+00:00",
+  "deadline": "2026-09-28T14:51:44.446448+00:00",
+  "targets": [
+    {
+      "region": "cn-north-1",
+      "id": "sg-03179feaec145cf84",
+      "purposeTag": "ac-cn-0928054019-bj",
+      "status": "WAITING_FOR_AWS_ENI_RELEASE"
+    },
+    {
+      "region": "cn-northwest-1",
+      "id": "sg-0e9e501fda1882754",
+      "purposeTag": "ac-cn-0928054019-nx",
+      "status": "WAITING_FOR_AWS_ENI_RELEASE"
+    }
+  ]
+}

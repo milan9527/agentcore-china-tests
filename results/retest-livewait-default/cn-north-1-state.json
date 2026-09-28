@@ -1,0 +1,11 @@
+{
+  "run": "ac-cn-0928063813",
+  "region": "cn-north-1",
+  "resources": [],
+  "sessions": [
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3KBRKNKYFGPVS882K33WR3E"
+    }
+  ]
+}

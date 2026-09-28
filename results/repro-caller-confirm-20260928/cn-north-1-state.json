@@ -1,0 +1,199 @@
+{
+  "run": "ac-cn-0928074838",
+  "region": "cn-north-1",
+  "resources": [
+    {
+      "kind": "role",
+      "id": "ac-cn-0928074838-bj-lambda",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0928074838-bj-agentcore",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "bucket",
+      "id": "ac-cn-0928074838-bj-209915754514",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "lambda",
+      "id": "ac-cn-0928074838-bj",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "api",
+      "id": "5mpeu89kh7",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928074838-bj-http-ec5rg6erhx",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "runtime",
+      "id": "ac_cn_0928074838_bj-x7XVnyE5Al",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "T62YSNX4TN",
+      "gateway": "ac-cn-0928074838-bj-http-ec5rg6erhx",
+      "name": "runtime-role",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "8HGKBJOEC5",
+      "gateway": "ac-cn-0928074838-bj-http-ec5rg6erhx",
+      "name": "runtime-caller",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0928074838-bj-caller",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928074838-bj-authenticate-only-1izuchrybv",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "2IQLXCJXBU",
+      "gateway": "ac-cn-0928074838-bj-authenticate-only-1izuchrybv",
+      "name": "runtime-role",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "3IEEQME9FV",
+      "gateway": "ac-cn-0928074838-bj-authenticate-only-1izuchrybv",
+      "name": "runtime-caller",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "workload",
+      "id": "ac-cn-0928074838-bj-http-ec5rg6erhx",
+      "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac-cn-0928074838-bj-http-ec5rg6erhx",
+      "deleted": true,
+      "cleanupResult": {
+        "alreadyAbsent": true
+      }
+    },
+    {
+      "kind": "workload",
+      "id": "ac_cn_0928074838_bj-x7XVnyE5Al",
+      "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac_cn_0928074838_bj-x7XVnyE5Al",
+      "deleted": true,
+      "cleanupResult": {
+        "alreadyAbsent": true
+      }
+    },
+    {
+      "kind": "workload",
+      "id": "ac-cn-0928074838-bj-authenticate-only-1izuchrybv",
+      "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac-cn-0928074838-bj-authenticate-only-1izuchrybv",
+      "deleted": true,
+      "cleanupResult": {
+        "alreadyAbsent": true
+      }
+    }
+  ],
+  "sessions": [],
+  "lambda_role": "arn:aws-cn:iam::209915754514:role/ac-cn-0928074838-bj-lambda",
+  "agentcore_role": "arn:aws-cn:iam::209915754514:role/ac-cn-0928074838-bj-agentcore",
+  "bucket": "ac-cn-0928074838-bj-209915754514",
+  "lambda_arn": "arn:aws-cn:lambda:cn-north-1:209915754514:function:ac-cn-0928074838-bj",
+  "api_id": "5mpeu89kh7",
+  "api_url": "https://5mpeu89kh7.execute-api.cn-north-1.amazonaws.com.cn/test/REDACTED_PATH_KEY",
+  "issuer": "https://5mpeu89kh7.execute-api.cn-north-1.amazonaws.com.cn/test/REDACTED_PATH_KEY",
+  "http": "ac-cn-0928074838-bj-http-ec5rg6erhx",
+  "gateway": {
+    "ResponseMetadata": {
+      "RequestId": "9f563bb5-d4eb-45e8-a8e9-5dd133731a2f",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Mon, 28 Sep 2026 07:53:30 GMT",
+        "content-type": "application/json",
+        "content-length": "815",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "9f563bb5-d4eb-45e8-a8e9-5dd133731a2f",
+        "x-amz-apigw-id": "EZl3MHnsBTIEJSQ=",
+        "x-amzn-trace-id": "Root=1-6aba1cfa-2bf618d50060461227479883"
+      },
+      "RetryAttempts": 0
+    },
+    "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:gateway/ac-cn-0928074838-bj-authenticate-only-1izuchrybv",
+    "gatewayId": "ac-cn-0928074838-bj-authenticate-only-1izuchrybv",
+    "gatewayUrl": "https://ac-cn-0928074838-bj-authenticate-only-1izuchrybv.gateway.bedrock-agentcore.cn-north-1.amazonaws.com.cn",
+    "createdAt": "2026-09-28 07:53:26.804179+00:00",
+    "updatedAt": "2026-09-28 07:53:27.718484+00:00",
+    "status": "READY",
+    "name": "ac-cn-0928074838-bj-authenticate-only",
+    "roleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0928074838-bj-agentcore",
+    "authorizerType": "AUTHENTICATE_ONLY",
+    "workloadIdentityDetails": {
+      "workloadIdentityArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac-cn-0928074838-bj-authenticate-only-1izuchrybv"
+    },
+    "exceptionLevel": "DEBUG"
+  },
+  "runtime_arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0928074838_bj-x7XVnyE5Al",
+  "runtime_id": "ac_cn_0928074838_bj-x7XVnyE5Al",
+  "runtime_sessions": [
+    "99916dcf143d0451ef236a0f044a82f7d4204b29",
+    "675cc8e2b8eebd905e05e3f3c7d8616dd5fa0eb0",
+    "b4ec7c9350f82e9f49452623bd3a04445f61619f",
+    "bdb9f7264bfac8ee3addd45c78f0b211ba56ea69",
+    "828bae2cd36ca766ffd1f60b8bdd88ccc912f986",
+    "21aed734a4d7cf0fdebd65db3a0418e570e8ebe6",
+    "564a74a9fb192a3fb24f9412b6d4f04f3aaf2526",
+    "8c27e4f8c73b270bdfefe6c2f68e6f75b9b4cd34",
+    "c2e4abba0230b86e0284389a27cbf9e0af1562c9",
+    "da3833fe6839f33da5cfecf5b9b893fe96419e5c"
+  ],
+  "caller_role": "arn:aws-cn:iam::209915754514:role/ac-cn-0928074838-bj-caller",
+  "authenticate-only": "ac-cn-0928074838-bj-authenticate-only-1izuchrybv"
+}

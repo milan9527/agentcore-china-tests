@@ -1,0 +1,27 @@
+{
+  "time": "2026-09-28T06:58:36.100553+00:00",
+  "status": "PASS",
+  "errors": [],
+  "scope": "Bilingual report correction; local evidence only; no AWS calls",
+  "checks": {
+    "consolidatedCountsPerRegion": {
+      "PASS": 153,
+      "FAIL": 2,
+      "BLOCKED": 2,
+      "NOT_AVAILABLE": 2
+    },
+    "initialCountsPerRegion": {
+      "PASS": 145,
+      "FAIL": 6,
+      "BLOCKED": 5,
+      "PARTIAL": 1,
+      "NOT_AVAILABLE": 2
+    },
+    "matrixRows": 318,
+    "localMarkdownLinks": 186,
+    "unchangedResultsAndAuditFiles": 22,
+    "sourceReferences": "PASS",
+    "liveViewTimingsAndVerdicts": "PASS",
+    "staleCurrentFailureClaimsRemoved": "PASS"
+  }
+}

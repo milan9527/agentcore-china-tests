@@ -1,0 +1,24 @@
+{
+  "time": "2026-09-28T06:48:51.412130+00:00",
+  "region": "cn-north-1",
+  "feature": "cleanup.read_only_verification",
+  "status": "PASS",
+  "evidence": [
+    {
+      "kind": "tagged-volumes",
+      "status": "ABSENT",
+      "ids": [],
+      "ok": true
+    },
+    {
+      "kind": "tagged-instances",
+      "ok": true,
+      "instances": []
+    },
+    {
+      "kind": "security-group-interfaces",
+      "ok": true,
+      "interfaces": []
+    }
+  ]
+}

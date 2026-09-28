@@ -1,0 +1,20 @@
+{
+  "recordedAt": "2026-09-28T07:49:18.622508+00:00",
+  "profile": "china",
+  "account": "209915754514",
+  "callerArn": "arn:aws-cn:iam::209915754514:user/milan",
+  "credentialSource": "shared-credentials-file",
+  "boto3": "1.43.103",
+  "botocore": "1.43.103",
+  "checks": [
+    {
+      "region": "cn-north-1",
+      "requestId": "aa57e9eb-73fc-4c7a-bb0d-b5ceb47263d8"
+    },
+    {
+      "region": "cn-northwest-1",
+      "requestId": "077fa051-4cf4-4912-8189-cf9b1899fc09"
+    }
+  ],
+  "source": "Preflight STS GetCallerIdentity output from this turn, before the phase runner started"
+}

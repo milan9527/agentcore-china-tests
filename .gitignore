@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+results/*-private-key.pem
+results/*-secrets.json
+results/**/*-private-key.pem
+results/**/*-secrets.json
+# This local run's state includes credential-bearing fixture URLs.
+results/repro-caller-YSxSDn/*-state.json
+retest-pw148/
+retest-viewer/node_modules/
+retest-viewer/nice-dcv-web-client-sdk/
+retest-viewer/bundle.js
+retest-viewer/bundle.css
+results/retest/cloudflared

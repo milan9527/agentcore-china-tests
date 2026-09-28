@@ -1,0 +1,654 @@
+[
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://proxy-only.agentcore.test/",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "/squid-internal-periodic/store_digest",
+    "credentialsPresent": false,
+    "credentialsValid": false
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://proxy-only.agentcore.test/favicon.ico",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://0.0.0.0/time/1/current?cup2key=10:TxceI3_F72-JGxELwHgC8l_95hhQI2uXzZSEPPULClQ&cup2hreq=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "/squid-internal-periodic/store_digest"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "www.google.com:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "www.google.com:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "www.google.com:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "www.google.com:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/case-default-no-auth"
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/case-default-no-auth"
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/bypass-default-no-auth"
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/case-explicit-no-auth"
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/case-explicit-no-auth"
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/bypass-explicit-no-auth"
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "/squid-internal-periodic/store_digest"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://proxy-only.agentcore.test/"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://proxy-only.agentcore.test/favicon.ico"
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://0.0.0.0/time/1/current?cup2key=10:3o3xeGo08IKd0uUl5rutb2ozc41xy2s6Cb-ZDe1LTVA&cup2hreq=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://172.31.23.132:3128/squid-internal-periodic/store_digest",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "www.google.com:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "www.google.com:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "www.google.com:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "www.google.com:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://172.31.23.132/case-default-auth",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://172.31.23.132/favicon.ico",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "172.31.23.132:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/case-default-auth"
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "172.31.23.132:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://172.31.23.132:3128/squid-internal-periodic/store_digest",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://172.31.23.132/case-explicit-auth",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://172.31.23.132/favicon.ico",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "172.31.23.132:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/case-explicit-auth"
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "172.31.23.132:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://proxy-only.agentcore.test/",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://proxy-only.agentcore.test/favicon.ico",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://0.0.0.0/time/1/current?cup2key=10:3ijgQtm5r9h_cK-_cHgKFcUTvr1m8wfCyfhEFyJpHNE&cup2hreq=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://172.31.23.132:3129/squid-internal-periodic/store_digest"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "www.google.com:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "www.google.com:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "www.google.com:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "www.google.com:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://172.31.23.132/case-default-no-auth"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://172.31.23.132/favicon.ico"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "172.31.23.132:443"
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/case-default-no-auth"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "172.31.23.132:443"
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://172.31.23.132:3129/squid-internal-periodic/store_digest"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://172.31.23.132/case-explicit-no-auth"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://172.31.23.132/favicon.ico"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "172.31.23.132:443"
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/case-explicit-no-auth"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "CONNECT",
+    "path": "172.31.23.132:443"
+  },
+  {
+    "server": "page",
+    "port": 443,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://proxy-only.agentcore.test/"
+  },
+  {
+    "server": "proxy-no-auth",
+    "port": 3129,
+    "method": "GET",
+    "path": "http://proxy-only.agentcore.test/favicon.ico"
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "http://0.0.0.0/time/1/current?cup2key=10:VH1fTGa_zt4V_KsQCyMfv8IFmlRBZ6zOGUrSpxSvvI4&cup2hreq=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "GET",
+    "path": "/squid-internal-periodic/store_digest",
+    "credentialsPresent": false,
+    "credentialsValid": false
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "www.google.com:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "www.google.com:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "www.google.com:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "www.google.com:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/isolated-bypass"
+  },
+  {
+    "server": "page",
+    "port": 80,
+    "path": "/favicon.ico"
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  },
+  {
+    "server": "proxy",
+    "port": 3128,
+    "method": "CONNECT",
+    "path": "0.0.0.0:443",
+    "credentialsPresent": true,
+    "credentialsValid": true
+  }
+]

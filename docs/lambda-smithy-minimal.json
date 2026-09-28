@@ -1,0 +1,771 @@
+{
+  "smithy": "2.0",
+  "shapes": {
+    "com.amazonaws.lambda#AWSGirApiService": {
+      "type": "service",
+      "version": "2015-03-31",
+      "operations": [
+        {
+          "target": "com.amazonaws.lambda#GetFunctionConcurrency"
+        }
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Lambda",
+          "arnNamespace": "lambda",
+          "cloudFormationName": "Lambda",
+          "cloudTrailEventSource": "lambda.amazonaws.com",
+          "endpointPrefix": "lambda"
+        },
+        "aws.auth#sigv4": {
+          "name": "lambda"
+        },
+        "aws.iam#defineConditionKeys": {
+          "lambda:VpcIds": {
+            "type": "String",
+            "documentation": "Filters access by the ID of the VPC configured for the AWS Lambda function",
+            "relativeDocumentation": "lambda-api-permissions-ref.html",
+            "required": false
+          },
+          "lambda:SubnetIds": {
+            "type": "ArrayOfString",
+            "documentation": "Filters access by the ID of subnets configured for the AWS Lambda function",
+            "relativeDocumentation": "lambda-api-permissions-ref.html",
+            "required": false
+          },
+          "lambda:Layer": {
+            "type": "ArrayOfString",
+            "documentation": "Filters access by the ARN of a version of an AWS Lambda layer",
+            "relativeDocumentation": "lambda-api-permissions-ref.html",
+            "required": false
+          },
+          "lambda:EventSourceToken": {
+            "type": "String",
+            "documentation": "Filters access by the ID from a non-AWS event source configured for the AWS Lambda function",
+            "relativeDocumentation": "lambda-api-permissions-ref.html",
+            "required": false
+          },
+          "lambda:FunctionUrlAuthType": {
+            "type": "String",
+            "documentation": "Filters access by authorization type specified in request. Available during CreateFunctionUrlConfig, UpdateFunctionUrlConfig, DeleteFunctionUrlConfig, GetFunctionUrlConfig, ListFunctionUrlConfig, AddPermission and RemovePermission operations",
+            "relativeDocumentation": "lambda-api-permissions-ref.html",
+            "required": false
+          },
+          "aws:RequestTag/${TagKey}": {
+            "type": "String",
+            "documentation": "Filters access by the tags that are passed in the request",
+            "externalDocumentation": "${DocHomeURL}/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag",
+            "required": false
+          },
+          "aws:ResourceTag/${TagKey}": {
+            "type": "String",
+            "documentation": "Filters access by the tags associated with the resource",
+            "externalDocumentation": "${DocHomeURL}/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag",
+            "required": false
+          },
+          "lambda:CodeSigningConfigArn": {
+            "type": "ARN",
+            "documentation": "Filters access by the ARN of an AWS Lambda code signing config",
+            "relativeDocumentation": "lambda-api-permissions-ref.html",
+            "required": false
+          },
+          "lambda:FunctionArn": {
+            "type": "ARN",
+            "documentation": "Filters access by the ARN of an AWS Lambda function",
+            "relativeDocumentation": "lambda-api-permissions-ref.html",
+            "required": false
+          },
+          "aws:TagKeys": {
+            "type": "ArrayOfString",
+            "documentation": "Filters access by the tag keys that are passed in the request",
+            "externalDocumentation": "${DocHomeURL}/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys",
+            "required": false
+          },
+          "lambda:SourceFunctionArn": {
+            "type": "ARN",
+            "documentation": "Filters access by the ARN of the AWS Lambda function from which the request originated",
+            "relativeDocumentation": "lambda-api-permissions-ref.html",
+            "required": false
+          },
+          "lambda:SecurityGroupIds": {
+            "type": "ArrayOfString",
+            "documentation": "Filters access by the ID of security groups configured for the AWS Lambda function",
+            "relativeDocumentation": "lambda-api-permissions-ref.html",
+            "required": false
+          },
+          "lambda:Principal": {
+            "type": "String",
+            "documentation": "Filters access by restricting the AWS service or account that can invoke a function",
+            "relativeDocumentation": "lambda-api-permissions-ref.html",
+            "required": false
+          }
+        },
+        "aws.iam#disableConditionKeyInference": {},
+        "aws.iam#supportedPrincipalTypes": [
+          "Root",
+          "IAMUser",
+          "IAMRole",
+          "FederatedUser"
+        ],
+        "aws.protocols#restJson1": {},
+        "smithy.api#documentation": "<fullname>Lambda</fullname> <p> <b>Overview</b> </p> <p>Lambda is a compute service that lets you run code without provisioning or managing servers. Lambda runs your code on a high-availability compute infrastructure and performs all of the administration of the compute resources, including server and operating system maintenance, capacity provisioning and automatic scaling, code monitoring and logging. With Lambda, you can run code for virtually any type of application or backend service. For more information about the Lambda service, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/welcome.html\">What is Lambda</a> in the <b>Lambda Developer Guide</b>.</p> <p>The <i>Lambda API Reference</i> provides information about each of the API methods, including details about the parameters in each API request and response. </p> <p/> <p>You can use Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command line tools to access the API. For installation instructions, see <a href=\"http://aws.amazon.com/tools/\">Tools for Amazon Web Services</a>. </p> <p>For a list of Region-specific endpoints that Lambda supports, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/lambda-service.html\">Lambda endpoints and quotas </a> in the <i>Amazon Web Services General Reference.</i>. </p> <p>When making the API calls, you will need to authenticate your request by providing a signature. Lambda supports signature version 4. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4 signing process</a> in the <i>Amazon Web Services General Reference.</i>. </p> <p> <b>CA certificates</b> </p> <p>Because Amazon Web Services SDKs use the CA certificates from your computer, changes to the certificates on the Amazon Web Services servers can cause connection failures when you attempt to use an SDK. You can prevent these failures by keeping your computer's CA certificates and operating system up-to-date. If you encounter this issue in a corporate environment and do not manage your own computer, you might need to ask an administrator to assist with the update process. The following list shows minimum operating system and Java versions:</p> <ul> <li> <p>Microsoft Windows versions that have updates from January 2005 or later installed contain at least one of the required CAs in their trust list. </p> </li> <li> <p>Mac OS X 10.4 with Java for Mac OS X 10.4 Release 5 (February 2007), Mac OS X 10.5 (October 2007), and later versions contain at least one of the required CAs in their trust list. </p> </li> <li> <p>Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6, and 7 all contain at least one of the required CAs in their default trusted CA list. </p> </li> <li> <p>Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later versions, including Java 6 (December 2006), 7, and 8, contain at least one of the required CAs in their default trusted CA list. </p> </li> </ul> <p>When accessing the Lambda management console or Lambda API endpoints, whether through browsers or programmatically, you will need to ensure your client machines support any of the following CAs: </p> <ul> <li> <p>Amazon Root CA 1</p> </li> <li> <p>Starfield Services Root Certificate Authority - G2</p> </li> <li> <p>Starfield Class 2 Certification Authority</p> </li> </ul> <p>Root certificates from the first two authorities are available from <a href=\"https://www.amazontrust.com/repository/\">Amazon trust services</a>, but keeping your computer up-to-date is the more straightforward solution. To learn more about ACM-provided certificates, see <a href=\"http://aws.amazon.com/certificate-manager/faqs/#certificates\">Amazon Web Services Certificate Manager FAQs.</a> </p>",
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "NextMarker",
+          "pageSize": "MaxItems"
+        },
+        "smithy.api#suppress": [
+          "ServiceTagging"
+        ],
+        "smithy.api#tags": [
+          "feature:public"
+        ],
+        "smithy.api#title": "AWS Lambda",
+        "smithy.rules#endpointRuleSet": {
+          "version": "1.0",
+          "parameters": {
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
+              "type": "string"
+            },
+            "UseDualStack": {
+              "builtIn": "AWS::UseDualStack",
+              "required": true,
+              "default": false,
+              "documentation": "When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",
+              "type": "boolean"
+            },
+            "UseFIPS": {
+              "builtIn": "AWS::UseFIPS",
+              "required": true,
+              "default": false,
+              "documentation": "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
+              "type": "boolean"
+            },
+            "Endpoint": {
+              "builtIn": "SDK::Endpoint",
+              "required": false,
+              "documentation": "Override the endpoint used to send this request",
+              "type": "string"
+            }
+          },
+          "rules": [
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Endpoint"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseFIPS"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://lambda-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://lambda-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://lambda.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://lambda.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ],
+                  "type": "tree"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
+            }
+          ]
+        }
+      }
+    },
+    "com.amazonaws.lambda#FunctionName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 140
+        },
+        "smithy.api#pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?((eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    },
+    "com.amazonaws.lambda#GetFunctionConcurrency": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lambda#GetFunctionConcurrencyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lambda#GetFunctionConcurrencyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lambda#ServiceException"
+        },
+        {
+          "target": "com.amazonaws.lambda#TooManyRequestsException"
+        }
+      ],
+      "traits": {
+        "aws.iam#iamAction": {
+          "documentation": "Grants permission to view details about the reserved concurrency configuration for a function",
+          "relativeDocumentation": "API_GetFunctionConcurrency.html",
+          "resources": {
+            "required": {
+              "function": {}
+            }
+          }
+        },
+        "smithy.api#documentation": "<p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a function, use <a>PutFunctionConcurrency</a>.</p>",
+        "smithy.api#examples": [
+          {
+            "documentation": "The following example returns the reserved concurrency setting for a function named my-function.",
+            "input": {
+              "FunctionName": "my-function"
+            },
+            "output": {
+              "ReservedConcurrentExecutions": 250
+            },
+            "title": "To get the reserved concurrency setting for a function"
+          }
+        ],
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/2019-09-30/functions/{FunctionName}/concurrency",
+          "code": 200
+        },
+        "smithy.api#readonly": {},
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    },
+    "com.amazonaws.lambda#GetFunctionConcurrencyRequest": {
+      "type": "structure",
+      "members": {
+        "FunctionName": {
+          "target": "com.amazonaws.lambda#FunctionName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name or ARN of the Lambda function.</p> <p class=\"title\"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> \u2013 <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> \u2013 <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> \u2013 <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {},
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {},
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    },
+    "com.amazonaws.lambda#GetFunctionConcurrencyResponse": {
+      "type": "structure",
+      "members": {
+        "ReservedConcurrentExecutions": {
+          "target": "com.amazonaws.lambda#ReservedConcurrentExecutions",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of simultaneous executions that are reserved for the function.</p>",
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {},
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    },
+    "com.amazonaws.lambda#InvalidParameterValueException": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The exception type.</p>",
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The exception message.</p>",
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>One of the parameters in the request is not valid.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400,
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    },
+    "com.amazonaws.lambda#ReservedConcurrentExecutions": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        },
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    },
+    "com.amazonaws.lambda#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The resource specified in the request does not exist.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404,
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    },
+    "com.amazonaws.lambda#ServiceException": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Lambda service encountered an internal error.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500,
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    },
+    "com.amazonaws.lambda#String": {
+      "type": "string",
+      "traits": {
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    },
+    "com.amazonaws.lambda#ThrottleReason": {
+      "type": "enum",
+      "members": {
+        "ConcurrentInvocationLimitExceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ConcurrentInvocationLimitExceeded",
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "FunctionInvocationRateLimitExceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FunctionInvocationRateLimitExceeded",
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "ReservedFunctionConcurrentInvocationLimitExceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ReservedFunctionConcurrentInvocationLimitExceeded",
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "ReservedFunctionInvocationRateLimitExceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ReservedFunctionInvocationRateLimitExceeded",
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "CallerRateLimitExceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CallerRateLimitExceeded",
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "ConcurrentSnapshotCreateLimitExceeded": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ConcurrentSnapshotCreateLimitExceeded",
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    },
+    "com.amazonaws.lambda#TooManyRequestsException": {
+      "type": "structure",
+      "members": {
+        "retryAfterSeconds": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of seconds the caller should wait before retrying.</p>",
+            "smithy.api#httpHeader": "Retry-After",
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.lambda#String",
+          "traits": {
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        },
+        "Reason": {
+          "target": "com.amazonaws.lambda#ThrottleReason",
+          "traits": {
+            "smithy.api#tags": [
+              "feature:public"
+            ]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request throughput limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests\">Lambda quotas</a>.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429,
+        "smithy.api#tags": [
+          "feature:public"
+        ]
+      }
+    }
+  }
+}

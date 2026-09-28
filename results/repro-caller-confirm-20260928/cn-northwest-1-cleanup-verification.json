@@ -1,0 +1,78 @@
+{
+  "time": "2026-09-28T07:54:37.505405+00:00",
+  "region": "cn-northwest-1",
+  "feature": "cleanup.read_only_verification",
+  "status": "PASS",
+  "evidence": [
+    {
+      "kind": "role",
+      "id": "ac-cn-0928074838-nx-lambda",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0928074838-nx-agentcore",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "bucket",
+      "id": "ac-cn-0928074838-nx-209915754514",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "lambda",
+      "id": "ac-cn-0928074838-nx",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "api",
+      "id": "mdxhd9p71k",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928074838-nx-http-upuvqmwjcq",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "runtime",
+      "id": "ac_cn_0928074838_nx-7YJ7hK4XgG",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0928074838-nx-caller",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928074838-nx-authenticate-only-dpvyoe7q7y",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "tagged-volumes",
+      "status": "ABSENT",
+      "ids": [],
+      "ok": true
+    },
+    {
+      "kind": "tagged-instances",
+      "ok": true,
+      "instances": []
+    },
+    {
+      "kind": "security-group-interfaces",
+      "ok": true,
+      "interfaces": []
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "time": "2026-09-28T07:57:50.153089+00:00",
+  "status": "PASS",
+  "checks": {
+    "files": 102,
+    "evidenceFiles": 157,
+    "sourceSnapshots": 37,
+    "snapshotFiles": 1806,
+    "localMarkdownLinks": 239,
+    "historyRows": 1116,
+    "latestFollowupChecks": 246,
+    "matrixRows": 210
+  },
+  "errors": [],
+  "liveViewVerification": "Both regions: initial and fresh-signature retry each >=300 seconds; bytes increase at every heartbeat; frame and independent input PASS; all new-run cleanup PASS",
+  "localChecks": {
+    "pythonCompilation": "PASS",
+    "officialViewerBuild": "PASS with two upstream static warnings",
+    "freshCloudOrchestration": "NOT_RUN; phase-level live tests and local orchestration mocks retained"
+  },
+  "reportCorrection": {
+    "status": "PASS",
+    "validation": "results/report-correction-validation.json",
+    "mainMatrixRows": 318,
+    "functionalCountsPerRegion": {
+      "PASS": 153,
+      "FAIL": 2,
+      "BLOCKED": 2,
+      "NOT_AVAILABLE": 2
+    }
+  },
+  "issueReproductionGuide": {
+    "status": "PASS",
+    "validation": "results/issue-reproduction-doc-validation.json",
+    "cloudRerunThisTurn": false
+  },
+  "callerRepeat": {
+    "status": "REPRODUCED both regions",
+    "validation": "results/repro-caller-confirm-20260928/validation.json",
+    "invocations": 16,
+    "passingBaselines": 10,
+    "invalidTokenFailures": 6,
+    "cleanup": "PASS both regions",
+    "dedicatedRunnerFreshCloudRun": "PASS"
+  }
+}

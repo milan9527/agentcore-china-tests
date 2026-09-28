@@ -1,0 +1,1249 @@
+{
+  "generatedAt": "2026-09-28T07:57:50.066479+00:00",
+  "runs": [
+    {
+      "directory": "results",
+      "region": "cn-north-1",
+      "recordedResources": 57,
+      "deletedResources": 55,
+      "remainingRecordedResources": [
+        {
+          "kind": "kms",
+          "id": "9fc74828-2ad7-4602-b21b-054a406c75a0",
+          "scheduledDeletion": {
+            "keyState": "PendingDeletion",
+            "deletionDate": "2026-10-05 05:27:41.783000+00:00"
+          },
+          "cleanupResult": {
+            "keyState": "PendingDeletion",
+            "deletionDate": "2026-10-05 05:27:41.783000+00:00"
+          }
+        },
+        {
+          "kind": "sg",
+          "id": "sg-00ea1d13ed36ba5d3",
+          "cleanupResult": {
+            "type": "ClientError",
+            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-00ea1d13ed36ba5d3 has a dependent object"
+          }
+        }
+      ],
+      "verification": {
+        "time": "2026-09-28T06:22:11.919293+00:00",
+        "region": "cn-north-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "FAIL",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0928041532-bj-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0928041532-bj-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0928041532-bj-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0928041532-bj",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "lvvy6jfk64",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928041532-bj-qvzqlrwoke",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "profile",
+            "id": "ac_cn_0928041532_bj_profile-lMc2o3oorX",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "browser",
+            "id": "ac_cn_0928041532_bj_custom-HQH8kZrWth",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "kms",
+            "id": "9fc74828-2ad7-4602-b21b-054a406c75a0",
+            "status": "PendingDeletion",
+            "deletionDate": "2026-10-05 05:27:41.783000+00:00",
+            "arn": "arn:aws-cn:kms:cn-north-1:209915754514:key/9fc74828-2ad7-4602-b21b-054a406c75a0",
+            "ok": true
+          },
+          {
+            "kind": "sg",
+            "id": "sg-00ea1d13ed36ba5d3",
+            "status": "EXISTS",
+            "ok": false
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928041532-bj-root-ca-5qU9wu",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928041532-bj-proxy-t8GIgO",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "browser",
+            "id": "ac_cn_0928041532_bj_vpc-rkfvhcfFfj",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928041532-bj-kms-r1vvibegs2",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "efs",
+            "id": "fs-0f1aeac2f2ea2589a",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928041532-bj-http-akxdasfd89",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928041532-bj-jwt-public-voeq4b2x2k",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "browser",
+            "id": "ac_cn_0928041532_bj_policy-t3AfVSfyKE",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0928041532_bj-GDXfEQ3yHm",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/apikey/ac-cn-0928041532-bj-key-31a5d06e-oPCjAK",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928041532-bj-oauth-6b2d4822-YNdJxJ",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": false,
+            "interfaces": [
+              {
+                "NetworkInterfaceId": "eni-07785326177ebf70b",
+                "Status": "in-use",
+                "InterfaceType": "agentic_ai",
+                "Attachment": {
+                  "AttachmentId": "ela-attach-038e61a38ea5524f3",
+                  "DeleteOnTermination": false,
+                  "DeviceIndex": 1,
+                  "InstanceOwnerId": "amazon-aws",
+                  "Status": "attached"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "deferredCleanup": {
+        "status": "WAITING_FOR_AWS_ENI_RELEASE",
+        "pid": 2415600,
+        "profile": "china",
+        "startedAt": "2026-09-28T05:28:55.156171+00:00",
+        "updatedAt": "2026-09-28T07:57:38.554165+00:00",
+        "deadline": "2026-09-28T13:58:55.156171+00:00",
+        "targets": [
+          {
+            "region": "cn-north-1",
+            "id": "sg-00ea1d13ed36ba5d3",
+            "purposeTag": "ac-cn-0928041532-bj",
+            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+          },
+          {
+            "region": "cn-northwest-1",
+            "id": "sg-074039951f97aedee",
+            "purposeTag": "ac-cn-0928041532-nx",
+            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results",
+      "region": "cn-northwest-1",
+      "recordedResources": 57,
+      "deletedResources": 55,
+      "remainingRecordedResources": [
+        {
+          "kind": "kms",
+          "id": "e9e12008-d491-4524-945e-6d358281618a",
+          "scheduledDeletion": {
+            "keyState": "PendingDeletion",
+            "deletionDate": "2026-10-05 05:27:32.722000+00:00"
+          },
+          "cleanupResult": {
+            "keyState": "PendingDeletion",
+            "deletionDate": "2026-10-05 05:27:32.722000+00:00"
+          }
+        },
+        {
+          "kind": "sg",
+          "id": "sg-074039951f97aedee",
+          "cleanupResult": {
+            "type": "ClientError",
+            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-074039951f97aedee has a dependent object"
+          }
+        }
+      ],
+      "verification": {
+        "time": "2026-09-28T06:22:12.382020+00:00",
+        "region": "cn-northwest-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "FAIL",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0928041532-nx-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0928041532-nx-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0928041532-nx-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0928041532-nx",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "n7n78k6nw9",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928041532-nx-dozulyh9ks",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "profile",
+            "id": "ac_cn_0928041532_nx_profile-AyqeexjGH8",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "browser",
+            "id": "ac_cn_0928041532_nx_custom-z577nniGi4",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "kms",
+            "id": "e9e12008-d491-4524-945e-6d358281618a",
+            "status": "PendingDeletion",
+            "deletionDate": "2026-10-05 05:27:32.722000+00:00",
+            "arn": "arn:aws-cn:kms:cn-northwest-1:209915754514:key/e9e12008-d491-4524-945e-6d358281618a",
+            "ok": true
+          },
+          {
+            "kind": "sg",
+            "id": "sg-074039951f97aedee",
+            "status": "EXISTS",
+            "ok": false
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928041532-nx-root-ca-aMIxpF",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928041532-nx-proxy-TYBvbI",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "browser",
+            "id": "ac_cn_0928041532_nx_vpc-7kG1S9qRCX",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928041532-nx-kms-fgnumz5bkl",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "efs",
+            "id": "fs-0dc1385046057f5ad",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928041532-nx-http-oyl7fxhtyb",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928041532-nx-jwt-public-pibchmre3v",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "browser",
+            "id": "ac_cn_0928041532_nx_policy-MhYkaifvFu",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0928041532_nx-xNADWBCduP",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/apikey/ac-cn-0928041532-nx-key-a3ea446d-xo7fKv",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928041532-nx-oauth-5e1bdb10-6QVeRS",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": false,
+            "interfaces": [
+              {
+                "NetworkInterfaceId": "eni-04a5f2fc31f5dab40",
+                "Status": "in-use",
+                "InterfaceType": "agentic_ai",
+                "Attachment": {
+                  "AttachmentId": "ela-attach-054025ad5d83f9d33",
+                  "DeleteOnTermination": false,
+                  "DeviceIndex": 1,
+                  "InstanceOwnerId": "amazon-aws",
+                  "Status": "attached"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "deferredCleanup": {
+        "status": "WAITING_FOR_AWS_ENI_RELEASE",
+        "pid": 2415600,
+        "profile": "china",
+        "startedAt": "2026-09-28T05:28:55.156171+00:00",
+        "updatedAt": "2026-09-28T07:57:38.554165+00:00",
+        "deadline": "2026-09-28T13:58:55.156171+00:00",
+        "targets": [
+          {
+            "region": "cn-north-1",
+            "id": "sg-00ea1d13ed36ba5d3",
+            "purposeTag": "ac-cn-0928041532-bj",
+            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+          },
+          {
+            "region": "cn-northwest-1",
+            "id": "sg-074039951f97aedee",
+            "purposeTag": "ac-cn-0928041532-nx",
+            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/retest",
+      "region": "cn-north-1",
+      "recordedResources": 39,
+      "deletedResources": 38,
+      "remainingRecordedResources": [
+        {
+          "kind": "sg",
+          "id": "sg-03179feaec145cf84",
+          "cleanupResult": {
+            "type": "ClientError",
+            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-03179feaec145cf84 has a dependent object"
+          }
+        }
+      ],
+      "verification": {
+        "time": "2026-09-28T06:21:57.044984+00:00",
+        "region": "cn-north-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "FAIL",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0928054019-bj-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0928054019-bj-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0928054019-bj-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0928054019-bj",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "ag378y82je",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928054019-bj-jwt-1bhox8cbzb",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928054019-bj-jwt-http-gppnl9imyj",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928054019-bj-http-0schwd8rmw",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0928054019_bj-yVYWgZ6cOo",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0928054019-bj-caller",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928054019-bj-authenticate-only-vvek9dl34c",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "sg",
+            "id": "sg-03179feaec145cf84",
+            "status": "EXISTS",
+            "ok": false
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928054019-bj-root-ca-QqaNbw",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928054019-bj-proxy-UlHUCt",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "browser",
+            "id": "ac_cn_0928054019_bj_proxy-P3PHNHfJq2",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928054019-bj-private-probe-b6fyk500s9",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928054019-bj-client-credentials-bb640f5a-vDJeHd",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928054019-bj-token-exchange-1e5a7d88-9ES0OO",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928054019-bj-authorization-code-760332a2-z2Lgp5",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": [
+              {
+                "id": "i-0d464481334a906cb",
+                "status": "terminated"
+              },
+              {
+                "id": "i-089848b8f327fb283",
+                "status": "terminated"
+              }
+            ]
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": false,
+            "interfaces": [
+              {
+                "NetworkInterfaceId": "eni-0a46da98972913797",
+                "Status": "in-use",
+                "InterfaceType": "agentic_ai",
+                "Attachment": {
+                  "AttachmentId": "ela-attach-0baf0c551b14375e3",
+                  "DeleteOnTermination": false,
+                  "DeviceIndex": 1,
+                  "InstanceOwnerId": "amazon-aws",
+                  "Status": "attached"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "deferredCleanup": {
+        "status": "WAITING_FOR_AWS_ENI_RELEASE",
+        "pid": 2420121,
+        "profile": "china",
+        "startedAt": "2026-09-28T06:21:44.446448+00:00",
+        "updatedAt": "2026-09-28T07:57:38.242493+00:00",
+        "deadline": "2026-09-28T14:51:44.446448+00:00",
+        "targets": [
+          {
+            "region": "cn-north-1",
+            "id": "sg-03179feaec145cf84",
+            "purposeTag": "ac-cn-0928054019-bj",
+            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+          },
+          {
+            "region": "cn-northwest-1",
+            "id": "sg-0e9e501fda1882754",
+            "purposeTag": "ac-cn-0928054019-nx",
+            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/retest",
+      "region": "cn-northwest-1",
+      "recordedResources": 39,
+      "deletedResources": 38,
+      "remainingRecordedResources": [
+        {
+          "kind": "sg",
+          "id": "sg-0e9e501fda1882754",
+          "cleanupResult": {
+            "type": "ClientError",
+            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-0e9e501fda1882754 has a dependent object"
+          }
+        }
+      ],
+      "verification": {
+        "time": "2026-09-28T06:21:58.341314+00:00",
+        "region": "cn-northwest-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "FAIL",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0928054019-nx-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0928054019-nx-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0928054019-nx-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0928054019-nx",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "w4lqj2kqs3",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928054019-nx-jwt-8niapzl997",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928054019-nx-jwt-http-tg14fwhp79",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928054019-nx-http-bkmjizkbaw",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0928054019_nx-CRdufv3xQj",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0928054019-nx-caller",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928054019-nx-authenticate-only-mnyaszylmo",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "sg",
+            "id": "sg-0e9e501fda1882754",
+            "status": "EXISTS",
+            "ok": false
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928054019-nx-root-ca-Gqx3Gj",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928054019-nx-proxy-ORsIrv",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "browser",
+            "id": "ac_cn_0928054019_nx_proxy-Oilxo0i9bC",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928054019-nx-private-probe-lyfwodkfs4",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928054019-nx-client-credentials-03350671-AHyQAh",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928054019-nx-token-exchange-a1dbf0af-BL8gtm",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928054019-nx-authorization-code-b2aaae90-vcwm9c",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": [
+              {
+                "id": "i-01d6cf11e3aebe8bd",
+                "status": "terminated"
+              },
+              {
+                "id": "i-0fb6070aa44e90b20",
+                "status": "terminated"
+              }
+            ]
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": false,
+            "interfaces": [
+              {
+                "NetworkInterfaceId": "eni-02fc0026432a759bb",
+                "Status": "in-use",
+                "InterfaceType": "agentic_ai",
+                "Attachment": {
+                  "AttachmentId": "ela-attach-0bde1b5e63a7fcf61",
+                  "DeleteOnTermination": false,
+                  "DeviceIndex": 1,
+                  "InstanceOwnerId": "amazon-aws",
+                  "Status": "attached"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "deferredCleanup": {
+        "status": "WAITING_FOR_AWS_ENI_RELEASE",
+        "pid": 2420121,
+        "profile": "china",
+        "startedAt": "2026-09-28T06:21:44.446448+00:00",
+        "updatedAt": "2026-09-28T07:57:38.242493+00:00",
+        "deadline": "2026-09-28T14:51:44.446448+00:00",
+        "targets": [
+          {
+            "region": "cn-north-1",
+            "id": "sg-03179feaec145cf84",
+            "purposeTag": "ac-cn-0928054019-bj",
+            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+          },
+          {
+            "region": "cn-northwest-1",
+            "id": "sg-0e9e501fda1882754",
+            "purposeTag": "ac-cn-0928054019-nx",
+            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/retest-browser",
+      "region": "cn-north-1",
+      "recordedResources": 0,
+      "deletedResources": 0,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-28T06:16:50.697129+00:00",
+        "region": "cn-north-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/retest-browser",
+      "region": "cn-northwest-1",
+      "recordedResources": 0,
+      "deletedResources": 0,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-28T06:16:50.911643+00:00",
+        "region": "cn-northwest-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/retest-livewait",
+      "region": "cn-north-1",
+      "recordedResources": 0,
+      "deletedResources": 0,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-28T06:46:08.919332+00:00",
+        "region": "cn-north-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/retest-livewait",
+      "region": "cn-northwest-1",
+      "recordedResources": 0,
+      "deletedResources": 0,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-28T06:46:09.153456+00:00",
+        "region": "cn-northwest-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/retest-live-signature",
+      "region": "cn-north-1",
+      "recordedResources": 0,
+      "deletedResources": 0,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-28T06:44:43.115182+00:00",
+        "region": "cn-north-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/retest-live-signature",
+      "region": "cn-northwest-1",
+      "recordedResources": 0,
+      "deletedResources": 0,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-28T06:44:43.328797+00:00",
+        "region": "cn-northwest-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/retest-livewait-default",
+      "region": "cn-north-1",
+      "recordedResources": 0,
+      "deletedResources": 0,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-28T06:48:51.412130+00:00",
+        "region": "cn-north-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/retest-livewait-default",
+      "region": "cn-northwest-1",
+      "recordedResources": 0,
+      "deletedResources": 0,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-28T06:48:51.672482+00:00",
+        "region": "cn-northwest-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/repro-caller-confirm-20260928",
+      "region": "cn-north-1",
+      "recordedResources": 16,
+      "deletedResources": 16,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-28T07:54:37.149770+00:00",
+        "region": "cn-north-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0928074838-bj-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0928074838-bj-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0928074838-bj-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0928074838-bj",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "5mpeu89kh7",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928074838-bj-http-ec5rg6erhx",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0928074838_bj-x7XVnyE5Al",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0928074838-bj-caller",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928074838-bj-authenticate-only-1izuchrybv",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/repro-caller-confirm-20260928",
+      "region": "cn-northwest-1",
+      "recordedResources": 16,
+      "deletedResources": 16,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-28T07:54:37.505405+00:00",
+        "region": "cn-northwest-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0928074838-nx-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0928074838-nx-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0928074838-nx-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0928074838-nx",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "mdxhd9p71k",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928074838-nx-http-upuvqmwjcq",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0928074838_nx-7YJ7hK4XgG",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0928074838-nx-caller",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928074838-nx-authenticate-only-dpvyoe7q7y",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    }
+  ]
+}

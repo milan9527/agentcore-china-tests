@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@babel/runtime": "^8.0.5",
+    "@cloudscape-design/components": "^3.0.1387",
+    "@cloudscape-design/design-tokens": "^3.0.113",
+    "@cloudscape-design/global-styles": "^1.0.70",
+    "bedrock-agentcore": "^0.4.4",
+    "esbuild": "^0.28.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}

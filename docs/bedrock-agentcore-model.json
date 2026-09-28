@@ -1,0 +1,2122 @@
+{
+  "GetBrowserSession": {
+    "input": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "browserIdentifier",
+          "sessionId"
+        ]
+      },
+      "required": [
+        "browserIdentifier",
+        "sessionId"
+      ],
+      "members": {
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "browserIdentifier",
+          "sessionId",
+          "createdAt"
+        ]
+      },
+      "required": [
+        "browserIdentifier",
+        "sessionId",
+        "createdAt"
+      ],
+      "members": {
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        },
+        "name": {
+          "type": "string",
+          "metadata": {
+            "min": 1,
+            "max": 100
+          }
+        },
+        "createdAt": {
+          "type": "timestamp"
+        },
+        "viewPort": {
+          "type": "structure",
+          "metadata": {
+            "required": [
+              "width",
+              "height"
+            ]
+          },
+          "required": [
+            "width",
+            "height"
+          ],
+          "members": {
+            "width": {
+              "type": "integer",
+              "metadata": {
+                "min": 320,
+                "max": 3840
+              }
+            },
+            "height": {
+              "type": "integer",
+              "metadata": {
+                "min": 240,
+                "max": 2160
+              }
+            }
+          }
+        },
+        "extensions": {
+          "type": "list",
+          "metadata": {
+            "min": 1,
+            "max": 10
+          },
+          "member": {
+            "type": "structure",
+            "metadata": {
+              "required": [
+                "location"
+              ]
+            },
+            "required": [
+              "location"
+            ],
+            "members": {
+              "location": {
+                "type": "structure",
+                "metadata": {
+                  "union": true
+                },
+                "required": [],
+                "members": {
+                  "s3": {
+                    "type": "structure",
+                    "metadata": {
+                      "required": [
+                        "bucket",
+                        "prefix"
+                      ]
+                    },
+                    "required": [
+                      "bucket",
+                      "prefix"
+                    ],
+                    "members": {
+                      "bucket": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 3,
+                          "max": 63,
+                          "pattern": "[a-z0-9][a-z0-9.-]*[a-z0-9]"
+                        }
+                      },
+                      "prefix": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 1,
+                          "max": 1024
+                        }
+                      },
+                      "versionId": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 1,
+                          "max": 1024
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "enterprisePolicies": {
+          "type": "list",
+          "metadata": {
+            "min": 0,
+            "max": 100
+          },
+          "member": {
+            "type": "structure",
+            "metadata": {
+              "required": [
+                "location"
+              ]
+            },
+            "required": [
+              "location"
+            ],
+            "members": {
+              "location": {
+                "type": "structure",
+                "metadata": {
+                  "union": true
+                },
+                "required": [],
+                "members": {
+                  "s3": {
+                    "type": "structure",
+                    "metadata": {
+                      "required": [
+                        "bucket",
+                        "prefix"
+                      ]
+                    },
+                    "required": [
+                      "bucket",
+                      "prefix"
+                    ],
+                    "members": {
+                      "bucket": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 3,
+                          "max": 63,
+                          "pattern": "[a-z0-9][a-z0-9.-]*[a-z0-9]"
+                        }
+                      },
+                      "prefix": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 1,
+                          "max": 1024
+                        }
+                      },
+                      "versionId": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 1,
+                          "max": 1024
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "type": {
+                "type": "string",
+                "metadata": {
+                  "enum": [
+                    "MANAGED",
+                    "RECOMMENDED"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "profileConfiguration": {
+          "type": "structure",
+          "metadata": {
+            "required": [
+              "profileIdentifier"
+            ]
+          },
+          "required": [
+            "profileIdentifier"
+          ],
+          "members": {
+            "profileIdentifier": {
+              "type": "string",
+              "metadata": {
+                "pattern": "[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}"
+              }
+            }
+          }
+        },
+        "sessionTimeoutSeconds": {
+          "type": "integer",
+          "metadata": {
+            "min": 1,
+            "max": 28800
+          }
+        },
+        "status": {
+          "type": "string",
+          "metadata": {
+            "enum": [
+              "READY",
+              "TERMINATED"
+            ]
+          }
+        },
+        "streams": {
+          "type": "structure",
+          "metadata": {
+            "required": [
+              "automationStream"
+            ]
+          },
+          "required": [
+            "automationStream"
+          ],
+          "members": {
+            "automationStream": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "streamEndpoint",
+                  "streamStatus"
+                ]
+              },
+              "required": [
+                "streamEndpoint",
+                "streamStatus"
+              ],
+              "members": {
+                "streamEndpoint": {
+                  "type": "string",
+                  "metadata": {
+                    "min": 10,
+                    "max": 512
+                  }
+                },
+                "streamStatus": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "ENABLED",
+                      "DISABLED"
+                    ]
+                  }
+                }
+              }
+            },
+            "liveViewStream": {
+              "type": "structure",
+              "required": [],
+              "members": {
+                "streamEndpoint": {
+                  "type": "string",
+                  "metadata": {
+                    "min": 10,
+                    "max": 512
+                  }
+                }
+              }
+            }
+          }
+        },
+        "proxyConfiguration": {
+          "type": "structure",
+          "metadata": {
+            "required": [
+              "proxies"
+            ]
+          },
+          "required": [
+            "proxies"
+          ],
+          "members": {
+            "proxies": {
+              "type": "list",
+              "metadata": {
+                "min": 1,
+                "max": 5
+              },
+              "member": {
+                "type": "structure",
+                "metadata": {
+                  "union": true
+                },
+                "required": [],
+                "members": {
+                  "externalProxy": {
+                    "type": "structure",
+                    "metadata": {
+                      "required": [
+                        "server",
+                        "port"
+                      ]
+                    },
+                    "required": [
+                      "server",
+                      "port"
+                    ],
+                    "members": {
+                      "server": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 1,
+                          "max": 253,
+                          "pattern": "[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?)*"
+                        }
+                      },
+                      "port": {
+                        "type": "integer",
+                        "metadata": {
+                          "min": 1,
+                          "max": 65535
+                        }
+                      },
+                      "domainPatterns": {
+                        "type": "list",
+                        "metadata": {
+                          "min": 1,
+                          "max": 100
+                        },
+                        "member": {
+                          "type": "string",
+                          "metadata": {
+                            "min": 1,
+                            "max": 253,
+                            "pattern": "(\\.)?[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?)*"
+                          }
+                        }
+                      },
+                      "credentials": {
+                        "type": "structure",
+                        "metadata": {
+                          "union": true
+                        },
+                        "required": [],
+                        "members": {
+                          "basicAuth": {
+                            "type": "structure",
+                            "metadata": {
+                              "required": [
+                                "secretArn"
+                              ]
+                            },
+                            "required": [
+                              "secretArn"
+                            ],
+                            "members": {
+                              "secretArn": {
+                                "type": "string",
+                                "metadata": {
+                                  "pattern": "arn:aws(-[a-z-]+)?:secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "bypass": {
+              "type": "structure",
+              "required": [],
+              "members": {
+                "domainPatterns": {
+                  "type": "list",
+                  "metadata": {
+                    "min": 1,
+                    "max": 100
+                  },
+                  "member": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 1,
+                      "max": 253,
+                      "pattern": "(\\.)?[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?)*"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "certificates": {
+          "type": "list",
+          "metadata": {
+            "min": 1,
+            "max": 200
+          },
+          "member": {
+            "type": "structure",
+            "metadata": {
+              "required": [
+                "location"
+              ]
+            },
+            "required": [
+              "location"
+            ],
+            "members": {
+              "location": {
+                "type": "structure",
+                "metadata": {
+                  "union": true
+                },
+                "required": [],
+                "members": {
+                  "secretsManager": {
+                    "type": "structure",
+                    "metadata": {
+                      "required": [
+                        "secretArn"
+                      ]
+                    },
+                    "required": [
+                      "secretArn"
+                    ],
+                    "members": {
+                      "secretArn": {
+                        "type": "string",
+                        "metadata": {
+                          "pattern": "arn:aws(-[a-z-]+)?:secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "filesystemConfigurations": {
+          "type": "list",
+          "metadata": {
+            "min": 0,
+            "max": 10
+          },
+          "member": {
+            "type": "structure",
+            "metadata": {
+              "union": true
+            },
+            "required": [],
+            "members": {
+              "s3FilesConfiguration": {
+                "type": "structure",
+                "metadata": {
+                  "required": [
+                    "accessPointArn",
+                    "mountPath",
+                    "fileSystemArn"
+                  ]
+                },
+                "required": [
+                  "accessPointArn",
+                  "mountPath",
+                  "fileSystemArn"
+                ],
+                "members": {
+                  "accessPointArn": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 0,
+                      "max": 256,
+                      "pattern": "arn:aws[-a-z]*:s3files:[0-9a-z-:]+:file-system/fs-[0-9a-f]{17,40}/access-point/fsap-[0-9a-f]{17,40}"
+                    }
+                  },
+                  "mountPath": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 6,
+                      "max": 200,
+                      "pattern": "/mnt/[a-zA-Z0-9._-]+/?"
+                    }
+                  },
+                  "fileSystemArn": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 0,
+                      "max": 256,
+                      "pattern": "arn:aws[-a-z]*:s3files:[a-z0-9-]+:[0-9]{12}:file-system/fs-[0-9a-f]{17,40}"
+                    }
+                  }
+                }
+              },
+              "efsConfiguration": {
+                "type": "structure",
+                "metadata": {
+                  "required": [
+                    "accessPointArn",
+                    "mountPath",
+                    "fileSystemArn"
+                  ]
+                },
+                "required": [
+                  "accessPointArn",
+                  "mountPath",
+                  "fileSystemArn"
+                ],
+                "members": {
+                  "accessPointArn": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 0,
+                      "max": 128,
+                      "pattern": "arn:aws[-a-z]*:elasticfilesystem:[0-9a-z-:]+:access-point/fsap-[0-9a-f]{8,40}"
+                    }
+                  },
+                  "mountPath": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 6,
+                      "max": 200,
+                      "pattern": "/mnt/[a-zA-Z0-9._-]+/?"
+                    }
+                  },
+                  "fileSystemArn": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 0,
+                      "max": 256,
+                      "pattern": "arn:aws[-a-z]*:elasticfilesystem:[a-z0-9-]+:[0-9]{12}:file-system/fs-[0-9a-f]{8,40}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sessionReplayArtifact": {
+          "type": "string"
+        },
+        "lastUpdatedAt": {
+          "type": "timestamp"
+        }
+      }
+    }
+  },
+  "InvokeBrowser": {
+    "input": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "browserIdentifier",
+          "sessionId",
+          "action"
+        ]
+      },
+      "required": [
+        "browserIdentifier",
+        "sessionId",
+        "action"
+      ],
+      "members": {
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        },
+        "action": {
+          "type": "structure",
+          "metadata": {
+            "union": true
+          },
+          "required": [],
+          "members": {
+            "mouseClick": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "required": [
+                "x",
+                "y"
+              ],
+              "members": {
+                "x": {
+                  "type": "integer"
+                },
+                "y": {
+                  "type": "integer"
+                },
+                "button": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "LEFT",
+                      "RIGHT",
+                      "MIDDLE"
+                    ]
+                  }
+                },
+                "clickCount": {
+                  "type": "integer",
+                  "metadata": {
+                    "min": 1,
+                    "max": 10
+                  }
+                }
+              }
+            },
+            "mouseMove": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "required": [
+                "x",
+                "y"
+              ],
+              "members": {
+                "x": {
+                  "type": "integer"
+                },
+                "y": {
+                  "type": "integer"
+                }
+              }
+            },
+            "mouseDrag": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "endX",
+                  "endY",
+                  "startX",
+                  "startY"
+                ]
+              },
+              "required": [
+                "endX",
+                "endY",
+                "startX",
+                "startY"
+              ],
+              "members": {
+                "endX": {
+                  "type": "integer"
+                },
+                "endY": {
+                  "type": "integer"
+                },
+                "startX": {
+                  "type": "integer"
+                },
+                "startY": {
+                  "type": "integer"
+                },
+                "button": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "LEFT",
+                      "RIGHT",
+                      "MIDDLE"
+                    ]
+                  }
+                }
+              }
+            },
+            "mouseScroll": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "required": [
+                "x",
+                "y"
+              ],
+              "members": {
+                "x": {
+                  "type": "integer"
+                },
+                "y": {
+                  "type": "integer"
+                },
+                "deltaX": {
+                  "type": "integer",
+                  "metadata": {
+                    "min": -1000,
+                    "max": 1000
+                  }
+                },
+                "deltaY": {
+                  "type": "integer",
+                  "metadata": {
+                    "min": -1000,
+                    "max": 1000
+                  }
+                }
+              }
+            },
+            "keyType": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "text"
+                ]
+              },
+              "required": [
+                "text"
+              ],
+              "members": {
+                "text": {
+                  "type": "string",
+                  "metadata": {
+                    "min": 0,
+                    "max": 10000
+                  }
+                }
+              }
+            },
+            "keyPress": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "key"
+                ]
+              },
+              "required": [
+                "key"
+              ],
+              "members": {
+                "key": {
+                  "type": "string"
+                },
+                "presses": {
+                  "type": "integer",
+                  "metadata": {
+                    "min": 1,
+                    "max": 100
+                  }
+                }
+              }
+            },
+            "keyShortcut": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "keys"
+                ]
+              },
+              "required": [
+                "keys"
+              ],
+              "members": {
+                "keys": {
+                  "type": "list",
+                  "metadata": {
+                    "min": 1,
+                    "max": 5
+                  },
+                  "member": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "screenshot": {
+              "type": "structure",
+              "required": [],
+              "members": {
+                "format": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "PNG"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "result",
+          "sessionId"
+        ]
+      },
+      "required": [
+        "result",
+        "sessionId"
+      ],
+      "members": {
+        "result": {
+          "type": "structure",
+          "metadata": {
+            "union": true
+          },
+          "required": [],
+          "members": {
+            "mouseClick": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "status"
+                ]
+              },
+              "required": [
+                "status"
+              ],
+              "members": {
+                "status": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "SUCCESS",
+                      "FAILED"
+                    ]
+                  }
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "mouseMove": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "status"
+                ]
+              },
+              "required": [
+                "status"
+              ],
+              "members": {
+                "status": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "SUCCESS",
+                      "FAILED"
+                    ]
+                  }
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "mouseDrag": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "status"
+                ]
+              },
+              "required": [
+                "status"
+              ],
+              "members": {
+                "status": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "SUCCESS",
+                      "FAILED"
+                    ]
+                  }
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "mouseScroll": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "status"
+                ]
+              },
+              "required": [
+                "status"
+              ],
+              "members": {
+                "status": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "SUCCESS",
+                      "FAILED"
+                    ]
+                  }
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "keyType": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "status"
+                ]
+              },
+              "required": [
+                "status"
+              ],
+              "members": {
+                "status": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "SUCCESS",
+                      "FAILED"
+                    ]
+                  }
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "keyPress": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "status"
+                ]
+              },
+              "required": [
+                "status"
+              ],
+              "members": {
+                "status": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "SUCCESS",
+                      "FAILED"
+                    ]
+                  }
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "keyShortcut": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "status"
+                ]
+              },
+              "required": [
+                "status"
+              ],
+              "members": {
+                "status": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "SUCCESS",
+                      "FAILED"
+                    ]
+                  }
+                },
+                "error": {
+                  "type": "string"
+                }
+              }
+            },
+            "screenshot": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "status"
+                ]
+              },
+              "required": [
+                "status"
+              ],
+              "members": {
+                "status": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "SUCCESS",
+                      "FAILED"
+                    ]
+                  }
+                },
+                "error": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "blob"
+                }
+              }
+            }
+          }
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        }
+      }
+    }
+  },
+  "ListBrowserSessions": {
+    "input": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "browserIdentifier"
+        ]
+      },
+      "required": [
+        "browserIdentifier"
+      ],
+      "members": {
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "maxResults": {
+          "type": "integer",
+          "metadata": {
+            "min": 1,
+            "max": 100
+          }
+        },
+        "nextToken": {
+          "type": "string",
+          "metadata": {
+            "min": 1,
+            "max": 2048,
+            "pattern": "\\S*"
+          }
+        },
+        "status": {
+          "type": "string",
+          "metadata": {
+            "enum": [
+              "READY",
+              "TERMINATED"
+            ]
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "items"
+        ]
+      },
+      "required": [
+        "items"
+      ],
+      "members": {
+        "items": {
+          "type": "list",
+          "member": {
+            "type": "structure",
+            "metadata": {
+              "required": [
+                "browserIdentifier",
+                "sessionId",
+                "status",
+                "createdAt"
+              ]
+            },
+            "required": [
+              "browserIdentifier",
+              "sessionId",
+              "status",
+              "createdAt"
+            ],
+            "members": {
+              "browserIdentifier": {
+                "type": "string"
+              },
+              "sessionId": {
+                "type": "string",
+                "metadata": {
+                  "pattern": "[0-9a-zA-Z]{1,40}"
+                }
+              },
+              "name": {
+                "type": "string",
+                "metadata": {
+                  "min": 1,
+                  "max": 100
+                }
+              },
+              "status": {
+                "type": "string",
+                "metadata": {
+                  "enum": [
+                    "READY",
+                    "TERMINATED"
+                  ]
+                }
+              },
+              "createdAt": {
+                "type": "timestamp"
+              },
+              "lastUpdatedAt": {
+                "type": "timestamp"
+              }
+            }
+          }
+        },
+        "nextToken": {
+          "type": "string",
+          "metadata": {
+            "min": 1,
+            "max": 2048,
+            "pattern": "\\S*"
+          }
+        }
+      }
+    }
+  },
+  "SaveBrowserSessionProfile": {
+    "input": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "profileIdentifier",
+          "browserIdentifier",
+          "sessionId"
+        ]
+      },
+      "required": [
+        "profileIdentifier",
+        "browserIdentifier",
+        "sessionId"
+      ],
+      "members": {
+        "traceId": {
+          "type": "string",
+          "metadata": {
+            "min": 0,
+            "max": 1024
+          }
+        },
+        "traceParent": {
+          "type": "string",
+          "metadata": {
+            "min": 0,
+            "max": 1024
+          }
+        },
+        "profileIdentifier": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}"
+          }
+        },
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        },
+        "clientToken": {
+          "type": "string",
+          "metadata": {
+            "min": 33,
+            "max": 256,
+            "pattern": "[a-zA-Z0-9](-*[a-zA-Z0-9]){0,256}",
+            "idempotencyToken": true
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "profileIdentifier",
+          "browserIdentifier",
+          "sessionId",
+          "lastUpdatedAt"
+        ]
+      },
+      "required": [
+        "profileIdentifier",
+        "browserIdentifier",
+        "sessionId",
+        "lastUpdatedAt"
+      ],
+      "members": {
+        "profileIdentifier": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}"
+          }
+        },
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        },
+        "lastUpdatedAt": {
+          "type": "timestamp"
+        }
+      }
+    }
+  },
+  "StartBrowserSession": {
+    "input": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "browserIdentifier"
+        ]
+      },
+      "required": [
+        "browserIdentifier"
+      ],
+      "members": {
+        "traceId": {
+          "type": "string",
+          "metadata": {
+            "min": 0,
+            "max": 1024
+          }
+        },
+        "traceParent": {
+          "type": "string",
+          "metadata": {
+            "min": 0,
+            "max": 1024
+          }
+        },
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "metadata": {
+            "min": 1,
+            "max": 100
+          }
+        },
+        "sessionTimeoutSeconds": {
+          "type": "integer",
+          "metadata": {
+            "min": 1,
+            "max": 28800
+          }
+        },
+        "viewPort": {
+          "type": "structure",
+          "metadata": {
+            "required": [
+              "width",
+              "height"
+            ]
+          },
+          "required": [
+            "width",
+            "height"
+          ],
+          "members": {
+            "width": {
+              "type": "integer",
+              "metadata": {
+                "min": 320,
+                "max": 3840
+              }
+            },
+            "height": {
+              "type": "integer",
+              "metadata": {
+                "min": 240,
+                "max": 2160
+              }
+            }
+          }
+        },
+        "extensions": {
+          "type": "list",
+          "metadata": {
+            "min": 1,
+            "max": 10
+          },
+          "member": {
+            "type": "structure",
+            "metadata": {
+              "required": [
+                "location"
+              ]
+            },
+            "required": [
+              "location"
+            ],
+            "members": {
+              "location": {
+                "type": "structure",
+                "metadata": {
+                  "union": true
+                },
+                "required": [],
+                "members": {
+                  "s3": {
+                    "type": "structure",
+                    "metadata": {
+                      "required": [
+                        "bucket",
+                        "prefix"
+                      ]
+                    },
+                    "required": [
+                      "bucket",
+                      "prefix"
+                    ],
+                    "members": {
+                      "bucket": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 3,
+                          "max": 63,
+                          "pattern": "[a-z0-9][a-z0-9.-]*[a-z0-9]"
+                        }
+                      },
+                      "prefix": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 1,
+                          "max": 1024
+                        }
+                      },
+                      "versionId": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 1,
+                          "max": 1024
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "profileConfiguration": {
+          "type": "structure",
+          "metadata": {
+            "required": [
+              "profileIdentifier"
+            ]
+          },
+          "required": [
+            "profileIdentifier"
+          ],
+          "members": {
+            "profileIdentifier": {
+              "type": "string",
+              "metadata": {
+                "pattern": "[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}"
+              }
+            }
+          }
+        },
+        "proxyConfiguration": {
+          "type": "structure",
+          "metadata": {
+            "required": [
+              "proxies"
+            ]
+          },
+          "required": [
+            "proxies"
+          ],
+          "members": {
+            "proxies": {
+              "type": "list",
+              "metadata": {
+                "min": 1,
+                "max": 5
+              },
+              "member": {
+                "type": "structure",
+                "metadata": {
+                  "union": true
+                },
+                "required": [],
+                "members": {
+                  "externalProxy": {
+                    "type": "structure",
+                    "metadata": {
+                      "required": [
+                        "server",
+                        "port"
+                      ]
+                    },
+                    "required": [
+                      "server",
+                      "port"
+                    ],
+                    "members": {
+                      "server": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 1,
+                          "max": 253,
+                          "pattern": "[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?)*"
+                        }
+                      },
+                      "port": {
+                        "type": "integer",
+                        "metadata": {
+                          "min": 1,
+                          "max": 65535
+                        }
+                      },
+                      "domainPatterns": {
+                        "type": "list",
+                        "metadata": {
+                          "min": 1,
+                          "max": 100
+                        },
+                        "member": {
+                          "type": "string",
+                          "metadata": {
+                            "min": 1,
+                            "max": 253,
+                            "pattern": "(\\.)?[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?)*"
+                          }
+                        }
+                      },
+                      "credentials": {
+                        "type": "structure",
+                        "metadata": {
+                          "union": true
+                        },
+                        "required": [],
+                        "members": {
+                          "basicAuth": {
+                            "type": "structure",
+                            "metadata": {
+                              "required": [
+                                "secretArn"
+                              ]
+                            },
+                            "required": [
+                              "secretArn"
+                            ],
+                            "members": {
+                              "secretArn": {
+                                "type": "string",
+                                "metadata": {
+                                  "pattern": "arn:aws(-[a-z-]+)?:secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "bypass": {
+              "type": "structure",
+              "required": [],
+              "members": {
+                "domainPatterns": {
+                  "type": "list",
+                  "metadata": {
+                    "min": 1,
+                    "max": 100
+                  },
+                  "member": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 1,
+                      "max": 253,
+                      "pattern": "(\\.)?[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?)*"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "enterprisePolicies": {
+          "type": "list",
+          "metadata": {
+            "min": 0,
+            "max": 100
+          },
+          "member": {
+            "type": "structure",
+            "metadata": {
+              "required": [
+                "location"
+              ]
+            },
+            "required": [
+              "location"
+            ],
+            "members": {
+              "location": {
+                "type": "structure",
+                "metadata": {
+                  "union": true
+                },
+                "required": [],
+                "members": {
+                  "s3": {
+                    "type": "structure",
+                    "metadata": {
+                      "required": [
+                        "bucket",
+                        "prefix"
+                      ]
+                    },
+                    "required": [
+                      "bucket",
+                      "prefix"
+                    ],
+                    "members": {
+                      "bucket": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 3,
+                          "max": 63,
+                          "pattern": "[a-z0-9][a-z0-9.-]*[a-z0-9]"
+                        }
+                      },
+                      "prefix": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 1,
+                          "max": 1024
+                        }
+                      },
+                      "versionId": {
+                        "type": "string",
+                        "metadata": {
+                          "min": 1,
+                          "max": 1024
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "type": {
+                "type": "string",
+                "metadata": {
+                  "enum": [
+                    "MANAGED",
+                    "RECOMMENDED"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "certificates": {
+          "type": "list",
+          "metadata": {
+            "min": 1,
+            "max": 200
+          },
+          "member": {
+            "type": "structure",
+            "metadata": {
+              "required": [
+                "location"
+              ]
+            },
+            "required": [
+              "location"
+            ],
+            "members": {
+              "location": {
+                "type": "structure",
+                "metadata": {
+                  "union": true
+                },
+                "required": [],
+                "members": {
+                  "secretsManager": {
+                    "type": "structure",
+                    "metadata": {
+                      "required": [
+                        "secretArn"
+                      ]
+                    },
+                    "required": [
+                      "secretArn"
+                    ],
+                    "members": {
+                      "secretArn": {
+                        "type": "string",
+                        "metadata": {
+                          "pattern": "arn:aws(-[a-z-]+)?:secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "filesystemConfigurations": {
+          "type": "list",
+          "metadata": {
+            "min": 0,
+            "max": 10
+          },
+          "member": {
+            "type": "structure",
+            "metadata": {
+              "union": true
+            },
+            "required": [],
+            "members": {
+              "s3FilesConfiguration": {
+                "type": "structure",
+                "metadata": {
+                  "required": [
+                    "accessPointArn",
+                    "mountPath",
+                    "fileSystemArn"
+                  ]
+                },
+                "required": [
+                  "accessPointArn",
+                  "mountPath",
+                  "fileSystemArn"
+                ],
+                "members": {
+                  "accessPointArn": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 0,
+                      "max": 256,
+                      "pattern": "arn:aws[-a-z]*:s3files:[0-9a-z-:]+:file-system/fs-[0-9a-f]{17,40}/access-point/fsap-[0-9a-f]{17,40}"
+                    }
+                  },
+                  "mountPath": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 6,
+                      "max": 200,
+                      "pattern": "/mnt/[a-zA-Z0-9._-]+/?"
+                    }
+                  },
+                  "fileSystemArn": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 0,
+                      "max": 256,
+                      "pattern": "arn:aws[-a-z]*:s3files:[a-z0-9-]+:[0-9]{12}:file-system/fs-[0-9a-f]{17,40}"
+                    }
+                  }
+                }
+              },
+              "efsConfiguration": {
+                "type": "structure",
+                "metadata": {
+                  "required": [
+                    "accessPointArn",
+                    "mountPath",
+                    "fileSystemArn"
+                  ]
+                },
+                "required": [
+                  "accessPointArn",
+                  "mountPath",
+                  "fileSystemArn"
+                ],
+                "members": {
+                  "accessPointArn": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 0,
+                      "max": 128,
+                      "pattern": "arn:aws[-a-z]*:elasticfilesystem:[0-9a-z-:]+:access-point/fsap-[0-9a-f]{8,40}"
+                    }
+                  },
+                  "mountPath": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 6,
+                      "max": 200,
+                      "pattern": "/mnt/[a-zA-Z0-9._-]+/?"
+                    }
+                  },
+                  "fileSystemArn": {
+                    "type": "string",
+                    "metadata": {
+                      "min": 0,
+                      "max": 256,
+                      "pattern": "arn:aws[-a-z]*:elasticfilesystem:[a-z0-9-]+:[0-9]{12}:file-system/fs-[0-9a-f]{8,40}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "clientToken": {
+          "type": "string",
+          "metadata": {
+            "min": 33,
+            "max": 256,
+            "pattern": "[a-zA-Z0-9](-*[a-zA-Z0-9]){0,256}",
+            "idempotencyToken": true
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "browserIdentifier",
+          "sessionId",
+          "createdAt"
+        ]
+      },
+      "required": [
+        "browserIdentifier",
+        "sessionId",
+        "createdAt"
+      ],
+      "members": {
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        },
+        "createdAt": {
+          "type": "timestamp"
+        },
+        "streams": {
+          "type": "structure",
+          "metadata": {
+            "required": [
+              "automationStream"
+            ]
+          },
+          "required": [
+            "automationStream"
+          ],
+          "members": {
+            "automationStream": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "streamEndpoint",
+                  "streamStatus"
+                ]
+              },
+              "required": [
+                "streamEndpoint",
+                "streamStatus"
+              ],
+              "members": {
+                "streamEndpoint": {
+                  "type": "string",
+                  "metadata": {
+                    "min": 10,
+                    "max": 512
+                  }
+                },
+                "streamStatus": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "ENABLED",
+                      "DISABLED"
+                    ]
+                  }
+                }
+              }
+            },
+            "liveViewStream": {
+              "type": "structure",
+              "required": [],
+              "members": {
+                "streamEndpoint": {
+                  "type": "string",
+                  "metadata": {
+                    "min": 10,
+                    "max": 512
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "StopBrowserSession": {
+    "input": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "browserIdentifier",
+          "sessionId"
+        ]
+      },
+      "required": [
+        "browserIdentifier",
+        "sessionId"
+      ],
+      "members": {
+        "traceId": {
+          "type": "string",
+          "metadata": {
+            "min": 0,
+            "max": 1024
+          }
+        },
+        "traceParent": {
+          "type": "string",
+          "metadata": {
+            "min": 0,
+            "max": 1024
+          }
+        },
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        },
+        "clientToken": {
+          "type": "string",
+          "metadata": {
+            "min": 33,
+            "max": 256,
+            "pattern": "[a-zA-Z0-9](-*[a-zA-Z0-9]){0,256}",
+            "idempotencyToken": true
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "browserIdentifier",
+          "sessionId",
+          "lastUpdatedAt"
+        ]
+      },
+      "required": [
+        "browserIdentifier",
+        "sessionId",
+        "lastUpdatedAt"
+      ],
+      "members": {
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        },
+        "lastUpdatedAt": {
+          "type": "timestamp"
+        }
+      }
+    }
+  },
+  "UpdateBrowserStream": {
+    "input": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "browserIdentifier",
+          "sessionId",
+          "streamUpdate"
+        ]
+      },
+      "required": [
+        "browserIdentifier",
+        "sessionId",
+        "streamUpdate"
+      ],
+      "members": {
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        },
+        "streamUpdate": {
+          "type": "structure",
+          "metadata": {
+            "union": true
+          },
+          "required": [],
+          "members": {
+            "automationStreamUpdate": {
+              "type": "structure",
+              "required": [],
+              "members": {
+                "streamStatus": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "ENABLED",
+                      "DISABLED"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "clientToken": {
+          "type": "string",
+          "metadata": {
+            "min": 33,
+            "max": 256,
+            "pattern": "[a-zA-Z0-9](-*[a-zA-Z0-9]){0,256}",
+            "idempotencyToken": true
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "structure",
+      "metadata": {
+        "required": [
+          "browserIdentifier",
+          "sessionId",
+          "streams",
+          "updatedAt"
+        ]
+      },
+      "required": [
+        "browserIdentifier",
+        "sessionId",
+        "streams",
+        "updatedAt"
+      ],
+      "members": {
+        "browserIdentifier": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string",
+          "metadata": {
+            "pattern": "[0-9a-zA-Z]{1,40}"
+          }
+        },
+        "streams": {
+          "type": "structure",
+          "metadata": {
+            "required": [
+              "automationStream"
+            ]
+          },
+          "required": [
+            "automationStream"
+          ],
+          "members": {
+            "automationStream": {
+              "type": "structure",
+              "metadata": {
+                "required": [
+                  "streamEndpoint",
+                  "streamStatus"
+                ]
+              },
+              "required": [
+                "streamEndpoint",
+                "streamStatus"
+              ],
+              "members": {
+                "streamEndpoint": {
+                  "type": "string",
+                  "metadata": {
+                    "min": 10,
+                    "max": 512
+                  }
+                },
+                "streamStatus": {
+                  "type": "string",
+                  "metadata": {
+                    "enum": [
+                      "ENABLED",
+                      "DISABLED"
+                    ]
+                  }
+                }
+              }
+            },
+            "liveViewStream": {
+              "type": "structure",
+              "required": [],
+              "members": {
+                "streamEndpoint": {
+                  "type": "string",
+                  "metadata": {
+                    "min": 10,
+                    "max": 512
+                  }
+                }
+              }
+            }
+          }
+        },
+        "updatedAt": {
+          "type": "timestamp"
+        }
+      }
+    }
+  }
+}

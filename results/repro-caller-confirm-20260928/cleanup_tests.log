@@ -1,0 +1,47 @@
+{"time": "2026-09-28T07:53:52.227290+00:00", "event": "start", "command": ["/home/ec2-user/agentcore/cn/.venv/bin/python", "/home/ec2-user/agentcore/cn/retest.py", "cleanup_tests"], "cwd": "/home/ec2-user/agentcore/cn", "profile": "china", "regions": ["cn-north-1", "cn-northwest-1"], "environment": {"RETEST_RESULTS_DIR": "/home/ec2-user/agentcore/cn/results/repro-caller-confirm-20260928", "VERIFY_RESULTS_DIR": "/home/ec2-user/agentcore/cn/results/repro-caller-confirm-20260928", "RETEST_VERBOSE": "1"}, "extraEnvironment": {"CLEANUP_SG_WAIT_SECONDS": "20"}}
+[cn-north-1] START cleanup_tests.suite
+[cn-north-1] PASS: cleanup.browser_sessions
+{"time": "2026-09-28T07:53:53.193004+00:00", "region": "cn-north-1", "feature": "cleanup.browser_sessions", "status": "PASS", "evidence": []}
+[cn-northwest-1] START cleanup_tests.suite
+[cn-northwest-1] PASS: cleanup.browser_sessions
+{"time": "2026-09-28T07:53:53.231473+00:00", "region": "cn-northwest-1", "feature": "cleanup.browser_sessions", "status": "PASS", "evidence": []}
+[cn-north-1] PASS: cleanup.target
+{"time": "2026-09-28T07:54:09.638273+00:00", "region": "cn-north-1", "feature": "cleanup.target", "status": "PASS", "evidence": [{"id": "T62YSNX4TN", "deleted": true, "detail": {"deleted": true}}, {"id": "8HGKBJOEC5", "deleted": true, "detail": {"deleted": true}}, {"id": "2IQLXCJXBU", "deleted": true, "detail": {"deleted": true}}, {"id": "3IEEQME9FV", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.target
+{"time": "2026-09-28T07:54:09.831260+00:00", "region": "cn-northwest-1", "feature": "cleanup.target", "status": "PASS", "evidence": [{"id": "M2NIB5Q2U3", "deleted": true, "detail": {"deleted": true}}, {"id": "SULNJHGUPN", "deleted": true, "detail": {"deleted": true}}, {"id": "UWTLSB2WZW", "deleted": true, "detail": {"deleted": true}}, {"id": "1UH2JRRPVX", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.gateway
+{"time": "2026-09-28T07:54:13.481105+00:00", "region": "cn-north-1", "feature": "cleanup.gateway", "status": "PASS", "evidence": [{"id": "ac-cn-0928074838-bj-http-ec5rg6erhx", "deleted": true, "detail": {"deleted": true}}, {"id": "ac-cn-0928074838-bj-authenticate-only-1izuchrybv", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.gateway
+{"time": "2026-09-28T07:54:13.733372+00:00", "region": "cn-northwest-1", "feature": "cleanup.gateway", "status": "PASS", "evidence": [{"id": "ac-cn-0928074838-nx-http-upuvqmwjcq", "deleted": true, "detail": {"deleted": true}}, {"id": "ac-cn-0928074838-nx-authenticate-only-dpvyoe7q7y", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.runtime
+{"time": "2026-09-28T07:54:17.475996+00:00", "region": "cn-north-1", "feature": "cleanup.runtime", "status": "PASS", "evidence": [{"id": "ac_cn_0928074838_bj-x7XVnyE5Al", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.workload
+{"time": "2026-09-28T07:54:17.734294+00:00", "region": "cn-north-1", "feature": "cleanup.workload", "status": "PASS", "evidence": [{"id": "ac-cn-0928074838-bj-http-ec5rg6erhx", "deleted": true, "detail": {"alreadyAbsent": true}}, {"id": "ac_cn_0928074838_bj-x7XVnyE5Al", "deleted": true, "detail": {"alreadyAbsent": true}}, {"id": "ac-cn-0928074838-bj-authenticate-only-1izuchrybv", "deleted": true, "detail": {"alreadyAbsent": true}}]}
+[cn-northwest-1] PASS: cleanup.runtime
+{"time": "2026-09-28T07:54:17.800887+00:00", "region": "cn-northwest-1", "feature": "cleanup.runtime", "status": "PASS", "evidence": [{"id": "ac_cn_0928074838_nx-7YJ7hK4XgG", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.workload
+{"time": "2026-09-28T07:54:18.087077+00:00", "region": "cn-northwest-1", "feature": "cleanup.workload", "status": "PASS", "evidence": [{"id": "ac-cn-0928074838-nx-http-upuvqmwjcq", "deleted": true, "detail": {"alreadyAbsent": true}}, {"id": "ac_cn_0928074838_nx-7YJ7hK4XgG", "deleted": true, "detail": {"alreadyAbsent": true}}, {"id": "ac-cn-0928074838-nx-authenticate-only-dpvyoe7q7y", "deleted": true, "detail": {"alreadyAbsent": true}}]}
+[cn-north-1] PASS: cleanup.api
+{"time": "2026-09-28T07:54:21.246673+00:00", "region": "cn-north-1", "feature": "cleanup.api", "status": "PASS", "evidence": [{"id": "5mpeu89kh7", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.api
+{"time": "2026-09-28T07:54:21.531156+00:00", "region": "cn-northwest-1", "feature": "cleanup.api", "status": "PASS", "evidence": [{"id": "mdxhd9p71k", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.lambda
+{"time": "2026-09-28T07:54:22.326651+00:00", "region": "cn-north-1", "feature": "cleanup.lambda", "status": "PASS", "evidence": [{"id": "ac-cn-0928074838-bj", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.lambda
+{"time": "2026-09-28T07:54:22.801654+00:00", "region": "cn-northwest-1", "feature": "cleanup.lambda", "status": "PASS", "evidence": [{"id": "ac-cn-0928074838-nx", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.bucket
+{"time": "2026-09-28T07:54:25.094244+00:00", "region": "cn-north-1", "feature": "cleanup.bucket", "status": "PASS", "evidence": [{"id": "ac-cn-0928074838-bj-209915754514", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.bucket
+{"time": "2026-09-28T07:54:26.060402+00:00", "region": "cn-northwest-1", "feature": "cleanup.bucket", "status": "PASS", "evidence": [{"id": "ac-cn-0928074838-nx-209915754514", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.role
+{"time": "2026-09-28T07:54:27.202669+00:00", "region": "cn-north-1", "feature": "cleanup.role", "status": "PASS", "evidence": [{"id": "ac-cn-0928074838-bj-lambda", "deleted": true, "detail": {"deleted": true}}, {"id": "ac-cn-0928074838-bj-agentcore", "deleted": true, "detail": {"deleted": true}}, {"id": "ac-cn-0928074838-bj-caller", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.role
+{"time": "2026-09-28T07:54:27.942872+00:00", "region": "cn-northwest-1", "feature": "cleanup.role", "status": "PASS", "evidence": [{"id": "ac-cn-0928074838-nx-lambda", "deleted": true, "detail": {"deleted": true}}, {"id": "ac-cn-0928074838-nx-agentcore", "deleted": true, "detail": {"deleted": true}}, {"id": "ac-cn-0928074838-nx-caller", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.inventory
+{"time": "2026-09-28T07:54:28.320924+00:00", "region": "cn-north-1", "feature": "cleanup.inventory", "status": "PASS", "evidence": []}
+[cn-north-1] PASS: cleanup_tests.suite
+{"time": "2026-09-28T07:54:28.321059+00:00", "region": "cn-north-1", "feature": "cleanup_tests.suite", "status": "PASS", "evidence": {"remaining": []}}
+[cn-northwest-1] PASS: cleanup.inventory
+{"time": "2026-09-28T07:54:29.169572+00:00", "region": "cn-northwest-1", "feature": "cleanup.inventory", "status": "PASS", "evidence": []}
+[cn-northwest-1] PASS: cleanup_tests.suite
+{"time": "2026-09-28T07:54:29.169684+00:00", "region": "cn-northwest-1", "feature": "cleanup_tests.suite", "status": "PASS", "evidence": {"remaining": []}}

@@ -1,0 +1,15 @@
+{
+  "run": "ac-cn-0928063645",
+  "region": "cn-north-1",
+  "resources": [],
+  "sessions": [
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3KBPSYZJRYXM3991VFY2T89"
+    },
+    {
+      "browser": "aws.browser.v1",
+      "id": "01M3KBVS7A5W6DJ3JTFR2W32JM"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{"time": "2026-09-29T01:59:15.725616+00:00", "event": "start", "command": ["/home/ec2-user/agentcore/cn/.venv/bin/python", "/home/ec2-user/agentcore/cn/retest.py", "caller_baseline_tests"], "cwd": "/home/ec2-user/agentcore/cn", "profile": "china", "regions": ["cn-north-1", "cn-northwest-1"], "environment": {"RETEST_RESULTS_DIR": "/home/ec2-user/agentcore/cn/results/repro-caller-confirm-20260929", "VERIFY_RESULTS_DIR": "/home/ec2-user/agentcore/cn/results/repro-caller-confirm-20260929", "RETEST_VERBOSE": "1"}, "extraEnvironment": {}}
+[cn-northwest-1] START caller_baseline_tests.suite
+[cn-north-1] START caller_baseline_tests.suite
+[cn-north-1] START gateway.outbound.caller_iam.direct_runtime_baseline
+[cn-northwest-1] START gateway.outbound.caller_iam.direct_runtime_baseline
+[cn-north-1] PASS: gateway.outbound.caller_iam.direct_runtime_baseline
+{"time": "2026-09-29T01:59:20.335411+00:00", "region": "cn-north-1", "feature": "gateway.outbound.caller_iam.direct_runtime_baseline", "status": "PASS", "evidence": {"temporaryCredentialsValid": true, "body": {"sum": 42, "runtime": "gateway-fixture", "region": "cn-north-1"}, "requestId": "3fd531eb-9e73-492c-a386-b4b20ab06329"}}
+[cn-northwest-1] PASS: gateway.outbound.caller_iam.direct_runtime_baseline
+{"time": "2026-09-29T01:59:20.808750+00:00", "region": "cn-northwest-1", "feature": "gateway.outbound.caller_iam.direct_runtime_baseline", "status": "PASS", "evidence": {"temporaryCredentialsValid": true, "body": {"sum": 42, "runtime": "gateway-fixture", "region": "cn-northwest-1"}, "requestId": "ea005686-bfdd-417d-b2e8-8a68e5efe7ee"}}
+[cn-north-1] START gateway.outbound.caller_iam.gateway_role_baseline
+[cn-northwest-1] START gateway.outbound.caller_iam.gateway_role_baseline
+[cn-north-1] PASS: gateway.outbound.caller_iam.gateway_role_baseline
+{"time": "2026-09-29T01:59:23.990080+00:00", "region": "cn-north-1", "feature": "gateway.outbound.caller_iam.gateway_role_baseline", "status": "PASS", "evidence": {"status": 200, "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}", "requestId": "07cb373c-900c-4abb-9615-7b8e0ea16ccc, a1a76938-80d9-4f60-be91-d8dbdb98f0ca"}}
+[cn-north-1] START gateway.outbound.caller_iam
+[cn-northwest-1] PASS: gateway.outbound.caller_iam.gateway_role_baseline
+{"time": "2026-09-29T01:59:24.524157+00:00", "region": "cn-northwest-1", "feature": "gateway.outbound.caller_iam.gateway_role_baseline", "status": "PASS", "evidence": {"status": 200, "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}", "requestId": "3704bbc0-6ba1-4813-8b6d-7db364827f7f, 6d020096-afc6-4219-ab00-5f81ec47509a"}}
+[cn-northwest-1] START gateway.outbound.caller_iam
+[cn-north-1] PASS: gateway.outbound.caller_iam
+{"time": "2026-09-29T01:59:26.898880+00:00", "region": "cn-north-1", "feature": "gateway.outbound.caller_iam", "status": "PASS", "evidence": {"status": 200, "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}", "requestId": "f98e5c28-3a15-4c0a-9d78-798bcdc8c5fc, 30b54a95-6b76-4594-b169-7d472b908459"}}
+[cn-north-1] PASS: caller_baseline_tests.suite
+{"time": "2026-09-29T01:59:26.900038+00:00", "region": "cn-north-1", "feature": "caller_baseline_tests.suite", "status": "PASS", "evidence": null}
+[cn-northwest-1] PASS: gateway.outbound.caller_iam
+{"time": "2026-09-29T01:59:26.957098+00:00", "region": "cn-northwest-1", "feature": "gateway.outbound.caller_iam", "status": "PASS", "evidence": {"status": 200, "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}", "requestId": "5449c32d-d063-436c-9a60-1843f6c6bd14, 678c5bef-2907-4bb0-a9ba-fdfa897ea2b6"}}
+[cn-northwest-1] PASS: caller_baseline_tests.suite
+{"time": "2026-09-29T01:59:26.958136+00:00", "region": "cn-northwest-1", "feature": "caller_baseline_tests.suite", "status": "PASS", "evidence": null}

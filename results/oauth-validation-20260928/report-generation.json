@@ -1,0 +1,13 @@
+{
+  "time": "2026-09-28T09:29:24.836084+00:00",
+  "command": [
+    ".venv/bin/python",
+    "export_oauth_validation.py",
+    "--results-dir",
+    "results/oauth-validation-20260928"
+  ],
+  "cwd": "/home/ec2-user/agentcore/cn",
+  "awsCalls": false,
+  "exporterSource": "report-source/export_oauth_validation.py",
+  "exporterSha256": "e53ddba0e58a4999c85a4c5e65500c5d9e5cbc4f80e530dc72dc5625bfb67d0b"
+}

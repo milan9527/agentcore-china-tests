@@ -1,6 +1,6 @@
-# 当前问题的复现方法
+# 问题复现与修复回归方法
 
-适用结论：2026-09-28，AWS profile `china`，北京 `cn-north-1`、宁夏 `cn-northwest-1`。[当前报告](SUMMARY.zh-CN.md)中仍失败的功能检查是 **Gateway 调用者 IAM 转发**与 **Browser `download.save_as()` 文件取回**。Live View 已通过，不属于当前失败项目。
+最新核对：2026-09-29，AWS profile `china`，北京 `cn-north-1`、宁夏 `cn-northwest-1`。**Gateway 调用者 IAM 转发已在两区复测通过**，第一节保留回归方法与历史错误判定。[当前报告](SUMMARY.zh-CN.md)原 159 项中仍失败的是 **Browser `download.save_as()` 文件取回**，该项目本日未重测。Live View 已通过。
 
 以下命令使用现有分阶段脚本，相关阶段已在两地实测。调用者 IAM 专用编排最近一轮的从空环境实测记录见第 1 节，其他阶段的验证范围见各自报告。每段默认同时测试两个区域，并创建收费的临时资源。已有历史资源、会话和临时 URL 均已删除或过期，应使用新结果目录。
 
@@ -20,15 +20,18 @@ unset PYTHONPATH
 
 ## 1. Gateway 调用者 IAM 转发
 
-2026-09-28 **07:48–07:54 UTC** 已在两地新环境再次复现，包含资源创建、AssumeRole / GetSessionToken 对照和完整清理。每区 5 项成功对照、3 项调用者转发 403，清理核验均通过。[本次报告](results/repro-caller-confirm-20260928/REPORT.zh-CN.md)、[完整运行输出](results/repro-caller-confirm-20260928/console.log)、[逐项响应及请求 ID](results/repro-caller-confirm-20260928/invocation-results.csv)。
+2026-09-29 **01:54–02:00 UTC** 使用全新环境、与昨日相同的核心脚本复测，**每区 8 项全部通过**。三种调用者转发组合均为 HTTP 200、`sum=42`，同凭证对照通过，清理核验通过。[最新报告](results/repro-caller-confirm-20260929/REPORT.zh-CN.md)、[完整运行输出](results/repro-caller-confirm-20260929/console.log)、[逐项响应及请求 ID](results/repro-caller-confirm-20260929/invocation-results.csv)。
+
+2026-09-28 07:48–07:54 UTC 的历史结果为每区 5 PASS / 3 FAIL（403 无效令牌），[历史报告](results/repro-caller-confirm-20260928/REPORT.zh-CN.md)保留不变。
 
 可用以下专用编排重新执行并实时打印脱敏过程与结果，必须指定一个新的空目录：
 
 ```bash
 .venv/bin/python run_caller_reproduction.py --results-dir results/repro-caller-next
+.venv/bin/python export_caller_reproduction.py --results-dir results/repro-caller-next
 ```
 
-该专用编排已在本次从空目录实测，退出码 2 表示复现出调用者转发问题，退出码 1 表示执行、判定或清理异常。完整功能编排 `run_followup.py` 的验证范围另见后文。
+该专用编排已从空目录实测，退出码 0 表示所选对照全部通过（本次结果），2 表示原调用者转发问题复现，1 表示执行、判定或清理异常。导出器仅离线生成中英文报告与证据索引。完整功能编排 `run_followup.py` 的验证范围另见后文。
 
 ### 执行命令
 
@@ -74,21 +77,21 @@ Content-Type: application/json
 
 只有下面的对照组合同时成立，才符合本次报告中的复现条件：
 
-| 路径 | 预期实测结果 |
-| --- | --- |
-| 相同凭证直接调用 Runtime | 成功，`sum=42` |
-| 相同凭证调用 `GATEWAY_IAM_ROLE` 目标 | HTTP 200，`sum=42` |
-| 相同凭证调用 `CALLER_IAM_CREDENTIALS` 目标 | HTTP 403，包含 `The security token included in the request is invalid` |
+| 路径 | 原问题复现条件（9 月 28 日） | 最新结果（9 月 29 日） |
+| --- | --- | --- |
+| 相同凭证直接调用 Runtime | 成功，`sum=42` | 成功，`sum=42` |
+| 相同凭证调用 `GATEWAY_IAM_ROLE` 目标 | HTTP 200，`sum=42` | HTTP 200，`sum=42` |
+| 相同凭证调用 `CALLER_IAM_CREDENTIALS` 目标 | HTTP 403，包含 `The security token included in the request is invalid` | HTTP 200，`sum=42` |
 
 `retest_runtime` 包含 AssumeRole 凭证和 `AWS_IAM` / `AUTHENTICATE_ONLY` 两种入站模式；`caller_baseline_tests` 补充同一组 GetSessionToken 凭证下的直接调用、执行角色转发和调用者转发三路比较。
 
-重点检查的 `feature`：
+重点检查的 `feature` 及 9 月 29 日结果：
 
 - `gateway.caller_iam.assumed_role.direct`：PASS。
 - `gateway.caller_iam.AWS_IAM.runtime-role`、`gateway.caller_iam.AUTHENTICATE_ONLY.runtime-role`：PASS。
-- `gateway.caller_iam.AWS_IAM.runtime-caller`、`gateway.caller_iam.AUTHENTICATE_ONLY.runtime-caller`：FAIL，403 无效安全令牌。
+- `gateway.caller_iam.AWS_IAM.runtime-caller`、`gateway.caller_iam.AUTHENTICATE_ONLY.runtime-caller`：PASS，HTTP 200。
 - `gateway.outbound.caller_iam.direct_runtime_baseline`、`gateway.outbound.caller_iam.gateway_role_baseline`：PASS。
-- `gateway.outbound.caller_iam`：FAIL，403 无效安全令牌。
+- `gateway.outbound.caller_iam`：PASS，HTTP 200。
 
 若直接调用或执行角色对照也失败，先排查资源是否就绪、凭证、IAM 权限及传播时间。不能仅凭一个 403 推断为同一问题。可用替代方案是执行角色出站，但权限语义与转发原调用者不同。
 
@@ -186,7 +189,7 @@ VERIFY_RESULTS_DIR="$RETEST_RESULTS_DIR" .venv/bin/python verify_cleanup.py
 
 ## 账号限制与代理配置边界
 
-这些项目与上面的两项功能失败分开解释。各场景使用新结果目录，并在结束后按上一节清理：
+以下账号限制和代理配置边界单独记录；上文的调用者 IAM 转发已复测通过，下载保留此前失败结论。各场景使用新结果目录，并在结束后按上一节清理：
 
 | 项目 | 在新目录内依次执行的阶段 | 预期证据 / 判定 |
 | --- | --- | --- |

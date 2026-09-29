@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Using browser proxies - Amazon Bedrock AgentCore</title><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="assets_root" content="/assets" /><meta name="target_state" content="browser-proxies" /><meta name="default_state" content="browser-proxies" /><link rel="icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="canonical" href="https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/browser-proxies.html" /><meta name="description" content="Amazon Bedrock AgentCore Browser supports routing browser traffic through your own external proxy servers. This enables organizations to:" /><meta name="deployment_region" content="BJS" /><meta name="product" content="Amazon Bedrock AgentCore" /><meta name="guide" content="Developer Guide" /><meta name="guide-locale" content="en_us" /><meta name="tocs" content="toc-contents.json" /><link rel="canonical" href="https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/browser-proxies.html" /><link rel="alternate" href="https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/browser-proxies.html" hreflang="en-us" /><link rel="alternate" href="https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/browser-proxies.html" hreflang="en" /><link rel="alternate" href="https://docs.amazonaws.cn/bedrock-agentcore/latest/devguide/browser-proxies.html" hreflang="zh-cn" /><link rel="alternate" href="https://docs.amazonaws.cn/bedrock-agentcore/latest/devguide/browser-proxies.html" hreflang="x-default" /><meta name="this_doc_product" content="Amazon Bedrock AgentCore" /><meta name="this_doc_guide" content="Developer Guide" /><meta name="googlebot" content="noindex" /><head xmlns="http://www.w3.org/1999/xhtml"> <script defer="" src="/assets/r/awsdocs-doc-page.2.0.0.js"></script><link href="/assets/r/awsdocs-doc-page.2.0.0.css" rel="stylesheet"/></head>
+<meta name="uiVersion" content="2024.10" /></head><body class="awsdocs awsui"><div class="awsdocs-container"><p><a href="browser-proxies.md">View a markdown version of this page</a></p><awsdocs-header></awsdocs-header><awsui-app-layout id="app-layout" class="awsui-util-no-gutters" ng-controller="ContentController as $ctrl" header-selector="awsdocs-header" navigation-hide="false" navigation-width="$ctrl.navWidth" navigation-open="$ctrl.navOpen" navigation-change="$ctrl.onNavChange($event)" tools-hide="$ctrl.hideTools" tools-width="$ctrl.toolsWidth" tools-open="$ctrl.toolsOpen" tools-change="$ctrl.onToolsChange($event)"><div id="guide-toc" dom-region="navigation"><awsdocs-toc></awsdocs-toc></div><div id="main-column" dom-region="content" tabindex="-1"><awsdocs-view class="awsdocs-view"><div id="awsdocs-content"><head><title>Using browser proxies - Amazon Bedrock AgentCore</title><meta name="pdf" content="bedrock-agentcore-dg.pdf#browser-proxies" /><meta name="rss" content="bedrock-agentcore-dg.rss" /><link rel="alternate" type="text/markdown" href="browser-proxies.md" title="Markdown version" /><script type="application/ld+json">
+{
+    "@context" : "https://schema.org",
+    "@type" : "BreadcrumbList",
+    "itemListElement" : [
+      {
+        "@type" : "ListItem",
+        "position" : 1,
+        "name" : "亚马逊云科技",
+        "item" : "https://www.amazonaws.cn"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 2,
+        "name" : "Amazon Bedrock AgentCore",
+        "item" : "https://docs.amazonaws.cn/bedrock-agentcore/index.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 3,
+        "name" : "Developer Guide",
+        "item" : "https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 4,
+        "name" : "Interact with web applications using Amazon Bedrock AgentCore Browser",
+        "item" : "https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/browser-tool.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 5,
+        "name" : "Features",
+        "item" : "https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/browser-features.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 6,
+        "name" : "Using browser proxies",
+        "item" : "https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/browser-features.html"
+      }
+    ]
+}
+</script></head><body><div id="main"><div style="display: none"><a href="bedrock-agentcore-dg.pdf#browser-proxies" target="_blank" rel="noopener noreferrer" title="Open PDF"></a></div><div id="breadcrumbs" class="breadcrumb"><a href="/index.html">Documentation</a><a href="/bedrock-agentcore/index.html">Amazon Bedrock AgentCore</a><a href="what-is-bedrock-agentcore.html">Developer Guide</a></div><div id="page-toc-src"><a href="#browser-proxies-overview">Overview</a><a href="#browser-proxies-prerequisites">Prerequisites</a><a href="#browser-proxies-getting-started">Getting started</a><a href="#browser-proxies-configuration">Configuration options</a><a href="#browser-proxies-complete-examples">Complete examples</a><a href="#browser-proxies-use-cases">Use cases</a><a href="#browser-proxies-session-behavior">Session behavior</a><a href="#browser-proxies-cross-account">Cross-account secret access</a><a href="#browser-proxies-security">Security considerations</a><a href="#browser-proxies-performance">Performance considerations</a><a href="#browser-proxies-constraints">Constraints</a><a href="#browser-proxies-limitations">Limitations</a></div><div id="main-content" class="awsui-util-container"><div id="main-col-body"><awsdocs-language-banner data-service="$ctrl.pageService"></awsdocs-language-banner><awsui-flash class="awsdocs-region-banner awsui-util-mb-l" id="divRegionDisclaimer">Services or capabilities described in Amazon Web Services documentation might vary by Region. To see the differences applicable to the China Regions,
+      see <a href="/en_us/aws/latest/userguide/services.html" rel="noopener noreferrer" target="_blank">Getting Started with Amazon Web Services in China</a>
+         <a href="/en_us/aws/latest/userguide/aws-ug.pdf#services" rel="noopener noreferrer" target="_blank">(PDF)</a>.
+    </awsui-flash><h1 class="topictitle" id="browser-proxies">Using browser proxies</h1><div class="awsdocs-page-header-container"><awsdocs-page-header></awsdocs-page-header><awsdocs-filter-selector id="awsdocs-filter-selector"></awsdocs-filter-selector></div><p>Amazon Bedrock AgentCore Browser supports routing browser traffic through your own external proxy servers. This enables organizations to:</p><div class="itemizedlist">
+       
+       
+       
+   <ul class="itemizedlist"><li class="listitem">
+         <p>
+            <strong>Achieve IP stability</strong> by routing traffic through proxies with known egress IPs, eliminating re-authentication cycles caused by rotating Amazon IP addresses</p>
+      </li><li class="listitem">
+         <p>
+            <strong>Support IP allowlisting</strong> by providing stable, controllable egress addresses for services that require IP-based access controls</p>
+      </li><li class="listitem">
+         <p>
+            <strong>Integrate with corporate infrastructure</strong> by routing through your existing proxy servers for access to internal webpages and resources</p>
+      </li></ul></div>
+      <h2 id="browser-proxies-overview">Overview</h2>
+      <p>When you create a browser session with proxy configuration, AgentCore Browser configures the browser to route HTTP and HTTPS traffic through your specified proxy servers.</p>
+      <div class="mediaobject">
+          
+            <img src="images/browser-proxies-flow.png" class="aws-docs-img-whiteBg aws-docs-img-padding" alt="Browser proxies request flow showing traffic routing from the browser session through a customer-managed proxy server to destination websites." />
+          
+          
+      </div>
+      <p>Request flow:</p>
+      <div class="orderedlist">
+          
+          
+          
+          
+          
+      <ol style="list-style-type:arabic ! important;"><li>
+            <p>You call <code class="code">StartBrowserSession</code> with a <code class="code">proxyConfiguration</code> specifying your proxy server.</p>
+         </li><li>
+            <p>If using authentication, AgentCore retrieves proxy credentials from Amazon Secrets Manager.</p>
+         </li><li>
+            <p>The browser session starts with your proxy configuration applied.</p>
+         </li><li>
+            <p>Browser traffic routes through your proxy server based on your domain routing rules.</p>
+         </li><li>
+            <p>Your proxy server forwards requests to destination websites.</p>
+         </li></ol></div>
+      <p>The proxy server is infrastructure you own and manage. AgentCore Browser connects to it as a client.</p>
+      <p>Proxy configuration applies the Chromium <code class="code">--proxy-server</code> flag to the browser instance at startup, directing traffic through the specified proxy at the browser level. For scenarios that require network-layer enforcement—for example, when browser-level settings could be modified during runtime—deploy browser sessions within your own VPC. See <a href="./agentcore-vpc.html">Configure Amazon Bedrock AgentCore Runtime and tools for VPC</a>.</p>
+    
+      <h2 id="browser-proxies-prerequisites">Prerequisites</h2>
+      <p>Before configuring browser proxies, ensure you have:</p>
+      <div class="itemizedlist">
+          
+          
+          
+          
+      <ul class="itemizedlist"><li class="listitem">
+            <p>
+               <strong>General browser prerequisites</strong> – Complete the standard browser tool setup. See <a href="./browser-quickstart.html">Get started with AgentCore Browser</a>.</p>
+         </li><li class="listitem">
+            <p>
+               <strong>Proxy server</strong> – An HTTP/HTTPS proxy server that is accessible from the public internet (or reachable within your VPC if using VPC configuration) and supports the HTTP CONNECT method for HTTPS traffic tunneling.</p>
+         </li><li class="listitem">
+            <p>
+               <strong>
+                  Amazon Secrets Manager secret</strong> (if using authentication) – A secret containing proxy credentials in JSON format with <code class="code">username</code> and <code class="code">password</code> keys.</p>
+         </li><li class="listitem">
+            <p>
+               <strong>IAM permissions</strong> (if using authentication) – The IAM identity calling <code class="code">StartBrowserSession</code> must have <code class="code">secretsmanager:GetSecretValue</code> permission for the credential secret.</p>
+         </li></ul></div>
+    
+      <h2 id="browser-proxies-getting-started">Getting started</h2>
+      <p>This section shows the simplest configuration to route browser traffic through a proxy.</p>
+       
+         <h3 id="browser-proxies-step1">Step 1: Create a credentials secret (if using authentication)</h3>
+         <p>If your proxy requires authentication, create a secret in Amazon Secrets Manager:</p>
+         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">aws secretsmanager create-secret \
+  --name "my-proxy-credentials" \
+  --secret-string '<span>{</span>"username":"&lt;your-username&gt;","password":"&lt;your-password&gt;"}'</code></pre>
+         <p>Credential format requirements:</p>
+         <div class="table-container"><div class="table-contents"><table id="w337aac25c31c13c11b5b9"><thead>
+                  <tr>
+                     <th align="left" style="text-align: left;vertical-align: top;">Field</th>
+                     <th align="left" style="text-align: left;vertical-align: top;">Allowed characters</th>
+                  </tr>
+               </thead>
+                  <tr>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">username</code>
+                        </p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>Alphanumeric plus <code class="code">@ . _ + = -</code>
+                        </p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">password</code>
+                        </p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>Alphanumeric plus @ . _ + = - ! # $ %  *</p>
+                     </td>
+                  </tr>
+               </table></div></div>
+         <p>Characters not allowed: colon ( <code class="code">:</code> ), newlines, spaces, quotes.</p>
+       
+       
+         <h3 id="browser-proxies-step2">Step 2: Add IAM permissions</h3>
+         <p>Add this policy to the IAM identity that will create browser sessions:</p>
+         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (json)--><code class="json "><span>{</span>
+"Version": "2012-10-17",
+    "Statement": [
+        <span>{</span>
+            "Effect": "Allow",
+            "Action": "secretsmanager:GetSecretValue",
+            "Resource": "arn:aws:secretsmanager:AWS Region:AWS account:secret:secret-name*"
+        }
+    ]
+}</code></pre>
+       
+       
+         <h3 id="browser-proxies-step3">Step 3: Create a browser session with proxy</h3>
+         <p>You can create a browser session with proxy configuration using the Amazon CLI, SDK, or API.</p>
+         <div class="example"><h6>Example</h6><div class="example-contents"><awsdocs-tabs><dl style="display: none">
+               <dt>
+                     Amazon CLI</dt><dd tab-id="----------------------amazon-cli">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p>To start a browser session with a proxy using the Amazon CLI:</p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">aws bedrock-agentcore start-browser-session \
+  --browser-identifier "aws.browser.v1" \
+  --name "my-proxy-session" \
+  --proxy-configuration '<span>{</span>
+    "proxies": [<span>{</span>
+      "externalProxy": <span>{</span>
+        "server": "your-proxy-hostname",
+        "port": 8080,
+        "credentials": <span>{</span>
+          "basicAuth": <span>{</span>
+            "secretArn": "arn:aws:secretsmanager:region:account-id:secret:secret-name"
+          }
+        }
+      }
+    }]
+  }'</code></pre>
+                           <p>For proxies using IP allowlisting instead of credentials, omit the <code class="code">credentials</code> field:</p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">aws bedrock-agentcore start-browser-session \
+  --browser-identifier "aws.browser.v1" \
+  --name "my-proxy-session" \
+  --proxy-configuration '<span>{</span>
+    "proxies": [<span>{</span>
+      "externalProxy": <span>{</span>
+        "server": "your-proxy-hostname",
+        "port": 8080
+      }
+    }]
+  }'</code></pre>
+                        </li></ol></div>
+                  </dd>
+               <dt>Boto3</dt><dd tab-id="boto3">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p>To start a browser session with a proxy using the Amazon SDK for Python (Boto3):</p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (python)--><code class="python ">import boto3
+
+client = boto3.client('bedrock-agentcore', region_name='region')
+
+response = client.start_browser_session(
+    browserIdentifier="aws.browser.v1",
+    name="my-proxy-session",
+    proxyConfiguration=<span>{</span>
+        "proxies": [<span>{</span>
+            "externalProxy": <span>{</span>
+                "server": "your-proxy-hostname",
+                "port": 8080,
+                "credentials": <span>{</span>
+                    "basicAuth": <span>{</span>
+                        "secretArn": "arn:aws:secretsmanager:region:account-id:secret:secret-name"
+                    }
+                }
+            }
+        }]
+    }
+)
+print(f"Session ID: <span>{</span>response['sessionId']}")</code></pre>
+                           <p>For proxies using IP allowlisting instead of credentials, omit the <code class="code">credentials</code> field:</p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (python)--><code class="python ">proxyConfiguration=<span>{</span>
+    "proxies": [<span>{</span>
+        "externalProxy": <span>{</span>
+            "server": "your-proxy-hostname",
+            "port": 8080
+        }
+    }]
+}</code></pre>
+                        </li></ol></div>
+                  </dd>
+               <dt>API</dt><dd tab-id="api">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p>To start a browser session with a proxy using the API:</p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">PUT /browsers/aws.browser.v1/sessions/start HTTP/1.1
+Host: bedrock-agentcore.region.amazonaws.com
+Content-Type: application/json
+Authorization: AWS4-HMAC-SHA256 ...
+
+<span>{</span>
+  "name": "my-proxy-session",
+  "proxyConfiguration": <span>{</span>
+    "proxies": [<span>{</span>
+      "externalProxy": <span>{</span>
+        "server": "your-proxy-hostname",
+        "port": 8080,
+        "credentials": <span>{</span>
+          "basicAuth": <span>{</span>
+            "secretArn": "arn:aws:secretsmanager:region:account-id:secret:secret-name"
+          }
+        }
+      }
+    }]
+  }
+}</code></pre>
+                        </li></ol></div>
+                  </dd>
+            </dl></awsdocs-tabs></div></div>
+       
+    
+      <h2 id="browser-proxies-configuration">Configuration options</h2>
+       
+         <h3 id="browser-proxies-domain-routing">Domain-based routing</h3>
+         <p>Use <code class="code">domainPatterns</code> to route specific domains through designated proxies:</p>
+         <div class="example"><h6>Example</h6><div class="example-contents"><awsdocs-tabs><dl style="display: none">
+               <dt>
+                     Amazon CLI</dt><dd tab-id="----------------------amazon-cli">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p></p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">aws bedrock-agentcore start-browser-session \
+  --browser-identifier "aws.browser.v1" \
+  --name "domain-routing-session" \
+  --proxy-configuration '<span>{</span>
+    "proxies": [
+      <span>{</span>
+        "externalProxy": <span>{</span>
+          "server": "corp-proxy.example.com",
+          "port": 8080,
+          "domainPatterns": [".company.com", ".internal.corp"]
+        }
+      },
+      <span>{</span>
+        "externalProxy": <span>{</span>
+          "server": "general-proxy.example.com",
+          "port": 8080
+        }
+      }
+    ]
+  }'</code></pre>
+                        </li></ol></div>
+                  </dd>
+               <dt>Boto3</dt><dd tab-id="boto3">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p></p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (python)--><code class="python ">proxyConfiguration=<span>{</span>
+    "proxies": [
+        <span>{</span>
+            "externalProxy": <span>{</span>
+                "server": "corp-proxy.example.com",
+                "port": 8080,
+                "domainPatterns": [".company.com", ".internal.corp"]
+            }
+        },
+        <span>{</span>
+            "externalProxy": <span>{</span>
+                "server": "general-proxy.example.com",
+                "port": 8080
+            }
+        }
+    ]
+}</code></pre>
+                        </li></ol></div>
+                  </dd>
+               <dt>API</dt><dd tab-id="api">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p></p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (json)--><code class="json "><span>{</span>
+  "proxyConfiguration": <span>{</span>
+    "proxies": [
+      <span>{</span>
+        "externalProxy": <span>{</span>
+          "server": "corp-proxy.example.com",
+          "port": 8080,
+          "domainPatterns": [".company.com", ".internal.corp"]
+        }
+      },
+      <span>{</span>
+        "externalProxy": <span>{</span>
+          "server": "general-proxy.example.com",
+          "port": 8080
+        }
+      }
+    ]
+  }
+}</code></pre>
+                        </li></ol></div>
+                  </dd>
+            </dl></awsdocs-tabs></div></div>
+         <p>With this configuration:</p>
+         <div class="itemizedlist">
+             
+             
+         <ul class="itemizedlist"><li class="listitem">
+               <p>Requests to *.company.com and *.internal.corp route through <code class="code">corp-proxy.example.com</code>
+               </p>
+            </li><li class="listitem">
+               <p>All other requests route through <code class="code">general-proxy.example.com</code> (default)</p>
+            </li></ul></div>
+         <p>Domain pattern format:</p>
+         <div class="table-container"><div class="table-contents"><table id="w337aac25c31c13c13b3c13"><thead>
+                  <tr>
+                     <th align="left" style="text-align: left;vertical-align: top;">Pattern</th>
+                     <th align="left" style="text-align: left;vertical-align: top;">Matches</th>
+                     <th align="left" style="text-align: left;vertical-align: top;">Does not match</th>
+                  </tr>
+               </thead>
+                  <tr>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">.example.com</code>
+                        </p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">example.com</code> , <code class="code">www.example.com</code> , <code class="code">api.example.com</code>
+                        </p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">notexample.com</code>
+                        </p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">example.com</code>
+                        </p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">example.com</code> (exact match only)</p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">www.example.com</code>
+                        </p>
+                     </td>
+                  </tr>
+               </table></div></div>
+         <p>Use <code class="code">.example.com</code> (leading dot) for subdomains. Do not use *.example.com.</p>
+       
+       
+         <h3 id="browser-proxies-bypass">Bypass domains</h3>
+         <p>Use <code class="code">bypass.domainPatterns</code> for domains that should connect directly without any proxy:</p>
+         <div class="example"><h6>Example</h6><div class="example-contents"><awsdocs-tabs><dl style="display: none">
+               <dt>
+                     Amazon CLI</dt><dd tab-id="----------------------amazon-cli">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p></p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">aws bedrock-agentcore start-browser-session \
+  --browser-identifier "aws.browser.v1" \
+  --name "bypass-session" \
+  --proxy-configuration '<span>{</span>
+    "proxies": [<span>{</span>
+      "externalProxy": <span>{</span>
+        "server": "proxy.example.com",
+        "port": 8080
+      }
+    }],
+    "bypass": <span>{</span>
+      "domainPatterns": [".amazonaws.com"]
+    }
+  }'</code></pre>
+                        </li></ol></div>
+                  </dd>
+               <dt>Boto3</dt><dd tab-id="boto3">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p></p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (python)--><code class="python ">proxyConfiguration=<span>{</span>
+    "proxies": [<span>{</span>
+        "externalProxy": <span>{</span>
+            "server": "proxy.example.com",
+            "port": 8080
+        }
+    }],
+    "bypass": <span>{</span>
+        "domainPatterns": [".amazonaws.com"]
+    }
+}</code></pre>
+                        </li></ol></div>
+                  </dd>
+               <dt>API</dt><dd tab-id="api">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p></p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (json)--><code class="json "><span>{</span>
+  "proxyConfiguration": <span>{</span>
+    "proxies": [<span>{</span>
+      "externalProxy": <span>{</span>
+        "server": "proxy.example.com",
+        "port": 8080
+      }
+    }],
+    "bypass": <span>{</span>
+      "domainPatterns": [".amazonaws.com"]
+    }
+  }
+}</code></pre>
+                        </li></ol></div>
+                  </dd>
+            </dl></awsdocs-tabs></div></div>
+         <div class="awsdocs-note"><div class="awsdocs-note-title"><awsui-icon name="status-info" variant="link"></awsui-icon><h6>Note</h6></div><div class="awsdocs-note-text"><p>Proxy configuration is a browser-level routing setting and does not provide network-level traffic control. For network-layer enforcement, deploy browser sessions in your VPC. See <a href="./agentcore-vpc.html">Configure Amazon Bedrock AgentCore Runtime and tools for VPC</a>.</p></div></div>
+       
+       
+         <h3 id="browser-proxies-routing-precedence">Routing precedence</h3>
+         <p>Traffic routes according to this precedence (highest to lowest):</p>
+         <div class="orderedlist">
+             
+             
+             
+         <ol style="list-style-type:arabic ! important;"><li>
+               <p>
+                  <strong>Bypass domains</strong> – Domains matching <code class="code">bypass.domainPatterns</code> connect directly.</p>
+            </li><li>
+               <p>
+                  <strong>Proxy domain patterns</strong> – Domains matching a proxy’s <code class="code">domainPatterns</code> route through that proxy (first match wins based on array order).</p>
+            </li><li>
+               <p>
+                  <strong>Default proxy</strong> – Unmatched domains route through the proxy without <code class="code">domainPatterns</code>.</p>
+            </li></ol></div>
+       
+    
+      <h2 id="browser-proxies-complete-examples">Complete examples</h2>
+      <p>The following examples show a full proxy configuration with domain patterns, bypass domains, and authentication credentials.</p>
+      <div class="example"><h6>Example</h6><div class="example-contents"><awsdocs-tabs><dl style="display: none">
+            <dt>
+                  Amazon CLI</dt><dd tab-id="-------------------amazon-cli">
+                  <div class="orderedlist">
+                      
+                  <ol style="list-style-type:arabic ! important;"><li>
+                        <p></p>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">aws bedrock-agentcore start-browser-session \
+  --browser-identifier "aws.browser.v1" \
+  --name "proxy-session" \
+  --proxy-configuration '<span>{</span>
+    "proxies": [<span>{</span>
+      "externalProxy": <span>{</span>
+        "server": "proxy-hostname",
+        "port": 8080,
+        "domainPatterns": [".company.com"],
+        "credentials": <span>{</span>
+          "basicAuth": <span>{</span>
+            "secretArn": "arn:aws:secretsmanager:region:account-id:secret:secret-name"
+          }
+        }
+      }
+    }],
+    "bypass": <span>{</span>
+      "domainPatterns": [".amazonaws.com"]
+    }
+  }'</code></pre>
+                     </li></ol></div>
+               </dd>
+            <dt>Boto3</dt><dd tab-id="boto3">
+                  <div class="orderedlist">
+                      
+                  <ol style="list-style-type:arabic ! important;"><li>
+                        <p></p>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (python)--><code class="python ">import boto3
+
+client = boto3.client('bedrock-agentcore', region_name='region')
+
+response = client.start_browser_session(
+    browserIdentifier="aws.browser.v1",
+    name="proxy-session",
+    proxyConfiguration=<span>{</span>
+        "proxies": [<span>{</span>
+            "externalProxy": <span>{</span>
+                "server": "proxy-hostname",
+                "port": 8080,
+                "domainPatterns": [".company.com"],
+                "credentials": <span>{</span>
+                    "basicAuth": <span>{</span>
+                        "secretArn": "arn:aws:secretsmanager:region:account-id:secret:secret-name"
+                    }
+                }
+            }
+        }],
+        "bypass": <span>{</span>
+            "domainPatterns": [".amazonaws.com"]
+        }
+    }
+)
+print(f"Session ID: <span>{</span>response['sessionId']}")</code></pre>
+                     </li></ol></div>
+               </dd>
+            <dt>API</dt><dd tab-id="api">
+                  <div class="orderedlist">
+                      
+                  <ol style="list-style-type:arabic ! important;"><li>
+                        <p></p>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">PUT /browsers/aws.browser.v1/sessions/start HTTP/1.1
+Host: bedrock-agentcore.region.amazonaws.com
+Content-Type: application/json
+Authorization: AWS4-HMAC-SHA256 ...
+
+<span>{</span>
+  "name": "proxy-session",
+  "proxyConfiguration": <span>{</span>
+    "proxies": [<span>{</span>
+      "externalProxy": <span>{</span>
+        "server": "proxy-hostname",
+        "port": 8080,
+        "domainPatterns": [".company.com"],
+        "credentials": <span>{</span>
+          "basicAuth": <span>{</span>
+            "secretArn": "arn:aws:secretsmanager:region:account-id:secret:secret-name"
+          }
+        }
+      }
+    }],
+    "bypass": <span>{</span>
+      "domainPatterns": [".amazonaws.com"]
+    }
+  }
+}</code></pre>
+                     </li></ol></div>
+               </dd>
+         </dl></awsdocs-tabs></div></div>
+    
+      <h2 id="browser-proxies-use-cases">Use cases</h2>
+       
+         <h3 id="browser-proxies-use-case-ip-stability">IP stability for session-based portals</h3>
+         <p>Healthcare and financial portals often validate sessions based on source IP address. Rotating Amazon IP addresses cause frequent re-authentication. Route traffic through a proxy with stable egress IPs to maintain session continuity.</p>
+       
+       
+         <h3 id="browser-proxies-use-case-corporate">Corporate infrastructure integration</h3>
+         <p>Organizations that route traffic through corporate proxies can extend this practice to AgentCore Browser sessions, enabling access to internal webpages and resources that require proxy-based connectivity.</p>
+       
+       
+         <h3 id="browser-proxies-use-case-geographic">Geographic content access</h3>
+         <p>Access region-specific content or test regional website variations by routing traffic through proxies in specific geographic locations.</p>
+       
+       
+         <h3 id="browser-proxies-use-case-partner">Partner network access</h3>
+         <p>Route partner-specific traffic through dedicated proxy infrastructure while using general proxies for other traffic.</p>
+       
+    
+      <h2 id="browser-proxies-session-behavior">Session behavior</h2>
+       
+         <h3 id="browser-proxies-config-lifecycle">Configuration lifecycle</h3>
+         <div class="itemizedlist">
+             
+             
+             
+         <ul class="itemizedlist"><li class="listitem">
+               <p>
+                  <strong>Set at creation</strong> – Proxy configuration is set once at session creation. Configuration changes at runtime are not supported. Create a new session to use different settings.</p>
+            </li><li class="listitem">
+               <p>
+                  <strong>Session-scoped</strong> – Each browser session has independent proxy configuration.</p>
+            </li><li class="listitem">
+               <p>
+                  <strong>Timeout</strong> – Standard session timeouts apply. Proxy configuration is discarded when the session ends.</p>
+            </li></ul></div>
+       
+       
+         <h3 id="browser-proxies-connectivity-behavior">Connectivity behavior</h3>
+         <div class="itemizedlist">
+             
+             
+             
+         <ul class="itemizedlist"><li class="listitem">
+               <p>
+                  <strong>Fail-open</strong> – Proxy connectivity is not validated at session creation. Sessions configured with unavailable proxies will show errors when loading pages.</p>
+            </li><li class="listitem">
+               <p>
+                  <strong>Runtime errors</strong> – Connection failures appear as browser error pages, visible in Live View for troubleshooting.</p>
+            </li><li class="listitem">
+               <p>
+                  <strong>No automatic retry</strong> – Failed requests are not automatically retried.</p>
+            </li></ul></div>
+       
+    
+      <h2 id="browser-proxies-cross-account">Cross-account secret access</h2>
+      <p>If the credentials secret is in a different Amazon account, configure the following:</p>
+      <p>
+         <strong>Secret resource policy</strong> (in the account owning the secret):</p>
+      <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (json)--><code class="json "><span>{</span>
+"Version": "2012-10-17",
+    "Statement": [<span>{</span>
+        "Effect": "Allow",
+        "Principal": <span>{</span>"AWS": "arn:aws:iam::caller-account-id:root"},
+        "Action": "secretsmanager:GetSecretValue",
+        "Resource": "*"
+    }]
+}</code></pre>
+      <p>
+         <strong>KMS key policy</strong> (if using a customer-managed KMS key):</p>
+      <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (json)--><code class="json "><span>{</span>
+    "Effect": "Allow",
+    "Principal": <span>{</span>"AWS": "arn:aws:iam::caller-account-id:root"},
+    "Action": "kms:Decrypt",
+    "Resource": "*"
+}</code></pre>
+    
+      <h2 id="browser-proxies-security">Security considerations</h2>
+       
+         <h3 id="browser-proxies-credential-protection">Credential protection</h3>
+         <div class="itemizedlist">
+             
+             
+             
+         <ul class="itemizedlist"><li class="listitem">
+               <p>Credentials are stored in Amazon Secrets Manager and fetched using your IAM credentials.</p>
+            </li><li class="listitem">
+               <p>Credentials are never returned in API responses. <code class="code">GetBrowserSession</code> returns only <code class="code">secretArn</code>.</p>
+            </li><li class="listitem">
+               <p>Credentials are not written to logs.</p>
+            </li></ul></div>
+       
+       
+         <h3 id="browser-proxies-access-control">Access control</h3>
+         <div class="itemizedlist">
+             
+             
+         <ul class="itemizedlist"><li class="listitem">
+               <p>IAM permissions control which identities can use which credential secrets.</p>
+            </li><li class="listitem">
+               <p>Cross-account access requires explicit resource policies.</p>
+            </li></ul></div>
+       
+    
+      <h2 id="browser-proxies-performance">Performance considerations</h2>
+      <div class="itemizedlist">
+          
+          
+          
+      <ul class="itemizedlist"><li class="listitem">
+            <p>
+               <strong>Capacity</strong> – Ensure your proxy can handle expected request volume.</p>
+         </li><li class="listitem">
+            <p>
+               <strong>Bypass</strong> – Add Amazon endpoints to <code class="code">bypass.domainPatterns</code> for latency-sensitive calls.</p>
+         </li><li class="listitem">
+            <p>
+               <strong>Proximity</strong> – Use proxies geographically close to your Amazon Region.</p>
+         </li></ul></div>
+    
+      <h2 id="browser-proxies-constraints">Constraints</h2>
+      <div class="table-container"><div class="table-contents"><table id="w337aac25c31c13c27b3"><thead>
+               <tr>
+                  <th align="left" style="text-align: left;vertical-align: top;">Constraint</th>
+                  <th align="left" style="text-align: left;vertical-align: top;">Limit</th>
+                  <th align="left" style="text-align: left;vertical-align: top;">Adjustable</th>
+               </tr>
+            </thead>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Maximum proxies per session</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>5</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Maximum domain patterns per proxy</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>100</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Maximum bypass domain patterns</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>100</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Server hostname length</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>253 characters</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Domain pattern length</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>253 characters</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Port range</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>1–65535</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+            </table></div></div>
+      <p>To request an increase for adjustable constraints, contact Amazon support.</p>
+    
+      <h2 id="browser-proxies-limitations">Limitations</h2>
+      <p>Before configuring browser proxies, review these limitations to ensure the feature meets your requirements:</p>
+      <div class="table-container"><div class="table-contents"><table id="w337aac25c31c13c29b5"><thead>
+               <tr>
+                  <th align="left" style="text-align: left;vertical-align: top;">Limitation</th>
+                  <th align="left" style="text-align: left;vertical-align: top;">Details</th>
+               </tr>
+            </thead>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Traffic routing</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Proxy configuration is a browser-level setting applied at session startup. It is not a network-level control and does not guarantee that all traffic will transit the proxy. For network-layer enforcement, use <a href="./agentcore-vpc.html">Configure Amazon Bedrock AgentCore Runtime and tools for VPC</a>.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Supported protocols</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>HTTP and HTTPS proxies only. SOCKS4 and SOCKS5 proxies are not supported.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Authentication</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>HTTP Basic REDACTED or no authentication (IP allowlisting). NTLM, Kerberos, and certificate-based authentication are not supported.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Proxy changes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Proxy configuration is set once at session creation. Configuration changes at runtime are not supported. Create a new session to change proxy settings.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Proxy rotation</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Automatic proxy rotation for IP cycling or load distribution is not supported. Create new sessions to rotate proxies.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Connection validation</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Proxy connectivity is not validated at session creation. Connection errors appear at runtime.</p>
+                  </td>
+               </tr>
+            </table></div></div>
+   <awsdocs-copyright class="copyright-print"></awsdocs-copyright><awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}"></awsdocs-thumb-feedback></div><noscript><div><div><div><div id="js_error_message"><p><strong>Javascript is disabled or is unavailable in your browser.</strong></p><p>To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.</p></div></div></div></div></noscript><div id="main-col-footer" class="awsui-util-font-size-0"><div id="doc-conventions">&nbsp;</div><div class="prev-next"><div id="previous" class="prev-link" accesskey="p" href="./browser-profiles.html">Browser Profiles</div><div id="next" class="next-link" accesskey="n" href="./browser-enterprise-policies.html">Browser Enterprise Policies</div></div></div><awsdocs-page-utilities></awsdocs-page-utilities></div></div></body></div></awsdocs-view><div class="page-loading-indicator" id="page-loading-indicator"><awsui-spinner size="large"></awsui-spinner></div></div><div id="tools-panel" dom-region="tools"><awsdocs-tools-panel id="awsdocs-tools-panel"></awsdocs-tools-panel></div></awsui-app-layout><awsdocs-cookie-banner class="doc-cookie-banner"></awsdocs-cookie-banner></div></body></html>

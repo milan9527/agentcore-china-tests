@@ -1,8 +1,8 @@
 {
-  "time": "2026-09-28T06:21:58.341314+00:00",
+  "time": "2026-09-28T14:24:21.495526+00:00",
   "region": "cn-northwest-1",
   "feature": "cleanup.read_only_verification",
-  "status": "FAIL",
+  "status": "PASS",
   "evidence": [
     {
       "kind": "role",
@@ -73,8 +73,8 @@
     {
       "kind": "sg",
       "id": "sg-0e9e501fda1882754",
-      "status": "EXISTS",
-      "ok": false
+      "status": "ABSENT",
+      "ok": true
     },
     {
       "kind": "secret",
@@ -127,34 +127,12 @@
     {
       "kind": "tagged-instances",
       "ok": true,
-      "instances": [
-        {
-          "id": "i-01d6cf11e3aebe8bd",
-          "status": "terminated"
-        },
-        {
-          "id": "i-0fb6070aa44e90b20",
-          "status": "terminated"
-        }
-      ]
+      "instances": []
     },
     {
       "kind": "security-group-interfaces",
-      "ok": false,
-      "interfaces": [
-        {
-          "NetworkInterfaceId": "eni-02fc0026432a759bb",
-          "Status": "in-use",
-          "InterfaceType": "agentic_ai",
-          "Attachment": {
-            "AttachmentId": "ela-attach-0bde1b5e63a7fcf61",
-            "DeleteOnTermination": false,
-            "DeviceIndex": 1,
-            "InstanceOwnerId": "amazon-aws",
-            "Status": "attached"
-          }
-        }
-      ]
+      "ok": true,
+      "interfaces": []
     }
   ]
 }

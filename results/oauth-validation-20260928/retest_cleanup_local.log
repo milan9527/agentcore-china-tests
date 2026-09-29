@@ -1,0 +1,10 @@
+[cn-north-1] START retest_cleanup_local.suite
+[cn-north-1] PASS: cleanup.local_fixtures
+{"time": "2026-09-28T08:29:41.838133+00:00", "region": "cn-north-1", "feature": "cleanup.local_fixtures", "status": "PASS", "evidence": {"stoppedPids": [2427434, 2427435], "generatedSecretsRemoved": true}}
+[cn-north-1] PASS: retest_cleanup_local.suite
+{"time": "2026-09-28T08:29:41.838446+00:00", "region": "cn-north-1", "feature": "retest_cleanup_local.suite", "status": "PASS", "evidence": null}
+[cn-northwest-1] START retest_cleanup_local.suite
+[cn-northwest-1] PASS: cleanup.local_fixtures
+{"time": "2026-09-28T08:29:42.059120+00:00", "region": "cn-northwest-1", "feature": "cleanup.local_fixtures", "status": "PASS", "evidence": {"stoppedPids": [2427428, 2427429], "generatedSecretsRemoved": true}}
+[cn-northwest-1] PASS: retest_cleanup_local.suite
+{"time": "2026-09-28T08:29:42.059650+00:00", "region": "cn-northwest-1", "feature": "retest_cleanup_local.suite", "status": "PASS", "evidence": null}

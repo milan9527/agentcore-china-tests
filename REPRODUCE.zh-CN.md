@@ -2,7 +2,7 @@
 
 结论见 [FOLLOWUP.zh-CN.md](FOLLOWUP.zh-CN.md)。Live View 后续更正与专门复现命令见 [LIVEVIEW.zh-CN.md](LIVEVIEW.zh-CN.md)。以下命令使用 AWS `china` profile，各阶段在北京与宁夏并行执行。会创建收费的临时 AWS 资源，并在测试后清理。
 
-只复现当前仍失败的问题时，见[调用者 IAM 与零字节下载的专项步骤](REPRODUCE-ISSUES.zh-CN.md)，包含最短阶段依赖、预期错误、成功对照和清理命令。
+专项回归与问题复现见[调用者 IAM 与零字节下载的步骤](REPRODUCE-ISSUES.zh-CN.md)，包含最短阶段依赖、历史错误、成功对照和清理命令。调用者 IAM 于 2026-09-29 在两区复测通过，零字节下载保留此前失败结论。
 
 ## 环境与依赖
 
@@ -93,7 +93,7 @@ PYTHONPATH="$PWD/retest-pw148" \
 | `retest_tunnels` | 启动本地合成 IdP 与临时 HTTPS 隧道 | 发现文档可访问，RS256 令牌及受保护后端正常 |
 | `retest_gateway` | JWT 正负例、令牌透传、client credentials、Token Exchange 目标、授权码目标配置 | 前三类通过；Token Exchange 复现明确账号拒绝 |
 | `retest_authcode` | URL elicitation、保留 Cookie 的回调、会话绑定、恢复工具调用 | 最终 `resultType=complete`，后端 grant 为 `authorization_code` |
-| `retest_runtime` | 同一 Runtime 的直接调用与两种出站身份对照；两种入站模式 | 直接及 Gateway 角色调用成功，caller-IAM 返回无效令牌 403 |
+| `retest_runtime` | 同一 Runtime 的直接调用与两种出站身份对照；两种入站模式 | 9 月 29 日直接、Gateway 角色及 caller-IAM 全部通过；历史 403 保留 |
 | `retest_proxy` | 私有 TLS/代理基线；默认、鉴权、显式域名、非标准端口、私有目标探测 | 外部代理基线正常；保留非标准端口失败；私有目标账号限制 |
 | `retest_proxy_ports` | 标准 80/443、Basic/无鉴权、显式域名、独立绕过、服务端日志 | 正常组合通过；默认代理处理上游专用域名返回 DNS 503 |
 | `retest_browser` | 默认/新上下文下载、本地基线、AWS 官方 Live View | 远端 `save_as()` 零字节，本地正常；修正提前结束条件及工具栏坐标后，DCV 画面与输入通过 |
@@ -145,4 +145,4 @@ API 审计覆盖测试框架注册的 boto3 客户端及测试线程中的 `requ
 
 `export_report.py` 生成当前英文报告、`final-results.json` 和 `feature-matrix.csv`，保持初测每区 159 个检查名称并合并对应补测结果。同时生成 `initial-results.json` 和 `initial-feature-matrix.csv`，保留初测统计。中文摘要采用同一口径；初测中英文 Markdown 归档为 `SUMMARY.initial.zh-CN.md` 与 `REPORT.initial.md`。
 
-`build_followup_evidence.py` 固定读取本次的 `results/`、`results/retest/`、`results/retest-browser/`，后续 Live View 的 `retest-livewait`、`retest-live-signature`、`retest-livewait-default` 三个子目录，以及实际再次复现的 `repro-caller-confirm-20260928`。其他新复现目录不会自动混入本次历史证据；`run_followup.py` 将结果写入该目录的 `latest-results.json` / `run-summary.json`，调用者 IAM 专用 `run_caller_reproduction.py` 则生成 `summary.json` / `REPORT.zh-CN.md` 并保存完整控制台输出。
+`build_followup_evidence.py` 固定读取本次的 `results/`、`results/retest/`、`results/retest-browser/`，后续 Live View 的 `retest-livewait`、`retest-live-signature`、`retest-livewait-default` 三个子目录，以及调用者 IAM 的 `repro-caller-confirm-20260928`、`repro-caller-confirm-20260929`。其他新复现目录不会自动混入本次历史证据；`run_followup.py` 将结果写入该目录的 `latest-results.json` / `run-summary.json`，调用者 IAM 专用 `run_caller_reproduction.py` 则生成 `summary.json` / `REPORT.zh-CN.md` 并保存完整控制台输出。使用 `export_caller_reproduction.py --results-dir <目录>` 可离线生成双语报告、CSV、JSON 与哈希清单。

@@ -1,12 +1,20 @@
 # AgentCore Gateway and Browser tests in AWS China
 
+**Latest update — 29 September 2026:** Caller-IAM forwarding passed the unchanged reproduction in both regions: all eight selected checks per region passed, including all three previously failing caller paths. Cleanup verification passed. [中文报告](results/repro-caller-confirm-20260929/REPORT.zh-CN.md) · [English report](results/repro-caller-confirm-20260929/REPORT.md) · [responses/request IDs](results/repro-caller-confirm-20260929/invocation-results.csv).
+
+Browser proxy follow-up: [中文结论](PROXY-VALIDATION.zh-CN.md) · [full English matrix](results/proxy-validation-20260928-r2/REPORT.md). Each region ran 95 checks (60 PASS, 35 FAIL), with every failure reproduced twice. Separate origin/proxy hosts confirm managed Squid denies HTTP 8000/8081 before the external proxy; HTTPS 8443 also fails before it. Standard-port routing, bypass, authentication controls, and multi-proxy selection pass. [Gateway China description wording](GATEWAY-DESCRIPTION.zh-CN.md).
+
+Focused OAuth validation (28 September 2026, 08:27–08:29 UTC): [中文过程与结果](results/oauth-validation-20260928/REPORT.zh-CN.md) · [English report](results/oauth-validation-20260928/REPORT.md). In both regions, 2LO (Basic and POST client authentication) and the complete 3LO flow pass. Four OBO configurations remain blocked at Gateway target creation by the current account gate, confirmed by 16 HTTP 403 responses. [One-command reproduction](run_oauth_validation.py) · [request ID index](results/oauth-validation-20260928/request-index.csv).
+
+OAuth scope: the tests use a self-hosted synthetic IdP through `CustomOauth2`, with OAuth client `cn-retest` and a random secret per region. Microsoft Entra ID, Google, Okta, and other third-party IdPs were not used. Passing 2LO/3LO results apply to this fixture; third-party compatibility and Microsoft OBO remain untested.
+
 Latest follow-up: [中文版补测结论](FOLLOWUP.zh-CN.md) · [Live View 更正：画面和输入通过](LIVEVIEW.zh-CN.md) · [复现步骤](REPRODUCE.zh-CN.md) · [完整过程说明](WORKLOG.zh-CN.md).
 
-To reproduce the two remaining failures individually, see [caller-IAM and zero-byte download reproduction](REPRODUCE-ISSUES.zh-CN.md), including prerequisites, commands, comparison checks and cleanup.
+For caller-IAM regression checks and the remaining zero-byte download issue, see [focused reproduction steps](REPRODUCE-ISSUES.zh-CN.md), including prerequisites, commands, comparison checks and cleanup.
 
-Live integration investigation performed on 28 September 2026 with AWS profile `china`, in Beijing (`cn-north-1`) and Ningxia (`cn-northwest-1`).
+Live integration investigation performed on 28 September 2026, with caller-IAM retested on 29 September, using AWS profile `china` in Beijing (`cn-north-1`) and Ningxia (`cn-northwest-1`).
 
-Read the current [English report](REPORT.md) or [Chinese summary](SUMMARY.zh-CN.md), with detailed investigations in [FOLLOWUP.zh-CN.md](FOLLOWUP.zh-CN.md). Both main reports retain the initial 159-check population and apply matching follow-up results: **153 PASS, 2 FAIL, 2 BLOCKED, 2 NOT_AVAILABLE per region**. Live View display and input pass.
+Read the current [English report](REPORT.md) or [Chinese summary](SUMMARY.zh-CN.md), with detailed investigations in [FOLLOWUP.zh-CN.md](FOLLOWUP.zh-CN.md). Both main reports retain the initial 159-check population and apply matching follow-up results: **154 PASS, 1 FAIL, 2 BLOCKED, 2 NOT_AVAILABLE per region**. Live View display/input and the retested caller-IAM forwarding pass.
 
 [results/final-results.json](results/final-results.json) and [results/feature-matrix.csv](results/feature-matrix.csv) contain the consolidated evidence and counts. The broader [follow-up matrix](results/followup-matrix.csv) includes added diagnostic checks. Initial reports are archived as [REPORT.initial.md](REPORT.initial.md) and [SUMMARY.initial.zh-CN.md](SUMMARY.initial.zh-CN.md), with [initial results](results/initial-results.json) and [initial matrix](results/initial-feature-matrix.csv).
 

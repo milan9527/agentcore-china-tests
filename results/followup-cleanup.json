@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-28T07:57:50.066479+00:00",
+  "generatedAt": "2026-09-29T02:11:47.349970+00:00",
   "runs": [
     {
       "directory": "results",
       "region": "cn-north-1",
       "recordedResources": 57,
-      "deletedResources": 55,
+      "deletedResources": 56,
       "remainingRecordedResources": [
         {
           "kind": "kms",
@@ -18,21 +18,13 @@
             "keyState": "PendingDeletion",
             "deletionDate": "2026-10-05 05:27:41.783000+00:00"
           }
-        },
-        {
-          "kind": "sg",
-          "id": "sg-00ea1d13ed36ba5d3",
-          "cleanupResult": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-00ea1d13ed36ba5d3 has a dependent object"
-          }
         }
       ],
       "verification": {
-        "time": "2026-09-28T06:22:11.919293+00:00",
+        "time": "2026-09-28T13:22:54.324006+00:00",
         "region": "cn-north-1",
         "feature": "cleanup.read_only_verification",
-        "status": "FAIL",
+        "status": "PASS",
         "evidence": [
           {
             "kind": "role",
@@ -93,8 +85,8 @@
           {
             "kind": "sg",
             "id": "sg-00ea1d13ed36ba5d3",
-            "status": "EXISTS",
-            "ok": false
+            "status": "ABSENT",
+            "ok": true
           },
           {
             "kind": "secret",
@@ -175,43 +167,30 @@
           },
           {
             "kind": "security-group-interfaces",
-            "ok": false,
-            "interfaces": [
-              {
-                "NetworkInterfaceId": "eni-07785326177ebf70b",
-                "Status": "in-use",
-                "InterfaceType": "agentic_ai",
-                "Attachment": {
-                  "AttachmentId": "ela-attach-038e61a38ea5524f3",
-                  "DeleteOnTermination": false,
-                  "DeviceIndex": 1,
-                  "InstanceOwnerId": "amazon-aws",
-                  "Status": "attached"
-                }
-              }
-            ]
+            "ok": true,
+            "interfaces": []
           }
         ]
       },
       "deferredCleanup": {
-        "status": "WAITING_FOR_AWS_ENI_RELEASE",
+        "status": "COMPLETE",
         "pid": 2415600,
         "profile": "china",
         "startedAt": "2026-09-28T05:28:55.156171+00:00",
-        "updatedAt": "2026-09-28T07:57:38.554165+00:00",
+        "updatedAt": "2026-09-28T13:22:56.148058+00:00",
         "deadline": "2026-09-28T13:58:55.156171+00:00",
         "targets": [
           {
             "region": "cn-north-1",
             "id": "sg-00ea1d13ed36ba5d3",
             "purposeTag": "ac-cn-0928041532-bj",
-            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+            "status": "DELETED"
           },
           {
             "region": "cn-northwest-1",
             "id": "sg-074039951f97aedee",
             "purposeTag": "ac-cn-0928041532-nx",
-            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+            "status": "DELETED"
           }
         ]
       }
@@ -220,7 +199,7 @@
       "directory": "results",
       "region": "cn-northwest-1",
       "recordedResources": 57,
-      "deletedResources": 55,
+      "deletedResources": 56,
       "remainingRecordedResources": [
         {
           "kind": "kms",
@@ -233,21 +212,13 @@
             "keyState": "PendingDeletion",
             "deletionDate": "2026-10-05 05:27:32.722000+00:00"
           }
-        },
-        {
-          "kind": "sg",
-          "id": "sg-074039951f97aedee",
-          "cleanupResult": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-074039951f97aedee has a dependent object"
-          }
         }
       ],
       "verification": {
-        "time": "2026-09-28T06:22:12.382020+00:00",
+        "time": "2026-09-28T13:22:56.018952+00:00",
         "region": "cn-northwest-1",
         "feature": "cleanup.read_only_verification",
-        "status": "FAIL",
+        "status": "PASS",
         "evidence": [
           {
             "kind": "role",
@@ -308,8 +279,8 @@
           {
             "kind": "sg",
             "id": "sg-074039951f97aedee",
-            "status": "EXISTS",
-            "ok": false
+            "status": "ABSENT",
+            "ok": true
           },
           {
             "kind": "secret",
@@ -390,43 +361,30 @@
           },
           {
             "kind": "security-group-interfaces",
-            "ok": false,
-            "interfaces": [
-              {
-                "NetworkInterfaceId": "eni-04a5f2fc31f5dab40",
-                "Status": "in-use",
-                "InterfaceType": "agentic_ai",
-                "Attachment": {
-                  "AttachmentId": "ela-attach-054025ad5d83f9d33",
-                  "DeleteOnTermination": false,
-                  "DeviceIndex": 1,
-                  "InstanceOwnerId": "amazon-aws",
-                  "Status": "attached"
-                }
-              }
-            ]
+            "ok": true,
+            "interfaces": []
           }
         ]
       },
       "deferredCleanup": {
-        "status": "WAITING_FOR_AWS_ENI_RELEASE",
+        "status": "COMPLETE",
         "pid": 2415600,
         "profile": "china",
         "startedAt": "2026-09-28T05:28:55.156171+00:00",
-        "updatedAt": "2026-09-28T07:57:38.554165+00:00",
+        "updatedAt": "2026-09-28T13:22:56.148058+00:00",
         "deadline": "2026-09-28T13:58:55.156171+00:00",
         "targets": [
           {
             "region": "cn-north-1",
             "id": "sg-00ea1d13ed36ba5d3",
             "purposeTag": "ac-cn-0928041532-bj",
-            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+            "status": "DELETED"
           },
           {
             "region": "cn-northwest-1",
             "id": "sg-074039951f97aedee",
             "purposeTag": "ac-cn-0928041532-nx",
-            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+            "status": "DELETED"
           }
         ]
       }
@@ -435,22 +393,13 @@
       "directory": "results/retest",
       "region": "cn-north-1",
       "recordedResources": 39,
-      "deletedResources": 38,
-      "remainingRecordedResources": [
-        {
-          "kind": "sg",
-          "id": "sg-03179feaec145cf84",
-          "cleanupResult": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-03179feaec145cf84 has a dependent object"
-          }
-        }
-      ],
+      "deletedResources": 39,
+      "remainingRecordedResources": [],
       "verification": {
-        "time": "2026-09-28T06:21:57.044984+00:00",
+        "time": "2026-09-28T14:24:20.065897+00:00",
         "region": "cn-north-1",
         "feature": "cleanup.read_only_verification",
-        "status": "FAIL",
+        "status": "PASS",
         "evidence": [
           {
             "kind": "role",
@@ -521,8 +470,8 @@
           {
             "kind": "sg",
             "id": "sg-03179feaec145cf84",
-            "status": "EXISTS",
-            "ok": false
+            "status": "ABSENT",
+            "ok": true
           },
           {
             "kind": "secret",
@@ -575,56 +524,34 @@
           {
             "kind": "tagged-instances",
             "ok": true,
-            "instances": [
-              {
-                "id": "i-0d464481334a906cb",
-                "status": "terminated"
-              },
-              {
-                "id": "i-089848b8f327fb283",
-                "status": "terminated"
-              }
-            ]
+            "instances": []
           },
           {
             "kind": "security-group-interfaces",
-            "ok": false,
-            "interfaces": [
-              {
-                "NetworkInterfaceId": "eni-0a46da98972913797",
-                "Status": "in-use",
-                "InterfaceType": "agentic_ai",
-                "Attachment": {
-                  "AttachmentId": "ela-attach-0baf0c551b14375e3",
-                  "DeleteOnTermination": false,
-                  "DeviceIndex": 1,
-                  "InstanceOwnerId": "amazon-aws",
-                  "Status": "attached"
-                }
-              }
-            ]
+            "ok": true,
+            "interfaces": []
           }
         ]
       },
       "deferredCleanup": {
-        "status": "WAITING_FOR_AWS_ENI_RELEASE",
+        "status": "COMPLETE",
         "pid": 2420121,
         "profile": "china",
         "startedAt": "2026-09-28T06:21:44.446448+00:00",
-        "updatedAt": "2026-09-28T07:57:38.242493+00:00",
+        "updatedAt": "2026-09-28T14:24:21.618360+00:00",
         "deadline": "2026-09-28T14:51:44.446448+00:00",
         "targets": [
           {
             "region": "cn-north-1",
             "id": "sg-03179feaec145cf84",
             "purposeTag": "ac-cn-0928054019-bj",
-            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+            "status": "DELETED"
           },
           {
             "region": "cn-northwest-1",
             "id": "sg-0e9e501fda1882754",
             "purposeTag": "ac-cn-0928054019-nx",
-            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+            "status": "DELETED"
           }
         ]
       }
@@ -633,22 +560,13 @@
       "directory": "results/retest",
       "region": "cn-northwest-1",
       "recordedResources": 39,
-      "deletedResources": 38,
-      "remainingRecordedResources": [
-        {
-          "kind": "sg",
-          "id": "sg-0e9e501fda1882754",
-          "cleanupResult": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-0e9e501fda1882754 has a dependent object"
-          }
-        }
-      ],
+      "deletedResources": 39,
+      "remainingRecordedResources": [],
       "verification": {
-        "time": "2026-09-28T06:21:58.341314+00:00",
+        "time": "2026-09-28T14:24:21.495526+00:00",
         "region": "cn-northwest-1",
         "feature": "cleanup.read_only_verification",
-        "status": "FAIL",
+        "status": "PASS",
         "evidence": [
           {
             "kind": "role",
@@ -719,8 +637,8 @@
           {
             "kind": "sg",
             "id": "sg-0e9e501fda1882754",
-            "status": "EXISTS",
-            "ok": false
+            "status": "ABSENT",
+            "ok": true
           },
           {
             "kind": "secret",
@@ -773,56 +691,34 @@
           {
             "kind": "tagged-instances",
             "ok": true,
-            "instances": [
-              {
-                "id": "i-01d6cf11e3aebe8bd",
-                "status": "terminated"
-              },
-              {
-                "id": "i-0fb6070aa44e90b20",
-                "status": "terminated"
-              }
-            ]
+            "instances": []
           },
           {
             "kind": "security-group-interfaces",
-            "ok": false,
-            "interfaces": [
-              {
-                "NetworkInterfaceId": "eni-02fc0026432a759bb",
-                "Status": "in-use",
-                "InterfaceType": "agentic_ai",
-                "Attachment": {
-                  "AttachmentId": "ela-attach-0bde1b5e63a7fcf61",
-                  "DeleteOnTermination": false,
-                  "DeviceIndex": 1,
-                  "InstanceOwnerId": "amazon-aws",
-                  "Status": "attached"
-                }
-              }
-            ]
+            "ok": true,
+            "interfaces": []
           }
         ]
       },
       "deferredCleanup": {
-        "status": "WAITING_FOR_AWS_ENI_RELEASE",
+        "status": "COMPLETE",
         "pid": 2420121,
         "profile": "china",
         "startedAt": "2026-09-28T06:21:44.446448+00:00",
-        "updatedAt": "2026-09-28T07:57:38.242493+00:00",
+        "updatedAt": "2026-09-28T14:24:21.618360+00:00",
         "deadline": "2026-09-28T14:51:44.446448+00:00",
         "targets": [
           {
             "region": "cn-north-1",
             "id": "sg-03179feaec145cf84",
             "purposeTag": "ac-cn-0928054019-bj",
-            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+            "status": "DELETED"
           },
           {
             "region": "cn-northwest-1",
             "id": "sg-0e9e501fda1882754",
             "purposeTag": "ac-cn-0928054019-nx",
-            "status": "WAITING_FOR_AWS_ENI_RELEASE"
+            "status": "DELETED"
           }
         ]
       }
@@ -1223,6 +1119,176 @@
           {
             "kind": "gateway",
             "id": "ac-cn-0928074838-nx-authenticate-only-dpvyoe7q7y",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/repro-caller-confirm-20260929",
+      "region": "cn-north-1",
+      "recordedResources": 16,
+      "deletedResources": 16,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-29T02:00:22.602867+00:00",
+        "region": "cn-north-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-bj-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-bj-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0929015405-bj-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0929015405-bj",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "70dy8fm7ua",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-bj-http-ys9phkel49",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0929015405_bj-fyqfwJ2ER2",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-bj-caller",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-bj-authenticate-only-3xltvzir2w",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/repro-caller-confirm-20260929",
+      "region": "cn-northwest-1",
+      "recordedResources": 16,
+      "deletedResources": 16,
+      "remainingRecordedResources": [],
+      "verification": {
+        "time": "2026-09-29T02:00:23.111617+00:00",
+        "region": "cn-northwest-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-nx-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-nx-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0929015405-nx-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0929015405-nx",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "zdvkdpzwlg",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-nx-http-h5xpmtwmuf",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0929015405_nx-hb7Ki29LZR",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-nx-caller",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-nx-authenticate-only-tl4jstni62",
             "status": "ABSENT",
             "ok": true
           },

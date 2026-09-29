@@ -1,0 +1,30 @@
+{
+  "startedAt": "2026-09-28T09:56:26.702938+00:00",
+  "completedAt": "2026-09-28T10:13:45.089648+00:00",
+  "errors": [],
+  "pendingResources": [
+    {
+      "region": "cn-north-1",
+      "kind": "sg",
+      "id": "sg-0cb10af93ab6c0181",
+      "cleanupResult": {
+        "type": "ClientError",
+        "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-0cb10af93ab6c0181 has a dependent object"
+      }
+    },
+    {
+      "region": "cn-northwest-1",
+      "kind": "sg",
+      "id": "sg-02b620b4720173ddf",
+      "cleanupResult": {
+        "type": "ClientError",
+        "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-02b620b4720173ddf has a dependent object"
+      }
+    }
+  ],
+  "profile": "china",
+  "regions": [
+    "cn-north-1",
+    "cn-northwest-1"
+  ]
+}

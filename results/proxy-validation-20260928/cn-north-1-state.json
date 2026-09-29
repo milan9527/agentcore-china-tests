@@ -1,0 +1,96 @@
+{
+  "run": "ac-cn-0928095429",
+  "region": "cn-north-1",
+  "resources": [
+    {
+      "kind": "sg",
+      "id": "sg-0088cc0f7495822b0",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "eni",
+      "id": "eni-0716e8e388c50ee9c",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "eni",
+      "id": "eni-02bdc7cade7dbb1e1",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928095429-bj-ca_secret-cGwleX",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928095429-bj-proxy_secret-NL1bUY",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928095429-bj-bad_proxy_secret-5ruTog",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0928095429-bj-agentcore",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "instance",
+      "id": "i-0d7df7b3225548a7a",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "instance",
+      "id": "i-09c591c9d921470cd",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    }
+  ],
+  "sessions": [],
+  "subnet": "subnet-013eebbbc382e7342",
+  "vpc": "vpc-0d54556f2384d5a3c",
+  "sg": "sg-0088cc0f7495822b0",
+  "private_ip": "172.31.44.143",
+  "proxy_ip": "172.31.35.38",
+  "target_dns": "ip-172-31-44-143.cn-north-1.compute.internal",
+  "target_hosts": [
+    "172.31.44.143",
+    "ip-172-31-44-143.cn-north-1.compute.internal",
+    "proxy-only.agentcore.test"
+  ],
+  "ca_secret": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928095429-bj-ca_secret-cGwleX",
+  "proxy_secret": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928095429-bj-proxy_secret-NL1bUY",
+  "bad_proxy_secret": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928095429-bj-bad_proxy_secret-5ruTog",
+  "agentcore_role": "arn:aws-cn:iam::209915754514:role/ac-cn-0928095429-bj-agentcore",
+  "origin_instance": "i-0d7df7b3225548a7a",
+  "proxy_instance": "i-09c591c9d921470cd"
+}

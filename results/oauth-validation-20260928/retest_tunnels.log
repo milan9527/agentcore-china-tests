@@ -1,0 +1,14 @@
+[cn-northwest-1] START retest_tunnels.suite
+[cn-north-1] START retest_tunnels.suite
+[cn-north-1] PASS: fixture.oidc.public_discovery
+{"time": "2026-09-28T08:28:23.637067+00:00", "region": "cn-north-1", "feature": "fixture.oidc.public_discovery", "status": "PASS", "evidence": {"publicTrustedTlsDiscovery": true, "host": "https://taste-counsel-cornwall-binary.trycloudflare.com"}}
+[cn-north-1] PASS: fixture.oidc.client_credentials
+{"time": "2026-09-28T08:28:23.843759+00:00", "region": "cn-north-1", "feature": "fixture.oidc.client_credentials", "status": "PASS", "evidence": {"authenticated": true, "sub": "synthetic-service", "grant": "client_credentials", "tokenSha256": "4e69a992f1474c07a626e368339109b083ac0e69b8a099fd90226a3fd2f5366a"}}
+[cn-north-1] PASS: retest_tunnels.suite
+{"time": "2026-09-28T08:28:23.843902+00:00", "region": "cn-north-1", "feature": "retest_tunnels.suite", "status": "PASS", "evidence": null}
+[cn-northwest-1] PASS: fixture.oidc.public_discovery
+{"time": "2026-09-28T08:28:25.603435+00:00", "region": "cn-northwest-1", "feature": "fixture.oidc.public_discovery", "status": "PASS", "evidence": {"publicTrustedTlsDiscovery": true, "host": "https://apparent-look-strongly-ghz.trycloudflare.com"}}
+[cn-northwest-1] PASS: fixture.oidc.client_credentials
+{"time": "2026-09-28T08:28:25.800603+00:00", "region": "cn-northwest-1", "feature": "fixture.oidc.client_credentials", "status": "PASS", "evidence": {"authenticated": true, "sub": "synthetic-service", "grant": "client_credentials", "tokenSha256": "eccee6b170bd173e024397390f9dfaae27ddcb663f6f5c84a2590df4b464e53b"}}
+[cn-northwest-1] PASS: retest_tunnels.suite
+{"time": "2026-09-28T08:28:25.800667+00:00", "region": "cn-northwest-1", "feature": "retest_tunnels.suite", "status": "PASS", "evidence": null}

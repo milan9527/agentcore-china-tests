@@ -1,0 +1,1920 @@
+{
+  "startedAt": "2026-09-28T08:27:03.009944+00:00",
+  "completedAt": "2026-09-28T08:29:50.869381+00:00",
+  "profile": "china",
+  "errors": [],
+  "regions": {
+    "cn-north-1": {
+      "checks": {
+        "oauth.fixture.baselines": {
+          "time": "2026-09-28T08:28:27.484552+00:00",
+          "region": "cn-north-1",
+          "feature": "oauth.fixture.baselines",
+          "status": "PASS",
+          "evidence": {
+            "unauthenticatedBackendStatus": 401,
+            "badClientSecretStatus": 401,
+            "directIdpOboBaselines": {
+              "urn:ietf:params:oauth:grant-type:token-exchange": {
+                "authenticated": true,
+                "sub": "direct-obo-baseline",
+                "grant": "urn:ietf:params:oauth:grant-type:token-exchange",
+                "tokenSha256": "6487866cb2fa7299b08381155509557e6b2d474a5c864ffe9bb8bec40e375add"
+              },
+              "urn:ietf:params:oauth:grant-type:jwt-bearer": {
+                "authenticated": true,
+                "sub": "direct-obo-baseline",
+                "grant": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+                "tokenSha256": "4cfa2d08bde89b02f8d334dd5fdbbb3a249727d495b96dce60283fc1d35ca4e7"
+              }
+            },
+            "scope": "IdP direct baselines; these are not Gateway OBO success"
+          },
+          "seconds": 0.424,
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 6
+        },
+        "gateway.oauth.2lo.client_secret_basic": {
+          "time": "2026-09-28T08:28:45.125822+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.2lo.client_secret_basic",
+          "status": "PASS",
+          "evidence": {
+            "gatewayResponse": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "70955f85-7688-4d30-95c1-7372db18d1de"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 473889,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-service\",\"grant\":\"client_credentials\",\"tokenSha256\":\"a89a719ae32e145445a2d8af97efbdf6746b09965c482311d20eea412c7def94\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "backend": {
+              "authenticated": true,
+              "sub": "synthetic-service",
+              "grant": "client_credentials",
+              "tokenSha256": "a89a719ae32e145445a2d8af97efbdf6746b09965c482311d20eea412c7def94"
+            },
+            "issuerIssuance": [
+              {
+                "time": "2026-09-28T08:28:40.885841+00:00",
+                "region": "cn-north-1",
+                "event": "issuer_http",
+                "endpoint": "/token",
+                "method": "POST",
+                "status": 200,
+                "grant": "client_credentials",
+                "scope": "test",
+                "clientAuthentication": "CLIENT_SECRET_BASIC",
+                "subjectTokenPresent": false,
+                "subjectTokenType": null,
+                "actorTokenPresent": false,
+                "actorTokenType": null,
+                "assertionPresent": false,
+                "codeVerifierPresent": false,
+                "tokenSha256": "a89a719ae32e145445a2d8af97efbdf6746b09965c482311d20eea412c7def94",
+                "issuedSubject": "synthetic-service",
+                "issuedGrant": "client_credentials"
+              }
+            ],
+            "issuerUsage": [
+              {
+                "time": "2026-09-28T08:28:41.869266+00:00",
+                "region": "cn-north-1",
+                "event": "issuer_http",
+                "endpoint": "/secure",
+                "method": "GET",
+                "status": 200,
+                "authenticated": true,
+                "sub": "synthetic-service",
+                "grant": "client_credentials",
+                "tokenSha256": "a89a719ae32e145445a2d8af97efbdf6746b09965c482311d20eea412c7def94"
+              }
+            ],
+            "outboundTokenDiffersFromInbound": true,
+            "targetId": "WZK76YSD25",
+            "repeatCall": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "4d317439-0e64-403e-ac94-8241d7724436"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 346207,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-service\",\"grant\":\"client_credentials\",\"tokenSha256\":\"0b6b3f0336c95af93cf56bae1d1d37eaa6c0bcfb00a9b29ddf2dcf5deffb51c4\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "repeatTokenEndpointRequests": 1
+          },
+          "seconds": 12.87,
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 9
+        },
+        "gateway.oauth.2lo.client_secret_post": {
+          "time": "2026-09-28T08:28:55.846879+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.2lo.client_secret_post",
+          "status": "PASS",
+          "evidence": {
+            "gatewayResponse": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "d06678b4-4cc4-4675-856e-608a83470b6f"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 374679,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-service\",\"grant\":\"client_credentials\",\"tokenSha256\":\"e44867fbeefaec2edba07912bff71324132129664600110e946df2446e44baca\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "backend": {
+              "authenticated": true,
+              "sub": "synthetic-service",
+              "grant": "client_credentials",
+              "tokenSha256": "e44867fbeefaec2edba07912bff71324132129664600110e946df2446e44baca"
+            },
+            "issuerIssuance": [
+              {
+                "time": "2026-09-28T08:28:51.738568+00:00",
+                "region": "cn-north-1",
+                "event": "issuer_http",
+                "endpoint": "/token",
+                "method": "POST",
+                "status": 200,
+                "grant": "client_credentials",
+                "scope": "test",
+                "clientAuthentication": "CLIENT_SECRET_POST",
+                "subjectTokenPresent": false,
+                "subjectTokenType": null,
+                "actorTokenPresent": false,
+                "actorTokenType": null,
+                "assertionPresent": false,
+                "codeVerifierPresent": false,
+                "tokenSha256": "e44867fbeefaec2edba07912bff71324132129664600110e946df2446e44baca",
+                "issuedSubject": "synthetic-service",
+                "issuedGrant": "client_credentials"
+              }
+            ],
+            "issuerUsage": [
+              {
+                "time": "2026-09-28T08:28:52.621544+00:00",
+                "region": "cn-north-1",
+                "event": "issuer_http",
+                "endpoint": "/secure",
+                "method": "GET",
+                "status": 200,
+                "authenticated": true,
+                "sub": "synthetic-service",
+                "grant": "client_credentials",
+                "tokenSha256": "e44867fbeefaec2edba07912bff71324132129664600110e946df2446e44baca"
+              }
+            ],
+            "outboundTokenDiffersFromInbound": true,
+            "targetId": "XQPOLJUO7W",
+            "repeatCall": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "96542c76-1d06-419b-93ec-06a9763d28e8"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 206085,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-service\",\"grant\":\"client_credentials\",\"tokenSha256\":\"397ce4b5c5325a1fa11936ef66ab1a0a410689aed062908e338fb7403e202a77\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "repeatTokenEndpointRequests": 1
+          },
+          "seconds": 10.721,
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 11
+        },
+        "gateway.oauth.3lo.consent_required": {
+          "time": "2026-09-28T08:29:03.920686+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.3lo.consent_required",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "headers": {
+              "content-type": "application/json",
+              "x-amzn-requestid": "f9a86c4a-b5f8-402e-b911-53338d1efeb2"
+            },
+            "body": {
+              "jsonrpc": "2.0",
+              "id": 694423,
+              "result": {
+                "resultType": "input_required",
+                "inputRequests": {
+                  "urlElicitation": {
+                    "method": "elicitation/create",
+                    "params": {
+                      "mode": "url",
+                      "url": "https://bedrock-agentcore.cn-north-1.amazonaws.com.cn/identities/oauth2/authorize?request_uri=REDACTED",
+                      "message": "Please login to this URL for authorization.",
+                      "elicitationId": "e0f0a249-7f96-4dab-81d2-3698bb597915"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 13
+        },
+        "gateway.oauth.3lo.session_binding": {
+          "time": "2026-09-28T08:29:07.929794+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.3lo.session_binding",
+          "status": "PASS",
+          "evidence": {
+            "redirects": [
+              {
+                "host": "bedrock-agentcore.cn-north-1.amazonaws.com.cn",
+                "path": "/identities/oauth2/authorize",
+                "status": 302
+              },
+              {
+                "host": "taste-counsel-cornwall-binary.trycloudflare.com",
+                "path": "/test/REDACTED_PATH_KEY/authorize",
+                "status": 302
+              },
+              {
+                "host": "bedrock-agentcore.cn-north-1.amazonaws.com.cn",
+                "path": "/identities/oauth2/callback/8c48134d-18f0-4f49-81bd-b4d9b8afdb17",
+                "status": 302
+              },
+              {
+                "host": "taste-counsel-cornwall-binary.trycloudflare.com",
+                "path": "/test/REDACTED_PATH_KEY/callback",
+                "status": 200
+              }
+            ],
+            "binding": {
+              "ResponseMetadata": {
+                "RequestId": "d21ccccc-7aff-4c20-b358-1b874971ef85",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                  "date": "Mon, 28 Sep 2026 08:29:07 GMT",
+                  "content-type": "application/json",
+                  "content-length": "2",
+                  "connection": "keep-alive",
+                  "x-amzn-requestid": "d21ccccc-7aff-4c20-b358-1b874971ef85",
+                  "strict-transport-security": "max-age=47304000; includeSubDomains",
+                  "cache-control": "no-store, no-cache"
+                },
+                "RetryAttempts": 0
+              }
+            }
+          },
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 14
+        },
+        "gateway.oauth.3lo.cached_user": {
+          "time": "2026-09-28T08:29:11.287421+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.3lo.cached_user",
+          "status": "PASS",
+          "evidence": {
+            "response": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "bcc54a62-986c-4445-a9e6-1932dc49235e"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 50075,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-user\",\"grant\":\"authorization_code\",\"tokenSha256\":\"301cc9311aa5f34934b771f50ea8925d29ce4f9017da50361a077e3697773e95\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "repeatTokenEndpointRequests": 0
+          },
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 15
+        },
+        "gateway.oauth.3lo.user_isolation": {
+          "time": "2026-09-28T08:29:12.533773+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.3lo.user_isolation",
+          "status": "PASS",
+          "evidence": {
+            "otherUserConsentRequired": true,
+            "otherUserReachedBackend": false,
+            "response": {
+              "status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "x-amzn-requestid": "2a5b87e9-9e70-445f-b9a8-fe4602f3fd49"
+              },
+              "body": {
+                "jsonrpc": "2.0",
+                "id": 134293,
+                "result": {
+                  "resultType": "input_required",
+                  "inputRequests": {
+                    "urlElicitation": {
+                      "method": "elicitation/create",
+                      "params": {
+                        "mode": "url",
+                        "url": "https://bedrock-agentcore.cn-north-1.amazonaws.com.cn/identities/oauth2/authorize?request_uri=REDACTED",
+                        "message": "Please login to this URL for authorization.",
+                        "elicitationId": "789a5080-aca7-4d43-b3fe-59988ad8242a"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 16
+        },
+        "gateway.oauth.3lo.authorization_code": {
+          "time": "2026-09-28T08:29:12.534990+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.3lo.authorization_code",
+          "status": "PASS",
+          "evidence": {
+            "gatewayResponse": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "04ca536a-23d4-4a1f-81f6-95990ce47863"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 869495,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-user\",\"grant\":\"authorization_code\",\"tokenSha256\":\"301cc9311aa5f34934b771f50ea8925d29ce4f9017da50361a077e3697773e95\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "backend": {
+              "authenticated": true,
+              "sub": "synthetic-user",
+              "grant": "authorization_code",
+              "tokenSha256": "301cc9311aa5f34934b771f50ea8925d29ce4f9017da50361a077e3697773e95"
+            },
+            "issuerIssuance": [
+              {
+                "time": "2026-09-28T08:29:07.605215+00:00",
+                "region": "cn-north-1",
+                "event": "issuer_http",
+                "endpoint": "/token",
+                "method": "POST",
+                "status": 200,
+                "grant": "authorization_code",
+                "scope": null,
+                "clientAuthentication": "CLIENT_SECRET_BASIC",
+                "subjectTokenPresent": false,
+                "subjectTokenType": null,
+                "actorTokenPresent": false,
+                "actorTokenType": null,
+                "assertionPresent": false,
+                "codeVerifierPresent": true,
+                "tokenSha256": "301cc9311aa5f34934b771f50ea8925d29ce4f9017da50361a077e3697773e95",
+                "issuedSubject": "synthetic-user",
+                "issuedGrant": "authorization_code"
+              }
+            ],
+            "issuerUsage": [
+              {
+                "time": "2026-09-28T08:29:09.062691+00:00",
+                "region": "cn-north-1",
+                "event": "issuer_http",
+                "endpoint": "/secure",
+                "method": "GET",
+                "status": 200,
+                "authenticated": true,
+                "sub": "synthetic-user",
+                "grant": "authorization_code",
+                "tokenSha256": "301cc9311aa5f34934b771f50ea8925d29ce4f9017da50361a077e3697773e95"
+              }
+            ],
+            "outboundTokenDiffersFromInbound": true,
+            "redirects": [
+              {
+                "host": "bedrock-agentcore.cn-north-1.amazonaws.com.cn",
+                "path": "/identities/oauth2/authorize",
+                "status": 302
+              },
+              {
+                "host": "taste-counsel-cornwall-binary.trycloudflare.com",
+                "path": "/test/REDACTED_PATH_KEY/authorize",
+                "status": 302
+              },
+              {
+                "host": "bedrock-agentcore.cn-north-1.amazonaws.com.cn",
+                "path": "/identities/oauth2/callback/8c48134d-18f0-4f49-81bd-b4d9b8afdb17",
+                "status": 302
+              },
+              {
+                "host": "taste-counsel-cornwall-binary.trycloudflare.com",
+                "path": "/test/REDACTED_PATH_KEY/callback",
+                "status": 200
+              }
+            ],
+            "sessionBinding": {
+              "ResponseMetadata": {
+                "RequestId": "d21ccccc-7aff-4c20-b358-1b874971ef85",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                  "date": "Mon, 28 Sep 2026 08:29:07 GMT",
+                  "content-type": "application/json",
+                  "content-length": "2",
+                  "connection": "keep-alive",
+                  "x-amzn-requestid": "d21ccccc-7aff-4c20-b358-1b874971ef85",
+                  "strict-transport-security": "max-age=47304000; includeSubDomains",
+                  "cache-control": "no-store, no-cache"
+                },
+                "RetryAttempts": 0
+              }
+            }
+          },
+          "seconds": 16.688,
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 17
+        },
+        "gateway.oauth.obo.rfc8693-none": {
+          "time": "2026-09-28T08:29:13.860763+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.obo.rfc8693-none",
+          "status": "BLOCKED",
+          "evidence": {
+            "scope": "Current account and region; Gateway target creation is account-gated",
+            "providerArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:token-vault/default/oauth2credentialprovider/ac-cn-0928082703-bj-rfc8693-none",
+            "providerConfiguration": {
+              "grantType": "TOKEN_EXCHANGE",
+              "tokenExchangeGrantTypeConfig": {
+                "actorTokenContent": "NONE"
+              }
+            },
+            "rejections": [
+              {
+                "attempt": 1,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "27fd3686-9fc6-4ade-be15-07cb37943214",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:13 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "27fd3686-9fc6-4ade-be15-07cb37943214",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrGCE9GhTIEH0A=",
+                      "x-amzn-trace-id": "Root=1-6aba2559-1cfa38582501fb00726bf271"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              },
+              {
+                "attempt": 2,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "45b09d18-fad9-4bd5-99bd-8c31034bc57a",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:13 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "45b09d18-fad9-4bd5-99bd-8c31034bc57a",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrGFEv8hTIEZYA=",
+                      "x-amzn-trace-id": "Root=1-6aba2559-0f6bf123111426de564a128a"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              }
+            ],
+            "gatewayTokenEndpointRequests": 0,
+            "endToEndInvocationExecuted": false
+          },
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 21
+        },
+        "gateway.oauth.obo.rfc8693-m2m": {
+          "time": "2026-09-28T08:29:15.105418+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.obo.rfc8693-m2m",
+          "status": "BLOCKED",
+          "evidence": {
+            "scope": "Current account and region; Gateway target creation is account-gated",
+            "providerArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:token-vault/default/oauth2credentialprovider/ac-cn-0928082703-bj-rfc8693-m2m",
+            "providerConfiguration": {
+              "grantType": "TOKEN_EXCHANGE",
+              "tokenExchangeGrantTypeConfig": {
+                "actorTokenContent": "M2M",
+                "actorTokenScopes": [
+                  "test"
+                ]
+              }
+            },
+            "rejections": [
+              {
+                "attempt": 1,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "4d6ce174-2fcb-4840-b9c9-433a1089a28f",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:14 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "4d6ce174-2fcb-4840-b9c9-433a1089a28f",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrGPGtJhTIEN7w=",
+                      "x-amzn-trace-id": "Root=1-6aba255a-2f3741830a2f4c8808c5e7cb"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              },
+              {
+                "attempt": 2,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "6dc81385-69e1-4422-a3f1-8dc1cf93e7e0",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:14 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "6dc81385-69e1-4422-a3f1-8dc1cf93e7e0",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrGSHcGhTIEcnA=",
+                      "x-amzn-trace-id": "Root=1-6aba255a-50e497591aae8cc0606e90b4"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              }
+            ],
+            "gatewayTokenEndpointRequests": 0,
+            "endToEndInvocationExecuted": false
+          },
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 26
+        },
+        "gateway.oauth.obo.rfc8693-aws-iam-id-token-jwt": {
+          "time": "2026-09-28T08:29:16.704496+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.obo.rfc8693-aws-iam-id-token-jwt",
+          "status": "BLOCKED",
+          "evidence": {
+            "scope": "Current account and region; Gateway target creation is account-gated",
+            "providerArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:token-vault/default/oauth2credentialprovider/ac-cn-0928082703-bj-rfc8693-aws-iam-id-token-jwt",
+            "providerConfiguration": {
+              "grantType": "TOKEN_EXCHANGE",
+              "tokenExchangeGrantTypeConfig": {
+                "actorTokenContent": "AWS_IAM_ID_TOKEN_JWT"
+              }
+            },
+            "rejections": [
+              {
+                "attempt": 1,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "b36502ac-fcbb-44c4-ae1f-2ebd677d5e96",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:16 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "b36502ac-fcbb-44c4-ae1f-2ebd677d5e96",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrGfH3uBTIEE8w=",
+                      "x-amzn-trace-id": "Root=1-6aba255c-700fae445d6af2a3088d6bbe"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              },
+              {
+                "attempt": 2,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "b8b0fb65-e4e2-438e-8c6f-74fba8a12704",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:16 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "b8b0fb65-e4e2-438e-8c6f-74fba8a12704",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrGiHD7hTIEdFg=",
+                      "x-amzn-trace-id": "Root=1-6aba255c-5dbda1276ba8dbf06e874313"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              }
+            ],
+            "gatewayTokenEndpointRequests": 0,
+            "endToEndInvocationExecuted": false
+          },
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 31
+        },
+        "gateway.oauth.obo.rfc7523-jwt-bearer": {
+          "time": "2026-09-28T08:29:17.964824+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.oauth.obo.rfc7523-jwt-bearer",
+          "status": "BLOCKED",
+          "evidence": {
+            "scope": "Current account and region; Gateway target creation is account-gated",
+            "providerArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:token-vault/default/oauth2credentialprovider/ac-cn-0928082703-bj-rfc7523-jwt-bearer",
+            "providerConfiguration": {
+              "grantType": "JWT_AUTHORIZATION_GRANT"
+            },
+            "rejections": [
+              {
+                "attempt": 1,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "30d2e597-19ed-4b66-b94c-15d5285f408d",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:17 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "30d2e597-19ed-4b66-b94c-15d5285f408d",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrGsGNyhTIEP9Q=",
+                      "x-amzn-trace-id": "Root=1-6aba255d-010d97606aff3c932a88b5d0"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              },
+              {
+                "attempt": 2,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "869f1a92-03f6-4655-b458-5f5a9fff2b68",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:17 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "869f1a92-03f6-4655-b458-5f5a9fff2b68",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrGuFiNhTIEBcA=",
+                      "x-amzn-trace-id": "Root=1-6aba255d-28cd0f244ddddc8f64567325"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              }
+            ],
+            "gatewayTokenEndpointRequests": 0,
+            "endToEndInvocationExecuted": false
+          },
+          "source": "cn-north-1-results.jsonl",
+          "sourceLine": 36
+        }
+      },
+      "cleanup": {
+        "status": "PASS",
+        "checks": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0928082703-bj-agentcore",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "f9da8fc3-883f-4101-9746-12058ebc2461"
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928082703-bj-jwt-p4is8gvpis",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "99514b8a-318b-409e-abcc-8e95a6987669"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-bj-cc-basic",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "3665027f-9950-4c0b-b4a9-b211edcff4b2"
+          },
+          {
+            "kind": "target",
+            "id": "WZK76YSD25",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "4fbd2a34-474b-4353-874d-3e7c2cddc7c8"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-bj-cc-post",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "ae3498fa-d80a-41dc-b4b2-e27a99ff5d01"
+          },
+          {
+            "kind": "target",
+            "id": "XQPOLJUO7W",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "2777382c-13aa-49a9-9e17-d9adf288654a"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-bj-authorization-code",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "0c8f42a3-d10e-469e-aa05-1d96ce6dc3c1"
+          },
+          {
+            "kind": "target",
+            "id": "VYUAJHUZRM",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "e05deea0-feca-4067-8c2b-865325ef5897"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-bj-rfc8693-none",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "2fdeec91-29f1-445d-b640-310084f0d94c"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-bj-rfc8693-m2m",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "311c969c-9b19-4ff4-a46f-58fe6361bfc5"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-bj-rfc8693-aws-iam-id-token-jwt",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "0dc0c6a6-0f1c-4ecf-af4d-a96330bae7cf"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-bj-rfc7523-jwt-bearer",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "632df333-44e4-4b5b-8acd-2c211f75bce7"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-cc-basic-1218cd25-0fv0hE",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "6e78cefe-f4bd-40ae-b2b6-f2ed889137bd"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-cc-post-d30172cf-mcpIJr",
+            "ok": true,
+            "status": "ScheduledDeletion",
+            "deletionDate": "2026-09-28 08:29:34.893000+00:00"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-authorization-code-490b37bd-EWOPRh",
+            "ok": true,
+            "status": "ScheduledDeletion",
+            "deletionDate": "2026-09-28 08:29:34.930000+00:00"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-rfc8693-none-2789af11-H4s5IZ",
+            "ok": true,
+            "status": "ScheduledDeletion",
+            "deletionDate": "2026-09-28 08:29:35.547000+00:00"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-rfc8693-m2m-737f509b-44UJvr",
+            "ok": true,
+            "status": "ScheduledDeletion",
+            "deletionDate": "2026-09-28 08:29:35.246000+00:00"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-rfc8693-aws-iam-id-token-jwt-99fffd4f-Nhd0O8",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "02868a62-494f-4aae-b7ce-c81654692613"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-rfc7523-jwt-bearer-eff18fbf-ri089h",
+            "ok": true,
+            "status": "ScheduledDeletion",
+            "deletionDate": "2026-09-28 08:29:35.299000+00:00"
+          },
+          {
+            "kind": "workload",
+            "id": "ac-cn-0928082703-bj-jwt-p4is8gvpis",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "4293e41a-6d7e-4d18-a676-8b78fc5975ef"
+          },
+          {
+            "kind": "local-process",
+            "pid": 2427434,
+            "ok": true
+          },
+          {
+            "kind": "local-process",
+            "pid": 2427435,
+            "ok": true
+          },
+          {
+            "kind": "local-secret",
+            "file": "cn-north-1-private-key.pem",
+            "ok": true
+          },
+          {
+            "kind": "local-secret",
+            "file": "cn-north-1-secrets.json",
+            "ok": true
+          }
+        ]
+      }
+    },
+    "cn-northwest-1": {
+      "checks": {
+        "oauth.fixture.baselines": {
+          "time": "2026-09-28T08:28:27.383054+00:00",
+          "region": "cn-northwest-1",
+          "feature": "oauth.fixture.baselines",
+          "status": "PASS",
+          "evidence": {
+            "unauthenticatedBackendStatus": 401,
+            "badClientSecretStatus": 401,
+            "directIdpOboBaselines": {
+              "urn:ietf:params:oauth:grant-type:token-exchange": {
+                "authenticated": true,
+                "sub": "direct-obo-baseline",
+                "grant": "urn:ietf:params:oauth:grant-type:token-exchange",
+                "tokenSha256": "c59391133cb49710c292288d6bed2651657f2b8e67137d7c8987427a234bdb90"
+              },
+              "urn:ietf:params:oauth:grant-type:jwt-bearer": {
+                "authenticated": true,
+                "sub": "direct-obo-baseline",
+                "grant": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+                "tokenSha256": "17a24c3ae4fb0c9250fc2345cc3e9c0ee2dde02b3f5fc1adf02c3a2f206de667"
+              }
+            },
+            "scope": "IdP direct baselines; these are not Gateway OBO success"
+          },
+          "seconds": 0.417,
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 6
+        },
+        "gateway.oauth.2lo.client_secret_basic": {
+          "time": "2026-09-28T08:28:47.286135+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.2lo.client_secret_basic",
+          "status": "PASS",
+          "evidence": {
+            "gatewayResponse": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "7a3e2434-ec12-4e58-a932-b85144901263"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 848920,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-service\",\"grant\":\"client_credentials\",\"tokenSha256\":\"657db9ade9b5a7386556122c22a68e49092e310f66b8913b70aec003f64112bd\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "backend": {
+              "authenticated": true,
+              "sub": "synthetic-service",
+              "grant": "client_credentials",
+              "tokenSha256": "657db9ade9b5a7386556122c22a68e49092e310f66b8913b70aec003f64112bd"
+            },
+            "issuerIssuance": [
+              {
+                "time": "2026-09-28T08:28:42.966253+00:00",
+                "region": "cn-northwest-1",
+                "event": "issuer_http",
+                "endpoint": "/token",
+                "method": "POST",
+                "status": 200,
+                "grant": "client_credentials",
+                "scope": "test",
+                "clientAuthentication": "CLIENT_SECRET_BASIC",
+                "subjectTokenPresent": false,
+                "subjectTokenType": null,
+                "actorTokenPresent": false,
+                "actorTokenType": null,
+                "assertionPresent": false,
+                "codeVerifierPresent": false,
+                "tokenSha256": "657db9ade9b5a7386556122c22a68e49092e310f66b8913b70aec003f64112bd",
+                "issuedSubject": "synthetic-service",
+                "issuedGrant": "client_credentials"
+              }
+            ],
+            "issuerUsage": [
+              {
+                "time": "2026-09-28T08:28:43.799098+00:00",
+                "region": "cn-northwest-1",
+                "event": "issuer_http",
+                "endpoint": "/secure",
+                "method": "GET",
+                "status": 200,
+                "authenticated": true,
+                "sub": "synthetic-service",
+                "grant": "client_credentials",
+                "tokenSha256": "657db9ade9b5a7386556122c22a68e49092e310f66b8913b70aec003f64112bd"
+              }
+            ],
+            "outboundTokenDiffersFromInbound": true,
+            "targetId": "YMJOWZEWAA",
+            "repeatCall": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "448eedf5-6a2d-48c2-a192-5fd8dbddcbae"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 856941,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-service\",\"grant\":\"client_credentials\",\"tokenSha256\":\"74ea5b61905fe0a64d11246f6d12decedc7ecf5ed26d0a2553fbf95ec494fac1\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "repeatTokenEndpointRequests": 1
+          },
+          "seconds": 15.088,
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 9
+        },
+        "gateway.oauth.2lo.client_secret_post": {
+          "time": "2026-09-28T08:28:58.481627+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.2lo.client_secret_post",
+          "status": "PASS",
+          "evidence": {
+            "gatewayResponse": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "e9f75d1c-aa03-406b-bd2b-ad73fd50f8b9"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 396044,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-service\",\"grant\":\"client_credentials\",\"tokenSha256\":\"4a78202f3941700cba10e6ccfdae23f3e3c5f23818a4a94eb37528a669e01b96\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "backend": {
+              "authenticated": true,
+              "sub": "synthetic-service",
+              "grant": "client_credentials",
+              "tokenSha256": "4a78202f3941700cba10e6ccfdae23f3e3c5f23818a4a94eb37528a669e01b96"
+            },
+            "issuerIssuance": [
+              {
+                "time": "2026-09-28T08:28:54.386501+00:00",
+                "region": "cn-northwest-1",
+                "event": "issuer_http",
+                "endpoint": "/token",
+                "method": "POST",
+                "status": 200,
+                "grant": "client_credentials",
+                "scope": "test",
+                "clientAuthentication": "CLIENT_SECRET_POST",
+                "subjectTokenPresent": false,
+                "subjectTokenType": null,
+                "actorTokenPresent": false,
+                "actorTokenType": null,
+                "assertionPresent": false,
+                "codeVerifierPresent": false,
+                "tokenSha256": "4a78202f3941700cba10e6ccfdae23f3e3c5f23818a4a94eb37528a669e01b96",
+                "issuedSubject": "synthetic-service",
+                "issuedGrant": "client_credentials"
+              }
+            ],
+            "issuerUsage": [
+              {
+                "time": "2026-09-28T08:28:55.098042+00:00",
+                "region": "cn-northwest-1",
+                "event": "issuer_http",
+                "endpoint": "/secure",
+                "method": "GET",
+                "status": 200,
+                "authenticated": true,
+                "sub": "synthetic-service",
+                "grant": "client_credentials",
+                "tokenSha256": "4a78202f3941700cba10e6ccfdae23f3e3c5f23818a4a94eb37528a669e01b96"
+              }
+            ],
+            "outboundTokenDiffersFromInbound": true,
+            "targetId": "XJRD8OYTCA",
+            "repeatCall": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "7b165ab4-d4e4-4852-a069-b86bf265a0c3"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 227459,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-service\",\"grant\":\"client_credentials\",\"tokenSha256\":\"2f3f59939568315defdf304e68fdbf1d6f990a8561e865ef6bf6d8c726be650b\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "repeatTokenEndpointRequests": 1
+          },
+          "seconds": 11.195,
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 11
+        },
+        "gateway.oauth.3lo.consent_required": {
+          "time": "2026-09-28T08:29:07.177927+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.3lo.consent_required",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "headers": {
+              "content-type": "application/json",
+              "x-amzn-requestid": "4d3462a6-eae7-4d29-8e9f-c2bddccd7e62"
+            },
+            "body": {
+              "jsonrpc": "2.0",
+              "id": 757828,
+              "result": {
+                "resultType": "input_required",
+                "inputRequests": {
+                  "urlElicitation": {
+                    "method": "elicitation/create",
+                    "params": {
+                      "mode": "url",
+                      "url": "https://bedrock-agentcore.cn-northwest-1.amazonaws.com.cn/identities/oauth2/authorize?request_uri=REDACTED",
+                      "message": "Please login to this URL for authorization.",
+                      "elicitationId": "33c42883-d571-499a-8b30-87c1e2ee21ee"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 13
+        },
+        "gateway.oauth.3lo.session_binding": {
+          "time": "2026-09-28T08:29:11.427574+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.3lo.session_binding",
+          "status": "PASS",
+          "evidence": {
+            "redirects": [
+              {
+                "host": "bedrock-agentcore.cn-northwest-1.amazonaws.com.cn",
+                "path": "/identities/oauth2/authorize",
+                "status": 302
+              },
+              {
+                "host": "apparent-look-strongly-ghz.trycloudflare.com",
+                "path": "/test/REDACTED_PATH_KEY/authorize",
+                "status": 302
+              },
+              {
+                "host": "bedrock-agentcore.cn-northwest-1.amazonaws.com.cn",
+                "path": "/identities/oauth2/callback/121614f2-cc5e-43c9-bc5a-29f0d61dd921",
+                "status": 302
+              },
+              {
+                "host": "apparent-look-strongly-ghz.trycloudflare.com",
+                "path": "/test/REDACTED_PATH_KEY/callback",
+                "status": 200
+              }
+            ],
+            "binding": {
+              "ResponseMetadata": {
+                "RequestId": "00ffe0b5-ca88-4dea-a89f-af492771576d",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                  "date": "Mon, 28 Sep 2026 08:29:11 GMT",
+                  "content-type": "application/json",
+                  "content-length": "2",
+                  "connection": "keep-alive",
+                  "x-amzn-requestid": "00ffe0b5-ca88-4dea-a89f-af492771576d",
+                  "strict-transport-security": "max-age=47304000; includeSubDomains",
+                  "cache-control": "no-store, no-cache"
+                },
+                "RetryAttempts": 0
+              }
+            }
+          },
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 14
+        },
+        "gateway.oauth.3lo.cached_user": {
+          "time": "2026-09-28T08:29:15.743047+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.3lo.cached_user",
+          "status": "PASS",
+          "evidence": {
+            "response": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "7dc4c469-63fa-4aff-a192-71b2ef0fda55"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 698674,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-user\",\"grant\":\"authorization_code\",\"tokenSha256\":\"9ca95051981cd1c9d8ed26419a116ef4180a5283e0c0460ad9574b79a5c2245e\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "repeatTokenEndpointRequests": 0
+          },
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 15
+        },
+        "gateway.oauth.3lo.user_isolation": {
+          "time": "2026-09-28T08:29:16.843627+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.3lo.user_isolation",
+          "status": "PASS",
+          "evidence": {
+            "otherUserConsentRequired": true,
+            "otherUserReachedBackend": false,
+            "response": {
+              "status": 200,
+              "headers": {
+                "content-type": "application/json",
+                "x-amzn-requestid": "5a60d16a-34b0-48fe-986f-43e9eaef0f53"
+              },
+              "body": {
+                "jsonrpc": "2.0",
+                "id": 494111,
+                "result": {
+                  "resultType": "input_required",
+                  "inputRequests": {
+                    "urlElicitation": {
+                      "method": "elicitation/create",
+                      "params": {
+                        "mode": "url",
+                        "url": "https://bedrock-agentcore.cn-northwest-1.amazonaws.com.cn/identities/oauth2/authorize?request_uri=REDACTED",
+                        "message": "Please login to this URL for authorization.",
+                        "elicitationId": "330b21d0-d1b4-4cfb-8ab5-36583cca8516"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 16
+        },
+        "gateway.oauth.3lo.authorization_code": {
+          "time": "2026-09-28T08:29:16.844779+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.3lo.authorization_code",
+          "status": "PASS",
+          "evidence": {
+            "gatewayResponse": {
+              "status": 200,
+              "headers": {
+                "content-type": "text/event-stream",
+                "x-amzn-requestid": "557b36a3-1448-4ce7-80d3-643ba11a34a0"
+              },
+              "body": [
+                {
+                  "jsonrpc": "2.0",
+                  "id": 225241,
+                  "result": {
+                    "isError": false,
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "{\"authenticated\":true,\"sub\":\"synthetic-user\",\"grant\":\"authorization_code\",\"tokenSha256\":\"9ca95051981cd1c9d8ed26419a116ef4180a5283e0c0460ad9574b79a5c2245e\"}"
+                      }
+                    ],
+                    "resultType": "complete"
+                  }
+                }
+              ]
+            },
+            "backend": {
+              "authenticated": true,
+              "sub": "synthetic-user",
+              "grant": "authorization_code",
+              "tokenSha256": "9ca95051981cd1c9d8ed26419a116ef4180a5283e0c0460ad9574b79a5c2245e"
+            },
+            "issuerIssuance": [
+              {
+                "time": "2026-09-28T08:29:11.068368+00:00",
+                "region": "cn-northwest-1",
+                "event": "issuer_http",
+                "endpoint": "/token",
+                "method": "POST",
+                "status": 200,
+                "grant": "authorization_code",
+                "scope": null,
+                "clientAuthentication": "CLIENT_SECRET_BASIC",
+                "subjectTokenPresent": false,
+                "subjectTokenType": null,
+                "actorTokenPresent": false,
+                "actorTokenType": null,
+                "assertionPresent": false,
+                "codeVerifierPresent": true,
+                "tokenSha256": "9ca95051981cd1c9d8ed26419a116ef4180a5283e0c0460ad9574b79a5c2245e",
+                "issuedSubject": "synthetic-user",
+                "issuedGrant": "authorization_code"
+              }
+            ],
+            "issuerUsage": [
+              {
+                "time": "2026-09-28T08:29:13.203386+00:00",
+                "region": "cn-northwest-1",
+                "event": "issuer_http",
+                "endpoint": "/secure",
+                "method": "GET",
+                "status": 200,
+                "authenticated": true,
+                "sub": "synthetic-user",
+                "grant": "authorization_code",
+                "tokenSha256": "9ca95051981cd1c9d8ed26419a116ef4180a5283e0c0460ad9574b79a5c2245e"
+              }
+            ],
+            "outboundTokenDiffersFromInbound": true,
+            "redirects": [
+              {
+                "host": "bedrock-agentcore.cn-northwest-1.amazonaws.com.cn",
+                "path": "/identities/oauth2/authorize",
+                "status": 302
+              },
+              {
+                "host": "apparent-look-strongly-ghz.trycloudflare.com",
+                "path": "/test/REDACTED_PATH_KEY/authorize",
+                "status": 302
+              },
+              {
+                "host": "bedrock-agentcore.cn-northwest-1.amazonaws.com.cn",
+                "path": "/identities/oauth2/callback/121614f2-cc5e-43c9-bc5a-29f0d61dd921",
+                "status": 302
+              },
+              {
+                "host": "apparent-look-strongly-ghz.trycloudflare.com",
+                "path": "/test/REDACTED_PATH_KEY/callback",
+                "status": 200
+              }
+            ],
+            "sessionBinding": {
+              "ResponseMetadata": {
+                "RequestId": "00ffe0b5-ca88-4dea-a89f-af492771576d",
+                "HTTPStatusCode": 200,
+                "HTTPHeaders": {
+                  "date": "Mon, 28 Sep 2026 08:29:11 GMT",
+                  "content-type": "application/json",
+                  "content-length": "2",
+                  "connection": "keep-alive",
+                  "x-amzn-requestid": "00ffe0b5-ca88-4dea-a89f-af492771576d",
+                  "strict-transport-security": "max-age=47304000; includeSubDomains",
+                  "cache-control": "no-store, no-cache"
+                },
+                "RetryAttempts": 0
+              }
+            }
+          },
+          "seconds": 18.363,
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 17
+        },
+        "gateway.oauth.obo.rfc8693-none": {
+          "time": "2026-09-28T08:29:18.400355+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.obo.rfc8693-none",
+          "status": "BLOCKED",
+          "evidence": {
+            "scope": "Current account and region; Gateway target creation is account-gated",
+            "providerArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:token-vault/default/oauth2credentialprovider/ac-cn-0928082703-nx-rfc8693-none",
+            "providerConfiguration": {
+              "grantType": "TOKEN_EXCHANGE",
+              "tokenExchangeGrantTypeConfig": {
+                "actorTokenContent": "NONE"
+              }
+            },
+            "rejections": [
+              {
+                "attempt": 1,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "1f36fbcb-750d-4e47-929c-3321b4def95f",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:17 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "1f36fbcb-750d-4e47-929c-3321b4def95f",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrGvETGZPgEOfw=",
+                      "x-amzn-trace-id": "Root=1-6aba255d-5c9ed5e524d3cced7c76a805"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              },
+              {
+                "attempt": 2,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "d8f36941-bb99-4d40-84a0-2a19cc607ab3",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:18 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "d8f36941-bb99-4d40-84a0-2a19cc607ab3",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrGzGv45PgENHw=",
+                      "x-amzn-trace-id": "Root=1-6aba255e-422c6c6b616066f418125219"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              }
+            ],
+            "gatewayTokenEndpointRequests": 0,
+            "endToEndInvocationExecuted": false
+          },
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 21
+        },
+        "gateway.oauth.obo.rfc8693-m2m": {
+          "time": "2026-09-28T08:29:19.793746+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.obo.rfc8693-m2m",
+          "status": "BLOCKED",
+          "evidence": {
+            "scope": "Current account and region; Gateway target creation is account-gated",
+            "providerArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:token-vault/default/oauth2credentialprovider/ac-cn-0928082703-nx-rfc8693-m2m",
+            "providerConfiguration": {
+              "grantType": "TOKEN_EXCHANGE",
+              "tokenExchangeGrantTypeConfig": {
+                "actorTokenContent": "M2M",
+                "actorTokenScopes": [
+                  "test"
+                ]
+              }
+            },
+            "rejections": [
+              {
+                "attempt": 1,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "12b0046c-ce6e-4f3c-a83d-1a672d2be4bc",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:19 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "12b0046c-ce6e-4f3c-a83d-1a672d2be4bc",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrG9FmT5PgEFpA=",
+                      "x-amzn-trace-id": "Root=1-6aba255f-404baf8d35dfcd8b47548b23"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              },
+              {
+                "attempt": 2,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "69a250f1-3234-462c-8777-587a996d9ce4",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:19 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "69a250f1-3234-462c-8777-587a996d9ce4",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrHBE_mZPgEP7A=",
+                      "x-amzn-trace-id": "Root=1-6aba255f-48c0888f23d2c7fa52c3e020"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              }
+            ],
+            "gatewayTokenEndpointRequests": 0,
+            "endToEndInvocationExecuted": false
+          },
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 26
+        },
+        "gateway.oauth.obo.rfc8693-aws-iam-id-token-jwt": {
+          "time": "2026-09-28T08:29:21.167610+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.obo.rfc8693-aws-iam-id-token-jwt",
+          "status": "BLOCKED",
+          "evidence": {
+            "scope": "Current account and region; Gateway target creation is account-gated",
+            "providerArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:token-vault/default/oauth2credentialprovider/ac-cn-0928082703-nx-rfc8693-aws-iam-id-token-jwt",
+            "providerConfiguration": {
+              "grantType": "TOKEN_EXCHANGE",
+              "tokenExchangeGrantTypeConfig": {
+                "actorTokenContent": "AWS_IAM_ID_TOKEN_JWT"
+              }
+            },
+            "rejections": [
+              {
+                "attempt": 1,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "01921ec5-e350-4be6-9a5c-720d0c40ab7a",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:20 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "01921ec5-e350-4be6-9a5c-720d0c40ab7a",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrHLHYQ5PgEiAQ=",
+                      "x-amzn-trace-id": "Root=1-6aba2560-79c382af47b904d9788581fe"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              },
+              {
+                "attempt": 2,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "6a1e682a-8d10-486b-b434-0027ca465466",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:21 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "6a1e682a-8d10-486b-b434-0027ca465466",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrHOFjBZPgESIQ=",
+                      "x-amzn-trace-id": "Root=1-6aba2560-1365a7670ccca1aa1f8184ed"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              }
+            ],
+            "gatewayTokenEndpointRequests": 0,
+            "endToEndInvocationExecuted": false
+          },
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 31
+        },
+        "gateway.oauth.obo.rfc7523-jwt-bearer": {
+          "time": "2026-09-28T08:29:22.506743+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.oauth.obo.rfc7523-jwt-bearer",
+          "status": "BLOCKED",
+          "evidence": {
+            "scope": "Current account and region; Gateway target creation is account-gated",
+            "providerArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:token-vault/default/oauth2credentialprovider/ac-cn-0928082703-nx-rfc7523-jwt-bearer",
+            "providerConfiguration": {
+              "grantType": "JWT_AUTHORIZATION_GRANT"
+            },
+            "rejections": [
+              {
+                "attempt": 1,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "739831b8-0ae5-4d11-b976-ca31593cc784",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:22 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "739831b8-0ae5-4d11-b976-ca31593cc784",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrHZH8g5PgEYSw=",
+                      "x-amzn-trace-id": "Root=1-6aba2562-5b0264e512c1ed9b2a650f9a"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              },
+              {
+                "attempt": 2,
+                "response": {
+                  "Error": {
+                    "Message": "Token Exchange is not available for this account",
+                    "Code": "AccessDeniedException"
+                  },
+                  "ResponseMetadata": {
+                    "RequestId": "66275633-c835-4a81-b3ab-158f8ebf129d",
+                    "HTTPStatusCode": 403,
+                    "HTTPHeaders": {
+                      "date": "Mon, 28 Sep 2026 08:29:22 GMT",
+                      "content-type": "application/json",
+                      "content-length": "62",
+                      "connection": "keep-alive",
+                      "x-amzn-requestid": "66275633-c835-4a81-b3ab-158f8ebf129d",
+                      "x-amzn-errortype": "AccessDeniedException",
+                      "x-amz-apigw-id": "EZrHcFIx5PgErNg=",
+                      "x-amzn-trace-id": "Root=1-6aba2562-132b928c4f4a71d92afa394b"
+                    },
+                    "RetryAttempts": 0
+                  },
+                  "message": "Token Exchange is not available for this account"
+                }
+              }
+            ],
+            "gatewayTokenEndpointRequests": 0,
+            "endToEndInvocationExecuted": false
+          },
+          "source": "cn-northwest-1-results.jsonl",
+          "sourceLine": 36
+        }
+      },
+      "cleanup": {
+        "status": "PASS",
+        "checks": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0928082703-nx-agentcore",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "328a247f-0824-4306-b6fc-bca1a8aac606"
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0928082703-nx-jwt-yvb6jhebka",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "c511fa10-8fff-4efa-a0e1-7c13be4d9d26"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-nx-cc-basic",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "b5b3a024-8f29-4801-aaab-b2fe32a8e99c"
+          },
+          {
+            "kind": "target",
+            "id": "YMJOWZEWAA",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "c7520183-5446-4d22-b68c-ac14fa161f86"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-nx-cc-post",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "37d93df0-b9d9-43df-bdc3-88c967f67e7a"
+          },
+          {
+            "kind": "target",
+            "id": "XJRD8OYTCA",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "55a46879-2ad8-4f13-8146-c502606f10ae"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-nx-authorization-code",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "ab7bf8f7-3b8d-4d55-b7fd-9cdeb8b65705"
+          },
+          {
+            "kind": "target",
+            "id": "AN3CXSNJAS",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "52909fdc-6841-44a1-851b-1e435fd6c3df"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-nx-rfc8693-none",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "dab3a0a1-757d-4040-9da9-26f500d9c096"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-nx-rfc8693-m2m",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "46da60bb-2c4e-4eab-9782-335cacaf8e32"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-nx-rfc8693-aws-iam-id-token-jwt",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "6258c331-8916-4259-ae93-c134be3a6c44"
+          },
+          {
+            "kind": "oauth-provider",
+            "id": "ac-cn-0928082703-nx-rfc7523-jwt-bearer",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "d687842d-e154-40cf-a4e7-c513030c2478"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-cc-basic-a6c5895e-nfmsnE",
+            "ok": true,
+            "status": "ScheduledDeletion",
+            "deletionDate": "2026-09-28 08:29:35.266000+00:00"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-cc-post-aecc0d01-rcZgrl",
+            "ok": true,
+            "status": "ScheduledDeletion",
+            "deletionDate": "2026-09-28 08:29:35.295000+00:00"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-authorization-code-3bedb709-eUx5pO",
+            "ok": true,
+            "status": "ScheduledDeletion",
+            "deletionDate": "2026-09-28 08:29:35.301000+00:00"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-rfc8693-none-b149afc4-HH1VNw",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "392c1115-d1d3-4f19-8296-38dbfddacbb0"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-rfc8693-m2m-6ed678f4-MvWnrz",
+            "ok": true,
+            "status": "ScheduledDeletion",
+            "deletionDate": "2026-09-28 08:29:35.636000+00:00"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-rfc8693-aws-iam-id-token-jwt-ae20b328-xEH4X1",
+            "ok": true,
+            "status": "ScheduledDeletion",
+            "deletionDate": "2026-09-28 08:29:35.682000+00:00"
+          },
+          {
+            "kind": "secret",
+            "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-rfc7523-jwt-bearer-d019faa9-divzpu",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "7b58bd46-1b7d-45fb-a45f-a2eb6327641f"
+          },
+          {
+            "kind": "workload",
+            "id": "ac-cn-0928082703-nx-jwt-yvb6jhebka",
+            "ok": true,
+            "status": "ABSENT",
+            "requestId": "76719f52-a636-4db1-87c7-14e68a32f3b5"
+          },
+          {
+            "kind": "local-process",
+            "pid": 2427428,
+            "ok": true
+          },
+          {
+            "kind": "local-process",
+            "pid": 2427429,
+            "ok": true
+          },
+          {
+            "kind": "local-secret",
+            "file": "cn-northwest-1-private-key.pem",
+            "ok": true
+          },
+          {
+            "kind": "local-secret",
+            "file": "cn-northwest-1-secrets.json",
+            "ok": true
+          }
+        ]
+      }
+    }
+  }
+}

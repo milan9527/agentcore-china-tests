@@ -1,0 +1,28 @@
+[cn-north-1] START proxy_validation_setup.suite
+[cn-northwest-1] START proxy_validation_setup.suite
+[cn-northwest-1] PASS: proxy.validation.environment
+{"time": "2026-09-28T09:56:45.928752+00:00", "region": "cn-northwest-1", "feature": "proxy.validation.environment", "status": "PASS", "evidence": {"profile": "china", "account": "209915754514", "instances": [{"id": "i-00e20dec4aa2c9519", "ip": "172.31.14.177", "dns": "ip-172-31-14-177.cn-northwest-1.compute.internal"}, {"id": "i-042b67f029618d09b", "ip": "172.31.14.103", "dns": "ip-172-31-14-103.cn-northwest-1.compute.internal"}], "originIp": "172.31.14.177", "proxyIp": "172.31.14.103", "targetDns": "ip-172-31-14-177.cn-northwest-1.compute.internal", "publicAccess": false, "securityGroup": "sg-02b620b4720173ddf", "fixtureSha256": "a11054760793b4cb896775ea03c616a66a9aa0d32810a373da21c86a1c4dff63", "controlEndpoint": "https://bedrock-agentcore-control.cn-northwest-1.amazonaws.com.cn"}}
+[cn-north-1] PASS: proxy.validation.environment
+{"time": "2026-09-28T09:56:45.961463+00:00", "region": "cn-north-1", "feature": "proxy.validation.environment", "status": "PASS", "evidence": {"profile": "china", "account": "209915754514", "instances": [{"id": "i-071eedcb753865da9", "ip": "172.31.39.252", "dns": "ip-172-31-39-252.cn-north-1.compute.internal"}, {"id": "i-080b8116efd92c5d0", "ip": "172.31.32.245", "dns": "ip-172-31-32-245.cn-north-1.compute.internal"}], "originIp": "172.31.39.252", "proxyIp": "172.31.32.245", "targetDns": "ip-172-31-39-252.cn-north-1.compute.internal", "publicAccess": false, "securityGroup": "sg-0cb10af93ab6c0181", "fixtureSha256": "a11054760793b4cb896775ea03c616a66a9aa0d32810a373da21c86a1c4dff63", "controlEndpoint": "https://bedrock-agentcore-control.cn-north-1.amazonaws.com.cn"}}
+[cn-north-1] WAIT status=CREATING elapsed=0.3s
+[cn-northwest-1] WAIT status=CREATING elapsed=0.3s
+[cn-north-1] WAIT status=CREATING elapsed=33.2s
+[cn-northwest-1] WAIT status=CREATING elapsed=33.6s
+[cn-north-1] WAIT status=CREATING elapsed=66.2s
+[cn-northwest-1] WAIT status=CREATING elapsed=66.8s
+[cn-north-1] WAIT status=CREATING elapsed=99.0s
+[cn-northwest-1] WAIT status=CREATING elapsed=100.0s
+[cn-north-1] WAIT status=CREATING elapsed=131.8s
+[cn-northwest-1] WAIT status=CREATING elapsed=133.1s
+[cn-north-1] WAIT status=CREATING elapsed=164.6s
+[cn-northwest-1] WAIT status=CREATING elapsed=166.2s
+[cn-north-1] WAIT status=CREATING elapsed=197.4s
+[cn-northwest-1] WAIT status=CREATING elapsed=199.3s
+[cn-north-1] WAIT status=CREATING elapsed=230.2s
+[cn-northwest-1] WAIT status=CREATING elapsed=232.4s
+[cn-northwest-1] WAIT status=READY elapsed=255.6s
+[cn-northwest-1] PASS: proxy_validation_setup.suite
+{"time": "2026-09-28T10:01:03.091551+00:00", "region": "cn-northwest-1", "feature": "proxy_validation_setup.suite", "status": "PASS", "evidence": null}
+[cn-north-1] WAIT status=READY elapsed=256.5s
+[cn-north-1] PASS: proxy_validation_setup.suite
+{"time": "2026-09-28T10:01:03.882464+00:00", "region": "cn-north-1", "feature": "proxy_validation_setup.suite", "status": "PASS", "evidence": null}

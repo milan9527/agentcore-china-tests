@@ -1,0 +1,28 @@
+{
+  "python": "3.12.13",
+  "packages": {
+    "boto3": "1.43.103",
+    "botocore": "1.43.103",
+    "requests": "2.34.2",
+    "PyJWT": "2.15.0"
+  },
+  "profile": "china",
+  "regions": [
+    "cn-north-1",
+    "cn-northwest-1"
+  ],
+  "sameInvocationCodeAsPreviousRun": {
+    "run_caller_reproduction.py": true,
+    "retest_runtime.py": true,
+    "caller_baseline_tests.py": true,
+    "runtime_gateway_tests.py": true,
+    "retest_setup.py": true
+  },
+  "sourceSha256": {
+    "run_caller_reproduction.py": "d2fa9ed7327f867d71527a908148536cfec3e61d6c7154a5fca7787361e567fb",
+    "retest_runtime.py": "eaeaf9df27c1101da17c1be794a8bea8bec20b9d11784d0264ec6ef13cbdb5b4",
+    "caller_baseline_tests.py": "9514eafec0ba3555739ccb8f6b2d33f55e85a75855eab905647a94e53c85bce8",
+    "runtime_gateway_tests.py": "c0ed589a2aa9f81022c1d7069c36d75425d874214069fe876ee69b16f599bb69",
+    "retest_setup.py": "fe11a757067d95e21c09953ac567556e1edb682fc2a182354288cc7316af06a5"
+  }
+}

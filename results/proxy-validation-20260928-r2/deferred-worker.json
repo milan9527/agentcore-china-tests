@@ -1,0 +1,32 @@
+{
+  "pid": 2433055,
+  "startedAt": "2026-09-28T10:13:45.089441+00:00",
+  "resources": [
+    {
+      "region": "cn-north-1",
+      "kind": "sg",
+      "id": "sg-0cb10af93ab6c0181",
+      "cleanupResult": {
+        "type": "ClientError",
+        "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-0cb10af93ab6c0181 has a dependent object"
+      }
+    },
+    {
+      "region": "cn-northwest-1",
+      "kind": "sg",
+      "id": "sg-02b620b4720173ddf",
+      "cleanupResult": {
+        "type": "ClientError",
+        "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-02b620b4720173ddf has a dependent object"
+      }
+    }
+  ],
+  "command": [
+    "/home/ec2-user/agentcore/cn/.venv/bin/python",
+    "/home/ec2-user/agentcore/cn/deferred_cleanup.py"
+  ],
+  "environment": {
+    "DEFERRED_RESULTS_DIR": "/home/ec2-user/agentcore/cn/results/proxy-validation-20260928-r2"
+  },
+  "maxHours": 8.5
+}

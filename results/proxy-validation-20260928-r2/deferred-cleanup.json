@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETE",
+  "pid": 2433055,
+  "profile": "china",
+  "startedAt": "2026-09-28T10:13:45.210416+00:00",
+  "updatedAt": "2026-09-28T18:18:47.827283+00:00",
+  "deadline": "2026-09-28T18:43:45.210416+00:00",
+  "targets": [
+    {
+      "region": "cn-north-1",
+      "id": "sg-0cb10af93ab6c0181",
+      "purposeTag": "ac-cn-0928095627-bj",
+      "status": "DELETED"
+    },
+    {
+      "region": "cn-northwest-1",
+      "id": "sg-02b620b4720173ddf",
+      "purposeTag": "ac-cn-0928095627-nx",
+      "status": "DELETED"
+    }
+  ]
+}

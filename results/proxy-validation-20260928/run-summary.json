@@ -1,0 +1,13 @@
+{
+  "startedAt": "2026-09-28T09:54:29.168765+00:00",
+  "completedAt": "2026-09-28T09:55:27.722042+00:00",
+  "errors": [
+    "('cn-north-1', 'proxy_validation_setup')"
+  ],
+  "pendingResources": [],
+  "profile": "china",
+  "regions": [
+    "cn-north-1",
+    "cn-northwest-1"
+  ]
+}

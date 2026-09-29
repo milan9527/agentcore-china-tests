@@ -1,0 +1,11 @@
+{"time": "2026-09-29T02:00:14.705144+00:00", "event": "start", "command": ["/home/ec2-user/agentcore/cn/.venv/bin/python", "/home/ec2-user/agentcore/cn/retest.py", "retest_cleanup_local"], "cwd": "/home/ec2-user/agentcore/cn", "profile": "china", "regions": ["cn-north-1", "cn-northwest-1"], "environment": {"RETEST_RESULTS_DIR": "/home/ec2-user/agentcore/cn/results/repro-caller-confirm-20260929", "VERIFY_RESULTS_DIR": "/home/ec2-user/agentcore/cn/results/repro-caller-confirm-20260929", "RETEST_VERBOSE": "1"}, "extraEnvironment": {}}
+[cn-north-1] START retest_cleanup_local.suite
+[cn-north-1] PASS: cleanup.local_fixtures
+{"time": "2026-09-29T02:00:15.636700+00:00", "region": "cn-north-1", "feature": "cleanup.local_fixtures", "status": "PASS", "evidence": {"stoppedPids": [], "generatedSecretsRemoved": true}}
+[cn-north-1] PASS: retest_cleanup_local.suite
+{"time": "2026-09-29T02:00:15.636834+00:00", "region": "cn-north-1", "feature": "retest_cleanup_local.suite", "status": "PASS", "evidence": null}
+[cn-northwest-1] START retest_cleanup_local.suite
+[cn-northwest-1] PASS: cleanup.local_fixtures
+{"time": "2026-09-29T02:00:15.928752+00:00", "region": "cn-northwest-1", "feature": "cleanup.local_fixtures", "status": "PASS", "evidence": {"stoppedPids": [], "generatedSecretsRemoved": true}}
+[cn-northwest-1] PASS: retest_cleanup_local.suite
+{"time": "2026-09-29T02:00:15.928894+00:00", "region": "cn-northwest-1", "feature": "retest_cleanup_local.suite", "status": "PASS", "evidence": null}

@@ -162,9 +162,9 @@
       "kind": "sg",
       "id": "sg-074039951f97aedee",
       "cleanupResult": {
-        "type": "ClientError",
-        "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-074039951f97aedee has a dependent object"
-      }
+        "alreadyAbsent": true
+      },
+      "deleted": true
     },
     {
       "kind": "eni",

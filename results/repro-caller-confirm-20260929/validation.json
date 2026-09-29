@@ -1,0 +1,8 @@
+{
+  "time": "2026-09-29T02:03:23.232958+00:00",
+  "status": "PASS",
+  "scope": "Evidence consistency only, not functional success",
+  "selectedRowsVerified": 16,
+  "sourceSnapshotFilesVerified": 348,
+  "httpResponsesCrossReferenced": 12
+}

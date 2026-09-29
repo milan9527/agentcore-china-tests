@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>On-behalf-of token exchange with AgentCore Identity - Amazon Bedrock AgentCore</title><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="assets_root" content="/assets" /><meta name="target_state" content="on-behalf-of-token-exchange" /><meta name="default_state" content="on-behalf-of-token-exchange" /><link rel="icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="canonical" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" /><meta name="description" content="Amazon Bedrock AgentCore Identity supports On-Behalf-Of (OBO) token exchange, enabling agents and other workloads—such as MCP servers—to exchange an inbound user access token for a new, scoped access token that targets a downstream resource server. As the exchange converts a token issued for one audience directly into a token for a different downstream audience, your agents can access protected resources on behalf of authenticated users without triggering additional consent flows. The exchanged token carries both the agent’s own identity and the original caller’s identity, giving resource servers the signals they need to enforce fine-grained, zero-trust authorization at every hop." /><meta name="deployment_region" content="IAD" /><meta name="product" content="Amazon Bedrock AgentCore" /><meta name="guide" content="Developer Guide" /><meta name="guide-locale" content="en_us" /><meta name="tocs" content="toc-contents.json" /><link rel="canonical" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" /><link rel="alternate" href="https://docs.aws.amazon.com/id_id/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="id-id" /><link rel="alternate" href="https://docs.aws.amazon.com/id_id/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="id" /><link rel="alternate" href="https://docs.aws.amazon.com/de_de/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="de-de" /><link rel="alternate" href="https://docs.aws.amazon.com/de_de/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="de" /><link rel="alternate" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="en-us" /><link rel="alternate" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="en" /><link rel="alternate" href="https://docs.aws.amazon.com/es_es/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="es-es" /><link rel="alternate" href="https://docs.aws.amazon.com/es_es/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="es" /><link rel="alternate" href="https://docs.aws.amazon.com/fr_fr/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="fr-fr" /><link rel="alternate" href="https://docs.aws.amazon.com/fr_fr/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="fr" /><link rel="alternate" href="https://docs.aws.amazon.com/it_it/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="it-it" /><link rel="alternate" href="https://docs.aws.amazon.com/it_it/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="it" /><link rel="alternate" href="https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="ja-jp" /><link rel="alternate" href="https://docs.aws.amazon.com/ja_jp/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="ja" /><link rel="alternate" href="https://docs.aws.amazon.com/ko_kr/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="ko-kr" /><link rel="alternate" href="https://docs.aws.amazon.com/ko_kr/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="ko" /><link rel="alternate" href="https://docs.aws.amazon.com/pt_br/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="pt-br" /><link rel="alternate" href="https://docs.aws.amazon.com/pt_br/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="pt" /><link rel="alternate" href="https://docs.aws.amazon.com/zh_cn/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="zh-cn" /><link rel="alternate" href="https://docs.aws.amazon.com/zh_tw/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="zh-tw" /><link rel="alternate" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" hreflang="x-default" /><meta name="feedback-item" content="bedrock-agentcore" /><meta name="this_doc_product" content="Amazon Bedrock AgentCore" /><meta name="this_doc_guide" content="Developer Guide" /><head xmlns="http://www.w3.org/1999/xhtml"> <script defer="" src="/assets/r/awsdocs-doc-page.2.0.0.js"></script><link href="/assets/r/awsdocs-doc-page.2.0.0.css" rel="stylesheet"/></head>
+<script defer="" id="awsc-panorama-bundle" type="text/javascript" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'bedrock-agentcore'}"></script><meta id="panorama-serviceSubSection" value="Developer Guide" /><meta id="panorama-serviceConsolePage" value="On-behalf-of token exchange with AgentCore Identity" /><meta name="uiVersion" content="2024.10" /></head><body class="awsdocs awsui"><div class="awsdocs-container"><p><a href="on-behalf-of-token-exchange.md">View a markdown version of this page</a></p><awsdocs-header></awsdocs-header><awsui-app-layout id="app-layout" class="awsui-util-no-gutters" ng-controller="ContentController as $ctrl" header-selector="awsdocs-header" navigation-hide="false" navigation-width="$ctrl.navWidth" navigation-open="$ctrl.navOpen" navigation-change="$ctrl.onNavChange($event)" tools-hide="$ctrl.hideTools" tools-width="$ctrl.toolsWidth" tools-open="$ctrl.toolsOpen" tools-change="$ctrl.onToolsChange($event)"><div id="guide-toc" dom-region="navigation"><awsdocs-toc></awsdocs-toc></div><div id="main-column" dom-region="content" tabindex="-1"><awsdocs-view class="awsdocs-view"><div id="awsdocs-content"><head><title>On-behalf-of token exchange with AgentCore Identity - Amazon Bedrock AgentCore</title><meta name="pdf" content="/pdfs/bedrock-agentcore/latest/devguide/bedrock-agentcore-dg.pdf#on-behalf-of-token-exchange" /><meta name="rss" content="bedrock-agentcore-dg.rss" /><meta name="forums" content="https://repost.aws/search/content?globalSearch=Amazon Bedrock AgentCore" /><meta name="feedback" content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=bedrock-agentcore&amp;topic_url=https://docs.aws.amazon.com/en_us/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" /><meta name="feedback-yes" content="feedbackyes.html?topic_url=https://docs.aws.amazon.com/en_us/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" /><meta name="feedback-no" content="feedbackno.html?topic_url=https://docs.aws.amazon.com/en_us/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html" /><link rel="alternate" type="text/markdown" href="on-behalf-of-token-exchange.md" title="Markdown version" /><script type="application/ld+json">
+{
+    "@context" : "https://schema.org",
+    "@type" : "BreadcrumbList",
+    "itemListElement" : [
+      {
+        "@type" : "ListItem",
+        "position" : 1,
+        "name" : "AWS",
+        "item" : "https://aws.amazon.com"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 2,
+        "name" : "Amazon Bedrock AgentCore",
+        "item" : "https://docs.aws.amazon.com/bedrock-agentcore/index.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 3,
+        "name" : "Developer Guide",
+        "item" : "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 4,
+        "name" : "Provide identity and credential management for agent applications with Amazon Bedrock AgentCore Identity",
+        "item" : "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 5,
+        "name" : "Manage credential providers with AgentCore Identity",
+        "item" : "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-outbound-credential-provider.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 6,
+        "name" : "Supported authentication patterns",
+        "item" : "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/common-use-cases.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 7,
+        "name" : "On-behalf-of token exchange with AgentCore Identity",
+        "item" : "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/common-use-cases.html"
+      }
+    ]
+}
+</script></head><body><div id="main"><div style="display: none"><a href="/pdfs/bedrock-agentcore/latest/devguide/bedrock-agentcore-dg.pdf#on-behalf-of-token-exchange" target="_blank" rel="noopener noreferrer" title="Open PDF"></a></div><div id="breadcrumbs" class="breadcrumb"><a href="/index.html">Documentation</a><a href="/bedrock-agentcore/index.html">Amazon Bedrock AgentCore</a><a href="what-is-bedrock-agentcore.html">Developer Guide</a></div><div id="page-toc-src"><a href="#how-obo-works">How on-behalf-of token exchange works</a><a href="#obo-configs">Configuring on-behalf-of token exchange</a><a href="#_using_on_behalf_of_token_exchange">Using on-behalf-of token exchange</a><a href="#obo-grant-type-and-token-types">Grant types and token types</a></div><div id="main-content" class="awsui-util-container"><div id="main-col-body"><awsdocs-language-banner data-service="$ctrl.pageService"></awsdocs-language-banner><h1 class="topictitle" id="on-behalf-of-token-exchange">On-behalf-of token exchange with AgentCore Identity</h1><div class="awsdocs-page-header-container"><awsdocs-page-header></awsdocs-page-header><awsdocs-filter-selector id="awsdocs-filter-selector"></awsdocs-filter-selector></div><p>Amazon Bedrock AgentCore Identity supports On-Behalf-Of (OBO) token exchange, enabling agents and other workloads—such as MCP servers—to exchange an inbound user access token for a new, scoped access token that targets a downstream resource server. As the exchange converts a token issued for one audience directly into a token for a different downstream audience, your agents can access protected resources on behalf of authenticated users without triggering additional consent flows. The exchanged token carries both the agent’s own identity and the original caller’s identity, giving resource servers the signals they need to enforce fine-grained, zero-trust authorization at every hop.</p>
+      <h2 id="how-obo-works">How on-behalf-of token exchange works</h2>
+      <p>On-behalf-of token exchange is built into the existing OAuth Credential Provider. When an agent requests a downstream token, AgentCore Identity automatically takes the inbound access token—representing the upstream caller—along with the client credentials already stored in the credential provider, and brokers the token exchange request with the customer’s IdP or OAuth authorization server. It submits the request, parses the response, and returns it to the agent. Agent developers never need to handle the inbound token or manage client secrets directly. The authorization server makes the final authorization decision, including whether to grant the requested scopes and whether to permit the delegation.</p>
+      <p>AgentCore Identity supports identity providers that implement on-behalf-of token exchange through either of two established standards. Under RFC 8693 (OAuth 2.0 Token Exchange), the credential provider follows the standard token exchange grant type, submitting the inbound token as the subject_token alongside the agent’s client credentials. Some identity providers instead implement on-behalf-of through RFC 7523 §2.1 (JWT Profile for OAuth 2.0 Authorization Grants), where the inbound token is presented as a JWT authorization grant to obtain the downstream access token. You configure which mode your identity provider expects when setting up the OAuth Credential Provider; AgentCore Identity handles the protocol differences from there.</p>
+    
+      <h2 id="obo-configs">Configuring on-behalf-of token exchange</h2>
+      <p>To use this feature, configure an on-behalf-of token exchange mode on your OAuth 2.0 credential provider. You can customize the configuration when using a custom provider, or choose from one of the supported providers.</p>
+       
+         <h3 id="_custom_oauth2_credential_provider">Custom OAuth2 Credential Provider</h3>
+         <p>To configure on-behalf-of token exchange for custom provider on AWS Console, see <a href="./identity-add-oauth-client-custom.html">Add OAuth client using custom provider</a>. You can also configure it using CLI</p>
+          
+            <h4 id="_cli_example_using_token_exchange_grant_type_with_machine_to_machine_token_as_actor_token">CLI example: using <code class="code">TOKEN_EXCHANGE</code> grant type with machine-to-machine token as actor token</h4>
+            <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG: cli (none)--><code class="nohighlight">aws bedrock-agentcore-control create-oauth2-credential-provider \
+  --cli-input-json '<span>{</span>
+    "name": "sample-obo-custom",
+    "credentialProviderVendor": "CustomOauth2",
+    "oauth2ProviderConfigInput": <span>{</span>
+      "customOauth2ProviderConfig": <span>{</span>
+        "oauthDiscovery": <span>{</span>
+          "discoveryUrl": "https://my.idp.com/.well-known/openid-configuration"
+        },
+        "clientId": "your-client-id",
+        "clientSecret": "your-client-secret",
+        "clientAuthenticationMethod": "CLIENT_SECRET_BASIC",
+        "onBehalfOfTokenExchangeConfig": <span>{</span>
+          "grantType": "TOKEN_EXCHANGE",
+          "tokenExchangeGrantTypeConfig": <span>{</span>
+            "actorTokenContent": "M2M",
+            "actorTokenScopes": ["scope1", "scope2"]
+          }
+        }
+      }
+    }
+  }'</code></pre>
+          
+          
+            <h4 id="_cli_example_using_jwt_authorization_grant_grant_type">CLI example: using <code class="code">JWT_AUTHORIZATION_GRANT</code> grant type</h4>
+            <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG: cli (none)--><code class="nohighlight">aws bedrock-agentcore-control create-oauth2-credential-provider \
+  --cli-input-json '<span>{</span>
+    "name": "sample-obo-custom",
+    "credentialProviderVendor": "CustomOauth2",
+    "oauth2ProviderConfigInput": <span>{</span>
+      "customOauth2ProviderConfig": <span>{</span>
+        "oauthDiscovery": <span>{</span>
+          "discoveryUrl": "https://my.idp.com/.well-known/openid-configuration"
+        },
+        "clientId": "your-client-id",
+        "clientSecret": "your-client-secret",
+        "clientAuthenticationMethod": "CLIENT_SECRET_BASIC",
+        "onBehalfOfTokenExchangeConfig": <span>{</span>
+          "grantType": "JWT_AUTHORIZATION_GRANT"
+        }
+      }
+    }
+  }'</code></pre>
+          
+       
+       
+         <h3 id="_provider_specific_on_behalf_of_token_exchange_config">Provider specific on-behalf-of token exchange config</h3>
+         <p>AgentCore Identity includes out-of-the-box on-behalf-of token exchange support for selected providers, preconfigured according to each provider’s public documentation. To adjust protocol-level settings beyond these defaults, set up a custom provider for full control over the exchange configuration.</p>
+         <div class="table-container"><div class="table-contents"><table id="w336aac19c17c11c17b7b7b5"><thead>
+                  <tr>
+                     <th align="left" style="text-align: left;vertical-align: top;">Provider Name</th>
+                     <th align="left" style="text-align: left;vertical-align: top;">Grant Type Mode</th>
+                     <th align="left" style="text-align: left;vertical-align: top;">Note</th>
+                     <th align="left" style="text-align: left;vertical-align: top;">Related Documentation</th>
+                  </tr>
+               </thead>
+                  <tr>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">MicrosoftOauth2</code>
+                        </p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">JWT_AUTHORIZATION_GRANT</code>
+                        </p>
+                        <p>* Microsoft’s On-Behalf-Of flow is a proprietary delegation pattern built upon the RFC 7523 standard, using the JWT-bearer grant type to facilitate secure token exchange between tiered services.</p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">requested_token_use=on_behalf_of</code> is automatically added to the request unless overridden.</p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <a href="https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-on-behalf-of-flow" rel="noopener noreferrer" target="_blank"><span>Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>
+                        </p>
+                     </td>
+                  </tr>
+               </table></div></div>
+       
+    
+      <h2 id="_using_on_behalf_of_token_exchange">Using on-behalf-of token exchange</h2>
+      <p>To request an on-behalf-of token at runtime, call <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetResourceOauth2Token.html">GetResourceOauth2Token</a> and set oauth2Flow to the <code class="code">ON_BEHALF_OF_TOKEN_EXCHANGE</code>. Pass the workload access token you obtained from <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetWorkloadAccessTokenForJWT.html">GetWorkloadAccessTokenForJWT</a> — this token carries the inbound token as the subject, which AgentCore Identity uses as the subject token in the exchange. For the full API reference, see the AWS documentation.</p>
+      <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG: cli (none)--><code class="nohighlight"># obtain workload access token using inbound token
+aws bedrock-agentcore get-workload-access-token-for-jwt --workload-name sample-workload \
+      --user-token "inbound-jwt-token"
+
+<span>{</span>
+    "workloadAccessToken": "workload-access-token"
+}
+
+# perform on-behalf-of token exchange
+aws bedrock-agentcore get-resource-oauth2-token --resource-credential-provider-name sample-obo-provider \
+      --oauth2-flow ON_BEHALF_OF_TOKEN_EXCHANGE --scopes "sample-scope" \
+      --workload-identity-token "workload-access-token"
+
+<span>{</span>
+    "accessToken": "on-behalf-of-token"
+}</code></pre>
+    
+      <h2 id="obo-grant-type-and-token-types">Grant types and token types</h2>
+       
+         <h3 id="obo-grant-type-token-exchange"><code class="code">grant_type</code> = <code class="code">TOKEN_EXCHANGE</code></h3>
+         <p>With this grant type, AgentCore Identity sends the inbound JWT as the subject token to obtain an access token.  Configure <code class="code">actor_token_content</code> value to be one of <code class="code">M2M</code>, <code class="code">AWS_IAM_ID_TOKEN_JWT</code>, or <code class="code">NONE</code>
+         </p>
+         <div class="table-container"><div class="table-contents"><table id="w336aac19c17c11c17c11b3b5"><thead>
+                  <tr>
+                     <th align="left" style="text-align: left;vertical-align: top;">Parameter</th>
+                     <th align="left" style="text-align: left;vertical-align: top;">Value</th>
+                  </tr>
+               </thead>
+                  <tr>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">grant_type</code>
+                        </p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">TOKEN_EXCHANGE</code> (we map it to <code class="code">urn:ietf:params:oauth:grant-type:token-exchange</code> when constructing the token exchange request)</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">subject_token</code>
+                        </p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>We use the inbound JWT token and map the subject token type to <code class="code">urn:ietf:params:oauth:token-type:jwt</code> when constructing the token exchange request.</p>
+                        <p>Default and can be overridden, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetResourceOauth2Token.html#API_GetResourceOauth2Token_RequestSyntax">customParameters</a>
+                        </p>
+                     </td>
+                  </tr>
+               </table></div></div>
+       
+       
+         <h3 id="obo-grant-type-jwt-auth-grant"><code class="code">grant_type</code> = <code class="code">JWT_AUTHORIZATION_GRANT</code></h3>
+         <p>With this grant type, AgentCore Identity sends the inbound JWT as an authorization to obtain an access token.  No <code class="code">actor_token_content</code> configuration is required as this grant type does not require any actor token.</p>
+         <div class="table-container"><div class="table-contents"><table id="w336aac19c17c11c17c11b5b5"><thead>
+                  <tr>
+                     <th align="left" style="text-align: left;vertical-align: top;">Parameter</th>
+                     <th align="left" style="text-align: left;vertical-align: top;">Value</th>
+                  </tr>
+               </thead>
+                  <tr>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">grant_type</code>
+                        </p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">JWT_AUTHORIZATION_GRANT</code> (we map it to <code class="code">urn:ietf:params:oauth:grant-type:jwt-bearer</code> when constructing the token exchange request)</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>
+                           <code class="code">assertion</code>
+                        </p>
+                     </td>
+                     <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                        <p>Inbound JWT token</p>
+                     </td>
+                  </tr>
+               </table></div></div>
+          
+            <h4 id="obo-actor-token-content-m2m"><code class="code">actor_token_content</code> = <code class="code">M2M</code> (only when <code class="code">grant_type</code> = <code class="code">TOKEN_EXCHANGE</code>)</h4>
+            <p>AgentCore Identity first performs <a href="./common-use-cases.html#machine-to-machine-auth">machine-to-machine authentication (OAuth 2.0 client credentials grant)</a> against the credential provider to obtain an access token, then sends it as the <code class="code">actor_token</code>.</p>
+            <div class="table-container"><div class="table-contents"><table id="w336aac19c17c11c17c11b5b7b5"><thead>
+                     <tr>
+                        <th align="left" style="text-align: left;vertical-align: top;">Parameter</th>
+                        <th align="left" style="text-align: left;vertical-align: top;">Value</th>
+                     </tr>
+                  </thead>
+                     <tr>
+                        <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                           <p>
+                              <code class="code">actor_token_content</code>
+                           </p>
+                        </td>
+                        <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                           <p>
+                              <code class="code">M2M</code>
+                           </p>
+                           <div class="itemizedlist">
+                               
+                               
+                           <ul class="itemizedlist"><li class="listitem">
+                                 <p>we map it to <code class="code">urn:ietf:params:oauth:token-type:access_token</code> when constructing token exchange request</p>
+                              </li><li class="listitem">
+                                 <p>we obtain access token via <code class="code">client_credentials</code> grant</p>
+                              </li></ul></div>
+                        </td>
+                     </tr>
+                  </table></div></div>
+            <p>The optional <code class="code">actorTokenScopes</code> configuration is used as the <code class="code">scope</code> parameters for the client credentials request.</p>
+          
+          
+            <h4 id="obo-actor-token-content-iam-jwt"><code class="code">actor_token_content</code> = <code class="code">AWS_IAM_ID_TOKEN_JWT</code> (only when <code class="code">grant_type</code> = <code class="code">TOKEN_EXCHANGE</code>)</h4>
+            <p>AgentCore Identity calls <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_GetWebIdentityToken.html"><code class="code">sts:GetWebIdentityToken</code></a> using the credential provider’s token endpoint as the aud claim, then sends the resulting JWT as the <code class="code">actor_token</code>.</p>
+            <div class="table-container"><div class="table-contents"><table id="w336aac19c17c11c17c11b5b9b5"><thead>
+                     <tr>
+                        <th align="left" style="text-align: left;vertical-align: top;">Parameter</th>
+                        <th align="left" style="text-align: left;vertical-align: top;">Value</th>
+                     </tr>
+                  </thead>
+                     <tr>
+                        <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                           <p>
+                              <code class="code">actor_token_content</code>
+                           </p>
+                        </td>
+                        <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                           <p>
+                              <code class="code">AWS_IAM_ID_TOKEN_JWT</code>
+                           </p>
+                           <div class="itemizedlist">
+                               
+                               
+                           <ul class="itemizedlist"><li class="listitem">
+                                 <p>we map it to <code class="code">urn:ietf:params:oauth:token-type:jwt</code> when constructing token exchange request</p>
+                              </li><li class="listitem">
+                                 <p>we obtain JWT via <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_GetWebIdentityToken.html"><code class="code">sts:GetWebIdentityToken</code></a>
+                                 </p>
+                              </li></ul></div>
+                        </td>
+                     </tr>
+                  </table></div></div>
+            <p>This mode requires your account to be enabled for outbound web identity federation. See <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.html"><code class="code">iam:EnableOutboundWebIdentityFederation</code></a>.</p>
+          
+          
+            <h4 id="obo-actor-token-content-none"><code class="code">actor_token_content</code> = <code class="code">NONE</code> (only when <code class="code">grant_type</code> = <code class="code">TOKEN_EXCHANGE</code>)</h4>
+            <p>No <code class="code">actor_token</code> or <code class="code">actor_token_type</code> is included in the token exchange request. Use this mode with identity providers that derive the actor identity from client authentication alone.</p>
+          
+       
+   <awsdocs-copyright class="copyright-print"></awsdocs-copyright><awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}"></awsdocs-thumb-feedback></div><noscript><div><div><div><div id="js_error_message"><p><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" alt="Warning" /> <strong>Javascript is disabled or is unavailable in your browser.</strong></p><p>To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.</p></div></div></div></div></noscript><div id="main-col-footer" class="awsui-util-font-size-0"><div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div><div class="prev-next"><div id="previous" class="prev-link" accesskey="p" href="./common-use-cases.html">Supported authentication patterns</div><div id="next" class="next-link" accesskey="n" href="./client-auth-methods.html">Client authentication methods</div></div></div><awsdocs-page-utilities></awsdocs-page-utilities></div><div id="quick-feedback-yes" style="display: none;"><div class="title">Did this page help you? - Yes</div><div class="content"><p>Thanks for letting us know we're doing a good job!</p><p>If you've got a moment, please tell us what we did right so we can do more of it.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=bedrock-agentcore&amp;topic_url=https://docs.aws.amazon.com/en_us/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html"></awsui-button></p></div></div><div id="quick-feedback-no" style="display: none;"><div class="title">Did this page help you? - No</div><div class="content"><p>Thanks for letting us know this page needs work. We're sorry we let you down.</p><p>If you've got a moment, please tell us how we can make the documentation better.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=bedrock-agentcore&amp;topic_url=https://docs.aws.amazon.com/en_us/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html"></awsui-button></p></div></div></div></body></div></awsdocs-view><div class="page-loading-indicator" id="page-loading-indicator"><awsui-spinner size="large"></awsui-spinner></div></div><div id="tools-panel" dom-region="tools"><awsdocs-tools-panel id="awsdocs-tools-panel"></awsdocs-tools-panel></div></awsui-app-layout><awsdocs-cookie-banner class="doc-cookie-banner"></awsdocs-cookie-banner></div></body></html>

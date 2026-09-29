@@ -1,0 +1,34 @@
+[cn-north-1] START cleanup_tests.suite
+[cn-north-1] PASS: cleanup.browser_sessions
+{"time": "2026-09-28T09:54:48.323589+00:00", "region": "cn-north-1", "feature": "cleanup.browser_sessions", "status": "PASS", "evidence": []}
+[cn-northwest-1] START cleanup_tests.suite
+[cn-northwest-1] PASS: cleanup.browser_sessions
+{"time": "2026-09-28T09:54:48.504143+00:00", "region": "cn-northwest-1", "feature": "cleanup.browser_sessions", "status": "PASS", "evidence": []}
+[cn-north-1] PASS: cleanup.instance
+{"time": "2026-09-28T09:55:00.427472+00:00", "region": "cn-north-1", "feature": "cleanup.instance", "status": "PASS", "evidence": [{"id": "i-0d7df7b3225548a7a", "deleted": true, "detail": {"deleted": true}}, {"id": "i-09c591c9d921470cd", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.eni
+{"time": "2026-09-28T09:55:01.464116+00:00", "region": "cn-north-1", "feature": "cleanup.eni", "status": "PASS", "evidence": [{"id": "eni-0716e8e388c50ee9c", "deleted": true, "detail": {"deleted": true}}, {"id": "eni-02bdc7cade7dbb1e1", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.sg
+{"time": "2026-09-28T09:55:02.013608+00:00", "region": "cn-north-1", "feature": "cleanup.sg", "status": "PASS", "evidence": [{"id": "sg-0088cc0f7495822b0", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.secret
+{"time": "2026-09-28T09:55:02.795338+00:00", "region": "cn-north-1", "feature": "cleanup.secret", "status": "PASS", "evidence": [{"id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928095429-bj-ca_secret-cGwleX", "deleted": true, "detail": {"deleted": true}}, {"id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928095429-bj-proxy_secret-NL1bUY", "deleted": true, "detail": {"deleted": true}}, {"id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:ac-cn-0928095429-bj-bad_proxy_secret-5ruTog", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.role
+{"time": "2026-09-28T09:55:04.487477+00:00", "region": "cn-north-1", "feature": "cleanup.role", "status": "PASS", "evidence": [{"id": "ac-cn-0928095429-bj-agentcore", "deleted": true, "detail": {"deleted": true}}]}
+[cn-north-1] PASS: cleanup.inventory
+{"time": "2026-09-28T09:55:05.469256+00:00", "region": "cn-north-1", "feature": "cleanup.inventory", "status": "PASS", "evidence": []}
+[cn-north-1] PASS: cleanup_tests.suite
+{"time": "2026-09-28T09:55:05.469429+00:00", "region": "cn-north-1", "feature": "cleanup_tests.suite", "status": "PASS", "evidence": {"remaining": []}}
+[cn-northwest-1] PASS: cleanup.instance
+{"time": "2026-09-28T09:55:16.852844+00:00", "region": "cn-northwest-1", "feature": "cleanup.instance", "status": "PASS", "evidence": [{"id": "i-04d74c5da2b7f27a7", "deleted": true, "detail": {"deleted": true}}, {"id": "i-08cd2f9f597c079b6", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.eni
+{"time": "2026-09-28T09:55:17.997101+00:00", "region": "cn-northwest-1", "feature": "cleanup.eni", "status": "PASS", "evidence": [{"id": "eni-07fe67364466a20cf", "deleted": true, "detail": {"deleted": true}}, {"id": "eni-0671653d1817448f5", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.sg
+{"time": "2026-09-28T09:55:18.564089+00:00", "region": "cn-northwest-1", "feature": "cleanup.sg", "status": "PASS", "evidence": [{"id": "sg-07216fb2543b4b413", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.secret
+{"time": "2026-09-28T09:55:19.429687+00:00", "region": "cn-northwest-1", "feature": "cleanup.secret", "status": "PASS", "evidence": [{"id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928095429-nx-ca_secret-joPgKg", "deleted": true, "detail": {"deleted": true}}, {"id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928095429-nx-proxy_secret-XuCXGj", "deleted": true, "detail": {"deleted": true}}, {"id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928095429-nx-bad_proxy_secret-Wb6r49", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.role
+{"time": "2026-09-28T09:55:21.070611+00:00", "region": "cn-northwest-1", "feature": "cleanup.role", "status": "PASS", "evidence": [{"id": "ac-cn-0928095429-nx-agentcore", "deleted": true, "detail": {"deleted": true}}]}
+[cn-northwest-1] PASS: cleanup.inventory
+{"time": "2026-09-28T09:55:22.068414+00:00", "region": "cn-northwest-1", "feature": "cleanup.inventory", "status": "PASS", "evidence": []}
+[cn-northwest-1] PASS: cleanup_tests.suite
+{"time": "2026-09-28T09:55:22.068659+00:00", "region": "cn-northwest-1", "feature": "cleanup_tests.suite", "status": "PASS", "evidence": {"remaining": []}}

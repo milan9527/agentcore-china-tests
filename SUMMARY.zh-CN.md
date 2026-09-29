@@ -2,21 +2,27 @@
 
 > 本文已合并初测与后续补测结果，与[英文完整报告](REPORT.md)采用相同统计口径。初测版本单独保留在 [SUMMARY.initial.zh-CN.md](SUMMARY.initial.zh-CN.md)。**Live View 两地画面和输入均通过，原失败结论已更正。**
 
-测试日期：2026 年 9 月 28 日（UTC）  
+**2026-09-29 最新更新：Gateway 调用者 IAM 凭证转发在北京、宁夏复测通过，每区 8/8 项对照通过。原无效令牌 403 未再出现，主统计更新为每区 154 通过、1 失败、2 受限、2 当前不可用。** [本次完整证据](results/repro-caller-confirm-20260929/REPORT.zh-CN.md)。
+
+2026-09-28 08:27–08:29 UTC 新建独立环境完成 [Gateway 出站 OAuth 专项验证](results/oauth-validation-20260928/REPORT.zh-CN.md)：两地 2LO（Basic / POST）和 3LO 完整流程、授权后再次调用、用户隔离均通过；OBO 的四种提供商配置均可创建，但目标创建共 16 次返回账号未开放 Token Exchange 的 403。每区专项为 8 PASS、4 BLOCKED，单独统计，不改变下方 159 项口径。命令、脱敏过程、请求 ID、源码快照和清理核验均已记录。
+
+**OAuth 验证范围：本次使用自建合成 IdP，通过 `CustomOauth2` 接入；使用 OAuth client `cn-retest` 和每区随机生成的 client secret。未接入 Microsoft Entra ID、Google、Okta 等第三方。2LO/3LO 通过仅适用于该测试 IdP，第三方兼容性及 Microsoft OBO 均未验证。OBO 已配置客户端，但在 Gateway 目标创建阶段受账号限制，尚未通过 Gateway 执行令牌交换。**
+
+测试日期：2026 年 9 月 28 日；调用者 IAM 复测：9 月 29 日（UTC）<br>
 AWS Profile：`china`  
 AWS 账号：`209915754514`  
 测试区域：北京 `cn-north-1`、宁夏 `cn-northwest-1`
 
 ## 总体结果
 
-两个区域的最终检查结果一致。有效 JWT、OAuth client credentials、OAuth authorization code、JWT 透传，以及正确配置下的 Browser 代理均通过；Live View 显示和人工输入也已通过。仍失败的是调用者 IAM 转发和 Playwright `download.save_as()` 取回文件；下载已有文本与二进制验证通过的替代方法。
+两个区域的最终检查结果一致。有效 JWT、OAuth client credentials、OAuth authorization code、JWT 透传，以及正确配置下的 Browser 代理均通过；Live View 显示和人工输入也已通过。9 月 29 日调用者 IAM 转发复测通过，原无效令牌错误未再出现。原 159 项检查中仍失败的是 Playwright `download.save_as()` 取回文件；下载已有文本与二进制验证通过的替代方法。
 
 | 区域 | 检查项数 | 通过 | 失败 | 前提条件不足 | 部分验证 | 当前不可用 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 北京 `cn-north-1` | 159 | 153 | 2 | 2 | 0 | 2 |
-| 宁夏 `cn-northwest-1` | 159 | 153 | 2 | 2 | 0 | 2 |
+| 北京 `cn-north-1` | 159 | 154 | 1 | 2 | 0 | 2 |
+| 宁夏 `cn-northwest-1` | 159 | 154 | 1 | 2 | 0 | 2 |
 
-统计保持每区初测的 **159 个检查名称**，使用对应检查的最新补测结果更新状态。新增排查检查单独列在[补测矩阵](results/followup-matrix.csv)，不扩大主表分母。初测每区为 145 通过、6 失败、5 受限、1 部分验证、2 当前不可用；随后 8 项转为通过：JWT、三项 OAuth / 透传、三项代理及 Live View。
+统计保持每区初测的 **159 个检查名称**，使用对应检查的最新补测结果更新状态。新增排查检查单独列在[补测矩阵](results/followup-matrix.csv)，不扩大主表分母。初测每区为 145 通过、6 失败、5 受限、1 部分验证、2 当前不可用；随后 9 项转为通过：JWT、三项 OAuth / 透传、三项代理、Live View 及调用者 IAM 转发。
 
 检查包含功能调用、配置验证及诊断对照，不包含环境准备、阶段汇总、资源清理和中国区已知不支持能力的负向检查。一个产品功能可能对应多个检查项，因此 **159 项不代表 159 个独立功能**。代理通过仅适用于明确验证的配置，8000/8443 端口等失败记录仍保留。
 
@@ -39,7 +45,7 @@ AWS 账号：`209915754514`
 | 流式与交互 | SSE 结果、进度和日志通知；表单 elicitation、授权码 URL elicitation 回调与会话绑定；sampling 请求与恢复调用 |
 | 拦截器 | 请求拦截器修改工具参数，响应拦截器添加标记，均验证实际效果 |
 | 加密与出站鉴权 | 自定义 KMS 密钥及实际工具调用；API Key 经后端验证；自定义 OAuth 提供商配置成功 |
-| HTTP / Runtime | HTTP 转发；使用 Gateway IAM 执行角色调用 Runtime |
+| HTTP / Runtime | HTTP 转发；Gateway IAM 执行角色及调用者 IAM 凭证转发均可调用 Runtime；9 月 29 日验证 GetSessionToken、AssumeRole 及两种入站模式 |
 | 限流与可观测性 | 限流规则增删改查、零速率返回 429；CloudWatch 日志与指标、CloudTrail 事件 |
 
 Elicitation 已测试 MCP `2026-07-28` 的表单模式及实际授权码 URL 流程；sampling 使用合成客户端响应，未调用真实大模型。鉴权补测使用临时合成 HTTPS OIDC/OAuth 服务，测试后已关闭。Token Exchange 虽可配置提供商，但目标创建受账号开关限制。
@@ -73,18 +79,29 @@ Elicitation 已测试 MCP `2026-07-28` 的表单模式及实际授权码 URL 流
 
 **原“DCV 显示连接失败”的判断是测试过早结束造成的误判。** 鉴权关闭错误仍保留，内部原因未确认，但实测没有阻止显示和输入。常规测试现在最多等待首帧 120 秒。[详细更正、截图与复现命令](LIVEVIEW.zh-CN.md)。
 
-## 仍未通过的两项功能检查
+## 调用者 IAM 转发：9 月 29 日复测通过
 
-调用者 IAM 转发于 2026-09-28 07:53 UTC 在两地新环境再次复现；每区 5 项成功对照、3 项调用者转发失败，本次新增资源清理通过。[复现过程与结果](results/repro-caller-confirm-20260928/REPORT.zh-CN.md)。
+2026-09-29 01:58–01:59 UTC 使用 `china` profile 在两地全新环境测试，每区 8 项对照全部通过。AssumeRole + AWS_IAM、AssumeRole + AUTHENTICATE_ONLY、GetSessionToken 三种调用者转发均返回 HTTP 200、`sum=42`，同凭证直接调用和 Gateway 执行角色对照全部成功。核心脚本与 9 月 28 日逐字节一致，SDK 版本未变；因此原无效令牌问题在本次所测路径已恢复。本次资源清理核验均通过。[本次过程、响应及请求 ID](results/repro-caller-confirm-20260929/REPORT.zh-CN.md)。
+
+| 调用者凭证 / 入站模式 | 北京 | 宁夏 |
+| --- | --- | --- |
+| AssumeRole + AWS_IAM | HTTP 200，sum=42 | HTTP 200，sum=42 |
+| AssumeRole + AUTHENTICATE_ONLY | HTTP 200，sum=42 | HTTP 200，sum=42 |
+| GetSessionToken + AWS_IAM | HTTP 200，sum=42 | HTTP 200，sum=42 |
+
+9 月 28 日每区 5 项成功对照、3 项转发 403 的[历史记录](results/repro-caller-confirm-20260928/REPORT.zh-CN.md)保留不变；本次结果不确定服务端具体修复时间或内部根因。
+
+## 原检查集合中仍未通过的功能
 
 | 问题 | 现象 | 对照与结论范围 |
 | --- | --- | --- |
-| Gateway 调用者 IAM 凭证转发 | `CALLER_IAM_CREDENTIALS` 目标创建成功，调用返回 403：`The security token included in the request is invalid` | 长期凭证、STS GetSessionToken、AssumeRole 均复现；AssumeRole 对照覆盖 AWS_IAM 与 AUTHENTICATE_ONLY 入站。相同凭证直接调用 Runtime、使用 Gateway 执行角色调用成功。功能失败明确，服务内部根因未确认 |
 | Playwright 下载到本地 | `download.save_as()` 在 Playwright 1.63.0 和 1.60.0 下均保存 0 字节，预期为 21 字节 | 文件在远端存在且内容正确，客户端对应路径不存在；本地 Chromium 对照成功。失败位于该 CDP 连接方式的远端文件取回环节；[替代助手](download_remote_file.py)已通过文本及二进制校验，未测试大文件性能 |
 
 客户端环境：Playwright `1.63.0`，兼容性对照 `1.60.0`；本地 Chromium `153.0.8010.12`，远端 Chromium `148.0.7778.258`。初测使用 DCV Web SDK `1.14.1+build.0`，后续使用官方 `bedrock-agentcore` TypeScript SDK `0.4.4` 的 BrowserLiveView 组件及随包客户端。
 
 代理配置边界仍需保留：HTTP 8000 / HTTPS 8443 在内置代理路径下失败；上游专用域名未配置 `externalProxy.domainPatterns` 时返回 DNS 503。`server` 使用裸主机名/IP；路由与绕过规则分开验证，避免反向 DNS 同时匹配。配置示例及服务端日志见[详细补测报告](FOLLOWUP.zh-CN.md)。
+
+后续 [95 项代理专项验证](PROXY-VALIDATION.zh-CN.md)每区为 60 PASS / 35 FAIL，失败全部重复确认，两区共 260 次请求观察。代理与目标使用不同 IP，证实托管 HTTP 8000/8081 请求在到达外部代理之前被 Squid 访问控制拒绝；直连和 Playwright 显式代理的同端口对照均通过。标准端口的精确 IP/主机名/后缀绕过、错误凭证拒绝及多代理选择均通过。该场景矩阵单独统计，不改变主报告的 159 项集合。
 
 ## 未完成验证的前提条件
 

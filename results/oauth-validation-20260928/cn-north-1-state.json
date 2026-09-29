@@ -1,0 +1,248 @@
+{
+  "run": "ac-cn-0928082703",
+  "region": "cn-north-1",
+  "resources": [
+    {
+      "kind": "role",
+      "id": "ac-cn-0928082703-bj-agentcore",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928082703-bj-jwt-p4is8gvpis",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-bj-cc-basic",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "WZK76YSD25",
+      "gateway": "ac-cn-0928082703-bj-jwt-p4is8gvpis",
+      "name": "cc-basic",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-bj-cc-post",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "XQPOLJUO7W",
+      "gateway": "ac-cn-0928082703-bj-jwt-p4is8gvpis",
+      "name": "cc-post",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-bj-authorization-code",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "target",
+      "id": "VYUAJHUZRM",
+      "gateway": "ac-cn-0928082703-bj-jwt-p4is8gvpis",
+      "name": "authorization-code",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-bj-rfc8693-none",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-bj-rfc8693-m2m",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-bj-rfc8693-aws-iam-id-token-jwt",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-bj-rfc7523-jwt-bearer",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-cc-basic-1218cd25-0fv0hE",
+      "serviceManaged": true,
+      "cleanupResult": {
+        "type": "InvalidRequestException",
+        "message": "An error occurred (InvalidRequestException) when calling the DeleteSecret operation: Operation is not allowed on secret owned by bedrock-agentcore-identity"
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-cc-post-d30172cf-mcpIJr",
+      "serviceManaged": true,
+      "cleanupResult": {
+        "type": "InvalidRequestException",
+        "message": "An error occurred (InvalidRequestException) when calling the DeleteSecret operation: Operation is not allowed on secret owned by bedrock-agentcore-identity"
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-authorization-code-490b37bd-EWOPRh",
+      "serviceManaged": true,
+      "cleanupResult": {
+        "type": "InvalidRequestException",
+        "message": "An error occurred (InvalidRequestException) when calling the DeleteSecret operation: Operation is not allowed on secret owned by bedrock-agentcore-identity"
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-rfc8693-none-2789af11-H4s5IZ",
+      "serviceManaged": true,
+      "cleanupResult": {
+        "type": "InvalidRequestException",
+        "message": "An error occurred (InvalidRequestException) when calling the DeleteSecret operation: Operation is not allowed on secret owned by bedrock-agentcore-identity"
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-rfc8693-m2m-737f509b-44UJvr",
+      "serviceManaged": true,
+      "cleanupResult": {
+        "type": "InvalidRequestException",
+        "message": "An error occurred (InvalidRequestException) when calling the DeleteSecret operation: Operation is not allowed on secret owned by bedrock-agentcore-identity"
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-rfc8693-aws-iam-id-token-jwt-99fffd4f-Nhd0O8",
+      "serviceManaged": true,
+      "cleanupResult": {
+        "type": "InvalidRequestException",
+        "message": "An error occurred (InvalidRequestException) when calling the DeleteSecret operation: Operation is not allowed on secret owned by bedrock-agentcore-identity"
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-north-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-bj-rfc7523-jwt-bearer-eff18fbf-ri089h",
+      "serviceManaged": true,
+      "cleanupResult": {
+        "type": "InvalidRequestException",
+        "message": "An error occurred (InvalidRequestException) when calling the DeleteSecret operation: Operation is not allowed on secret owned by bedrock-agentcore-identity"
+      }
+    },
+    {
+      "kind": "workload",
+      "id": "ac-cn-0928082703-bj-jwt-p4is8gvpis",
+      "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac-cn-0928082703-bj-jwt-p4is8gvpis",
+      "deleted": true,
+      "cleanupResult": {
+        "alreadyAbsent": true
+      }
+    }
+  ],
+  "sessions": [],
+  "agentcore_role": "arn:aws-cn:iam::209915754514:role/ac-cn-0928082703-bj-agentcore",
+  "local_processes": [
+    2427434,
+    2427435
+  ],
+  "issuer": "https://taste-counsel-cornwall-binary.trycloudflare.com/test/REDACTED_PATH_KEY",
+  "api_url": "https://taste-counsel-cornwall-binary.trycloudflare.com/test/REDACTED_PATH_KEY",
+  "jwt": "ac-cn-0928082703-bj-jwt-p4is8gvpis",
+  "gateway": {
+    "ResponseMetadata": {
+      "RequestId": "5087d8e3-5bd5-427c-9b79-a041e5535397",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Mon, 28 Sep 2026 08:28:32 GMT",
+        "content-type": "application/json",
+        "content-length": "1255",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "5087d8e3-5bd5-427c-9b79-a041e5535397",
+        "x-amz-apigw-id": "EZq_lFsrBTIEHfA=",
+        "x-amzn-trace-id": "Root=1-6aba2530-0b916ff87b628f282af35f7b"
+      },
+      "RetryAttempts": 0
+    },
+    "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:gateway/ac-cn-0928082703-bj-jwt-p4is8gvpis",
+    "gatewayId": "ac-cn-0928082703-bj-jwt-p4is8gvpis",
+    "gatewayUrl": "https://ac-cn-0928082703-bj-jwt-p4is8gvpis.gateway.bedrock-agentcore.cn-north-1.amazonaws.com.cn/mcp",
+    "createdAt": "2026-09-28 08:28:28.542278+00:00",
+    "updatedAt": "2026-09-28 08:28:30.678172+00:00",
+    "status": "READY",
+    "name": "ac-cn-0928082703-bj-jwt",
+    "roleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0928082703-bj-agentcore",
+    "protocolType": "MCP",
+    "protocolConfiguration": {
+      "mcp": {
+        "supportedVersions": [
+          "2025-03-26",
+          "2025-11-25",
+          "2026-07-28"
+        ],
+        "sessionConfiguration": {
+          "sessionTimeoutInSeconds": 900
+        },
+        "streamingConfiguration": {
+          "enableResponseStreaming": true
+        }
+      }
+    },
+    "authorizerType": "CUSTOM_JWT",
+    "authorizerConfiguration": {
+      "customJWTAuthorizer": {
+        "discoveryUrl": "https://taste-counsel-cornwall-binary.trycloudflare.com/test/REDACTED_PATH_KEY/.well-known/openid-configuration",
+        "allowedAudience": [
+          "cn-retest"
+        ],
+        "allowedClients": [
+          "cn-retest"
+        ],
+        "allowedScopes": [
+          "test"
+        ]
+      }
+    },
+    "workloadIdentityDetails": {
+      "workloadIdentityArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:workload-identity-directory/default/workload-identity/ac-cn-0928082703-bj-jwt-p4is8gvpis"
+    },
+    "exceptionLevel": "DEBUG"
+  }
+}

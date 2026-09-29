@@ -1,0 +1,386 @@
+[
+  {
+    "region": "cn-north-1",
+    "feature": "gateway.caller_iam.assumed_role.direct",
+    "label": "AssumeRole → Runtime 直接调用",
+    "time": "2026-09-29T01:58:46.888018+00:00",
+    "status": "PASS",
+    "httpStatus": null,
+    "body": {
+      "sum": 42,
+      "runtime": "gateway-fixture",
+      "region": "cn-north-1"
+    },
+    "requestId": "d628f645-56d0-4ef0-9159-e644a1186e0a",
+    "source": "cn-north-1-results.jsonl",
+    "sourceLine": 10,
+    "auditSource": null,
+    "auditResponseLines": [],
+    "rawEvidence": {
+      "body": {
+        "sum": 42,
+        "runtime": "gateway-fixture",
+        "region": "cn-north-1"
+      },
+      "requestId": "d628f645-56d0-4ef0-9159-e644a1186e0a",
+      "credentials": "AssumeRole"
+    }
+  },
+  {
+    "region": "cn-north-1",
+    "feature": "gateway.caller_iam.AWS_IAM.runtime-role",
+    "label": "AssumeRole / AWS_IAM → Gateway 执行角色",
+    "time": "2026-09-29T01:58:50.393635+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+    "requestId": "4d984797-a892-4cb2-90fb-e3945407faf3, 23ec9ab7-4b96-4384-ac77-fb0cdaf7752f",
+    "source": "cn-north-1-results.jsonl",
+    "sourceLine": 12,
+    "auditSource": "cn-north-1-api-audit.jsonl",
+    "auditResponseLines": [
+      222
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+      "requestId": "4d984797-a892-4cb2-90fb-e3945407faf3, 23ec9ab7-4b96-4384-ac77-fb0cdaf7752f",
+      "credentials": "AssumeRole",
+      "inbound": "AWS_IAM",
+      "outbound": "runtime-role"
+    }
+  },
+  {
+    "region": "cn-north-1",
+    "feature": "gateway.caller_iam.AWS_IAM.runtime-caller",
+    "label": "AssumeRole / AWS_IAM → 调用者 IAM",
+    "time": "2026-09-29T01:58:53.370891+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+    "requestId": "88ac57c7-1286-4b9f-b838-1516fd3d95cf, 1704a9f1-b3f8-46dc-ad40-f5a6f296646b",
+    "source": "cn-north-1-results.jsonl",
+    "sourceLine": 13,
+    "auditSource": "cn-north-1-api-audit.jsonl",
+    "auditResponseLines": [
+      226
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+      "requestId": "88ac57c7-1286-4b9f-b838-1516fd3d95cf, 1704a9f1-b3f8-46dc-ad40-f5a6f296646b",
+      "credentials": "AssumeRole",
+      "inbound": "AWS_IAM",
+      "outbound": "runtime-caller"
+    }
+  },
+  {
+    "region": "cn-north-1",
+    "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-role",
+    "label": "AssumeRole / AUTHENTICATE_ONLY → Gateway 执行角色",
+    "time": "2026-09-29T01:59:04.157763+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+    "requestId": "92924dd4-0ab0-4baf-b65a-1920f5ea4366, 40fc27fd-3996-4123-b63b-51b2d295c553",
+    "source": "cn-north-1-results.jsonl",
+    "sourceLine": 15,
+    "auditSource": "cn-north-1-api-audit.jsonl",
+    "auditResponseLines": [
+      240
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+      "requestId": "92924dd4-0ab0-4baf-b65a-1920f5ea4366, 40fc27fd-3996-4123-b63b-51b2d295c553",
+      "credentials": "AssumeRole",
+      "inbound": "AUTHENTICATE_ONLY",
+      "outbound": "runtime-role"
+    }
+  },
+  {
+    "region": "cn-north-1",
+    "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-caller",
+    "label": "AssumeRole / AUTHENTICATE_ONLY → 调用者 IAM",
+    "time": "2026-09-29T01:59:10.470235+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+    "requestId": "4c207c1a-f2ec-485e-9e05-f9c2244b2a74, 03e3ac11-f1ff-443e-99b4-dee083cb93c8",
+    "source": "cn-north-1-results.jsonl",
+    "sourceLine": 16,
+    "auditSource": "cn-north-1-api-audit.jsonl",
+    "auditResponseLines": [
+      248
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+      "requestId": "4c207c1a-f2ec-485e-9e05-f9c2244b2a74, 03e3ac11-f1ff-443e-99b4-dee083cb93c8",
+      "credentials": "AssumeRole",
+      "inbound": "AUTHENTICATE_ONLY",
+      "outbound": "runtime-caller"
+    }
+  },
+  {
+    "region": "cn-north-1",
+    "feature": "gateway.outbound.caller_iam.direct_runtime_baseline",
+    "label": "GetSessionToken → Runtime 直接调用",
+    "time": "2026-09-29T01:59:20.335198+00:00",
+    "status": "PASS",
+    "httpStatus": null,
+    "body": {
+      "sum": 42,
+      "runtime": "gateway-fixture",
+      "region": "cn-north-1"
+    },
+    "requestId": "3fd531eb-9e73-492c-a386-b4b20ab06329",
+    "source": "cn-north-1-results.jsonl",
+    "sourceLine": 18,
+    "auditSource": null,
+    "auditResponseLines": [],
+    "rawEvidence": {
+      "temporaryCredentialsValid": true,
+      "body": {
+        "sum": 42,
+        "runtime": "gateway-fixture",
+        "region": "cn-north-1"
+      },
+      "requestId": "3fd531eb-9e73-492c-a386-b4b20ab06329"
+    }
+  },
+  {
+    "region": "cn-north-1",
+    "feature": "gateway.outbound.caller_iam.gateway_role_baseline",
+    "label": "GetSessionToken → Gateway 执行角色",
+    "time": "2026-09-29T01:59:23.989964+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+    "requestId": "07cb373c-900c-4abb-9615-7b8e0ea16ccc, a1a76938-80d9-4f60-be91-d8dbdb98f0ca",
+    "source": "cn-north-1-results.jsonl",
+    "sourceLine": 19,
+    "auditSource": "cn-north-1-api-audit.jsonl",
+    "auditResponseLines": [
+      254
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+      "requestId": "07cb373c-900c-4abb-9615-7b8e0ea16ccc, a1a76938-80d9-4f60-be91-d8dbdb98f0ca"
+    }
+  },
+  {
+    "region": "cn-north-1",
+    "feature": "gateway.outbound.caller_iam",
+    "label": "GetSessionToken → 调用者 IAM",
+    "time": "2026-09-29T01:59:26.898761+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+    "requestId": "f98e5c28-3a15-4c0a-9d78-798bcdc8c5fc, 30b54a95-6b76-4594-b169-7d472b908459",
+    "source": "cn-north-1-results.jsonl",
+    "sourceLine": 20,
+    "auditSource": "cn-north-1-api-audit.jsonl",
+    "auditResponseLines": [
+      256
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+      "requestId": "f98e5c28-3a15-4c0a-9d78-798bcdc8c5fc, 30b54a95-6b76-4594-b169-7d472b908459"
+    }
+  },
+  {
+    "region": "cn-northwest-1",
+    "feature": "gateway.caller_iam.assumed_role.direct",
+    "label": "AssumeRole → Runtime 直接调用",
+    "time": "2026-09-29T01:58:50.794556+00:00",
+    "status": "PASS",
+    "httpStatus": null,
+    "body": {
+      "sum": 42,
+      "runtime": "gateway-fixture",
+      "region": "cn-northwest-1"
+    },
+    "requestId": "4300278d-a4cc-4809-9fa6-49be26de557b",
+    "source": "cn-northwest-1-results.jsonl",
+    "sourceLine": 10,
+    "auditSource": null,
+    "auditResponseLines": [],
+    "rawEvidence": {
+      "body": {
+        "sum": 42,
+        "runtime": "gateway-fixture",
+        "region": "cn-northwest-1"
+      },
+      "requestId": "4300278d-a4cc-4809-9fa6-49be26de557b",
+      "credentials": "AssumeRole"
+    }
+  },
+  {
+    "region": "cn-northwest-1",
+    "feature": "gateway.caller_iam.AWS_IAM.runtime-role",
+    "label": "AssumeRole / AWS_IAM → Gateway 执行角色",
+    "time": "2026-09-29T01:58:54.158737+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+    "requestId": "6d827326-e167-42ee-ade8-7dc9002d450b, 7585b12e-9ac7-456b-aec0-a4a803cf5dbb",
+    "source": "cn-northwest-1-results.jsonl",
+    "sourceLine": 12,
+    "auditSource": "cn-northwest-1-api-audit.jsonl",
+    "auditResponseLines": [
+      222
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+      "requestId": "6d827326-e167-42ee-ade8-7dc9002d450b, 7585b12e-9ac7-456b-aec0-a4a803cf5dbb",
+      "credentials": "AssumeRole",
+      "inbound": "AWS_IAM",
+      "outbound": "runtime-role"
+    }
+  },
+  {
+    "region": "cn-northwest-1",
+    "feature": "gateway.caller_iam.AWS_IAM.runtime-caller",
+    "label": "AssumeRole / AWS_IAM → 调用者 IAM",
+    "time": "2026-09-29T01:58:57.061364+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+    "requestId": "1546de4c-610d-4ec5-ac94-e4fc31e547fe, 507fa5f8-6ca5-4048-bc04-c69acb958cb8",
+    "source": "cn-northwest-1-results.jsonl",
+    "sourceLine": 13,
+    "auditSource": "cn-northwest-1-api-audit.jsonl",
+    "auditResponseLines": [
+      226
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+      "requestId": "1546de4c-610d-4ec5-ac94-e4fc31e547fe, 507fa5f8-6ca5-4048-bc04-c69acb958cb8",
+      "credentials": "AssumeRole",
+      "inbound": "AWS_IAM",
+      "outbound": "runtime-caller"
+    }
+  },
+  {
+    "region": "cn-northwest-1",
+    "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-role",
+    "label": "AssumeRole / AUTHENTICATE_ONLY → Gateway 执行角色",
+    "time": "2026-09-29T01:59:08.569928+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+    "requestId": "dec65a18-6b3b-486a-89ed-dff759ffce1d, 1a77d580-85f9-4f9f-b847-5df94a2e29a2",
+    "source": "cn-northwest-1-results.jsonl",
+    "sourceLine": 15,
+    "auditSource": "cn-northwest-1-api-audit.jsonl",
+    "auditResponseLines": [
+      240
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+      "requestId": "dec65a18-6b3b-486a-89ed-dff759ffce1d, 1a77d580-85f9-4f9f-b847-5df94a2e29a2",
+      "credentials": "AssumeRole",
+      "inbound": "AUTHENTICATE_ONLY",
+      "outbound": "runtime-role"
+    }
+  },
+  {
+    "region": "cn-northwest-1",
+    "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-caller",
+    "label": "AssumeRole / AUTHENTICATE_ONLY → 调用者 IAM",
+    "time": "2026-09-29T01:59:15.593255+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+    "requestId": "cec25052-57c5-4193-b4b1-f6e77db56194, 9776c02b-398b-4c43-90d9-25860fe327b0",
+    "source": "cn-northwest-1-results.jsonl",
+    "sourceLine": 16,
+    "auditSource": "cn-northwest-1-api-audit.jsonl",
+    "auditResponseLines": [
+      248
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+      "requestId": "cec25052-57c5-4193-b4b1-f6e77db56194, 9776c02b-398b-4c43-90d9-25860fe327b0",
+      "credentials": "AssumeRole",
+      "inbound": "AUTHENTICATE_ONLY",
+      "outbound": "runtime-caller"
+    }
+  },
+  {
+    "region": "cn-northwest-1",
+    "feature": "gateway.outbound.caller_iam.direct_runtime_baseline",
+    "label": "GetSessionToken → Runtime 直接调用",
+    "time": "2026-09-29T01:59:20.808555+00:00",
+    "status": "PASS",
+    "httpStatus": null,
+    "body": {
+      "sum": 42,
+      "runtime": "gateway-fixture",
+      "region": "cn-northwest-1"
+    },
+    "requestId": "ea005686-bfdd-417d-b2e8-8a68e5efe7ee",
+    "source": "cn-northwest-1-results.jsonl",
+    "sourceLine": 18,
+    "auditSource": null,
+    "auditResponseLines": [],
+    "rawEvidence": {
+      "temporaryCredentialsValid": true,
+      "body": {
+        "sum": 42,
+        "runtime": "gateway-fixture",
+        "region": "cn-northwest-1"
+      },
+      "requestId": "ea005686-bfdd-417d-b2e8-8a68e5efe7ee"
+    }
+  },
+  {
+    "region": "cn-northwest-1",
+    "feature": "gateway.outbound.caller_iam.gateway_role_baseline",
+    "label": "GetSessionToken → Gateway 执行角色",
+    "time": "2026-09-29T01:59:24.524059+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+    "requestId": "3704bbc0-6ba1-4813-8b6d-7db364827f7f, 6d020096-afc6-4219-ab00-5f81ec47509a",
+    "source": "cn-northwest-1-results.jsonl",
+    "sourceLine": 19,
+    "auditSource": "cn-northwest-1-api-audit.jsonl",
+    "auditResponseLines": [
+      254
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+      "requestId": "3704bbc0-6ba1-4813-8b6d-7db364827f7f, 6d020096-afc6-4219-ab00-5f81ec47509a"
+    }
+  },
+  {
+    "region": "cn-northwest-1",
+    "feature": "gateway.outbound.caller_iam",
+    "label": "GetSessionToken → 调用者 IAM",
+    "time": "2026-09-29T01:59:26.957011+00:00",
+    "status": "PASS",
+    "httpStatus": 200,
+    "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+    "requestId": "5449c32d-d063-436c-9a60-1843f6c6bd14, 678c5bef-2907-4bb0-a9ba-fdfa897ea2b6",
+    "source": "cn-northwest-1-results.jsonl",
+    "sourceLine": 20,
+    "auditSource": "cn-northwest-1-api-audit.jsonl",
+    "auditResponseLines": [
+      256
+    ],
+    "rawEvidence": {
+      "status": 200,
+      "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+      "requestId": "5449c32d-d063-436c-9a60-1843f6c6bd14, 678c5bef-2907-4bb0-a9ba-fdfa897ea2b6"
+    }
+  }
+]

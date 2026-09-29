@@ -1,0 +1,36 @@
+{
+  "time": "2026-09-29T02:08:40.780526+00:00",
+  "status": "PASS",
+  "scope": "Main bilingual document synchronization; no AWS calls",
+  "documentsChecked": [
+    "REPORT.md",
+    "SUMMARY.zh-CN.md",
+    "README.md",
+    "FOLLOWUP.zh-CN.md",
+    "REPRODUCE-ISSUES.zh-CN.md",
+    "REPRODUCE.zh-CN.md"
+  ],
+  "localLinksChecked": 176,
+  "functionalCountsPerRegion": {
+    "PASS": 154,
+    "FAIL": 1,
+    "BLOCKED": 2,
+    "NOT_AVAILABLE": 2
+  },
+  "callerFeatureSources": [
+    {
+      "region": "cn-north-1",
+      "status": "PASS",
+      "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl"
+    },
+    {
+      "region": "cn-northwest-1",
+      "status": "PASS",
+      "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl"
+    }
+  ],
+  "bothRetestDirectoriesUnchangedFiles": 698,
+  "bilingualCallerTablesMatch": true,
+  "reportGeneratorAst": "PASS",
+  "diffCheck": "PASS (CSV CRLF allowed)"
+}

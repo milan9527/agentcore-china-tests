@@ -1,0 +1,78 @@
+{
+  "time": "2026-09-29T02:00:22.602867+00:00",
+  "region": "cn-north-1",
+  "feature": "cleanup.read_only_verification",
+  "status": "PASS",
+  "evidence": [
+    {
+      "kind": "role",
+      "id": "ac-cn-0929015405-bj-lambda",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0929015405-bj-agentcore",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "bucket",
+      "id": "ac-cn-0929015405-bj-209915754514",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "lambda",
+      "id": "ac-cn-0929015405-bj",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "api",
+      "id": "70dy8fm7ua",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0929015405-bj-http-ys9phkel49",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "runtime",
+      "id": "ac_cn_0929015405_bj-fyqfwJ2ER2",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0929015405-bj-caller",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0929015405-bj-authenticate-only-3xltvzir2w",
+      "status": "ABSENT",
+      "ok": true
+    },
+    {
+      "kind": "tagged-volumes",
+      "status": "ABSENT",
+      "ids": [],
+      "ok": true
+    },
+    {
+      "kind": "tagged-instances",
+      "ok": true,
+      "instances": []
+    },
+    {
+      "kind": "security-group-interfaces",
+      "ok": true,
+      "interfaces": []
+    }
+  ]
+}

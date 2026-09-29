@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "time": "2026-09-28T10:14:52.387627+00:00",
+  "attemptRowsVerified": 260,
+  "sourceSnapshotFilesVerified": 206,
+  "serverEventsCrossReferenced": true,
+  "artifacts": 243
+}

@@ -1,0 +1,35 @@
+{
+  "time": "2026-09-29T02:05:09.062830+00:00",
+  "status": "PASS",
+  "cloudTestRerun": false,
+  "selectedChecks": 16,
+  "callerPaths": 6,
+  "allRecordedRuntimeInvocations": 20,
+  "allSelectedPass": true,
+  "bothCleanupPass": true,
+  "mainCounts": {
+    "cn-north-1": {
+      "PASS": 154,
+      "FAIL": 1,
+      "BLOCKED": 2,
+      "NOT_AVAILABLE": 2
+    },
+    "cn-northwest-1": {
+      "PASS": 154,
+      "FAIL": 1,
+      "BLOCKED": 2,
+      "NOT_AVAILABLE": 2
+    }
+  },
+  "historicalFailuresRetained": true,
+  "localLinksChecked": 267,
+  "pythonAstFiles": [
+    "export_caller_reproduction.py",
+    "export_report.py",
+    "build_followup_evidence.py"
+  ],
+  "redactionScanFiles": 26,
+  "redactionFlaggedPaths": [],
+  "artifactHashesVerified": 379,
+  "diffCheck": "PASS (CRLF CSV line endings allowed)"
+}

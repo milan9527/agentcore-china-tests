@@ -1,22 +1,22 @@
 {
-  "status": "WAITING_FOR_AWS_ENI_RELEASE",
+  "status": "COMPLETE",
   "pid": 2415600,
   "profile": "china",
   "startedAt": "2026-09-28T05:28:55.156171+00:00",
-  "updatedAt": "2026-09-28T08:15:20.551337+00:00",
+  "updatedAt": "2026-09-28T13:22:56.148058+00:00",
   "deadline": "2026-09-28T13:58:55.156171+00:00",
   "targets": [
     {
       "region": "cn-north-1",
       "id": "sg-00ea1d13ed36ba5d3",
       "purposeTag": "ac-cn-0928041532-bj",
-      "status": "WAITING_FOR_AWS_ENI_RELEASE"
+      "status": "DELETED"
     },
     {
       "region": "cn-northwest-1",
       "id": "sg-074039951f97aedee",
       "purposeTag": "ac-cn-0928041532-nx",
-      "status": "WAITING_FOR_AWS_ENI_RELEASE"
+      "status": "DELETED"
     }
   ]
 }

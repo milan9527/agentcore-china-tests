@@ -1,0 +1,40 @@
+{
+  "time": "2026-09-29T02:11:02.633431+00:00",
+  "reason": "Redact MCP continuation requestState before public GitHub publication",
+  "changes": [
+    {
+      "path": "results/cn-north-1-results.jsonl",
+      "lines": [
+        217,
+        218
+      ],
+      "fields": [
+        "evidence.inputRequested.body.result.requestState"
+      ],
+      "beforeSha256": "58c89fee11ff1297b3b377c485f377d914c8213275540e8b2ca045327e8049c2",
+      "afterSha256": "a2846d132210a7320badc45525189b5ee0fd80973f13862a94b00b66a5857b9c"
+    },
+    {
+      "path": "results/cn-northwest-1-results.jsonl",
+      "lines": [
+        215,
+        216
+      ],
+      "fields": [
+        "evidence.inputRequested.body.result.requestState"
+      ],
+      "beforeSha256": "aa397c9dfedeece7f4f4808257da893c90dc1f006071c43a2066beb75630d1b7",
+      "afterSha256": "d4a925043d85f8436c104d8f57703a2cf778506c93a14b2f2b75f051a5490fd6"
+    }
+  ],
+  "preserved": [
+    "row order",
+    "time",
+    "region",
+    "feature",
+    "status",
+    "seconds",
+    "request IDs"
+  ],
+  "sensitiveValuesPrinted": false
+}

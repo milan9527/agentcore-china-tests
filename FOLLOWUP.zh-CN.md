@@ -1,10 +1,14 @@
 # AgentCore 中国区未通过项目补测结论
 
-测试日期：2026 年 9 月 28 日（UTC）  
+最新出站 OAuth 专项测试见 [2LO / 3LO / OBO 完整过程和结果](results/oauth-validation-20260928/REPORT.zh-CN.md)：08:27–08:29 UTC 在两区新环境再次验证，2LO、3LO 通过，四种 OBO 配置仍在 Gateway 目标创建时受账号限制，共保留 16 次拒绝的请求 ID。
+
+该专项使用自建合成 IdP 和 `CustomOauth2`，配置了 OAuth client `cn-retest` 及每区随机生成的 client secret；未接入 Microsoft Entra ID、Google、Okta 等任何第三方。2LO/3LO 的成功适用于该测试 IdP，第三方兼容性尚未验证。RFC 7523 配置测试不代表 Microsoft OBO 测试；OBO 在 Gateway 目标创建阶段即受阻，未执行 Gateway 交换。
+
+测试日期：2026 年 9 月 28 日；调用者 IAM 复测：9 月 29 日（UTC）<br>
 AWS Profile：`china`；账号：`209915754514`  
 区域：北京 `cn-north-1`、宁夏 `cn-northwest-1`
 
-**两地补测结果一致。有效 JWT、OAuth client credentials、OAuth authorization code、JWT 透传均已完整通过；Browser 代理在正确配置和标准端口下通过。Live View 延长观察后，画面和人工输入均通过，原 DCV 失败结论已更正。仍可复现的问题是调用者 IAM 转发，以及 Playwright `save_as()` 的远端文件取回。后者已有两地验证通过的文本及二进制取回方法。**
+**两地补测结果一致。有效 JWT、OAuth client credentials、OAuth authorization code、JWT 透传均已完整通过；Browser 代理在正确配置和标准端口下通过。Live View 延长观察后，画面和人工输入均通过，原 DCV 失败结论已更正。调用者 IAM 转发于 9 月 29 日复测通过；Playwright `save_as()` 仍保留上一轮失败结论，已有两地验证通过的文本及二进制取回方法。**
 
 本报告更新[初测历史报告](REPORT.initial.md)中的未通过项目；当前合并结果见[中文摘要](SUMMARY.zh-CN.md)及[英文完整报告](REPORT.md)。初测失败、排查中的配置错误和后续成功结果均保留在过程记录中；不能将某个修正配置下的通过，解读为所有配置均已通过。
 
@@ -21,7 +25,7 @@ AWS Profile：`china`；账号：`209915754514`
 | Playwright `download.save_as()` | 仍失败 | 仍失败 | 1.63.0 与对应 Chromium 148 的 1.60.0 均产生零字节；文件存在远端，客户端对应路径不存在。直接调用 `save_as()` 不能完成此连接方式下的文件传输 |
 | Browser 文件取回替代方法 | 通过 | 通过 | 通过 CDP 文件输入接口和 `File.arrayBuffer()` 取回文本与二进制，字节数及哈希一致 |
 | DCV 实时画面和人工输入 | 通过（更正） | 通过（更正） | 原测试在鉴权连接关闭错误后提前退出；继续等待约 6–7 秒收到首帧，修正工具栏坐标后输入也通过，见[专项记录](LIVEVIEW.zh-CN.md) |
-| Gateway 调用者 IAM 转发 | 仍失败 | 仍失败 | 多种凭证和两种入站模式均返回无效安全令牌；相同凭证直接调用 Runtime、使用 Gateway 执行角色调用均成功 |
+| Gateway 调用者 IAM 转发 | 通过（9 月 29 日复测） | 通过（9 月 29 日复测） | AssumeRole 两种入站模式及 GetSessionToken 均返回 HTTP 200、sum=42；每区 8 项同凭证对照全通过 |
 | Gateway OAuth Token Exchange | 账号限制 | 账号限制 | 创建目标时明确返回 `Token Exchange is not available for this account`，并非缺测试令牌 |
 | Gateway 私有目标 | 账号限制 | 账号限制 | 明确要求为账号启用 VPC egress；Browser 的 VPC 访问已独立通过 |
 | Gateway / Browser PrivateLink | 当前未提供 | 当前未提供 | 分页遍历该账号的 EC2 端点服务目录，两地均未公布 AgentCore 服务名称 |
@@ -49,6 +53,8 @@ AWS Profile：`china`；账号：`209915754514`
 文档还存在一处说明冲突：出站鉴权概览曾将令牌透传与 `AUTHENTICATE_ONLY` 关联，但入站文档说明该模式基于 SigV4。本次实际通过的组合是 **`CUSTOM_JWT` + `JWT_PASSTHROUGH`**。
 
 ## 2. Browser 代理：能力通过，配置边界已确认
+
+09:56–10:12 新建独立环境进一步验证，见 [Browser 代理再次验证结论](PROXY-VALIDATION.zh-CN.md)。每区 95 项检查（60 PASS / 35 FAIL），每项失败均复现两次。新增 HTTP 8081、代理监听 8080、精确 IP/主机名/后缀绕过、错误凭证及多代理选择。HTTP 8000/8081 明确返回托管 `squid/6.13` 的 `ERR_ACCESS_DENIED 0`，两端日志证明未到外部代理；HTTPS 8443 同样未到外部代理。具体 Squid ACL 文件不可读，未认定某条内部配置的根因。
 
 两地验证了以下组合：
 
@@ -115,18 +121,17 @@ Path("downloaded.bin").write_bytes(data)
 
 该方法利用 `DOM.setFileInputFiles` 让远端浏览器读取自己的文件，再用 `File.arrayBuffer()` 经现有 CDP 连接返回字节。两地均通过 **21 字节文本**和 **8192 字节、包含全部 0–255 字节值的二进制文件**校验。未进行大文件性能测试。
 
-## 4. 调用者 IAM 转发：稳定复现，执行角色路径可用
+## 4. 调用者 IAM 转发：9 月 29 日复测通过
 
-**再次复现：2026-09-28 07:53 UTC，两地新建 Runtime / Gateway 得到相同结果。** 每区 5 项直接调用 / 执行角色对照通过，3 项调用者转发返回无效安全令牌 403。覆盖 AssumeRole 的两种入站模式及 GetSessionToken 三路对照。本次新增资源已清理且独立核验通过。[本次报告与命令](results/repro-caller-confirm-20260928/REPORT.zh-CN.md)、[完整控制台输出](results/repro-caller-confirm-20260928/console.log)、[最新响应与请求 ID](results/repro-caller-confirm-20260928/invocation-results.csv)。
+**最新结果：2026-09-29 01:58–01:59 UTC，两区全新 Runtime / Gateway 的每区 8 项对照全部通过。** 核心复现脚本与 9 月 28 日一致，SDK 版本未变；调用者转发均返回 HTTP 200、`sum=42`，原无效令牌 403 在所测路径未再出现。本次新增资源已清理，独立核验通过。[本次报告与命令](results/repro-caller-confirm-20260929/REPORT.zh-CN.md)、[完整控制台输出](results/repro-caller-confirm-20260929/console.log)、[最新响应与请求 ID](results/repro-caller-confirm-20260929/invocation-results.csv)。
 
 | 凭证 / 入站模式 | 直接调用 Runtime | Gateway 执行角色出站 | 调用者 IAM 出站 |
 | --- | --- | --- | --- |
-| 初测 profile 长期凭证 | 已有正常调用对照 | 通过 | 403 |
-| STS `GetSessionToken` | 通过 | 通过 | 403 |
-| STS `AssumeRole` + `AWS_IAM` | 通过 | 通过 | 403 |
-| STS `AssumeRole` + `AUTHENTICATE_ONLY` | 同一凭证直接调用通过 | 通过 | 403 |
+| STS `GetSessionToken` + `AWS_IAM` | 通过 | 通过 | HTTP 200，sum=42 |
+| STS `AssumeRole` + `AWS_IAM` | 通过 | 通过 | HTTP 200，sum=42 |
+| STS `AssumeRole` + `AUTHENTICATE_ONLY` | 同一凭证直接调用通过 | 通过 | HTTP 200，sum=42 |
 
-错误均为 `The security token included in the request is invalid`。这排除了“仅长期凭证有问题”和“仅入站模式配置不正确”两种解释。当前可用替代方案是 `GATEWAY_IAM_ROLE`，但它采用 Gateway 执行角色权限，不能等同于保留原调用者权限语义。
+9 月 28 日同一对照仍是每区 5 PASS / 3 FAIL，错误为 `The security token included in the request is invalid`，[历史报告](results/repro-caller-confirm-20260928/REPORT.zh-CN.md)与原始证据保留。本次确认调用行为恢复，未确认 AWS 内部根因或部署时间。`GATEWAY_IAM_ROLE` 与调用者凭证仍是两种不同权限语义。
 
 两地实际接受创建 `AUTHENTICATE_ONLY` Gateway，且该模式下的执行角色出站调用通过；这与中国区概览仅列出 `AWS_IAM` / `CUSTOM_JWT` 的说明存在差异。本报告保留实际 API 结果，不将该模式直接列为中国区不支持。
 

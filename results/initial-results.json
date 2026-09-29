@@ -2576,7 +2576,7 @@
       "sourceLine": 287
     },
     {
-      "time": "2026-09-28T05:15:51.261445+00:00",
+      "time": "2026-09-28T13:22:35.867233+00:00",
       "region": "cn-north-1",
       "feature": "cleanup.browser_sessions",
       "status": "PASS",
@@ -2599,7 +2599,7 @@
         },
         {
           "sessionId": "01M3K4PQ3CJMWWMS2XKGGFP78G",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K4QWPDW56MZH5821WWVJHP",
@@ -2607,27 +2607,27 @@
         },
         {
           "sessionId": "01M3K4ZFYX1JK945VJ4D0AGH6B",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K4ZQ8DT2TACZEJZ4AYVZS6",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K501ZAV106H4GXQZEEX58X",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5336JNGEZC95G2TZ0NZAP",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K53Q1CS73EGDGZKVV7TV9B",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K56SE2ZQVN24Z2E3DVSQ4K",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K57833T4TQJNMZRAFCR954",
@@ -2639,11 +2639,11 @@
         },
         {
           "sessionId": "01M3K5CRXGFEJTZVGZCGW2A7TW",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5NM97MK4701MD4M42Z485",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5P184D2W0BE7WHRDC7WKP",
@@ -2651,15 +2651,15 @@
         },
         {
           "sessionId": "01M3K69NTR041N744V5NMN1ZC2",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6DFV1QZP21Y0K3GKR5WDS",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6DYHSXAJ5XSAFRF56530G",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6EJPB6SD8Q4N8866BXNJC",
@@ -2680,7 +2680,7 @@
       ],
       "category": "cleanup",
       "source": "results/cn-north-1-results.jsonl",
-      "sourceLine": 280
+      "sourceLine": 310
     },
     {
       "time": "2026-09-28T05:27:44.691275+00:00",
@@ -2905,10 +2905,10 @@
       "sourceLine": 295
     },
     {
-      "time": "2026-09-28T05:27:49.517061+00:00",
+      "time": "2026-09-28T13:22:39.229807+00:00",
       "region": "cn-north-1",
       "feature": "cleanup.inventory",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "kind": "kms",
@@ -2921,19 +2921,11 @@
             "keyState": "PendingDeletion",
             "deletionDate": "2026-10-05 05:27:41.783000+00:00"
           }
-        },
-        {
-          "kind": "sg",
-          "id": "sg-00ea1d13ed36ba5d3",
-          "cleanupResult": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-00ea1d13ed36ba5d3 has a dependent object"
-          }
         }
       ],
       "category": "cleanup",
       "source": "results/cn-north-1-results.jsonl",
-      "sourceLine": 306
+      "sourceLine": 312
     },
     {
       "time": "2026-09-28T05:27:41.903021+00:00",
@@ -3052,10 +3044,10 @@
       "sourceLine": 284
     },
     {
-      "time": "2026-09-28T06:22:11.919293+00:00",
+      "time": "2026-09-28T13:22:54.324006+00:00",
       "region": "cn-north-1",
       "feature": "cleanup.read_only_verification",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "kind": "role",
@@ -3116,8 +3108,8 @@
         {
           "kind": "sg",
           "id": "sg-00ea1d13ed36ba5d3",
-          "status": "EXISTS",
-          "ok": false
+          "status": "ABSENT",
+          "ok": true
         },
         {
           "kind": "secret",
@@ -3198,26 +3190,13 @@
         },
         {
           "kind": "security-group-interfaces",
-          "ok": false,
-          "interfaces": [
-            {
-              "NetworkInterfaceId": "eni-07785326177ebf70b",
-              "Status": "in-use",
-              "InterfaceType": "agentic_ai",
-              "Attachment": {
-                "AttachmentId": "ela-attach-038e61a38ea5524f3",
-                "DeleteOnTermination": false,
-                "DeviceIndex": 1,
-                "InstanceOwnerId": "amazon-aws",
-                "Status": "attached"
-              }
-            }
-          ]
+          "ok": true,
+          "interfaces": []
         }
       ],
       "category": "cleanup",
       "source": "results/cn-north-1-results.jsonl",
-      "sourceLine": 309
+      "sourceLine": 314
     },
     {
       "time": "2026-09-28T05:27:48.816611+00:00",
@@ -3302,26 +3281,25 @@
       "sourceLine": 301
     },
     {
-      "time": "2026-09-28T05:27:39.910528+00:00",
+      "time": "2026-09-28T13:22:38.047100+00:00",
       "region": "cn-north-1",
       "feature": "cleanup.sg",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "id": "sg-00ea1d13ed36ba5d3",
-          "deleted": false,
+          "deleted": true,
           "detail": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-00ea1d13ed36ba5d3 has a dependent object"
+            "alreadyAbsent": true
           }
         }
       ],
       "category": "cleanup",
       "source": "results/cn-north-1-results.jsonl",
-      "sourceLine": 300
+      "sourceLine": 311
     },
     {
-      "time": "2026-09-28T05:27:49.517339+00:00",
+      "time": "2026-09-28T13:22:39.230004+00:00",
       "region": "cn-north-1",
       "feature": "cleanup.suite",
       "status": "PASS",
@@ -3338,21 +3316,13 @@
               "keyState": "PendingDeletion",
               "deletionDate": "2026-10-05 05:27:41.783000+00:00"
             }
-          },
-          {
-            "kind": "sg",
-            "id": "sg-00ea1d13ed36ba5d3",
-            "cleanupResult": {
-              "type": "ClientError",
-              "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-00ea1d13ed36ba5d3 has a dependent object"
-            }
           }
         ]
       },
-      "seconds": 720.787,
+      "seconds": 6.105,
       "category": "cleanup",
       "source": "results/cn-north-1-results.jsonl",
-      "sourceLine": 307
+      "sourceLine": 313
     },
     {
       "time": "2026-09-28T05:16:20.632713+00:00",
@@ -4313,7 +4283,7 @@
                   }
                 }
               },
-              "requestState": "synthetic-state"
+              "requestState": "REDACTED"
             }
           }
         },
@@ -4653,7 +4623,7 @@
                   }
                 }
               },
-              "requestState": "synthetic-state"
+              "requestState": "REDACTED"
             }
           }
         },
@@ -9708,7 +9678,7 @@
       "sourceLine": 285
     },
     {
-      "time": "2026-09-28T05:15:51.651030+00:00",
+      "time": "2026-09-28T13:22:35.717538+00:00",
       "region": "cn-northwest-1",
       "feature": "cleanup.browser_sessions",
       "status": "PASS",
@@ -9731,7 +9701,7 @@
         },
         {
           "sessionId": "01M3K4PQ4CPRH1TDR2F8J9WYZP",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K4QXYT5JW9BPZ8JDZBD7PY",
@@ -9739,27 +9709,27 @@
         },
         {
           "sessionId": "01M3K4ZFSGHQ3MHDH9TW4DQDRF",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K4ZR1G5VJZPZQD52RG9Z6W",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5032BAV9KJ0W27ES21XV1",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K539JSCG1HARMHWYGNFX0W",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K53ZB0JW9QV0XXYP1NS4E6",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K56SN2B29Z02915D3ZYM9K",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5789DTGJXJTE51DFCJ83Y",
@@ -9771,11 +9741,11 @@
         },
         {
           "sessionId": "01M3K5CS8GV6R6Z1WCE7APP4YH",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5NMH5ZZQ5VXW180Y7JAAZ",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5P3RYT6M79ETN4ZJGG9XS",
@@ -9783,15 +9753,15 @@
         },
         {
           "sessionId": "01M3K69P45ES95K5JR5RABQMR5",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6DH7NZYXRPDS76BBVGWMZ",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6E3028Z3XF5SEGSKM8GYK",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6EJSN0HQXVJ4NWY1SVAZS",
@@ -9812,7 +9782,7 @@
       ],
       "category": "cleanup",
       "source": "results/cn-northwest-1-results.jsonl",
-      "sourceLine": 278
+      "sourceLine": 308
     },
     {
       "time": "2026-09-28T05:27:36.356278+00:00",
@@ -10037,10 +10007,10 @@
       "sourceLine": 293
     },
     {
-      "time": "2026-09-28T05:27:41.376972+00:00",
+      "time": "2026-09-28T13:22:39.233536+00:00",
       "region": "cn-northwest-1",
       "feature": "cleanup.inventory",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "kind": "kms",
@@ -10053,19 +10023,11 @@
             "keyState": "PendingDeletion",
             "deletionDate": "2026-10-05 05:27:32.722000+00:00"
           }
-        },
-        {
-          "kind": "sg",
-          "id": "sg-074039951f97aedee",
-          "cleanupResult": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-074039951f97aedee has a dependent object"
-          }
         }
       ],
       "category": "cleanup",
       "source": "results/cn-northwest-1-results.jsonl",
-      "sourceLine": 304
+      "sourceLine": 310
     },
     {
       "time": "2026-09-28T05:27:32.872530+00:00",
@@ -10184,10 +10146,10 @@
       "sourceLine": 282
     },
     {
-      "time": "2026-09-28T06:22:12.382020+00:00",
+      "time": "2026-09-28T13:22:56.018952+00:00",
       "region": "cn-northwest-1",
       "feature": "cleanup.read_only_verification",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "kind": "role",
@@ -10248,8 +10210,8 @@
         {
           "kind": "sg",
           "id": "sg-074039951f97aedee",
-          "status": "EXISTS",
-          "ok": false
+          "status": "ABSENT",
+          "ok": true
         },
         {
           "kind": "secret",
@@ -10330,26 +10292,13 @@
         },
         {
           "kind": "security-group-interfaces",
-          "ok": false,
-          "interfaces": [
-            {
-              "NetworkInterfaceId": "eni-04a5f2fc31f5dab40",
-              "Status": "in-use",
-              "InterfaceType": "agentic_ai",
-              "Attachment": {
-                "AttachmentId": "ela-attach-054025ad5d83f9d33",
-                "DeleteOnTermination": false,
-                "DeviceIndex": 1,
-                "InstanceOwnerId": "amazon-aws",
-                "Status": "attached"
-              }
-            }
-          ]
+          "ok": true,
+          "interfaces": []
         }
       ],
       "category": "cleanup",
       "source": "results/cn-northwest-1-results.jsonl",
-      "sourceLine": 307
+      "sourceLine": 312
     },
     {
       "time": "2026-09-28T05:27:40.532999+00:00",
@@ -10434,26 +10383,25 @@
       "sourceLine": 299
     },
     {
-      "time": "2026-09-28T05:27:30.509900+00:00",
+      "time": "2026-09-28T13:22:38.003861+00:00",
       "region": "cn-northwest-1",
       "feature": "cleanup.sg",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "id": "sg-074039951f97aedee",
-          "deleted": false,
+          "deleted": true,
           "detail": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-074039951f97aedee has a dependent object"
+            "alreadyAbsent": true
           }
         }
       ],
       "category": "cleanup",
       "source": "results/cn-northwest-1-results.jsonl",
-      "sourceLine": 298
+      "sourceLine": 309
     },
     {
-      "time": "2026-09-28T05:27:41.377256+00:00",
+      "time": "2026-09-28T13:22:39.234252+00:00",
       "region": "cn-northwest-1",
       "feature": "cleanup.suite",
       "status": "PASS",
@@ -10470,21 +10418,13 @@
               "keyState": "PendingDeletion",
               "deletionDate": "2026-10-05 05:27:32.722000+00:00"
             }
-          },
-          {
-            "kind": "sg",
-            "id": "sg-074039951f97aedee",
-            "cleanupResult": {
-              "type": "ClientError",
-              "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-074039951f97aedee has a dependent object"
-            }
           }
         ]
       },
-      "seconds": 712.505,
+      "seconds": 6.183,
       "category": "cleanup",
       "source": "results/cn-northwest-1-results.jsonl",
-      "sourceLine": 305
+      "sourceLine": 311
     },
     {
       "time": "2026-09-28T05:16:22.477848+00:00",
@@ -11445,7 +11385,7 @@
                   }
                 }
               },
-              "requestState": "synthetic-state"
+              "requestState": "REDACTED"
             }
           }
         },
@@ -11785,7 +11725,7 @@
                   }
                 }
               },
-              "requestState": "synthetic-state"
+              "requestState": "REDACTED"
             }
           }
         },

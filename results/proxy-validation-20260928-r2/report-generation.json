@@ -1,0 +1,12 @@
+{
+  "time": "2026-09-28T10:14:52.387627+00:00",
+  "awsCalls": false,
+  "command": [
+    ".venv/bin/python",
+    "export_proxy_validation.py",
+    "--results-dir",
+    "results/proxy-validation-20260928-r2"
+  ],
+  "exporterSource": "report-source/export_proxy_validation.py",
+  "exporterSha256": "4337b9cf08edfbd0c998d49d1316f9cbc80108f46f9590d206f8d529fdae9d73"
+}

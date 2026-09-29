@@ -1,0 +1,22 @@
+{
+  "runs": [
+    {
+      "time": "2026-09-28T10:13:45.088775+00:00",
+      "changes": [
+        {
+          "path": "documentation/browser-proxies.html",
+          "beforeSha256": "84f0cb587e1416fb2bd675e02f919341a4ff48d9fcc4ef208ebd33b21c248f5e",
+          "afterSha256": "dd5387c7d4302d59896e5ab8082a9d3c255be8c20fed4bf24c47358345b2c9c3"
+        }
+      ],
+      "preserved": [
+        "time",
+        "region",
+        "feature",
+        "status",
+        "seconds"
+      ],
+      "sourceSnapshotsModified": false
+    }
+  ]
+}

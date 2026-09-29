@@ -1,0 +1,186 @@
+{
+  "run": "ac-cn-0928095627",
+  "region": "cn-northwest-1",
+  "resources": [
+    {
+      "kind": "sg",
+      "id": "sg-02b620b4720173ddf",
+      "cleanupResult": {
+        "alreadyAbsent": true
+      },
+      "deleted": true
+    },
+    {
+      "kind": "eni",
+      "id": "eni-0649c2236f574a925",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "eni",
+      "id": "eni-052975e396a6b14d3",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928095627-nx-ca_secret-wGm7AY",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928095627-nx-proxy_secret-T7UGpI",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928095627-nx-bad_proxy_secret-24kOQb",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "role",
+      "id": "ac-cn-0928095627-nx-agentcore",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "instance",
+      "id": "i-00e20dec4aa2c9519",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "instance",
+      "id": "i-042b67f029618d09b",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    },
+    {
+      "kind": "browser",
+      "id": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "deleted": true,
+      "cleanupResult": {
+        "deleted": true
+      }
+    }
+  ],
+  "sessions": [
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQC210TRNGPXFMFK7YGQH2"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQEH5D1GZ692WWRGQ5DA7J"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQFSHW67MVNCR03HNGDZFD"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQH05JBW0AYFK8TCF72NMJ"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQJ6YAYAEYFZJYZ3W0EMN3"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQK9WVXET2BFHFY3EP0YXH"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQMEGEXZHSQRE0W8QBF5E1"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQNNDX38YEFXX6F4Z1C9P3"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQPX01NK9FT8KYH38RMPMW"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQR44AYE9N9W0AZR7HXTXX"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQSCAFQR2Z9YJ1F40472ZQ"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQTJ0JGTSVZ15ZK5KRTJYP"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQVRC4F4GEWT5FRHQXMTVZ"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQWDG5GHQ1EAEY4TDF2XQE"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQX4F00WF2BJG0GRAH0YCX"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQXS52YJMCC0VFHM7HDK19"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQYBQCQ8QYHKRDXGD5ZRPQ"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQYXT7KTNGERA299X9N56D"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KQZHAGV61796APVG6SX5GG"
+    },
+    {
+      "browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj",
+      "id": "01M3KR060AF5FP4SM5EZ3V7JJY"
+    }
+  ],
+  "subnet": "subnet-0b88ea7106213711d",
+  "vpc": "vpc-016840e4f3ec981db",
+  "sg": "sg-02b620b4720173ddf",
+  "private_ip": "172.31.14.177",
+  "proxy_ip": "172.31.14.103",
+  "target_dns": "ip-172-31-14-177.cn-northwest-1.compute.internal",
+  "target_hosts": [
+    "172.31.14.177",
+    "ip-172-31-14-177.cn-northwest-1.compute.internal",
+    "proxy-only.agentcore.test"
+  ],
+  "ca_secret": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928095627-nx-ca_secret-wGm7AY",
+  "proxy_secret": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928095627-nx-proxy_secret-T7UGpI",
+  "bad_proxy_secret": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:ac-cn-0928095627-nx-bad_proxy_secret-24kOQb",
+  "agentcore_role": "arn:aws-cn:iam::209915754514:role/ac-cn-0928095627-nx-agentcore",
+  "origin_instance": "i-00e20dec4aa2c9519",
+  "proxy_instance": "i-042b67f029618d09b",
+  "vpc_browser": "ac_cn_0928095627_nx_proxy-B56S7Mffbj"
+}

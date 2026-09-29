@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parent
 RESULTS=ROOT/"results"
 FOLDERS=[RESULTS,RESULTS/"retest",RESULTS/"retest-browser",
          RESULTS/"retest-livewait",RESULTS/"retest-live-signature",RESULTS/"retest-livewait-default",
-         RESULTS/"repro-caller-confirm-20260928"]
+         RESULTS/"repro-caller-confirm-20260928",RESULTS/"repro-caller-confirm-20260929"]
 FOLDERS=[folder for folder in FOLDERS if folder.exists()]
 
 

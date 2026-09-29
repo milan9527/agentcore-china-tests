@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-28T07:56:54.221358+00:00",
+  "generatedAt": "2026-09-29T02:11:47.168118+00:00",
   "profile": "china",
   "accountId": "209915754514",
   "countingRule": "Fixed initial check population, updated by the latest matching functional check across the recorded follow-up directories. gateway./browser. checks except .suite and gateway.fixture.update, gateway.runtime.fixture_create, gateway.runtime.fixture_ready. Baselines are included. Counts are checks, not independent product features.",
   "functionalCounts": {
     "cn-north-1": {
-      "PASS": 153,
-      "FAIL": 2,
+      "PASS": 154,
+      "FAIL": 1,
       "BLOCKED": 2,
       "NOT_AVAILABLE": 2
     },
     "cn-northwest-1": {
-      "PASS": 153,
-      "FAIL": 2,
+      "PASS": 154,
+      "FAIL": 1,
       "BLOCKED": 2,
       "NOT_AVAILABLE": 2
     }
@@ -39,7 +39,8 @@
     "retest-livewait",
     "retest-live-signature",
     "retest-livewait-default",
-    "repro-caller-confirm-20260928"
+    "repro-caller-confirm-20260928",
+    "repro-caller-confirm-20260929"
   ],
   "results": [
     {
@@ -2841,7 +2842,7 @@
       "sourceLine": 287
     },
     {
-      "time": "2026-09-28T05:15:51.261445+00:00",
+      "time": "2026-09-28T13:22:35.867233+00:00",
       "region": "cn-north-1",
       "feature": "cleanup.browser_sessions",
       "status": "PASS",
@@ -2864,7 +2865,7 @@
         },
         {
           "sessionId": "01M3K4PQ3CJMWWMS2XKGGFP78G",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K4QWPDW56MZH5821WWVJHP",
@@ -2872,27 +2873,27 @@
         },
         {
           "sessionId": "01M3K4ZFYX1JK945VJ4D0AGH6B",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K4ZQ8DT2TACZEJZ4AYVZS6",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K501ZAV106H4GXQZEEX58X",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5336JNGEZC95G2TZ0NZAP",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K53Q1CS73EGDGZKVV7TV9B",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K56SE2ZQVN24Z2E3DVSQ4K",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K57833T4TQJNMZRAFCR954",
@@ -2904,11 +2905,11 @@
         },
         {
           "sessionId": "01M3K5CRXGFEJTZVGZCGW2A7TW",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5NM97MK4701MD4M42Z485",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5P184D2W0BE7WHRDC7WKP",
@@ -2916,15 +2917,15 @@
         },
         {
           "sessionId": "01M3K69NTR041N744V5NMN1ZC2",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6DFV1QZP21Y0K3GKR5WDS",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6DYHSXAJ5XSAFRF56530G",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6EJPB6SD8Q4N8866BXNJC",
@@ -2945,7 +2946,7 @@
       ],
       "category": "cleanup",
       "source": "results/cn-north-1-results.jsonl",
-      "sourceLine": 280
+      "sourceLine": 310
     },
     {
       "time": "2026-09-28T05:27:44.691275+00:00",
@@ -3170,10 +3171,10 @@
       "sourceLine": 295
     },
     {
-      "time": "2026-09-28T05:27:49.517061+00:00",
+      "time": "2026-09-28T13:22:39.229807+00:00",
       "region": "cn-north-1",
       "feature": "cleanup.inventory",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "kind": "kms",
@@ -3186,19 +3187,11 @@
             "keyState": "PendingDeletion",
             "deletionDate": "2026-10-05 05:27:41.783000+00:00"
           }
-        },
-        {
-          "kind": "sg",
-          "id": "sg-00ea1d13ed36ba5d3",
-          "cleanupResult": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-00ea1d13ed36ba5d3 has a dependent object"
-          }
         }
       ],
       "category": "cleanup",
       "source": "results/cn-north-1-results.jsonl",
-      "sourceLine": 306
+      "sourceLine": 312
     },
     {
       "time": "2026-09-28T05:27:41.903021+00:00",
@@ -3317,10 +3310,10 @@
       "sourceLine": 284
     },
     {
-      "time": "2026-09-28T06:22:11.919293+00:00",
+      "time": "2026-09-28T13:22:54.324006+00:00",
       "region": "cn-north-1",
       "feature": "cleanup.read_only_verification",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "kind": "role",
@@ -3381,8 +3374,8 @@
         {
           "kind": "sg",
           "id": "sg-00ea1d13ed36ba5d3",
-          "status": "EXISTS",
-          "ok": false
+          "status": "ABSENT",
+          "ok": true
         },
         {
           "kind": "secret",
@@ -3463,26 +3456,13 @@
         },
         {
           "kind": "security-group-interfaces",
-          "ok": false,
-          "interfaces": [
-            {
-              "NetworkInterfaceId": "eni-07785326177ebf70b",
-              "Status": "in-use",
-              "InterfaceType": "agentic_ai",
-              "Attachment": {
-                "AttachmentId": "ela-attach-038e61a38ea5524f3",
-                "DeleteOnTermination": false,
-                "DeviceIndex": 1,
-                "InstanceOwnerId": "amazon-aws",
-                "Status": "attached"
-              }
-            }
-          ]
+          "ok": true,
+          "interfaces": []
         }
       ],
       "category": "cleanup",
       "source": "results/cn-north-1-results.jsonl",
-      "sourceLine": 309
+      "sourceLine": 314
     },
     {
       "time": "2026-09-28T05:27:48.816611+00:00",
@@ -3567,26 +3547,25 @@
       "sourceLine": 301
     },
     {
-      "time": "2026-09-28T05:27:39.910528+00:00",
+      "time": "2026-09-28T13:22:38.047100+00:00",
       "region": "cn-north-1",
       "feature": "cleanup.sg",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "id": "sg-00ea1d13ed36ba5d3",
-          "deleted": false,
+          "deleted": true,
           "detail": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-00ea1d13ed36ba5d3 has a dependent object"
+            "alreadyAbsent": true
           }
         }
       ],
       "category": "cleanup",
       "source": "results/cn-north-1-results.jsonl",
-      "sourceLine": 300
+      "sourceLine": 311
     },
     {
-      "time": "2026-09-28T05:27:49.517339+00:00",
+      "time": "2026-09-28T13:22:39.230004+00:00",
       "region": "cn-north-1",
       "feature": "cleanup.suite",
       "status": "PASS",
@@ -3603,21 +3582,13 @@
               "keyState": "PendingDeletion",
               "deletionDate": "2026-10-05 05:27:41.783000+00:00"
             }
-          },
-          {
-            "kind": "sg",
-            "id": "sg-00ea1d13ed36ba5d3",
-            "cleanupResult": {
-              "type": "ClientError",
-              "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-00ea1d13ed36ba5d3 has a dependent object"
-            }
           }
         ]
       },
-      "seconds": 720.787,
+      "seconds": 6.105,
       "category": "cleanup",
       "source": "results/cn-north-1-results.jsonl",
-      "sourceLine": 307
+      "sourceLine": 313
     },
     {
       "time": "2026-09-28T05:16:20.632713+00:00",
@@ -4608,7 +4579,7 @@
                   }
                 }
               },
-              "requestState": "synthetic-state"
+              "requestState": "REDACTED"
             }
           }
         },
@@ -4948,7 +4919,7 @@
                   }
                 }
               },
-              "requestState": "synthetic-state"
+              "requestState": "REDACTED"
             }
           }
         },
@@ -6382,18 +6353,18 @@
       "sourceLine": 216
     },
     {
-      "time": "2026-09-28T07:53:51.693625+00:00",
+      "time": "2026-09-29T01:59:26.898761+00:00",
       "region": "cn-north-1",
       "feature": "gateway.outbound.caller_iam",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": {
-        "type": "AssertionError",
-        "message": "{'status': 403, 'body': '{\"message\":\"The security token included in the request is invalid\"}', 'requestId': 'a67d4b40-641d-4e3a-9a50-f5a4247f7a27, fbde43c4-b440-4eab-97a6-8b5a028755ce'}",
-        "traceback": "Traceback (most recent call last):\n  File \"/home/ec2-user/agentcore/cn/suite.py\", line 77, in test\n    result = fn()\n             ^^^^\n  File \"/home/ec2-user/agentcore/cn/caller_baseline_tests.py\", line 41, in invoke\n    assert r.status_code == 200, result\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'status': 403, 'body': '{\"message\":\"The security token included in the request is invalid\"}', 'requestId': 'a67d4b40-641d-4e3a-9a50-f5a4247f7a27, fbde43c4-b440-4eab-97a6-8b5a028755ce'}\n"
+        "status": 200,
+        "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+        "requestId": "f98e5c28-3a15-4c0a-9d78-798bcdc8c5fc, 30b54a95-6b76-4594-b169-7d472b908459"
       },
-      "seconds": 0.757,
+      "seconds": 2.909,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
       "sourceLine": 20,
       "initialResult": {
         "status": "FAIL",
@@ -6403,7 +6374,7 @@
       }
     },
     {
-      "time": "2026-09-28T07:53:47.263414+00:00",
+      "time": "2026-09-29T01:59:20.335198+00:00",
       "region": "cn-north-1",
       "feature": "gateway.outbound.caller_iam.direct_runtime_baseline",
       "status": "PASS",
@@ -6414,11 +6385,11 @@
           "runtime": "gateway-fixture",
           "region": "cn-north-1"
         },
-        "requestId": "e568e71c-ee90-46bb-8e71-d22c6cb61daa"
+        "requestId": "3fd531eb-9e73-492c-a386-b4b20ab06329"
       },
-      "seconds": 2.838,
+      "seconds": 2.542,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
       "sourceLine": 18,
       "initialResult": {
         "status": "PASS",
@@ -6428,18 +6399,18 @@
       }
     },
     {
-      "time": "2026-09-28T07:53:50.936338+00:00",
+      "time": "2026-09-29T01:59:23.989964+00:00",
       "region": "cn-north-1",
       "feature": "gateway.outbound.caller_iam.gateway_role_baseline",
       "status": "PASS",
       "evidence": {
         "status": 200,
         "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
-        "requestId": "736ff975-0a73-4552-b656-1d4d4fb23d1e, 30defd95-75be-485e-b777-5c1b6991aee7"
+        "requestId": "07cb373c-900c-4abb-9615-7b8e0ea16ccc, a1a76938-80d9-4f60-be91-d8dbdb98f0ca"
       },
-      "seconds": 2.731,
+      "seconds": 2.694,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
       "sourceLine": 19,
       "initialResult": {
         "status": "PASS",
@@ -6868,7 +6839,7 @@
       "sourceLine": 240
     },
     {
-      "time": "2026-09-28T07:53:02.058180+00:00",
+      "time": "2026-09-29T01:58:25.453767+00:00",
       "region": "cn-north-1",
       "feature": "gateway.runtime.role_invocation",
       "status": "PASS",
@@ -6880,9 +6851,9 @@
           "region": "cn-north-1"
         }
       },
-      "seconds": 2.922,
+      "seconds": 3.319,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
       "sourceLine": 7,
       "initialResult": {
         "status": "PASS",
@@ -6892,35 +6863,35 @@
       }
     },
     {
-      "time": "2026-09-28T07:53:06.065611+00:00",
+      "time": "2026-09-29T01:58:29.738126+00:00",
       "region": "cn-north-1",
       "feature": "gateway.runtime.runtime-caller.target",
       "status": "PASS",
       "evidence": {
         "ResponseMetadata": {
-          "RequestId": "f999d0da-be17-4db5-bf39-a073bb7dcace",
+          "RequestId": "99c2000f-0602-49f7-a78d-f394ffc3e3fb",
           "HTTPStatusCode": 200,
           "HTTPHeaders": {
-            "date": "Mon, 28 Sep 2026 07:53:05 GMT",
+            "date": "Tue, 29 Sep 2026 01:58:29 GMT",
             "content-type": "application/json",
             "content-length": "533",
             "connection": "keep-alive",
-            "x-amzn-requestid": "f999d0da-be17-4db5-bf39-a073bb7dcace",
-            "x-amz-apigw-id": "EZlzXG06BTIEHoA=",
-            "x-amzn-trace-id": "Root=1-6aba1ce1-33d93bb8729d348c20764f51"
+            "x-amzn-requestid": "99c2000f-0602-49f7-a78d-f394ffc3e3fb",
+            "x-amz-apigw-id": "EcEy8GD-BTIEOhQ=",
+            "x-amzn-trace-id": "Root=1-6abb1b45-074aecd353234bb052713e51"
           },
           "RetryAttempts": 0
         },
-        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:gateway/ac-cn-0928074838-bj-http-ec5rg6erhx",
-        "targetId": "8HGKBJOEC5",
-        "createdAt": "2026-09-28 07:53:02.315826+00:00",
-        "updatedAt": "2026-09-28 07:53:03.108083+00:00",
+        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:gateway/ac-cn-0929015405-bj-http-ys9phkel49",
+        "targetId": "UG0AOI6UCD",
+        "createdAt": "2026-09-29 01:58:25.975164+00:00",
+        "updatedAt": "2026-09-29 01:58:26.786393+00:00",
         "status": "READY",
         "name": "runtime-caller",
         "targetConfiguration": {
           "http": {
             "agentcoreRuntime": {
-              "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0928074838_bj-x7XVnyE5Al",
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0929015405_bj-fyqfwJ2ER2",
               "qualifier": "DEFAULT"
             }
           }
@@ -6931,9 +6902,9 @@
           }
         ]
       },
-      "seconds": 4.007,
+      "seconds": 4.284,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
       "sourceLine": 8,
       "initialResult": {
         "status": "PASS",
@@ -6943,35 +6914,35 @@
       }
     },
     {
-      "time": "2026-09-28T07:52:59.135777+00:00",
+      "time": "2026-09-29T01:58:22.134857+00:00",
       "region": "cn-north-1",
       "feature": "gateway.runtime.runtime-role.target",
       "status": "PASS",
       "evidence": {
         "ResponseMetadata": {
-          "RequestId": "ae8d1ecf-03d9-4100-b233-f7d3a4f29d51",
+          "RequestId": "14fa113a-6a8a-472b-a335-c6ad47b7b3ae",
           "HTTPStatusCode": 200,
           "HTTPHeaders": {
-            "date": "Mon, 28 Sep 2026 07:52:59 GMT",
+            "date": "Tue, 29 Sep 2026 01:58:22 GMT",
             "content-type": "application/json",
             "content-length": "525",
             "connection": "keep-alive",
-            "x-amzn-requestid": "ae8d1ecf-03d9-4100-b233-f7d3a4f29d51",
-            "x-amz-apigw-id": "EZlySHZTBTIEfnw=",
-            "x-amzn-trace-id": "Root=1-6aba1cda-13dc9c2965fb1dc507eaf1b9"
+            "x-amzn-requestid": "14fa113a-6a8a-472b-a335-c6ad47b7b3ae",
+            "x-amz-apigw-id": "EcExwEjCBTIECeg=",
+            "x-amzn-trace-id": "Root=1-6abb1b3d-337839c01d647ddc5191f96b"
           },
           "RetryAttempts": 0
         },
-        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:gateway/ac-cn-0928074838-bj-http-ec5rg6erhx",
-        "targetId": "T62YSNX4TN",
-        "createdAt": "2026-09-28 07:52:55.387663+00:00",
-        "updatedAt": "2026-09-28 07:52:56.178672+00:00",
+        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:gateway/ac-cn-0929015405-bj-http-ys9phkel49",
+        "targetId": "YOHNKORLHC",
+        "createdAt": "2026-09-29 01:58:18.377782+00:00",
+        "updatedAt": "2026-09-29 01:58:19.183582+00:00",
         "status": "READY",
         "name": "runtime-role",
         "targetConfiguration": {
           "http": {
             "agentcoreRuntime": {
-              "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0928074838_bj-x7XVnyE5Al",
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0929015405_bj-fyqfwJ2ER2",
               "qualifier": "DEFAULT"
             }
           }
@@ -6982,9 +6953,9 @@
           }
         ]
       },
-      "seconds": 4.008,
+      "seconds": 4.041,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-north-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
       "sourceLine": 6,
       "initialResult": {
         "status": "PASS",
@@ -10429,7 +10400,7 @@
       "sourceLine": 285
     },
     {
-      "time": "2026-09-28T05:15:51.651030+00:00",
+      "time": "2026-09-28T13:22:35.717538+00:00",
       "region": "cn-northwest-1",
       "feature": "cleanup.browser_sessions",
       "status": "PASS",
@@ -10452,7 +10423,7 @@
         },
         {
           "sessionId": "01M3K4PQ4CPRH1TDR2F8J9WYZP",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K4QXYT5JW9BPZ8JDZBD7PY",
@@ -10460,27 +10431,27 @@
         },
         {
           "sessionId": "01M3K4ZFSGHQ3MHDH9TW4DQDRF",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K4ZR1G5VJZPZQD52RG9Z6W",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5032BAV9KJ0W27ES21XV1",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K539JSCG1HARMHWYGNFX0W",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K53ZB0JW9QV0XXYP1NS4E6",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K56SN2B29Z02915D3ZYM9K",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5789DTGJXJTE51DFCJ83Y",
@@ -10492,11 +10463,11 @@
         },
         {
           "sessionId": "01M3K5CS8GV6R6Z1WCE7APP4YH",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5NMH5ZZQ5VXW180Y7JAAZ",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K5P3RYT6M79ETN4ZJGG9XS",
@@ -10504,15 +10475,15 @@
         },
         {
           "sessionId": "01M3K69P45ES95K5JR5RABQMR5",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6DH7NZYXRPDS76BBVGWMZ",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6E3028Z3XF5SEGSKM8GYK",
-          "status": "TERMINATED"
+          "status": "absent"
         },
         {
           "sessionId": "01M3K6EJSN0HQXVJ4NWY1SVAZS",
@@ -10533,7 +10504,7 @@
       ],
       "category": "cleanup",
       "source": "results/cn-northwest-1-results.jsonl",
-      "sourceLine": 278
+      "sourceLine": 308
     },
     {
       "time": "2026-09-28T05:27:36.356278+00:00",
@@ -10758,10 +10729,10 @@
       "sourceLine": 293
     },
     {
-      "time": "2026-09-28T05:27:41.376972+00:00",
+      "time": "2026-09-28T13:22:39.233536+00:00",
       "region": "cn-northwest-1",
       "feature": "cleanup.inventory",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "kind": "kms",
@@ -10774,19 +10745,11 @@
             "keyState": "PendingDeletion",
             "deletionDate": "2026-10-05 05:27:32.722000+00:00"
           }
-        },
-        {
-          "kind": "sg",
-          "id": "sg-074039951f97aedee",
-          "cleanupResult": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-074039951f97aedee has a dependent object"
-          }
         }
       ],
       "category": "cleanup",
       "source": "results/cn-northwest-1-results.jsonl",
-      "sourceLine": 304
+      "sourceLine": 310
     },
     {
       "time": "2026-09-28T05:27:32.872530+00:00",
@@ -10905,10 +10868,10 @@
       "sourceLine": 282
     },
     {
-      "time": "2026-09-28T06:22:12.382020+00:00",
+      "time": "2026-09-28T13:22:56.018952+00:00",
       "region": "cn-northwest-1",
       "feature": "cleanup.read_only_verification",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "kind": "role",
@@ -10969,8 +10932,8 @@
         {
           "kind": "sg",
           "id": "sg-074039951f97aedee",
-          "status": "EXISTS",
-          "ok": false
+          "status": "ABSENT",
+          "ok": true
         },
         {
           "kind": "secret",
@@ -11051,26 +11014,13 @@
         },
         {
           "kind": "security-group-interfaces",
-          "ok": false,
-          "interfaces": [
-            {
-              "NetworkInterfaceId": "eni-04a5f2fc31f5dab40",
-              "Status": "in-use",
-              "InterfaceType": "agentic_ai",
-              "Attachment": {
-                "AttachmentId": "ela-attach-054025ad5d83f9d33",
-                "DeleteOnTermination": false,
-                "DeviceIndex": 1,
-                "InstanceOwnerId": "amazon-aws",
-                "Status": "attached"
-              }
-            }
-          ]
+          "ok": true,
+          "interfaces": []
         }
       ],
       "category": "cleanup",
       "source": "results/cn-northwest-1-results.jsonl",
-      "sourceLine": 307
+      "sourceLine": 312
     },
     {
       "time": "2026-09-28T05:27:40.532999+00:00",
@@ -11155,26 +11105,25 @@
       "sourceLine": 299
     },
     {
-      "time": "2026-09-28T05:27:30.509900+00:00",
+      "time": "2026-09-28T13:22:38.003861+00:00",
       "region": "cn-northwest-1",
       "feature": "cleanup.sg",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": [
         {
           "id": "sg-074039951f97aedee",
-          "deleted": false,
+          "deleted": true,
           "detail": {
-            "type": "ClientError",
-            "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-074039951f97aedee has a dependent object"
+            "alreadyAbsent": true
           }
         }
       ],
       "category": "cleanup",
       "source": "results/cn-northwest-1-results.jsonl",
-      "sourceLine": 298
+      "sourceLine": 309
     },
     {
-      "time": "2026-09-28T05:27:41.377256+00:00",
+      "time": "2026-09-28T13:22:39.234252+00:00",
       "region": "cn-northwest-1",
       "feature": "cleanup.suite",
       "status": "PASS",
@@ -11191,21 +11140,13 @@
               "keyState": "PendingDeletion",
               "deletionDate": "2026-10-05 05:27:32.722000+00:00"
             }
-          },
-          {
-            "kind": "sg",
-            "id": "sg-074039951f97aedee",
-            "cleanupResult": {
-              "type": "ClientError",
-              "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-074039951f97aedee has a dependent object"
-            }
           }
         ]
       },
-      "seconds": 712.505,
+      "seconds": 6.183,
       "category": "cleanup",
       "source": "results/cn-northwest-1-results.jsonl",
-      "sourceLine": 305
+      "sourceLine": 311
     },
     {
       "time": "2026-09-28T05:16:22.477848+00:00",
@@ -12196,7 +12137,7 @@
                   }
                 }
               },
-              "requestState": "synthetic-state"
+              "requestState": "REDACTED"
             }
           }
         },
@@ -12536,7 +12477,7 @@
                   }
                 }
               },
-              "requestState": "synthetic-state"
+              "requestState": "REDACTED"
             }
           }
         },
@@ -13974,18 +13915,18 @@
       "sourceLine": 214
     },
     {
-      "time": "2026-09-28T07:53:52.119629+00:00",
+      "time": "2026-09-29T01:59:26.957011+00:00",
       "region": "cn-northwest-1",
       "feature": "gateway.outbound.caller_iam",
-      "status": "FAIL",
+      "status": "PASS",
       "evidence": {
-        "type": "AssertionError",
-        "message": "{'status': 403, 'body': '{\"message\":\"The security token included in the request is invalid\"}', 'requestId': '13c4ba9f-3242-421a-8eb3-b643992373ab, 0deb0fb1-c183-499e-a962-87aa101782d3'}",
-        "traceback": "Traceback (most recent call last):\n  File \"/home/ec2-user/agentcore/cn/suite.py\", line 77, in test\n    result = fn()\n             ^^^^\n  File \"/home/ec2-user/agentcore/cn/caller_baseline_tests.py\", line 41, in invoke\n    assert r.status_code == 200, result\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'status': 403, 'body': '{\"message\":\"The security token included in the request is invalid\"}', 'requestId': '13c4ba9f-3242-421a-8eb3-b643992373ab, 0deb0fb1-c183-499e-a962-87aa101782d3'}\n"
+        "status": 200,
+        "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+        "requestId": "5449c32d-d063-436c-9a60-1843f6c6bd14, 678c5bef-2907-4bb0-a9ba-fdfa897ea2b6"
       },
-      "seconds": 0.835,
+      "seconds": 2.433,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
       "sourceLine": 20,
       "initialResult": {
         "status": "FAIL",
@@ -13995,7 +13936,7 @@
       }
     },
     {
-      "time": "2026-09-28T07:53:47.435230+00:00",
+      "time": "2026-09-29T01:59:20.808555+00:00",
       "region": "cn-northwest-1",
       "feature": "gateway.outbound.caller_iam.direct_runtime_baseline",
       "status": "PASS",
@@ -14006,11 +13947,11 @@
           "runtime": "gateway-fixture",
           "region": "cn-northwest-1"
         },
-        "requestId": "b30312d0-c93a-4272-8284-7d9afbdb6bfc"
+        "requestId": "ea005686-bfdd-417d-b2e8-8a68e5efe7ee"
       },
-      "seconds": 2.878,
+      "seconds": 2.947,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
       "sourceLine": 18,
       "initialResult": {
         "status": "PASS",
@@ -14020,18 +13961,18 @@
       }
     },
     {
-      "time": "2026-09-28T07:53:51.284518+00:00",
+      "time": "2026-09-29T01:59:24.524059+00:00",
       "region": "cn-northwest-1",
       "feature": "gateway.outbound.caller_iam.gateway_role_baseline",
       "status": "PASS",
       "evidence": {
         "status": 200,
         "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
-        "requestId": "d1acd12d-5f61-4265-8019-41da5467d119, bb0ac42e-944a-47d2-9975-9387f4565b21"
+        "requestId": "3704bbc0-6ba1-4813-8b6d-7db364827f7f, 6d020096-afc6-4219-ab00-5f81ec47509a"
       },
-      "seconds": 2.667,
+      "seconds": 2.629,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
       "sourceLine": 19,
       "initialResult": {
         "status": "PASS",
@@ -14460,7 +14401,7 @@
       "sourceLine": 238
     },
     {
-      "time": "2026-09-28T07:53:01.322690+00:00",
+      "time": "2026-09-29T01:58:28.792536+00:00",
       "region": "cn-northwest-1",
       "feature": "gateway.runtime.role_invocation",
       "status": "PASS",
@@ -14472,9 +14413,9 @@
           "region": "cn-northwest-1"
         }
       },
-      "seconds": 2.873,
+      "seconds": 3.072,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
       "sourceLine": 7,
       "initialResult": {
         "status": "PASS",
@@ -14484,35 +14425,35 @@
       }
     },
     {
-      "time": "2026-09-28T07:53:05.444701+00:00",
+      "time": "2026-09-29T01:58:32.925312+00:00",
       "region": "cn-northwest-1",
       "feature": "gateway.runtime.runtime-caller.target",
       "status": "PASS",
       "evidence": {
         "ResponseMetadata": {
-          "RequestId": "d07e953d-8415-4323-8749-728fb4cc72f7",
+          "RequestId": "d48ac261-6489-45e0-9be4-af84477cb921",
           "HTTPStatusCode": 200,
           "HTTPHeaders": {
-            "date": "Mon, 28 Sep 2026 07:53:05 GMT",
+            "date": "Tue, 29 Sep 2026 01:58:32 GMT",
             "content-type": "application/json",
             "content-length": "541",
             "connection": "keep-alive",
-            "x-amzn-requestid": "d07e953d-8415-4323-8749-728fb4cc72f7",
-            "x-amz-apigw-id": "EZlzRHc35PgEmOw=",
-            "x-amzn-trace-id": "Root=1-6aba1ce1-593a23536ee405ac4ebee49c"
+            "x-amzn-requestid": "d48ac261-6489-45e0-9be4-af84477cb921",
+            "x-amz-apigw-id": "EcEzbHJB5PgEhJw=",
+            "x-amzn-trace-id": "Root=1-6abb1b48-70ba09821930cef65057acda"
           },
           "RetryAttempts": 0
         },
-        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:gateway/ac-cn-0928074838-nx-http-upuvqmwjcq",
-        "targetId": "SULNJHGUPN",
-        "createdAt": "2026-09-28 07:53:01.612664+00:00",
-        "updatedAt": "2026-09-28 07:53:02.641325+00:00",
+        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:gateway/ac-cn-0929015405-nx-http-h5xpmtwmuf",
+        "targetId": "ETFC6QNVRP",
+        "createdAt": "2026-09-29 01:58:29.067117+00:00",
+        "updatedAt": "2026-09-29 01:58:30.069835+00:00",
         "status": "READY",
         "name": "runtime-caller",
         "targetConfiguration": {
           "http": {
             "agentcoreRuntime": {
-              "arn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:runtime/ac_cn_0928074838_nx-7YJ7hK4XgG",
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:runtime/ac_cn_0929015405_nx-hb7Ki29LZR",
               "qualifier": "DEFAULT"
             }
           }
@@ -14523,9 +14464,9 @@
           }
         ]
       },
-      "seconds": 4.122,
+      "seconds": 4.133,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
       "sourceLine": 8,
       "initialResult": {
         "status": "PASS",
@@ -14535,35 +14476,35 @@
       }
     },
     {
-      "time": "2026-09-28T07:52:58.449700+00:00",
+      "time": "2026-09-29T01:58:25.720802+00:00",
       "region": "cn-northwest-1",
       "feature": "gateway.runtime.runtime-role.target",
       "status": "PASS",
       "evidence": {
         "ResponseMetadata": {
-          "RequestId": "e9267eba-c688-4d37-99dc-cc83650aa846",
+          "RequestId": "65702a4f-fcc0-4522-b665-65780d424a7c",
           "HTTPStatusCode": 200,
           "HTTPHeaders": {
-            "date": "Mon, 28 Sep 2026 07:52:58 GMT",
+            "date": "Tue, 29 Sep 2026 01:58:25 GMT",
             "content-type": "application/json",
             "content-length": "533",
             "connection": "keep-alive",
-            "x-amzn-requestid": "e9267eba-c688-4d37-99dc-cc83650aa846",
-            "x-amz-apigw-id": "EZlyLEBG5PgEEqg=",
-            "x-amzn-trace-id": "Root=1-6aba1cda-6ac0f6c24c221a1d468e2328"
+            "x-amzn-requestid": "65702a4f-fcc0-4522-b665-65780d424a7c",
+            "x-amz-apigw-id": "EcEyTGd_5PgEBpQ=",
+            "x-amzn-trace-id": "Root=1-6abb1b41-3a47d36d19fec61d48299bba"
           },
           "RetryAttempts": 0
         },
-        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:gateway/ac-cn-0928074838-nx-http-upuvqmwjcq",
-        "targetId": "M2NIB5Q2U3",
-        "createdAt": "2026-09-28 07:52:54.631539+00:00",
-        "updatedAt": "2026-09-28 07:52:55.416847+00:00",
+        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:gateway/ac-cn-0929015405-nx-http-h5xpmtwmuf",
+        "targetId": "AZ715PNSQB",
+        "createdAt": "2026-09-29 01:58:21.836083+00:00",
+        "updatedAt": "2026-09-29 01:58:22.656021+00:00",
         "status": "READY",
         "name": "runtime-role",
         "targetConfiguration": {
           "http": {
             "agentcoreRuntime": {
-              "arn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:runtime/ac_cn_0928074838_nx-7YJ7hK4XgG",
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:runtime/ac_cn_0929015405_nx-hb7Ki29LZR",
               "qualifier": "DEFAULT"
             }
           }
@@ -14574,9 +14515,9 @@
           }
         ]
       },
-      "seconds": 4.096,
+      "seconds": 4.181,
       "category": "functional",
-      "source": "results/repro-caller-confirm-20260928/cn-northwest-1-results.jsonl",
+      "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
       "sourceLine": 6,
       "initialResult": {
         "status": "PASS",
@@ -15268,24 +15209,6 @@
           "deletionDate": "2026-10-05 05:27:41.783000+00:00"
         },
         "directory": "results"
-      },
-      {
-        "kind": "sg",
-        "id": "sg-00ea1d13ed36ba5d3",
-        "cleanupResult": {
-          "type": "ClientError",
-          "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-00ea1d13ed36ba5d3 has a dependent object"
-        },
-        "directory": "results"
-      },
-      {
-        "kind": "sg",
-        "id": "sg-03179feaec145cf84",
-        "cleanupResult": {
-          "type": "ClientError",
-          "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-03179feaec145cf84 has a dependent object"
-        },
-        "directory": "results/retest"
       }
     ],
     "cn-northwest-1": [
@@ -15301,24 +15224,6 @@
           "deletionDate": "2026-10-05 05:27:32.722000+00:00"
         },
         "directory": "results"
-      },
-      {
-        "kind": "sg",
-        "id": "sg-074039951f97aedee",
-        "cleanupResult": {
-          "type": "ClientError",
-          "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-074039951f97aedee has a dependent object"
-        },
-        "directory": "results"
-      },
-      {
-        "kind": "sg",
-        "id": "sg-0e9e501fda1882754",
-        "cleanupResult": {
-          "type": "ClientError",
-          "message": "An error occurred (DependencyViolation) when calling the DeleteSecurityGroup operation: resource sg-0e9e501fda1882754 has a dependent object"
-        },
-        "directory": "results/retest"
       }
     ]
   },
@@ -15327,12 +15232,12 @@
       "directory": "results",
       "region": "cn-north-1",
       "recordedResources": 57,
-      "deletedResources": 55,
+      "deletedResources": 56,
       "verification": {
-        "time": "2026-09-28T06:22:11.919293+00:00",
+        "time": "2026-09-28T13:22:54.324006+00:00",
         "region": "cn-north-1",
         "feature": "cleanup.read_only_verification",
-        "status": "FAIL",
+        "status": "PASS",
         "evidence": [
           {
             "kind": "role",
@@ -15393,8 +15298,8 @@
           {
             "kind": "sg",
             "id": "sg-00ea1d13ed36ba5d3",
-            "status": "EXISTS",
-            "ok": false
+            "status": "ABSENT",
+            "ok": true
           },
           {
             "kind": "secret",
@@ -15475,21 +15380,8 @@
           },
           {
             "kind": "security-group-interfaces",
-            "ok": false,
-            "interfaces": [
-              {
-                "NetworkInterfaceId": "eni-07785326177ebf70b",
-                "Status": "in-use",
-                "InterfaceType": "agentic_ai",
-                "Attachment": {
-                  "AttachmentId": "ela-attach-038e61a38ea5524f3",
-                  "DeleteOnTermination": false,
-                  "DeviceIndex": 1,
-                  "InstanceOwnerId": "amazon-aws",
-                  "Status": "attached"
-                }
-              }
-            ]
+            "ok": true,
+            "interfaces": []
           }
         ]
       }
@@ -15498,12 +15390,12 @@
       "directory": "results",
       "region": "cn-northwest-1",
       "recordedResources": 57,
-      "deletedResources": 55,
+      "deletedResources": 56,
       "verification": {
-        "time": "2026-09-28T06:22:12.382020+00:00",
+        "time": "2026-09-28T13:22:56.018952+00:00",
         "region": "cn-northwest-1",
         "feature": "cleanup.read_only_verification",
-        "status": "FAIL",
+        "status": "PASS",
         "evidence": [
           {
             "kind": "role",
@@ -15564,8 +15456,8 @@
           {
             "kind": "sg",
             "id": "sg-074039951f97aedee",
-            "status": "EXISTS",
-            "ok": false
+            "status": "ABSENT",
+            "ok": true
           },
           {
             "kind": "secret",
@@ -15646,21 +15538,8 @@
           },
           {
             "kind": "security-group-interfaces",
-            "ok": false,
-            "interfaces": [
-              {
-                "NetworkInterfaceId": "eni-04a5f2fc31f5dab40",
-                "Status": "in-use",
-                "InterfaceType": "agentic_ai",
-                "Attachment": {
-                  "AttachmentId": "ela-attach-054025ad5d83f9d33",
-                  "DeleteOnTermination": false,
-                  "DeviceIndex": 1,
-                  "InstanceOwnerId": "amazon-aws",
-                  "Status": "attached"
-                }
-              }
-            ]
+            "ok": true,
+            "interfaces": []
           }
         ]
       }
@@ -15669,12 +15548,12 @@
       "directory": "results/retest",
       "region": "cn-north-1",
       "recordedResources": 39,
-      "deletedResources": 38,
+      "deletedResources": 39,
       "verification": {
-        "time": "2026-09-28T06:21:57.044984+00:00",
+        "time": "2026-09-28T14:24:20.065897+00:00",
         "region": "cn-north-1",
         "feature": "cleanup.read_only_verification",
-        "status": "FAIL",
+        "status": "PASS",
         "evidence": [
           {
             "kind": "role",
@@ -15745,8 +15624,8 @@
           {
             "kind": "sg",
             "id": "sg-03179feaec145cf84",
-            "status": "EXISTS",
-            "ok": false
+            "status": "ABSENT",
+            "ok": true
           },
           {
             "kind": "secret",
@@ -15799,34 +15678,12 @@
           {
             "kind": "tagged-instances",
             "ok": true,
-            "instances": [
-              {
-                "id": "i-0d464481334a906cb",
-                "status": "terminated"
-              },
-              {
-                "id": "i-089848b8f327fb283",
-                "status": "terminated"
-              }
-            ]
+            "instances": []
           },
           {
             "kind": "security-group-interfaces",
-            "ok": false,
-            "interfaces": [
-              {
-                "NetworkInterfaceId": "eni-0a46da98972913797",
-                "Status": "in-use",
-                "InterfaceType": "agentic_ai",
-                "Attachment": {
-                  "AttachmentId": "ela-attach-0baf0c551b14375e3",
-                  "DeleteOnTermination": false,
-                  "DeviceIndex": 1,
-                  "InstanceOwnerId": "amazon-aws",
-                  "Status": "attached"
-                }
-              }
-            ]
+            "ok": true,
+            "interfaces": []
           }
         ]
       }
@@ -15835,12 +15692,12 @@
       "directory": "results/retest",
       "region": "cn-northwest-1",
       "recordedResources": 39,
-      "deletedResources": 38,
+      "deletedResources": 39,
       "verification": {
-        "time": "2026-09-28T06:21:58.341314+00:00",
+        "time": "2026-09-28T14:24:21.495526+00:00",
         "region": "cn-northwest-1",
         "feature": "cleanup.read_only_verification",
-        "status": "FAIL",
+        "status": "PASS",
         "evidence": [
           {
             "kind": "role",
@@ -15911,8 +15768,8 @@
           {
             "kind": "sg",
             "id": "sg-0e9e501fda1882754",
-            "status": "EXISTS",
-            "ok": false
+            "status": "ABSENT",
+            "ok": true
           },
           {
             "kind": "secret",
@@ -15965,34 +15822,12 @@
           {
             "kind": "tagged-instances",
             "ok": true,
-            "instances": [
-              {
-                "id": "i-01d6cf11e3aebe8bd",
-                "status": "terminated"
-              },
-              {
-                "id": "i-0fb6070aa44e90b20",
-                "status": "terminated"
-              }
-            ]
+            "instances": []
           },
           {
             "kind": "security-group-interfaces",
-            "ok": false,
-            "interfaces": [
-              {
-                "NetworkInterfaceId": "eni-02fc0026432a759bb",
-                "Status": "in-use",
-                "InterfaceType": "agentic_ai",
-                "Attachment": {
-                  "AttachmentId": "ela-attach-0bde1b5e63a7fcf61",
-                  "DeleteOnTermination": false,
-                  "DeviceIndex": 1,
-                  "InstanceOwnerId": "amazon-aws",
-                  "Status": "attached"
-                }
-              }
-            ]
+            "ok": true,
+            "interfaces": []
           }
         ]
       }
@@ -16383,6 +16218,174 @@
           {
             "kind": "gateway",
             "id": "ac-cn-0928074838-nx-authenticate-only-dpvyoe7q7y",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/repro-caller-confirm-20260929",
+      "region": "cn-north-1",
+      "recordedResources": 16,
+      "deletedResources": 16,
+      "verification": {
+        "time": "2026-09-29T02:00:22.602867+00:00",
+        "region": "cn-north-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-bj-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-bj-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0929015405-bj-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0929015405-bj",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "70dy8fm7ua",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-bj-http-ys9phkel49",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0929015405_bj-fyqfwJ2ER2",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-bj-caller",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-bj-authenticate-only-3xltvzir2w",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    {
+      "directory": "results/repro-caller-confirm-20260929",
+      "region": "cn-northwest-1",
+      "recordedResources": 16,
+      "deletedResources": 16,
+      "verification": {
+        "time": "2026-09-29T02:00:23.111617+00:00",
+        "region": "cn-northwest-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-nx-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-nx-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0929015405-nx-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0929015405-nx",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "zdvkdpzwlg",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-nx-http-h5xpmtwmuf",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0929015405_nx-hb7Ki29LZR",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-nx-caller",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-nx-authenticate-only-tl4jstni62",
             "status": "ABSENT",
             "ok": true
           },

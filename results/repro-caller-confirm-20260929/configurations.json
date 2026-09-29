@@ -1,0 +1,264 @@
+{
+  "cn-north-1": {
+    "runtimeArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0929015405_bj-fyqfwJ2ER2",
+    "callerRoleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0929015405-bj-caller",
+    "gatewayRoleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0929015405-bj-agentcore",
+    "gateways": [
+      {
+        "ResponseMetadata": {
+          "RequestId": "7b534255-d62b-47f9-9184-35bd29ba32a3",
+          "HTTPStatusCode": 202,
+          "HTTPHeaders": {
+            "date": "Tue, 29 Sep 2026 01:54:31 GMT",
+            "content-type": "application/json",
+            "content-length": "577",
+            "connection": "keep-alive",
+            "x-amzn-requestid": "7b534255-d62b-47f9-9184-35bd29ba32a3",
+            "x-amz-apigw-id": "EcENsEBBhTIEdzg=",
+            "x-amzn-trace-id": "Root=1-6abb1a57-5730c47f1bfe6b84558aa4b6"
+          },
+          "RetryAttempts": 0
+        },
+        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:gateway/ac-cn-0929015405-bj-http-ys9phkel49",
+        "gatewayId": "ac-cn-0929015405-bj-http-ys9phkel49",
+        "gatewayUrl": "https://ac-cn-0929015405-bj-http-ys9phkel49.gateway.bedrock-agentcore.cn-north-1.amazonaws.com.cn",
+        "createdAt": "2026-09-29 01:54:31.306223+00:00",
+        "updatedAt": "2026-09-29 01:54:31.306233+00:00",
+        "status": "CREATING",
+        "name": "ac-cn-0929015405-bj-http",
+        "roleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0929015405-bj-agentcore",
+        "authorizerType": "AWS_IAM",
+        "workloadIdentityDetails": {},
+        "exceptionLevel": "DEBUG"
+      },
+      {
+        "ResponseMetadata": {
+          "RequestId": "7c56aa8a-cdb5-44ea-80de-b127482fd636",
+          "HTTPStatusCode": 202,
+          "HTTPHeaders": {
+            "date": "Tue, 29 Sep 2026 01:58:53 GMT",
+            "content-type": "application/json",
+            "content-length": "639",
+            "connection": "keep-alive",
+            "x-amzn-requestid": "7c56aa8a-cdb5-44ea-80de-b127482fd636",
+            "x-amz-apigw-id": "EcE2rEhNhTIEUHg=",
+            "x-amzn-trace-id": "Root=1-6abb1b5d-397e0e4a595efae1015d06ac"
+          },
+          "RetryAttempts": 0
+        },
+        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:gateway/ac-cn-0929015405-bj-authenticate-only-3xltvzir2w",
+        "gatewayId": "ac-cn-0929015405-bj-authenticate-only-3xltvzir2w",
+        "gatewayUrl": "https://ac-cn-0929015405-bj-authenticate-only-3xltvzir2w.gateway.bedrock-agentcore.cn-north-1.amazonaws.com.cn",
+        "createdAt": "2026-09-29 01:58:53.607376+00:00",
+        "updatedAt": "2026-09-29 01:58:53.607386+00:00",
+        "status": "CREATING",
+        "name": "ac-cn-0929015405-bj-authenticate-only",
+        "roleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0929015405-bj-agentcore",
+        "authorizerType": "AUTHENTICATE_ONLY",
+        "workloadIdentityDetails": {},
+        "exceptionLevel": "DEBUG"
+      }
+    ],
+    "targetRequests": [
+      {
+        "name": "runtime-role",
+        "targetConfiguration": {
+          "http": {
+            "agentcoreRuntime": {
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0929015405_bj-fyqfwJ2ER2",
+              "qualifier": "DEFAULT"
+            }
+          }
+        },
+        "credentialProviderConfigurations": [
+          {
+            "credentialProviderType": "GATEWAY_IAM_ROLE"
+          }
+        ],
+        "clientToken": "224282ac-986c-4deb-a95c-6e0933abda50"
+      },
+      {
+        "name": "runtime-caller",
+        "targetConfiguration": {
+          "http": {
+            "agentcoreRuntime": {
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0929015405_bj-fyqfwJ2ER2",
+              "qualifier": "DEFAULT"
+            }
+          }
+        },
+        "credentialProviderConfigurations": [
+          {
+            "credentialProviderType": "CALLER_IAM_CREDENTIALS"
+          }
+        ],
+        "clientToken": "5bf44bf7-5e0f-4c79-8304-79819b0ffb88"
+      },
+      {
+        "name": "runtime-role",
+        "targetConfiguration": {
+          "http": {
+            "agentcoreRuntime": {
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0929015405_bj-fyqfwJ2ER2",
+              "qualifier": "DEFAULT"
+            }
+          }
+        },
+        "credentialProviderConfigurations": [
+          {
+            "credentialProviderType": "GATEWAY_IAM_ROLE"
+          }
+        ],
+        "clientToken": "bd83d6f9-ed38-48a6-8d6a-a48c6b7e9caf"
+      },
+      {
+        "name": "runtime-caller",
+        "targetConfiguration": {
+          "http": {
+            "agentcoreRuntime": {
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-north-1:209915754514:runtime/ac_cn_0929015405_bj-fyqfwJ2ER2",
+              "qualifier": "DEFAULT"
+            }
+          }
+        },
+        "credentialProviderConfigurations": [
+          {
+            "credentialProviderType": "CALLER_IAM_CREDENTIALS"
+          }
+        ],
+        "clientToken": "c7c72e38-1ddc-4221-91bd-550eef27fc57"
+      }
+    ]
+  },
+  "cn-northwest-1": {
+    "runtimeArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:runtime/ac_cn_0929015405_nx-hb7Ki29LZR",
+    "callerRoleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0929015405-nx-caller",
+    "gatewayRoleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0929015405-nx-agentcore",
+    "gateways": [
+      {
+        "ResponseMetadata": {
+          "RequestId": "6d66a7e8-1553-434c-88e5-1008694bf6a7",
+          "HTTPStatusCode": 202,
+          "HTTPHeaders": {
+            "date": "Tue, 29 Sep 2026 01:54:31 GMT",
+            "content-type": "application/json",
+            "content-length": "585",
+            "connection": "keep-alive",
+            "x-amzn-requestid": "6d66a7e8-1553-434c-88e5-1008694bf6a7",
+            "x-amz-apigw-id": "EcENuGMHZPgESnw=",
+            "x-amzn-trace-id": "Root=1-6abb1a57-4d79c7662ec363ff5c207983"
+          },
+          "RetryAttempts": 0
+        },
+        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:gateway/ac-cn-0929015405-nx-http-h5xpmtwmuf",
+        "gatewayId": "ac-cn-0929015405-nx-http-h5xpmtwmuf",
+        "gatewayUrl": "https://ac-cn-0929015405-nx-http-h5xpmtwmuf.gateway.bedrock-agentcore.cn-northwest-1.amazonaws.com.cn",
+        "createdAt": "2026-09-29 01:54:31.483722+00:00",
+        "updatedAt": "2026-09-29 01:54:31.483734+00:00",
+        "status": "CREATING",
+        "name": "ac-cn-0929015405-nx-http",
+        "roleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0929015405-nx-agentcore",
+        "authorizerType": "AWS_IAM",
+        "workloadIdentityDetails": {},
+        "exceptionLevel": "DEBUG"
+      },
+      {
+        "ResponseMetadata": {
+          "RequestId": "96e0e6f7-06b8-4e9b-9d40-3e157f823719",
+          "HTTPStatusCode": 202,
+          "HTTPHeaders": {
+            "date": "Tue, 29 Sep 2026 01:58:57 GMT",
+            "content-type": "application/json",
+            "content-length": "647",
+            "connection": "keep-alive",
+            "x-amzn-requestid": "96e0e6f7-06b8-4e9b-9d40-3e157f823719",
+            "x-amz-apigw-id": "EcE3QHp35PgEO5A=",
+            "x-amzn-trace-id": "Root=1-6abb1b61-297e2180016f5df95d9f5df1"
+          },
+          "RetryAttempts": 0
+        },
+        "gatewayArn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:gateway/ac-cn-0929015405-nx-authenticate-only-tl4jstni62",
+        "gatewayId": "ac-cn-0929015405-nx-authenticate-only-tl4jstni62",
+        "gatewayUrl": "https://ac-cn-0929015405-nx-authenticate-only-tl4jstni62.gateway.bedrock-agentcore.cn-northwest-1.amazonaws.com.cn",
+        "createdAt": "2026-09-29 01:58:57.330743+00:00",
+        "updatedAt": "2026-09-29 01:58:57.330753+00:00",
+        "status": "CREATING",
+        "name": "ac-cn-0929015405-nx-authenticate-only",
+        "roleArn": "arn:aws-cn:iam::209915754514:role/ac-cn-0929015405-nx-agentcore",
+        "authorizerType": "AUTHENTICATE_ONLY",
+        "workloadIdentityDetails": {},
+        "exceptionLevel": "DEBUG"
+      }
+    ],
+    "targetRequests": [
+      {
+        "name": "runtime-role",
+        "targetConfiguration": {
+          "http": {
+            "agentcoreRuntime": {
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:runtime/ac_cn_0929015405_nx-hb7Ki29LZR",
+              "qualifier": "DEFAULT"
+            }
+          }
+        },
+        "credentialProviderConfigurations": [
+          {
+            "credentialProviderType": "GATEWAY_IAM_ROLE"
+          }
+        ],
+        "clientToken": "5c4dd1ff-2371-46c4-bbda-d4de0e2c6141"
+      },
+      {
+        "name": "runtime-caller",
+        "targetConfiguration": {
+          "http": {
+            "agentcoreRuntime": {
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:runtime/ac_cn_0929015405_nx-hb7Ki29LZR",
+              "qualifier": "DEFAULT"
+            }
+          }
+        },
+        "credentialProviderConfigurations": [
+          {
+            "credentialProviderType": "CALLER_IAM_CREDENTIALS"
+          }
+        ],
+        "clientToken": "9046f42b-ac76-41fa-a99b-884ab3b9bd9e"
+      },
+      {
+        "name": "runtime-role",
+        "targetConfiguration": {
+          "http": {
+            "agentcoreRuntime": {
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:runtime/ac_cn_0929015405_nx-hb7Ki29LZR",
+              "qualifier": "DEFAULT"
+            }
+          }
+        },
+        "credentialProviderConfigurations": [
+          {
+            "credentialProviderType": "GATEWAY_IAM_ROLE"
+          }
+        ],
+        "clientToken": "77f5586e-15dd-410c-aedd-849ac523aff2"
+      },
+      {
+        "name": "runtime-caller",
+        "targetConfiguration": {
+          "http": {
+            "agentcoreRuntime": {
+              "arn": "arn:aws-cn:bedrock-agentcore:cn-northwest-1:209915754514:runtime/ac_cn_0929015405_nx-hb7Ki29LZR",
+              "qualifier": "DEFAULT"
+            }
+          }
+        },
+        "credentialProviderConfigurations": [
+          {
+            "credentialProviderType": "CALLER_IAM_CREDENTIALS"
+          }
+        ],
+        "clientToken": "c21ce50c-0588-4909-8ed1-cd5eba7501ec"
+      }
+    ]
+  }
+}

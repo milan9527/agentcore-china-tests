@@ -1,0 +1,442 @@
+{
+  "startedAt": "2026-09-29T01:54:05.091080+00:00",
+  "completedAt": "2026-09-29T02:00:23.356468+00:00",
+  "profile": "china",
+  "errors": [],
+  "regions": {
+    "cn-north-1": {
+      "verdict": "NOT_REPRODUCED",
+      "baselinesPass": true,
+      "callerInvalidTokenReproduced": false,
+      "checks": {
+        "gateway.caller_iam.assumed_role.direct": {
+          "time": "2026-09-29T01:58:46.888018+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.caller_iam.assumed_role.direct",
+          "status": "PASS",
+          "evidence": {
+            "body": {
+              "sum": 42,
+              "runtime": "gateway-fixture",
+              "region": "cn-north-1"
+            },
+            "requestId": "d628f645-56d0-4ef0-9159-e644a1186e0a",
+            "credentials": "AssumeRole"
+          },
+          "seconds": 2.996,
+          "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
+          "sourceLine": 10
+        },
+        "gateway.caller_iam.AWS_IAM.runtime-role": {
+          "time": "2026-09-29T01:58:50.393635+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.caller_iam.AWS_IAM.runtime-role",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+            "requestId": "4d984797-a892-4cb2-90fb-e3945407faf3, 23ec9ab7-4b96-4384-ac77-fb0cdaf7752f",
+            "credentials": "AssumeRole",
+            "inbound": "AWS_IAM",
+            "outbound": "runtime-role"
+          },
+          "seconds": 2.64,
+          "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
+          "sourceLine": 12
+        },
+        "gateway.caller_iam.AWS_IAM.runtime-caller": {
+          "time": "2026-09-29T01:58:53.370891+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.caller_iam.AWS_IAM.runtime-caller",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+            "requestId": "88ac57c7-1286-4b9f-b838-1516fd3d95cf, 1704a9f1-b3f8-46dc-ad40-f5a6f296646b",
+            "credentials": "AssumeRole",
+            "inbound": "AWS_IAM",
+            "outbound": "runtime-caller"
+          },
+          "seconds": 2.673,
+          "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
+          "sourceLine": 13
+        },
+        "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-role": {
+          "time": "2026-09-29T01:59:04.157763+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-role",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+            "requestId": "92924dd4-0ab0-4baf-b65a-1920f5ea4366, 40fc27fd-3996-4123-b63b-51b2d295c553",
+            "credentials": "AssumeRole",
+            "inbound": "AUTHENTICATE_ONLY",
+            "outbound": "runtime-role"
+          },
+          "seconds": 2.844,
+          "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
+          "sourceLine": 15
+        },
+        "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-caller": {
+          "time": "2026-09-29T01:59:10.470235+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-caller",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+            "requestId": "4c207c1a-f2ec-485e-9e05-f9c2244b2a74, 03e3ac11-f1ff-443e-99b4-dee083cb93c8",
+            "credentials": "AssumeRole",
+            "inbound": "AUTHENTICATE_ONLY",
+            "outbound": "runtime-caller"
+          },
+          "seconds": 2.321,
+          "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
+          "sourceLine": 16
+        },
+        "gateway.outbound.caller_iam.direct_runtime_baseline": {
+          "time": "2026-09-29T01:59:20.335198+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.outbound.caller_iam.direct_runtime_baseline",
+          "status": "PASS",
+          "evidence": {
+            "temporaryCredentialsValid": true,
+            "body": {
+              "sum": 42,
+              "runtime": "gateway-fixture",
+              "region": "cn-north-1"
+            },
+            "requestId": "3fd531eb-9e73-492c-a386-b4b20ab06329"
+          },
+          "seconds": 2.542,
+          "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
+          "sourceLine": 18
+        },
+        "gateway.outbound.caller_iam.gateway_role_baseline": {
+          "time": "2026-09-29T01:59:23.989964+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.outbound.caller_iam.gateway_role_baseline",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+            "requestId": "07cb373c-900c-4abb-9615-7b8e0ea16ccc, a1a76938-80d9-4f60-be91-d8dbdb98f0ca"
+          },
+          "seconds": 2.694,
+          "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
+          "sourceLine": 19
+        },
+        "gateway.outbound.caller_iam": {
+          "time": "2026-09-29T01:59:26.898761+00:00",
+          "region": "cn-north-1",
+          "feature": "gateway.outbound.caller_iam",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-north-1\"}",
+            "requestId": "f98e5c28-3a15-4c0a-9d78-798bcdc8c5fc, 30b54a95-6b76-4594-b169-7d472b908459"
+          },
+          "seconds": 2.909,
+          "source": "results/repro-caller-confirm-20260929/cn-north-1-results.jsonl",
+          "sourceLine": 20
+        }
+      },
+      "cleanup": {
+        "time": "2026-09-29T02:00:22.602867+00:00",
+        "region": "cn-north-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-bj-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-bj-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0929015405-bj-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0929015405-bj",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "70dy8fm7ua",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-bj-http-ys9phkel49",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0929015405_bj-fyqfwJ2ER2",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-bj-caller",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-bj-authenticate-only-3xltvzir2w",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    },
+    "cn-northwest-1": {
+      "verdict": "NOT_REPRODUCED",
+      "baselinesPass": true,
+      "callerInvalidTokenReproduced": false,
+      "checks": {
+        "gateway.caller_iam.assumed_role.direct": {
+          "time": "2026-09-29T01:58:50.794556+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.caller_iam.assumed_role.direct",
+          "status": "PASS",
+          "evidence": {
+            "body": {
+              "sum": 42,
+              "runtime": "gateway-fixture",
+              "region": "cn-northwest-1"
+            },
+            "requestId": "4300278d-a4cc-4809-9fa6-49be26de557b",
+            "credentials": "AssumeRole"
+          },
+          "seconds": 3.205,
+          "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
+          "sourceLine": 10
+        },
+        "gateway.caller_iam.AWS_IAM.runtime-role": {
+          "time": "2026-09-29T01:58:54.158737+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.caller_iam.AWS_IAM.runtime-role",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+            "requestId": "6d827326-e167-42ee-ade8-7dc9002d450b, 7585b12e-9ac7-456b-aec0-a4a803cf5dbb",
+            "credentials": "AssumeRole",
+            "inbound": "AWS_IAM",
+            "outbound": "runtime-role"
+          },
+          "seconds": 2.429,
+          "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
+          "sourceLine": 12
+        },
+        "gateway.caller_iam.AWS_IAM.runtime-caller": {
+          "time": "2026-09-29T01:58:57.061364+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.caller_iam.AWS_IAM.runtime-caller",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+            "requestId": "1546de4c-610d-4ec5-ac94-e4fc31e547fe, 507fa5f8-6ca5-4048-bc04-c69acb958cb8",
+            "credentials": "AssumeRole",
+            "inbound": "AWS_IAM",
+            "outbound": "runtime-caller"
+          },
+          "seconds": 2.562,
+          "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
+          "sourceLine": 13
+        },
+        "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-role": {
+          "time": "2026-09-29T01:59:08.569928+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-role",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+            "requestId": "dec65a18-6b3b-486a-89ed-dff759ffce1d, 1a77d580-85f9-4f9f-b847-5df94a2e29a2",
+            "credentials": "AssumeRole",
+            "inbound": "AUTHENTICATE_ONLY",
+            "outbound": "runtime-role"
+          },
+          "seconds": 3.368,
+          "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
+          "sourceLine": 15
+        },
+        "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-caller": {
+          "time": "2026-09-29T01:59:15.593255+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.caller_iam.AUTHENTICATE_ONLY.runtime-caller",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+            "requestId": "cec25052-57c5-4193-b4b1-f6e77db56194, 9776c02b-398b-4c43-90d9-25860fe327b0",
+            "credentials": "AssumeRole",
+            "inbound": "AUTHENTICATE_ONLY",
+            "outbound": "runtime-caller"
+          },
+          "seconds": 2.895,
+          "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
+          "sourceLine": 16
+        },
+        "gateway.outbound.caller_iam.direct_runtime_baseline": {
+          "time": "2026-09-29T01:59:20.808555+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.outbound.caller_iam.direct_runtime_baseline",
+          "status": "PASS",
+          "evidence": {
+            "temporaryCredentialsValid": true,
+            "body": {
+              "sum": 42,
+              "runtime": "gateway-fixture",
+              "region": "cn-northwest-1"
+            },
+            "requestId": "ea005686-bfdd-417d-b2e8-8a68e5efe7ee"
+          },
+          "seconds": 2.947,
+          "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
+          "sourceLine": 18
+        },
+        "gateway.outbound.caller_iam.gateway_role_baseline": {
+          "time": "2026-09-29T01:59:24.524059+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.outbound.caller_iam.gateway_role_baseline",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+            "requestId": "3704bbc0-6ba1-4813-8b6d-7db364827f7f, 6d020096-afc6-4219-ab00-5f81ec47509a"
+          },
+          "seconds": 2.629,
+          "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
+          "sourceLine": 19
+        },
+        "gateway.outbound.caller_iam": {
+          "time": "2026-09-29T01:59:26.957011+00:00",
+          "region": "cn-northwest-1",
+          "feature": "gateway.outbound.caller_iam",
+          "status": "PASS",
+          "evidence": {
+            "status": 200,
+            "body": "{\"sum\": 42, \"runtime\": \"gateway-fixture\", \"region\": \"cn-northwest-1\"}",
+            "requestId": "5449c32d-d063-436c-9a60-1843f6c6bd14, 678c5bef-2907-4bb0-a9ba-fdfa897ea2b6"
+          },
+          "seconds": 2.433,
+          "source": "results/repro-caller-confirm-20260929/cn-northwest-1-results.jsonl",
+          "sourceLine": 20
+        }
+      },
+      "cleanup": {
+        "time": "2026-09-29T02:00:23.111617+00:00",
+        "region": "cn-northwest-1",
+        "feature": "cleanup.read_only_verification",
+        "status": "PASS",
+        "evidence": [
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-nx-lambda",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-nx-agentcore",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "bucket",
+            "id": "ac-cn-0929015405-nx-209915754514",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "lambda",
+            "id": "ac-cn-0929015405-nx",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "api",
+            "id": "zdvkdpzwlg",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-nx-http-h5xpmtwmuf",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "runtime",
+            "id": "ac_cn_0929015405_nx-hb7Ki29LZR",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "role",
+            "id": "ac-cn-0929015405-nx-caller",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "gateway",
+            "id": "ac-cn-0929015405-nx-authenticate-only-tl4jstni62",
+            "status": "ABSENT",
+            "ok": true
+          },
+          {
+            "kind": "tagged-volumes",
+            "status": "ABSENT",
+            "ids": [],
+            "ok": true
+          },
+          {
+            "kind": "tagged-instances",
+            "ok": true,
+            "instances": []
+          },
+          {
+            "kind": "security-group-interfaces",
+            "ok": true,
+            "interfaces": []
+          }
+        ]
+      }
+    }
+  }
+}

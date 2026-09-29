@@ -1,0 +1,11 @@
+{
+  "requestedUrl": "https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/gateway-outbound-auth.html",
+  "finalUrl": "https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/gateway-outbound-auth.html",
+  "status": 200,
+  "sha256": "946c461ad968c1275e8df272333981fcbfacc4c878f4299a10e8ec705dda8b34",
+  "retrievedAt": "2026-09-28T08:27:47.719733+00:00",
+  "relevantText": [
+    "abilities described in Amazon Web Services documentation might vary by Region. To see the differences applicable to the China Regions, see Getting Started with Amazon Web Services in China (PDF) . Set up outbound authorization for your gateway Outbound authorization lets Amazon Bedrock AgentCore gateways securely access gateway targets on behalf of user",
+    "vary by Region. To see the differences applicable to the China Regions, see Getting Started with Amazon Web Services in China (PDF) . Set up outbound authorization for your gateway Outbound authorization lets Amazon Bedrock AgentCore gateways securely access gateway targets on behalf of users that were authenticated and authorized during inbound authori"
+  ]
+}

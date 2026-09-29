@@ -1,19 +1,25 @@
 # AgentCore Gateway and Browser — AWS China live test report
 
-Tested on **28 September 2026 UTC** using AWS profile **`china`**, account **`209915754514`**, in **Beijing (`cn-north-1`)** and **Ningxia (`cn-northwest-1`)**.
+Tested on **28 September 2026 UTC**, with caller-IAM retested on **29 September**, using AWS profile **`china`**, account **`209915754514`**, in **Beijing (`cn-north-1`)** and **Ningxia (`cn-northwest-1`)**.
 
 **Updated consolidated report:** includes authentication, proxy, download and extended Live View follow-up tests. [Chinese summary](SUMMARY.zh-CN.md), [detailed follow-up](FOLLOWUP.zh-CN.md), and [reproduction guide](REPRODUCE.zh-CN.md). The [initial report](REPORT.initial.md) is retained as history.
 
-**Both regions pass Live View display and mouse/keyboard input.** The previous DCV failure verdict was caused by the test exiting on an authentication-socket close error before the first frame. JWT, OAuth client credentials, OAuth authorization code and JWT passthrough also pass. Browser proxy routing passes with the tested standard ports and configuration. The remaining functional failures are caller-IAM forwarding and Playwright `download.save_as()` retrieval; a verified remote-file retrieval alternative is available.
+**Latest update — 29 September 2026:** Gateway caller-IAM forwarding passes in Beijing and Ningxia, with all 8/8 selected checks passing per region. The invalid-token 403 no longer occurs in the tested paths. Consolidated counts are now 154 PASS, 1 FAIL, 2 BLOCKED and 2 NOT_AVAILABLE per region. [Full retest evidence](results/repro-caller-confirm-20260929/REPORT.md).
+
+**Outbound OAuth validation, 28 September 2026, 08:27–08:29 UTC:** 2LO (Basic and POST client authentication) and complete 3LO, repeat authorized access, and user isolation pass in both regions. Four OBO provider configurations are accepted, but 16 Gateway target creation attempts return the explicit account-gating 403. The separate 8 PASS / 4 BLOCKED checks per region do not change the 159-check population below. [Full English evidence and reproduction](results/oauth-validation-20260928/REPORT.md) · [中文报告](results/oauth-validation-20260928/REPORT.zh-CN.md).
+
+**OAuth provider scope:** this run uses a self-hosted synthetic IdP through `CustomOauth2`, with OAuth client `cn-retest` and a random client secret per region. Microsoft Entra ID, Google, Okta, and other third-party IdPs were not used. Passing 2LO/3LO results apply to this test IdP; third-party compatibility and Microsoft OBO remain untested. OBO client configuration succeeded, but Gateway target creation was account-gated before any Gateway token exchange.
+
+**Both regions pass Live View display and mouse/keyboard input.** The previous DCV failure verdict was caused by the test exiting on an authentication-socket close error before the first frame. JWT, OAuth client credentials, OAuth authorization code and JWT passthrough also pass. Browser proxy routing passes with the tested standard ports and configuration. Caller-IAM forwarding now passes the unchanged reproduction in both regions on 29 September. The remaining failure in the original 159-check population is Playwright `download.save_as()` retrieval; a verified remote-file retrieval alternative is available.
 
 ## Results and scope
 
 | Region | Checks | PASS | FAIL | BLOCKED | PARTIAL | NOT_AVAILABLE |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| cn-north-1 | 159 | 153 | 2 | 2 | 0 | 2 |
-| cn-northwest-1 | 159 | 153 | 2 | 2 | 0 | 2 |
+| cn-north-1 | 159 | 154 | 1 | 2 | 0 | 2 |
+| cn-northwest-1 | 159 | 154 | 1 | 2 | 0 | 2 |
 
-Counts retain the **159 initial named checks per region**, replacing matching checks with their latest follow-up result. Newly added diagnostic checks are listed separately in the [follow-up matrix](results/followup-matrix.csv), so they do not inflate this comparison. The initial count was 145 PASS, 6 FAIL, 5 BLOCKED, 1 PARTIAL and 2 NOT_AVAILABLE per region. Eight checks now pass: JWT, three OAuth/passthrough checks, three proxy checks, and Live View. Counts include control-plane checks and diagnostic baselines. They exclude setup/phase wrappers, cleanup, documented negative checks, and `gateway.fixture.update`, `gateway.runtime.fixture_create`, `gateway.runtime.fixture_ready`. One product feature can have several checks; these totals are not a count of independent features. Earlier fixture failures and corrected attempts remain in the chronological JSONL evidence.
+Counts retain the **159 initial named checks per region**, replacing matching checks with their latest follow-up result. Newly added diagnostic checks are listed separately in the [follow-up matrix](results/followup-matrix.csv), so they do not inflate this comparison. The initial count was 145 PASS, 6 FAIL, 5 BLOCKED, 1 PARTIAL and 2 NOT_AVAILABLE per region. Nine checks now pass: JWT, three OAuth/passthrough checks, three proxy checks, Live View, and caller-IAM forwarding. Counts include control-plane checks and diagnostic baselines. They exclude setup/phase wrappers, cleanup, documented negative checks, and `gateway.fixture.update`, `gateway.runtime.fixture_create`, `gateway.runtime.fixture_ready`. One product feature can have several checks; these totals are not a count of independent features. Earlier fixture failures and corrected attempts remain in the chronological JSONL evidence.
 
 **PASS** means the named assertion succeeded; configuration-only checks are identified as such. **FAIL** means the attempted behavior failed in this test, without automatically attributing it to an AWS defect. **BLOCKED** means an account or identity prerequisite prevented execution. **PARTIAL** means only part of the feature was verified. **NOT_AVAILABLE** refers to the service catalog visible in this account and region.
 
@@ -36,7 +42,7 @@ Client environment: Python 3.12.13, boto3/botocore 1.43.103, Playwright 1.63.0, 
 | MCP streaming and client requests | SSE results, progress/log notifications, form elicitation, URL elicitation with OAuth callback/session binding/resumption, and synthetic sampling request/resume round trips. |
 | Gateway interceptors | Request interceptor changes tool arguments; response interceptor inserts a verified marker. |
 | Gateway encryption and authentication | Customer-managed KMS gateway plus tool invocation; outbound API key validated by backend; custom OAuth provider configuration. |
-| Gateway HTTP and Runtime | HTTP passthrough; Runtime target invocation using the Gateway IAM role; direct Runtime and Gateway-role calls also pass with the STS credentials used in the failed caller-IAM comparison. |
+| Gateway HTTP and Runtime | HTTP passthrough; Runtime target invocation using the Gateway IAM role; caller-IAM forwarding now passes using STS GetSessionToken and AssumeRole, including AWS_IAM and AUTHENTICATE_ONLY inbound. The same credentials pass direct Runtime and Gateway-role controls. |
 | Gateway rate limits | Create/list/update/delete; zero-rate rule returns HTTP 429. |
 | Browser lifecycle | Managed/custom browsers, get/list, tags, pagination, session idempotency, viewport/timeout settings, stop; profile management and tags. |
 | Browser automation | CDP connection, HTTPS navigation, DOM extraction, forms, clicks, Unicode input, tabs, screenshots, upload, and download inside the remote browser. |
@@ -76,6 +82,8 @@ The SDK URL generator hardcodes `.amazonaws.com`; tests signed the actual servic
 
 ## Proxy configuration boundaries
 
+A fresh proxy matrix used separate origin and proxy EC2 instances in each region: **95 checks per region, 60 PASS / 35 FAIL**, with all failures reproduced twice (260 observations overall). Managed HTTP 8000/8081 requests returned `squid/6.13` and `ERR_ACCESS_DENIED 0` before reaching the external proxy; HTTPS 8443 also failed before it. Direct and explicit Playwright-proxy controls passed on all five destination ports. Standard-port IP/hostname/suffix bypass, bad/missing credential controls, and specific/default multi-proxy selection passed. The precise internal Squid ACL remains unreadable. These scenario counts are separate from the original 159-check population. [Full evidence](results/proxy-validation-20260928-r2/REPORT.md) · [中文结论](PROXY-VALIDATION.zh-CN.md).
+
 Basic-auth and no-auth external proxies pass HTTP 80, HTTPS CONNECT 443, explicit domain routing and an independently tested bypass rule. For upstream-only DNS, place `domainPatterns` inside `externalProxy`. Use a bare host/IP for `server`, without `http://`. Test route and bypass assertions separately if reverse DNS could make both match the same host.
 
 HTTP 8000 and HTTPS 8443 failed through the built-in proxy; upstream-only DNS without explicit domain patterns returned Squid DNS 503. These failed configurations remain in the evidence. The proxy PASS verdict is limited to the verified combinations. Server logs verify actual GET/CONNECT traffic and successful credential checks.
@@ -84,12 +92,21 @@ HTTP 8000 and HTTPS 8443 failed through the built-in proxy; upstream-only DNS wi
 
 | Area | Observation and baseline | Scope / next investigation |
 | --- | --- | --- |
-| Gateway caller-IAM forwarding | `CALLER_IAM_CREDENTIALS` targets create successfully but return HTTP 403, `The security token included in the request is invalid`. Profile credentials, STS GetSessionToken and AssumeRole reproduce it; AssumeRole was tested with both AWS_IAM and AUTHENTICATE_ONLY inbound. The same credentials invoke Runtime directly and via GATEWAY_IAM_ROLE successfully. | Functional failure reproduced; internal service root cause is unconfirmed. Gateway-role invocation is a working alternative with different permission semantics. |
 | Browser Playwright download retrieval | `download.save_as()` returns zero bytes in Playwright 1.63.0 and 1.60.0. The returned file path exists with correct contents in the remote browser but not on the client. Local Chromium baseline passes. | Failure is in remote-file retrieval in this CDP setup. [download_remote_file.py](download_remote_file.py) is a verified alternative for the tested text and binary files; large files were not benchmarked. |
 
-A fresh environment reproduced caller-IAM failure again in both regions at **07:53 UTC**. Each region passed five comparison checks and failed all three caller-forwarding checks (AssumeRole with AWS_IAM, AssumeRole with AUTHENTICATE_ONLY, and GetSessionToken). All resources created for this repeat run were deleted and cleanup verification passed. [Repeat-run report](results/repro-caller-confirm-20260928/REPORT.zh-CN.md), [complete console output](results/repro-caller-confirm-20260928/console.log), and [responses/request IDs](results/repro-caller-confirm-20260928/invocation-results.csv).
+## Caller-IAM forwarding: original error resolved in the tested paths
 
-Caller-IAM request IDs retained from the earlier AssumeRole comparison:
+On **29 September 2026, 01:58–01:59 UTC**, fresh environments passed all eight selected checks per region. All three caller-forwarding combinations returned HTTP 200 and sum=42 (AssumeRole with AWS_IAM, AssumeRole with AUTHENTICATE_ONLY, and GetSessionToken); all five same-credential direct/role controls passed. Core invocation scripts and SDK versions match the 28 September run. The earlier invalid-token 403 is no longer reproduced in these paths. This establishes the observed behavior, not an AWS deployment time or an internal root cause. [Current report](results/repro-caller-confirm-20260929/REPORT.md), [console](results/repro-caller-confirm-20260929/console.log), [responses/request IDs](results/repro-caller-confirm-20260929/invocation-results.csv).
+
+| Caller credentials / inbound mode | Beijing | Ningxia |
+| --- | --- | --- |
+| AssumeRole + AWS_IAM | HTTP 200, sum=42 | HTTP 200, sum=42 |
+| AssumeRole + AUTHENTICATE_ONLY | HTTP 200, sum=42 | HTTP 200, sum=42 |
+| GetSessionToken + AWS_IAM | HTTP 200, sum=42 | HTTP 200, sum=42 |
+
+All resources created for this retest were cleaned up, with independent read-only verification passing in both regions. Other features were not retested on 29 September.
+
+The **28 September 07:53 UTC** run had five passing controls and three failing caller paths per region; its [report and evidence](results/repro-caller-confirm-20260928/REPORT.zh-CN.md) remain unchanged. Earlier failing AssumeRole request IDs are retained below:
 
 | Region | AWS_IAM inbound | AUTHENTICATE_ONLY inbound |
 | --- | --- | --- |
@@ -120,25 +137,21 @@ This is a summary of saved inventories and read-only verification; report genera
 | Region | Run directory | Kind | Identifier | Recorded state |
 | --- | --- | --- | --- | --- |
 | cn-north-1 | `results` | kms | `9fc74828-2ad7-4602-b21b-054a406c75a0` | PendingDeletion; deletion 2026-10-05 05:27:41.783000+00:00 |
-| cn-north-1 | `results` | sg | `sg-00ea1d13ed36ba5d3` | EXISTS |
-| cn-north-1 | `results/retest` | sg | `sg-03179feaec145cf84` | EXISTS |
 | cn-northwest-1 | `results` | kms | `e9e12008-d491-4524-945e-6d358281618a` | PendingDeletion; deletion 2026-10-05 05:27:32.722000+00:00 |
-| cn-northwest-1 | `results` | sg | `sg-074039951f97aedee` | EXISTS |
-| cn-northwest-1 | `results/retest` | sg | `sg-0e9e501fda1882754` | EXISTS |
 
 KMS has a minimum seven-day deletion window; the two initial-run keys are scheduled for 5 October 2026. AWS [VPC documentation](docs/agentcore-vpc.md) says service-owned ENIs may persist for up to eight hours. Security groups cannot be deleted while those ENIs remain attached. No service interfaces were force-detached.
 
 [All-run cleanup inventory](results/followup-cleanup.json). Local deferred-cleanup workers retry the recorded security groups for a bounded period and depend on the workspace processes remaining alive:
 
-- [results worker](results/deferred-cleanup.json): `WAITING_FOR_AWS_ENI_RELEASE`, last recorded update `2026-09-28T07:56:36.233422+00:00`.
-- [results/retest worker](results/retest/deferred-cleanup.json): `WAITING_FOR_AWS_ENI_RELEASE`, last recorded update `2026-09-28T07:56:35.803069+00:00`.
+- [results worker](results/deferred-cleanup.json): `COMPLETE`, last recorded update `2026-09-28T13:22:56.148058+00:00`.
+- [results/retest worker](results/retest/deferred-cleanup.json): `COMPLETE`, last recorded update `2026-09-28T14:24:21.618360+00:00`.
 
 | Run directory | Region | Saved cleanup verification | Verified at (UTC) |
 | --- | --- | --- | --- |
-| `results` | cn-north-1 | [FAIL](results/cn-north-1-cleanup-verification.json) | 2026-09-28T06:22:11.919293+00:00 |
-| `results` | cn-northwest-1 | [FAIL](results/cn-northwest-1-cleanup-verification.json) | 2026-09-28T06:22:12.382020+00:00 |
-| `results/retest` | cn-north-1 | [FAIL](results/retest/cn-north-1-cleanup-verification.json) | 2026-09-28T06:21:57.044984+00:00 |
-| `results/retest` | cn-northwest-1 | [FAIL](results/retest/cn-northwest-1-cleanup-verification.json) | 2026-09-28T06:21:58.341314+00:00 |
+| `results` | cn-north-1 | [PASS](results/cn-north-1-cleanup-verification.json) | 2026-09-28T13:22:54.324006+00:00 |
+| `results` | cn-northwest-1 | [PASS](results/cn-northwest-1-cleanup-verification.json) | 2026-09-28T13:22:56.018952+00:00 |
+| `results/retest` | cn-north-1 | [PASS](results/retest/cn-north-1-cleanup-verification.json) | 2026-09-28T14:24:20.065897+00:00 |
+| `results/retest` | cn-northwest-1 | [PASS](results/retest/cn-northwest-1-cleanup-verification.json) | 2026-09-28T14:24:21.495526+00:00 |
 | `results/retest-browser` | cn-north-1 | [PASS](results/retest-browser/cn-north-1-cleanup-verification.json) | 2026-09-28T06:16:50.697129+00:00 |
 | `results/retest-browser` | cn-northwest-1 | [PASS](results/retest-browser/cn-northwest-1-cleanup-verification.json) | 2026-09-28T06:16:50.911643+00:00 |
 | `results/retest-livewait` | cn-north-1 | [PASS](results/retest-livewait/cn-north-1-cleanup-verification.json) | 2026-09-28T06:46:08.919332+00:00 |
@@ -149,6 +162,8 @@ KMS has a minimum seven-day deletion window; the two initial-run keys are schedu
 | `results/retest-livewait-default` | cn-northwest-1 | [PASS](results/retest-livewait-default/cn-northwest-1-cleanup-verification.json) | 2026-09-28T06:48:51.672482+00:00 |
 | `results/repro-caller-confirm-20260928` | cn-north-1 | [PASS](results/repro-caller-confirm-20260928/cn-north-1-cleanup-verification.json) | 2026-09-28T07:54:37.149770+00:00 |
 | `results/repro-caller-confirm-20260928` | cn-northwest-1 | [PASS](results/repro-caller-confirm-20260928/cn-northwest-1-cleanup-verification.json) | 2026-09-28T07:54:37.505405+00:00 |
+| `results/repro-caller-confirm-20260929` | cn-north-1 | [PASS](results/repro-caller-confirm-20260929/cn-north-1-cleanup-verification.json) | 2026-09-29T02:00:22.602867+00:00 |
+| `results/repro-caller-confirm-20260929` | cn-northwest-1 | [PASS](results/repro-caller-confirm-20260929/cn-northwest-1-cleanup-verification.json) | 2026-09-29T02:00:23.111617+00:00 |
 
 ## Evidence and reproduction
 
@@ -302,7 +317,7 @@ Each identifier matches the `feature` field in the JSON and CSV evidence. The la
 | `gateway.openapi.s3_invoke` | PASS | PASS |
 | `gateway.openapi.s3_schema` | PASS | PASS |
 | `gateway.outbound.api_key` | PASS | PASS |
-| `gateway.outbound.caller_iam` | FAIL | FAIL |
+| `gateway.outbound.caller_iam` | PASS | PASS |
 | `gateway.outbound.caller_iam.direct_runtime_baseline` | PASS | PASS |
 | `gateway.outbound.caller_iam.gateway_role_baseline` | PASS | PASS |
 | `gateway.outbound.jwt_passthrough` | PASS | PASS |

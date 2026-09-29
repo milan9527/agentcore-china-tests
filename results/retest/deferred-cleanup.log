@@ -1,0 +1,10 @@
+[cn-north-1] PASS: cleanup.browser_sessions
+[cn-northwest-1] PASS: cleanup.browser_sessions
+[cn-north-1] PASS: cleanup.sg
+[cn-northwest-1] PASS: cleanup.sg
+[cn-north-1] PASS: cleanup.inventory
+[cn-north-1] PASS: cleanup_tests.suite
+[cn-northwest-1] PASS: cleanup.inventory
+[cn-northwest-1] PASS: cleanup_tests.suite
+{"region": "cn-north-1", "status": "PASS", "remaining": []}
+{"region": "cn-northwest-1", "status": "PASS", "remaining": []}

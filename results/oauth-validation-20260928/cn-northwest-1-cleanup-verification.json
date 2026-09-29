@@ -1,0 +1,165 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "kind": "role",
+      "id": "ac-cn-0928082703-nx-agentcore",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "328a247f-0824-4306-b6fc-bca1a8aac606"
+    },
+    {
+      "kind": "gateway",
+      "id": "ac-cn-0928082703-nx-jwt-yvb6jhebka",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "c511fa10-8fff-4efa-a0e1-7c13be4d9d26"
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-nx-cc-basic",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "b5b3a024-8f29-4801-aaab-b2fe32a8e99c"
+    },
+    {
+      "kind": "target",
+      "id": "YMJOWZEWAA",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "c7520183-5446-4d22-b68c-ac14fa161f86"
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-nx-cc-post",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "37d93df0-b9d9-43df-bdc3-88c967f67e7a"
+    },
+    {
+      "kind": "target",
+      "id": "XJRD8OYTCA",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "55a46879-2ad8-4f13-8146-c502606f10ae"
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-nx-authorization-code",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "ab7bf8f7-3b8d-4d55-b7fd-9cdeb8b65705"
+    },
+    {
+      "kind": "target",
+      "id": "AN3CXSNJAS",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "52909fdc-6841-44a1-851b-1e435fd6c3df"
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-nx-rfc8693-none",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "dab3a0a1-757d-4040-9da9-26f500d9c096"
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-nx-rfc8693-m2m",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "46da60bb-2c4e-4eab-9782-335cacaf8e32"
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-nx-rfc8693-aws-iam-id-token-jwt",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "6258c331-8916-4259-ae93-c134be3a6c44"
+    },
+    {
+      "kind": "oauth-provider",
+      "id": "ac-cn-0928082703-nx-rfc7523-jwt-bearer",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "d687842d-e154-40cf-a4e7-c513030c2478"
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-cc-basic-a6c5895e-nfmsnE",
+      "ok": true,
+      "status": "ScheduledDeletion",
+      "deletionDate": "2026-09-28 08:29:35.266000+00:00"
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-cc-post-aecc0d01-rcZgrl",
+      "ok": true,
+      "status": "ScheduledDeletion",
+      "deletionDate": "2026-09-28 08:29:35.295000+00:00"
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-authorization-code-3bedb709-eUx5pO",
+      "ok": true,
+      "status": "ScheduledDeletion",
+      "deletionDate": "2026-09-28 08:29:35.301000+00:00"
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-rfc8693-none-b149afc4-HH1VNw",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "392c1115-d1d3-4f19-8296-38dbfddacbb0"
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-rfc8693-m2m-6ed678f4-MvWnrz",
+      "ok": true,
+      "status": "ScheduledDeletion",
+      "deletionDate": "2026-09-28 08:29:35.636000+00:00"
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-rfc8693-aws-iam-id-token-jwt-ae20b328-xEH4X1",
+      "ok": true,
+      "status": "ScheduledDeletion",
+      "deletionDate": "2026-09-28 08:29:35.682000+00:00"
+    },
+    {
+      "kind": "secret",
+      "id": "arn:aws-cn:secretsmanager:cn-northwest-1:209915754514:secret:bedrock-agentcore-identity!default/oauth2/ac-cn-0928082703-nx-rfc7523-jwt-bearer-d019faa9-divzpu",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "7b58bd46-1b7d-45fb-a45f-a2eb6327641f"
+    },
+    {
+      "kind": "workload",
+      "id": "ac-cn-0928082703-nx-jwt-yvb6jhebka",
+      "ok": true,
+      "status": "ABSENT",
+      "requestId": "76719f52-a636-4db1-87c7-14e68a32f3b5"
+    },
+    {
+      "kind": "local-process",
+      "pid": 2427428,
+      "ok": true
+    },
+    {
+      "kind": "local-process",
+      "pid": 2427429,
+      "ok": true
+    },
+    {
+      "kind": "local-secret",
+      "file": "cn-northwest-1-private-key.pem",
+      "ok": true
+    },
+    {
+      "kind": "local-secret",
+      "file": "cn-northwest-1-secrets.json",
+      "ok": true
+    }
+  ]
+}

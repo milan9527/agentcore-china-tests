@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "time": "2026-09-28T09:29:24.935673+00:00",
+  "sourceSnapshotFilesVerified": 378,
+  "apiRequestsCrossReferenced": 22,
+  "oboAccountRejections": 16,
+  "artifactCount": 424,
+  "secretPatternScan": "PASS",
+  "sourceRowsMatchSummary": true,
+  "counts": {
+    "cn-north-1": {
+      "PASS": 8,
+      "BLOCKED": 4
+    },
+    "cn-northwest-1": {
+      "PASS": 8,
+      "BLOCKED": 4
+    }
+  }
+}

@@ -10,7 +10,8 @@ ROOT = Path(__file__).resolve().parent
 RESULTS = ROOT / "results"
 REGIONS = ("cn-north-1", "cn-northwest-1")
 FOLLOWUP_DIRS = ("retest", "retest-browser", "retest-livewait",
-                "retest-live-signature", "retest-livewait-default", "repro-caller-confirm-20260928")
+                "retest-live-signature", "retest-livewait-default", "repro-caller-confirm-20260928",
+                "repro-caller-confirm-20260929")
 SETUP_CHECKS = {
     "gateway.fixture.update", "gateway.runtime.fixture_create", "gateway.runtime.fixture_ready",
 }
@@ -23,6 +24,7 @@ SECRET_KEYS = {
     "usertoken", "workloadidentitytoken", "workloadaccesstoken", "authorizationcode",
     "codeverifier", "code_verifier", "subject_token", "actor_token", "authorizationurl", "sessionuri", "cookie", "set-cookie",
     "authcode", "pathkey", "path_key",
+    "assertion", "client_assertion", "requeststate",
 }
 
 
@@ -158,6 +160,16 @@ def live_view_section():
         "The SDK URL generator hardcodes `.amazonaws.com`; tests signed the actual service-returned "
         "`.amazonaws.com.cn` endpoint. [Full timing, evidence and reproduction](LIVEVIEW.zh-CN.md).", "",
         "## Proxy configuration boundaries", "",
+        "A fresh proxy matrix used separate origin and proxy EC2 instances in each region: "
+        "**95 checks per region, 60 PASS / 35 FAIL**, with all failures reproduced twice "
+        "(260 observations overall). Managed HTTP 8000/8081 requests returned `squid/6.13` "
+        "and `ERR_ACCESS_DENIED 0` before reaching the external proxy; HTTPS 8443 also failed "
+        "before it. Direct and explicit Playwright-proxy controls passed on all five destination "
+        "ports. Standard-port IP/hostname/suffix bypass, bad/missing credential controls, and "
+        "specific/default multi-proxy selection passed. The precise internal Squid ACL remains "
+        "unreadable. These scenario counts are separate from the original 159-check population. "
+        "[Full evidence](results/proxy-validation-20260928-r2/REPORT.md) · "
+        "[中文结论](PROXY-VALIDATION.zh-CN.md).", "",
         "Basic-auth and no-auth external proxies pass HTTP 80, HTTPS CONNECT 443, explicit domain "
         "routing and an independently tested bypass rule. For upstream-only DNS, place "
         "`domainPatterns` inside `externalProxy`. Use a bare host/IP for `server`, without `http://`. "
@@ -226,18 +238,39 @@ def main():
     lines = [
         "# AgentCore Gateway and Browser — AWS China live test report",
         "",
-        "Tested on **28 September 2026 UTC** using AWS profile **`china`**, account **`209915754514`**, "
+        "Tested on **28 September 2026 UTC**, with caller-IAM retested on **29 September**, "
+        "using AWS profile **`china`**, account **`209915754514`**, "
         "in **Beijing (`cn-north-1`)** and **Ningxia (`cn-northwest-1`)**.",
         "",
         "**Updated consolidated report:** includes authentication, proxy, download and extended Live View "
         "follow-up tests. [Chinese summary](SUMMARY.zh-CN.md), [detailed follow-up](FOLLOWUP.zh-CN.md), "
         "and [reproduction guide](REPRODUCE.zh-CN.md). The [initial report](REPORT.initial.md) is retained as history.",
         "",
+        "**Latest update — 29 September 2026:** Gateway caller-IAM forwarding passes in Beijing and Ningxia, "
+        "with all 8/8 selected checks passing per region. The invalid-token 403 no longer occurs in the tested "
+        "paths. Consolidated counts are now 154 PASS, 1 FAIL, 2 BLOCKED and 2 NOT_AVAILABLE per region. "
+        "[Full retest evidence](results/repro-caller-confirm-20260929/REPORT.md).",
+        "",
+        "**Outbound OAuth validation, 28 September 2026, 08:27–08:29 UTC:** 2LO (Basic and POST client authentication) "
+        "and complete 3LO, repeat authorized access, and user isolation pass in both regions. "
+        "Four OBO provider configurations are accepted, but 16 Gateway target creation attempts return "
+        "the explicit account-gating 403. The separate 8 PASS / 4 BLOCKED checks per region do not change "
+        "the 159-check population below. [Full English evidence and reproduction]"
+        "(results/oauth-validation-20260928/REPORT.md) · "
+        "[中文报告](results/oauth-validation-20260928/REPORT.zh-CN.md).",
+        "",
+        "**OAuth provider scope:** this run uses a self-hosted synthetic IdP through `CustomOauth2`, "
+        "with OAuth client `cn-retest` and a random client secret per region. Microsoft Entra ID, Google, "
+        "Okta, and other third-party IdPs were not used. Passing 2LO/3LO results apply to this test IdP; "
+        "third-party compatibility and Microsoft OBO remain untested. OBO client configuration succeeded, "
+        "but Gateway target creation was account-gated before any Gateway token exchange.",
+        "",
         "**Both regions pass Live View display and mouse/keyboard input.** The previous DCV failure verdict "
         "was caused by the test exiting on an authentication-socket close error before the first frame. "
         "JWT, OAuth client credentials, OAuth authorization code and JWT passthrough also pass. "
         "Browser proxy routing passes with the tested standard ports and configuration. "
-        "The remaining functional failures are caller-IAM forwarding and Playwright `download.save_as()` "
+        "Caller-IAM forwarding now passes the unchanged reproduction in both regions on 29 September. "
+        "The remaining failure in the original 159-check population is Playwright `download.save_as()` "
         "retrieval; a verified remote-file retrieval alternative is available.",
         "",
         "## Results and scope",
@@ -256,7 +289,8 @@ def main():
         "latest follow-up result. Newly added diagnostic checks are listed separately in the "
         "[follow-up matrix](results/followup-matrix.csv), so they do not inflate this comparison. "
         "The initial count was 145 PASS, 6 FAIL, 5 BLOCKED, 1 PARTIAL and 2 NOT_AVAILABLE per region. "
-        "Eight checks now pass: JWT, three OAuth/passthrough checks, three proxy checks, and Live View. "
+        "Nine checks now pass: JWT, three OAuth/passthrough checks, three proxy checks, Live View, "
+        "and caller-IAM forwarding. "
         "Counts include control-plane "
         "checks and diagnostic baselines. They exclude setup/phase wrappers, cleanup, documented negative checks, "
         "and `gateway.fixture.update`, `gateway.runtime.fixture_create`, `gateway.runtime.fixture_ready`. "
@@ -298,7 +332,7 @@ def main():
         "| MCP streaming and client requests | SSE results, progress/log notifications, form elicitation, URL elicitation with OAuth callback/session binding/resumption, and synthetic sampling request/resume round trips. |",
         "| Gateway interceptors | Request interceptor changes tool arguments; response interceptor inserts a verified marker. |",
         "| Gateway encryption and authentication | Customer-managed KMS gateway plus tool invocation; outbound API key validated by backend; custom OAuth provider configuration. |",
-        "| Gateway HTTP and Runtime | HTTP passthrough; Runtime target invocation using the Gateway IAM role; direct Runtime and Gateway-role calls also pass with the STS credentials used in the failed caller-IAM comparison. |",
+        "| Gateway HTTP and Runtime | HTTP passthrough; Runtime target invocation using the Gateway IAM role; caller-IAM forwarding now passes using STS GetSessionToken and AssumeRole, including AWS_IAM and AUTHENTICATE_ONLY inbound. The same credentials pass direct Runtime and Gateway-role controls. |",
         "| Gateway rate limits | Create/list/update/delete; zero-rate rule returns HTTP 429. |",
         "| Browser lifecycle | Managed/custom browsers, get/list, tags, pagination, session idempotency, viewport/timeout settings, stop; profile management and tags. |",
         "| Browser automation | CDP connection, HTTPS navigation, DOM extraction, forms, clicks, Unicode input, tabs, screenshots, upload, and download inside the remote browser. |",
@@ -317,18 +351,32 @@ def main():
         "",
         "| Area | Observation and baseline | Scope / next investigation |",
         "| --- | --- | --- |",
-        "| Gateway caller-IAM forwarding | `CALLER_IAM_CREDENTIALS` targets create successfully but return HTTP 403, `The security token included in the request is invalid`. Profile credentials, STS GetSessionToken and AssumeRole reproduce it; AssumeRole was tested with both AWS_IAM and AUTHENTICATE_ONLY inbound. The same credentials invoke Runtime directly and via GATEWAY_IAM_ROLE successfully. | Functional failure reproduced; internal service root cause is unconfirmed. Gateway-role invocation is a working alternative with different permission semantics. |",
         "| Browser Playwright download retrieval | `download.save_as()` returns zero bytes in Playwright 1.63.0 and 1.60.0. The returned file path exists with correct contents in the remote browser but not on the client. Local Chromium baseline passes. | Failure is in remote-file retrieval in this CDP setup. [download_remote_file.py](download_remote_file.py) is a verified alternative for the tested text and binary files; large files were not benchmarked. |",
         "",
-        "A fresh environment reproduced caller-IAM failure again in both regions at **07:53 UTC**. "
-        "Each region passed five comparison checks and failed all three caller-forwarding checks "
-        "(AssumeRole with AWS_IAM, AssumeRole with AUTHENTICATE_ONLY, and GetSessionToken). "
-        "All resources created for this repeat run were deleted and cleanup verification passed. "
-        "[Repeat-run report](results/repro-caller-confirm-20260928/REPORT.zh-CN.md), "
-        "[complete console output](results/repro-caller-confirm-20260928/console.log), and "
-        "[responses/request IDs](results/repro-caller-confirm-20260928/invocation-results.csv).",
+        "## Caller-IAM forwarding: original error resolved in the tested paths",
         "",
-        "Caller-IAM request IDs retained from the earlier AssumeRole comparison:",
+        "On **29 September 2026, 01:58–01:59 UTC**, fresh environments passed all eight selected "
+        "checks per region. All three caller-forwarding combinations returned HTTP 200 and sum=42 "
+        "(AssumeRole with AWS_IAM, AssumeRole with AUTHENTICATE_ONLY, and GetSessionToken); "
+        "all five same-credential direct/role controls passed. Core invocation scripts and SDK versions "
+        "match the 28 September run. The earlier invalid-token 403 is no longer reproduced in these paths. "
+        "This establishes the observed behavior, not an AWS deployment time or an internal root cause. "
+        "[Current report](results/repro-caller-confirm-20260929/REPORT.md), "
+        "[console](results/repro-caller-confirm-20260929/console.log), "
+        "[responses/request IDs](results/repro-caller-confirm-20260929/invocation-results.csv).",
+        "",
+        "| Caller credentials / inbound mode | Beijing | Ningxia |",
+        "| --- | --- | --- |",
+        "| AssumeRole + AWS_IAM | HTTP 200, sum=42 | HTTP 200, sum=42 |",
+        "| AssumeRole + AUTHENTICATE_ONLY | HTTP 200, sum=42 | HTTP 200, sum=42 |",
+        "| GetSessionToken + AWS_IAM | HTTP 200, sum=42 | HTTP 200, sum=42 |",
+        "",
+        "All resources created for this retest were cleaned up, with independent read-only verification "
+        "passing in both regions. Other features were not retested on 29 September.",
+        "",
+        "The **28 September 07:53 UTC** run had five passing controls and three failing caller paths "
+        "per region; its [report and evidence](results/repro-caller-confirm-20260928/REPORT.zh-CN.md) "
+        "remain unchanged. Earlier failing AssumeRole request IDs are retained below:",
         "",
         "| Region | AWS_IAM inbound | AUTHENTICATE_ONLY inbound |",
         "| --- | --- | --- |",

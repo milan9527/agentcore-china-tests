@@ -1,0 +1,5 @@
+boto3==1.43.103
+requests
+websockets
+playwright
+pyjwt[crypto]

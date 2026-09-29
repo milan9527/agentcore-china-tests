@@ -1,0 +1,27 @@
+[cn-northwest-1] PASS: cleanup.browser_sessions
+[cn-north-1] PASS: cleanup.browser_sessions
+[cn-northwest-1] PASS: cleanup.sg
+[cn-north-1] PASS: cleanup.sg
+[cn-north-1] PASS: cleanup.inventory
+[cn-north-1] PASS: cleanup.suite
+[cn-northwest-1] PASS: cleanup.inventory
+[cn-northwest-1] PASS: cleanup.suite
+{"region": "cn-north-1", "status": "PASS", "remaining": [{"kind": "kms", "id": "9fc74828-2ad7-4602-b21b-054a406c75a0", "status": "PendingDeletion", "deletionDate": "2026-10-05 05:27:41.783000+00:00", "arn": "arn:aws-cn:kms:cn-north-1:209915754514:key/9fc74828-2ad7-4602-b21b-054a406c75a0", "ok": true}]}
+{"region": "cn-northwest-1", "status": "PASS", "remaining": [{"kind": "kms", "id": "e9e12008-d491-4524-945e-6d358281618a", "status": "PendingDeletion", "deletionDate": "2026-10-05 05:27:32.722000+00:00", "arn": "arn:aws-cn:kms:cn-northwest-1:209915754514:key/e9e12008-d491-4524-945e-6d358281618a", "ok": true}]}
+{
+  "counts": {
+    "cn-north-1": {
+      "PASS": 153,
+      "FAIL": 2,
+      "BLOCKED": 2,
+      "NOT_AVAILABLE": 2
+    },
+    "cn-northwest-1": {
+      "PASS": 153,
+      "FAIL": 2,
+      "BLOCKED": 2,
+      "NOT_AVAILABLE": 2
+    }
+  },
+  "report": "/home/ec2-user/agentcore/cn/REPORT.md"
+}

@@ -1,0 +1,7 @@
+{"event": "token_issued", "grant": "client_credentials", "subject": "synthetic-service"}
+{"event": "token_issued", "grant": "urn:ietf:params:oauth:grant-type:token-exchange", "subject": "direct-obo-baseline"}
+{"event": "token_issued", "grant": "client_credentials", "subject": "synthetic-service"}
+{"event": "token_issued", "grant": "client_credentials", "subject": "synthetic-service"}
+{"event": "token_issued", "grant": "client_credentials", "subject": "synthetic-service"}
+{"event": "token_issued", "grant": "client_credentials", "subject": "synthetic-service"}
+{"event": "token_issued", "grant": "authorization_code", "subject": "synthetic-user"}

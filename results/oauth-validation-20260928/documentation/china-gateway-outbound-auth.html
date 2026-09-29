@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Set up outbound authorization for your gateway - Amazon Bedrock AgentCore</title><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="assets_root" content="/assets" /><meta name="target_state" content="gateway-outbound-auth" /><meta name="default_state" content="gateway-outbound-auth" /><link rel="icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="canonical" href="https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/gateway-outbound-auth.html" /><meta name="description" content="Outbound authorization lets Amazon Bedrock AgentCore gateways securely access gateway targets on behalf of users that were authenticated and authorized during inbound authorization." /><meta name="deployment_region" content="BJS" /><meta name="product" content="Amazon Bedrock AgentCore" /><meta name="guide" content="Developer Guide" /><meta name="guide-locale" content="en_us" /><meta name="tocs" content="toc-contents.json" /><link rel="canonical" href="https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/gateway-outbound-auth.html" /><link rel="alternate" href="https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/gateway-outbound-auth.html" hreflang="en-us" /><link rel="alternate" href="https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/gateway-outbound-auth.html" hreflang="en" /><link rel="alternate" href="https://docs.amazonaws.cn/bedrock-agentcore/latest/devguide/gateway-outbound-auth.html" hreflang="zh-cn" /><link rel="alternate" href="https://docs.amazonaws.cn/bedrock-agentcore/latest/devguide/gateway-outbound-auth.html" hreflang="x-default" /><meta name="this_doc_product" content="Amazon Bedrock AgentCore" /><meta name="this_doc_guide" content="Developer Guide" /><meta name="googlebot" content="noindex" /><head xmlns="http://www.w3.org/1999/xhtml"> <script defer="" src="/assets/r/awsdocs-doc-page.2.0.0.js"></script><link href="/assets/r/awsdocs-doc-page.2.0.0.css" rel="stylesheet"/></head>
+<meta name="uiVersion" content="2024.10" /></head><body class="awsdocs awsui"><div class="awsdocs-container"><p><a href="gateway-outbound-auth.md">View a markdown version of this page</a></p><awsdocs-header></awsdocs-header><awsui-app-layout id="app-layout" class="awsui-util-no-gutters" ng-controller="ContentController as $ctrl" header-selector="awsdocs-header" navigation-hide="false" navigation-width="$ctrl.navWidth" navigation-open="$ctrl.navOpen" navigation-change="$ctrl.onNavChange($event)" tools-hide="$ctrl.hideTools" tools-width="$ctrl.toolsWidth" tools-open="$ctrl.toolsOpen" tools-change="$ctrl.onToolsChange($event)"><div id="guide-toc" dom-region="navigation"><awsdocs-toc></awsdocs-toc></div><div id="main-column" dom-region="content" tabindex="-1"><awsdocs-view class="awsdocs-view"><div id="awsdocs-content"><head><title>Set up outbound authorization for your gateway - Amazon Bedrock AgentCore</title><meta name="pdf" content="bedrock-agentcore-dg.pdf#gateway-outbound-auth" /><meta name="rss" content="bedrock-agentcore-dg.rss" /><link rel="alternate" type="text/markdown" href="gateway-outbound-auth.md" title="Markdown version" /><script type="application/ld+json">
+{
+    "@context" : "https://schema.org",
+    "@type" : "BreadcrumbList",
+    "itemListElement" : [
+      {
+        "@type" : "ListItem",
+        "position" : 1,
+        "name" : "亚马逊云科技",
+        "item" : "https://www.amazonaws.cn"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 2,
+        "name" : "Amazon Bedrock AgentCore",
+        "item" : "https://docs.amazonaws.cn/bedrock-agentcore/index.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 3,
+        "name" : "Developer Guide",
+        "item" : "https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 4,
+        "name" : "Amazon Bedrock AgentCore Gateway: A secure AI gateway for agents, tools, and models",
+        "item" : "https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/gateway.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 5,
+        "name" : "Prerequisites for using the Amazon Bedrock AgentCore gateway service",
+        "item" : "https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/gateway-prerequisites.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 6,
+        "name" : "Set up outbound authorization for your gateway",
+        "item" : "https://docs.amazonaws.cn/en_us/bedrock-agentcore/latest/devguide/gateway-prerequisites.html"
+      }
+    ]
+}
+</script></head><body><div id="main"><div style="display: none"><a href="bedrock-agentcore-dg.pdf#gateway-outbound-auth" target="_blank" rel="noopener noreferrer" title="Open PDF"></a></div><div id="breadcrumbs" class="breadcrumb"><a href="/index.html">Documentation</a><a href="/bedrock-agentcore/index.html">Amazon Bedrock AgentCore</a><a href="what-is-bedrock-agentcore.html">Developer Guide</a></div><div id="page-toc-src"><a href="#gateway-outbound-auth-iam">Set up IAM-based outbound authorization with a gateway service role</a><a href="#gateway-outbound-auth-oauth">Set up outbound authorization with an OAuth client</a><a href="#gateway-outbound-auth-api-key">Set up outbound authorization with an API key</a></div><div id="main-content" class="awsui-util-container"><div id="main-col-body"><awsdocs-language-banner data-service="$ctrl.pageService"></awsdocs-language-banner><awsui-flash class="awsdocs-region-banner awsui-util-mb-l" id="divRegionDisclaimer">Services or capabilities described in Amazon Web Services documentation might vary by Region. To see the differences applicable to the China Regions,
+      see <a href="/en_us/aws/latest/userguide/services.html" rel="noopener noreferrer" target="_blank">Getting Started with Amazon Web Services in China</a>
+         <a href="/en_us/aws/latest/userguide/aws-ug.pdf#services" rel="noopener noreferrer" target="_blank">(PDF)</a>.
+    </awsui-flash><h1 class="topictitle" id="gateway-outbound-auth">Set up outbound authorization for your gateway</h1><div class="awsdocs-page-header-container"><awsdocs-page-header></awsdocs-page-header><awsdocs-filter-selector id="awsdocs-filter-selector"></awsdocs-filter-selector></div><p>Outbound authorization lets Amazon Bedrock AgentCore gateways securely access gateway targets on behalf of users that were authenticated and authorized during inbound authorization.</p><p>AgentCore Gateway supports the following types of outbound authorization:</p><div class="itemizedlist">
+       
+       
+       
+       
+       
+       
+   <ul class="itemizedlist"><li class="listitem">
+         <p>
+            <strong>No authorization (not recommended)</strong> – Some target types provide you the option to bypass outbound authorization. This less secure option is not recommended.</p>
+      </li><li class="listitem">
+         <p>
+            <strong>IAM-based outbound authorization</strong> – Use the <a href="./gateway-prerequisites-permissions.html#gateway-service-role-permissions">gateway service role</a> to authenticate access to the gateway target with <a href="https://docs.amazonaws.cn/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Amazon Signature Version 4 (Sig V4)</a>.</p>
+      </li><li class="listitem">
+         <p>
+            <strong>Caller IAM credentials</strong> – The gateway uses the caller’s IAM credentials to sign requests to the target. The gateway assumes a role on behalf of the caller using the Federated Access Service (FAS) and signs the outbound request with the caller’s identity. This is useful when the target service needs to authorize based on the original caller’s identity rather than the gateway service role.</p>
+      </li><li class="listitem">
+         <p>
+            <strong>OAuth</strong> – An open authorization framework that allows a client application to access resources. You can use OAuth with a <a href="./identity-idps.html">built-in identity provider</a> or with a custom one. For more information, see <a href="https://oauth.net/2/" rel="noopener noreferrer" target="_blank"><span>OAuth 2.0</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a> . You can use the following types of OAuth authorization grants:</p>
+         <div class="itemizedlist">
+             
+             
+             
+         <ul class="itemizedlist"><li class="listitem">
+               <p>
+                  <strong>Client credentials grant</strong> – Machine-to-machine authentication (also known as 2-legged OAuth). The client application accesses resources on the application’s behalf, rather than on behalf of the user.</p>
+            </li><li class="listitem">
+               <p>
+                  <strong>Authorization code grant</strong> – User-delegated access (also known as 3-legged OAuth). The user provides consent for the client application to access resources on behalf of the user.</p>
+            </li><li class="listitem">
+               <p>
+                  <strong>Token exchange grant (On-behalf-of)</strong> – The gateway exchanges the inbound user’s access token for a new, scoped access token that targets a downstream resource. The exchanged token carries both the user’s identity and the agent’s identity, enabling downstream services to enforce fine-grained authorization at every hop without triggering additional consent flows. For more information, see <a href="./on-behalf-of-token-exchange.html">On-behalf-of token exchange</a>.</p>
+            </li></ul></div>
+      </li><li class="listitem">
+         <p>
+            <strong>Token passthrough</strong> – The gateway passes the inbound authorization token directly to the target without modification. The target service is responsible for validating the token. This requires the gateway to use <code class="code">AUTHENTICATE_ONLY</code> inbound authorization so that the token is validated but preserved for forwarding.</p>
+      </li><li class="listitem">
+         <p>
+            <strong>API key</strong> – Use the AgentCore service to generate an API key to authenticate access to the gateway target.</p>
+      </li></ul></div><p>The type of outbound authorization that you can set up is dependent on the gateway target type to which you authorize access:</p><div class="table-container"><div class="table-contents"><table id="w337aac17c19c19c11"><thead>
+            <tr>
+               <th align="left" style="text-align: left;vertical-align: top;">Target type</th>
+               <th align="left" style="text-align: left;vertical-align: top;">No authorization</th>
+               <th align="left" style="text-align: left;vertical-align: top;">Gateway service role</th>
+               <th align="left" style="text-align: left;vertical-align: top;">Caller IAM credentials</th>
+               <th align="left" style="text-align: left;vertical-align: top;">OAuth (client credentials)</th>
+               <th align="left" style="text-align: left;vertical-align: top;">OAuth (authorization code)</th>
+               <th align="left" style="text-align: left;vertical-align: top;">OAuth (token exchange)</th>
+               <th align="left" style="text-align: left;vertical-align: top;">Token passthrough</th>
+               <th align="left" style="text-align: left;vertical-align: top;">API key</th>
+            </tr>
+         </thead>
+            <tr>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>API Gateway stage</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+            </tr>
+            <tr>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Lambda function</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+            </tr>
+            <tr>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>MCP server</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+            </tr>
+            <tr>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>OpenAPI schema</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+            </tr>
+            <tr>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Smithy schema</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+            </tr>
+            <tr>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>AgentCore Runtime (HTTP)</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>Yes</p>
+               </td>
+               <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                  <p>No</p>
+               </td>
+            </tr>
+         </table></div></div><div class="awsdocs-note"><div class="awsdocs-note-title"><awsui-icon name="status-info" variant="link"></awsui-icon><h6>Note</h6></div><div class="awsdocs-note-text"><p>If you use an integration provider template as a target, review the supported authorization types for different templates at <a href="./gateway-target-integrations.html">Built-in templates from integration providers as targets</a>.</p></div></div><p>Before adding a target to your gateway, you must set up authorization for it through one of the supported methods.</p><div class="awsdocs-note"><div class="awsdocs-note-title"><awsui-icon name="status-info" variant="link"></awsui-icon><h6>Note</h6></div><div class="awsdocs-note-text"><p>You can skip this prerequisite if you plan to use the Amazon Management Console or AgentCore CLI to create your gateway. If you use either of these tools, you can let AgentCore automatically create a service role for you with the necessary permissions to access the target. Each time you add a target, the necessary permissions will be automatically attached to your service role.</p></div></div><p>Select a topic to learn how to set up that type of authorization:</p><div class="highlights" id="inline-topiclist"><h6>Topics</h6><ul><li><p><a href="#gateway-outbound-auth-iam">Set up IAM-based outbound authorization with a gateway service role</a></p></li><li><p><a href="#gateway-outbound-auth-oauth">Set up outbound authorization with an OAuth client</a></p></li><li><p><a href="#gateway-outbound-auth-api-key">Set up outbound authorization with an API key</a></p></li></ul></div>
+      <h2 id="gateway-outbound-auth-iam">Set up IAM-based outbound authorization with a gateway service role</h2>
+      <p>IAM-based outbound authorization lets you use the gateway service role’s IAM credentials to authorize with <a href="https://docs.amazonaws.cn/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Amazon Signature Version 4 (Sig V4)</a> . This option lets the Amazon Bedrock AgentCore service authenticate to gateway targets on your gateway callers' behalf.</p>
+      <p>If you use this option, verify that the gateway service role has <code class="code">bedrock-agentcore:InvokeGateway</code> permissions. The gateway uses the service role credentials for authentication during invocation.</p>
+      <p>
+         <strong>Additional configuration for MCP server and OpenAPI targets</strong>
+      </p>
+      <p>When you use IAM-based outbound authorization with an MCP server or OpenAPI target, you must provide additional configuration for SigV4 signing. In the <code class="code">credentialProviderConfigurations</code> , include an <code class="code">iamCredentialProvider</code> with the following fields:</p>
+      <div class="itemizedlist">
+          
+          
+      <ul class="itemizedlist"><li class="listitem">
+            <p>
+               <strong>service</strong> (required) – The Amazon service name used for SigV4 signing. For example, <code class="code">bedrock-agentcore</code> for MCP servers hosted on Amazon Bedrock AgentCore.</p>
+         </li><li class="listitem">
+            <p>
+               <strong>region</strong> (optional) – The Amazon Region for SigV4 signing. If you don’t specify a Region, the gateway uses its own Region.</p>
+         </li></ul></div>
+      <p>For Lambda, API Gateway, and Smithy targets, do not include the <code class="code">iamCredentialProvider</code> field. These target types only support the basic <code class="code">GATEWAY_IAM_ROLE</code> configuration with <code class="code">credentialProviderType</code> only. For more information about specifying the credential provider configuration, see <a href="./gateway-building-adding-targets-authorization.html#gateway-building-adding-targets-authorization-service-role">AgentCore Gateway service role (IAM) authorization</a>.</p>
+       
+         <h3 id="_security_best_practices_for_iam_based_outbound_authorization">Security best practices for IAM-based outbound authorization</h3>
+         <p>The gateway execution role is shared across all targets configured with <code class="code">GATEWAY_IAM_ROLE</code>. Its permissions are the upper bound for what any authorized caller can exercise through the gateway. Follow these best practices to limit exposure:</p>
+         <div class="itemizedlist">
+             
+             
+             
+         <ul class="itemizedlist"><li class="listitem">
+               <p>
+                  <strong>Scope the execution role to minimum permissions</strong> – Grant only the permissions needed across all configured targets. Avoid broad <code class="code">Action</code> or <code class="code">Resource</code> wildcards.</p>
+            </li><li class="listitem">
+               <p>
+                  <strong>Use separate gateways for different trust boundaries</strong> – If targets have different sensitivity levels or serve different workloads, deploy them behind separate gateways with distinct execution roles.</p>
+            </li><li class="listitem">
+               <p>
+                  <strong>Use the policy engine to restrict caller access</strong> – On shared gateways, use the <a href="./policy-getting-started.html">policy engine</a> to control which callers can invoke which targets, limiting the blast radius of any single caller’s permissions.</p>
+            </li></ul></div>
+       
+    
+      <h2 id="gateway-outbound-auth-oauth">Set up outbound authorization with an OAuth client</h2>
+      <p>To set up outbound authorization with an OAuth client, you use the AgentCore Identity service and specify client credentials that you receive from creating a client in either a built-in identity provider (see <a href="./identity-idps.html">Provider setup and configuration</a> or a custom identity provider.</p>
+      <p>
+         <strong>To set up outbound authorization with an OAuth client</strong>
+      </p>
+      <div class="orderedlist">
+          
+          
+          
+          
+          
+      <ol style="list-style-type:arabic ! important;"><li>
+            <p>Register your client application with a supported third-party provider.</p>
+         </li><li>
+            <p>You’ll receive a client ID, client secret, and possibly other values that you’ll reference when you set up the outbound authorization.</p>
+         </li><li>
+            <p>Follow one of the steps below, depending on your requirements:</p>
+            <div class="itemizedlist">
+                
+                
+                
+            <ul class="itemizedlist"><li class="listitem">
+                  <p>To configure outbound authorization in the console using a built-in identity provider, follow the steps at <a href="./identity-add-oauth-client-included.html">Add OAuth client using included provider</a>.</p>
+               </li><li class="listitem">
+                  <p>To configure outbound authorization in the console using a custom identity provider, follow the steps at <a href="./identity-add-oauth-client-custom.html">Add OAuth client using custom provider</a>.</p>
+               </li><li class="listitem">
+                  <p>To configure outbound authorization using the API, send a <a href="https://docs.amazonaws.cn/bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.html">CreateOauth2CredentialProvider</a> with one of the <a href="https://docs.amazonaws.cn/general/latest/gr/bedrock_agentcore.html#bedrock_agentcore_cp">AgentCore control plane endpoints</a> . For examples, see <a href="#gateway-outbound-auth-oauth-examples">Examples for setting OAuth client authorization</a>.</p>
+                  <div class="awsdocs-note"><div class="awsdocs-note-title"><awsui-icon name="status-info" variant="link"></awsui-icon><h6>Note</h6></div><div class="awsdocs-note-text"><p>The shape of the JSON object that the <code class="code">oauth2ProviderConfigInput</code> field maps to depends on the provider that you use and must be congruent with the <code class="code">credentialProviderVendor</code> value that you specify. To see examples of different configurations for different credential providers, see the outbound authorization examples in your credential provider of choice at <a href="./identity-idps.html">Provider setup and configuration</a>.</p></div></div>
+               </li></ul></div>
+         </li><li>
+            <p>Take note of the generated credential ARN ( <code class="code">credentialProviderArn</code> in the API) and the Amazon Secrets Manager secret ARN ( <code class="code">secretArn</code> in the API). You’ll use these values when you create your gateway target.</p>
+         </li><li>
+            <p>(If you’re using a custom gateway service role) Attach the following identity-based policy to your gateway service role:</p>
+            <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (json)--><code class="json "><span>{</span>
+"Version": "2012-10-17",
+    "Statement": [
+      <span>{</span>
+        "Sid": "GetWorkloadAccessToken",
+        "Effect": "Allow",
+        "Action": [
+            "bedrock-agentcore:GetWorkloadAccessToken",
+        ],
+        "Resource": [
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:workload-identity-directory/default",
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:workload-identity-directory/default/workload-identity/GatewayName-*"
+        ]
+      },
+      <span>{</span>
+        "Sid": "GetResourceOauth2Token",
+        "Effect": "Allow",
+        "Action": [
+            "bedrock-agentcore:GetResourceOauth2Token",
+        ],
+        "Resource": [
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/TokenVaultId/oauth2credentialprovider/CredentialName"
+        ]
+      },
+      <span>{</span>
+        "Sid": "GetSecretValue",
+        "Effect": "Allow",
+        "Action": [
+            "secretsmanager:GetSecretValue",
+        ],
+        "Resource": [
+            "arn:aws:secretsmanager:us-east-1:123456789012:secret:SecretId"
+        ]
+      }
+    ]
+}</code></pre>
+            <p>Replace the values of the following fields:</p>
+            <div class="itemizedlist">
+                
+                
+                
+            <ul class="itemizedlist"><li class="listitem">
+                  <p>In the <code class="code">GetWorkloadAccessToken</code> statement, replace the <code class="replaceable">GatewayName</code> in the <code class="code">Resource</code> list with the name of your gateway.</p>
+               </li><li class="listitem">
+                  <p>In the <code class="code">GetResourceOauth2Token</code> statement, replace the value in the <code class="code">Resource</code> list with the ARN of the credential that you just generated.</p>
+               </li><li class="listitem">
+                  <p>In the <code class="code">GetSecretValue</code> statement, replace the value in the <code class="code">Resource</code> list with the ARN of the Amazon secret returned in the response when you generated the credential.</p>
+               </li></ul></div>
+         </li></ol></div>
+       
+         <h3 id="gateway-outbound-auth-oauth-examples">Examples for setting OAuth client authorization</h3>
+         <p>The following examples show you how to set authorization through an OAuth client for your gateway target:</p>
+         <div class="example"><h6>Example</h6><div class="example-contents"><awsdocs-tabs><dl style="display: none">
+               <dt>AgentCore CLI</dt><dd tab-id="agentcore-cli">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p>The AgentCore CLI credential commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first with <code class="code">agentcore create</code>.</p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">agentcore add credential \
+  --name oauth-credential-provider \
+  --type oauth \
+  --discovery-url &lt;DiscoveryUrl&gt; \
+  --client-id &lt;ClientId&gt; \
+  --client-secret &lt;ClientSecret&gt;
+agentcore deploy</code></pre>
+                        </li></ol></div>
+                  </dd>
+               <dt>
+                     Amazon CLI</dt><dd tab-id="----------------------amazon-cli">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p></p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">aws bedrock-agentcore-control create-oauth2-credential-provider \
+  --name oauth-credential-provider \
+  --credential-provider-vendor CustomOAuth2 \
+  --oauth2-provider-config-input '<span>{</span>
+    "customOAuth2ProviderConfig": <span>{</span>
+      "oauthDiscovery": <span>{</span>
+        "discoveryUrl": "&lt;DiscoveryUrl&gt;"
+      },
+      "clientId": "&lt;ClientId&gt;",
+      "clientSecret": "&lt;ClientSecret&gt;"
+    }
+  }'</code></pre>
+                        </li></ol></div>
+                  </dd>
+               <dt>Boto3</dt><dd tab-id="boto3">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p></p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (python)--><code class="python ">import boto3
+
+client = boto3.client("bedrock-agentcore-control")
+
+client.create_oauth2_credential_provider(
+  name="oauth-credential-provider",
+  credentialProviderVendor="CustomOAuth2",
+  oauth2ProviderConfigInput=<span>{</span>
+    "oauthDiscovery": <span>{</span>
+      "discoveryUrl": "&lt;DiscoveryUrl&gt;"
+    },
+    "clientId": "&lt;ClientId&gt;",
+    "clientSecret": "&lt;ClientSecret&gt;"
+  }
+)</code></pre>
+                        </li></ol></div>
+                  </dd>
+            </dl></awsdocs-tabs></div></div>
+       
+    
+      <h2 id="gateway-outbound-auth-api-key">Set up outbound authorization with an API key</h2>
+      <p>To set up outbound authorization with an API key, you use the AgentCore Identity service and specify an API key that you receive from a supported identity provider.</p>
+      <p>
+         <strong>To set up outbound authorization with an OAuth client</strong>
+      </p>
+      <div class="orderedlist">
+          
+          
+          
+          
+          
+      <ol style="list-style-type:arabic ! important;"><li>
+            <p>Register your client application with a supported third-party provider.</p>
+         </li><li>
+            <p>Set up an API key for the provider’s service. Take note of the following values, which you’ll specify when you add the gateway target:</p>
+            <div class="itemizedlist">
+                
+                
+            <ul class="itemizedlist"><li class="listitem">
+                  <p>
+                     <strong>Credential location</strong> – Whether the API key should be placed in the header or as a query parameter.</p>
+               </li><li class="listitem">
+                  <p>
+                     <strong>Credential prefix</strong> – The prefix for the credential (ex. Bearer).</p>
+               </li></ul></div>
+         </li><li>
+            <p>Follow one of the steps below, depending on your requirements:</p>
+            <div class="itemizedlist">
+                
+                
+            <ul class="itemizedlist"><li class="listitem">
+                  <p>To create an API key in the AgentCore console, follow the steps at <a href="./identity-add-api-key.html">Add API key</a> and specify the value of the API key.</p>
+               </li><li class="listitem">
+                  <p>To create an API key using the AgentCore API, send a <a href="https://docs.amazonaws.cn/bedrock-agentcore-control/latest/APIReference/API_CreateApiKeyCredentialProvider.html">CreateApiKeyCredentialProvider</a> request with one of the <a href="https://docs.amazonaws.cn/general/latest/gr/bedrock_agentcore.html#bedrock_agentcore_cp">AgentCore control plane endpoints</a> and specify the value of the API key in the <code class="code">apiKey</code> field. For examples, see <a href="#gateway-outbound-auth-api-key-examples">Examples for setting an API key</a>.</p>
+               </li></ul></div>
+         </li><li>
+            <p>Take note of the following values, which you’ll specify when you add the gateway target:</p>
+            <div class="itemizedlist">
+                
+                
+                
+            <ul class="itemizedlist"><li class="listitem">
+                  <p>
+                     <strong>Credential provider ARN</strong> – An Amazon Resource Name (ARN) generated for the credential provider.</p>
+               </li><li class="listitem">
+                  <p>
+                     <strong>Name</strong> – The name you gave to the API key.</p>
+               </li><li class="listitem">
+                  <p>
+                     <strong>Secret ARN</strong> – An Amazon Secrets Manager secret ARN generated for the API key.</p>
+               </li></ul></div>
+         </li><li>
+            <p>(If you’re using a custom gateway service role) Attach the following identity-based policy to your gateway service role:</p>
+            <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (json)--><code class="json "><span>{</span>
+"Version": "2012-10-17",
+    "Statement": [
+      <span>{</span>
+        "Sid": "GetWorkloadAccessToken",
+        "Effect": "Allow",
+        "Action": [
+            "bedrock-agentcore:GetWorkloadAccessToken",
+        ],
+        "Resource": [
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:workload-identity-directory/default",
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:workload-identity-directory/default/workload-identity/GatewayName-*"
+        ]
+      },
+      <span>{</span>
+        "Sid": "GetResourceApiKey",
+        "Effect": "Allow",
+        "Action": [
+            "bedrock-agentcore:GetResourceApiKey",
+        ],
+        "Resource": [
+            "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/TokenVaultId/apikeycredentialprovider/Name"
+        ]
+      },
+      <span>{</span>
+        "Sid": "GetSecretValue",
+        "Effect": "Allow",
+        "Action": [
+            "secretsmanager:GetSecretValue",
+        ],
+        "Resource": [
+            "arn:aws:secretsmanager:us-east-1:123456789012:secret:SecretId"
+        ]
+      }
+    ]
+}</code></pre>
+            <p>Replace the values of the following fields:</p>
+            <div class="itemizedlist">
+                
+                
+                
+            <ul class="itemizedlist"><li class="listitem">
+                  <p>In the <code class="code">GetWorkloadAccessToken</code> statement, replace the <code class="replaceable">GatewayName</code> in the <code class="code">Resource</code> list with the name of your gateway.</p>
+               </li><li class="listitem">
+                  <p>In the <code class="code">GetResourceApiKey</code> statement, replace the value in the <code class="code">Resource</code> list with the ARN of the credential that you just generated.</p>
+               </li><li class="listitem">
+                  <p>In the <code class="code">GetSecretValue</code> statement, replace the value in the <code class="code">Resource</code> list with the ARN of the Amazon secret returned in the response when you generated the credential.</p>
+               </li></ul></div>
+         </li></ol></div>
+       
+         <h3 id="gateway-outbound-auth-api-key-examples">Examples for setting an API key</h3>
+         <p>The following examples show you how to set an API key for your gateway target:</p>
+         <div class="example"><h6>Example</h6><div class="example-contents"><awsdocs-tabs><dl style="display: none">
+               <dt>AgentCore CLI</dt><dd tab-id="agentcore-cli">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p>The AgentCore CLI credential commands must be run inside an existing agentcore project. If you don’t have one yet, create a project first with <code class="code">agentcore create</code>.</p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">agentcore add credential \
+  --name api-key-credential-provider \
+  --type api-key \
+  --api-key &lt;API_KEY_VALUE&gt;
+agentcore deploy</code></pre>
+                        </li></ol></div>
+                  </dd>
+               <dt>
+                     Amazon CLI</dt><dd tab-id="----------------------amazon-cli">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p></p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (bash)--><code class="bash ">aws bedrock-agentcore-control create-api-key-credential-provider \
+  --name api-key-credential-provider \
+  --api-key &lt;API_KEY_VALUE&gt;</code></pre>
+                        </li></ol></div>
+                  </dd>
+               <dt>Boto3</dt><dd tab-id="boto3">
+                     <div class="orderedlist">
+                         
+                     <ol style="list-style-type:arabic ! important;"><li>
+                           <p></p>
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"><awsui-icon name="copy"></awsui-icon></div></div><!--DEBUG:  (python)--><code class="python ">import boto3
+
+client = boto3.client("bedrock-agentcore-control")
+
+client.create_api_key_credential_provider(
+  name="api-key-credential-provider",
+  apiKey="&lt;API_KEY_VALUE&gt;"
+)</code></pre>
+                        </li></ol></div>
+                  </dd>
+            </dl></awsdocs-tabs></div></div>
+       
+   <awsdocs-copyright class="copyright-print"></awsdocs-copyright><awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}"></awsdocs-thumb-feedback></div><noscript><div><div><div><div id="js_error_message"><p><strong>Javascript is disabled or is unavailable in your browser.</strong></p><p>To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.</p></div></div></div></div></noscript><div id="main-col-footer" class="awsui-util-font-size-0"><div id="doc-conventions">&nbsp;</div><div class="prev-next"><div id="previous" class="prev-link" accesskey="p" href="./gateway-inbound-auth.html">Set up inbound authorization</div><div id="next" class="next-link" accesskey="n" href="./gateway-building.html">Set up a gateway</div></div></div><awsdocs-page-utilities></awsdocs-page-utilities></div></div></body></div></awsdocs-view><div class="page-loading-indicator" id="page-loading-indicator"><awsui-spinner size="large"></awsui-spinner></div></div><div id="tools-panel" dom-region="tools"><awsdocs-tools-panel id="awsdocs-tools-panel"></awsdocs-tools-panel></div></awsui-app-layout><awsdocs-cookie-banner class="doc-cookie-banner"></awsdocs-cookie-banner></div></body></html>

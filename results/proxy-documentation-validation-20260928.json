@@ -1,0 +1,37 @@
+{
+  "time": "2026-09-28T10:18:47.106583+00:00",
+  "pythonAstFilesChecked": [
+    "proxy_validation_fixture.py",
+    "proxy_validation_setup.py",
+    "proxy_validation_tests.py",
+    "run_proxy_validation.py",
+    "export_proxy_validation.py",
+    "export_report.py"
+  ],
+  "localLinksChecked": 344,
+  "brokenLinks": [],
+  "matrixChecks": {
+    "cn-north-1": {
+      "observations": 130,
+      "uniqueChecks": 95,
+      "counts": {
+        "PASS": 60,
+        "FAIL": 35
+      },
+      "failureRetriesConsistent": true
+    },
+    "cn-northwest-1": {
+      "observations": 130,
+      "uniqueChecks": 95,
+      "counts": {
+        "PASS": 60,
+        "FAIL": 35
+      },
+      "failureRetriesConsistent": true
+    }
+  },
+  "redactionScanFiles": 51,
+  "redactionFlaggedPaths": [],
+  "scope": "Local verification only; no new AWS feature tests. No sensitive values printed.",
+  "status": "PASS"
+}

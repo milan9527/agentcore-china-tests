@@ -1,0 +1,39 @@
+{
+  "startedAt": "2026-09-28T08:27:03.009944+00:00",
+  "profile": "china",
+  "regions": [
+    "cn-north-1",
+    "cn-northwest-1"
+  ],
+  "python": "3.12.13 (main, Apr 17 2026, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-5)]",
+  "command": [
+    "run_oauth_validation.py",
+    "--results-dir",
+    "results/oauth-validation-20260928"
+  ],
+  "gitCommitBeforeRun": "5d6ef09ce3b89dbb3906e04659a8980c746fdbeb",
+  "cloudflaredVersion": "cloudflared version 2026.9.3 (built 2026-09-24-16:07 UTC)",
+  "cloudflaredSha256": "77e26d8d900e0b8469f416239d14b5f296525fdf79fee6f511ef55609e3fbac2",
+  "dependencies": [
+    "boto3==1.43.103",
+    "botocore==1.43.103",
+    "certifi==2026.7.22",
+    "cffi==2.1.1",
+    "charset-normalizer==3.5.1",
+    "cryptography==50.0.1",
+    "greenlet==3.5.6",
+    "idna==3.20",
+    "jmespath==1.1.0",
+    "playwright==1.63.0",
+    "pycparser==3.0",
+    "pyee==13.0.1",
+    "PyJWT==2.15.0",
+    "python-dateutil==2.9.0.post0",
+    "requests==2.34.2",
+    "s3transfer==0.19.2",
+    "six==1.17.0",
+    "typing_extensions==4.16.0",
+    "urllib3==2.8.0",
+    "websockets==17.1"
+  ]
+}
